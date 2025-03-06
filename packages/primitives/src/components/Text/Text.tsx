@@ -1,7 +1,7 @@
 import React from "react";
-import { cn } from "@/utilities/style";
 
-import { FontFamily, FontWeight } from "@/primitives/common";
+import { FontFamily, FontWeight } from "@/components/types";
+import { cn } from "@/utils";
 
 interface TextBaseProps {
   size?: "xs" | "sm" | "base" | "lg" | "xl";

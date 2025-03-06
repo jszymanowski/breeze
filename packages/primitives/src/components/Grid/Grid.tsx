@@ -1,9 +1,9 @@
 import React from "react";
-import { cn } from "@/utilities/style";
 
-import { Gap } from "@/primitives/common";
+import { Gap } from "@/components/types";
+import { cn } from "@/utils";
 
-interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: React.ElementType;
   cols?: "1" | "2" | "3" | "4" | "5" | "6" | "8" | "10" | "12" | "none";
   rows?: "1" | "2" | "3" | "4" | "5" | "6" | "8" | "10" | "12" | "none";

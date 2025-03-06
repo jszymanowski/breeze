@@ -1,5 +1,6 @@
 import React from "react";
-import { cn } from "@/utilities/style";
+
+import { cn } from "@/utils";
 
 export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: React.ElementType;

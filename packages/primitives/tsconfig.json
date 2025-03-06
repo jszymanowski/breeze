@@ -23,7 +23,16 @@
     /* Declarations */
     "declaration": true,
     "declarationDir": "dist",
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+
+    /* Path aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@root/*": ["./*"],
+      "@tests/*": ["./tests/*"],
+      "@stories/*": ["./stories/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src", "stories", "tests"]
 }
