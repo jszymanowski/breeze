@@ -1,10 +1,12 @@
+import { resolve } from "path";
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
-import { resolve } from "path";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 
-// https://vitejs.dev/config/
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineConfig({
   plugins: [
     react(),
@@ -13,13 +15,12 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
     libInjectCss(),
+    tailwindcss(),
   ],
   build: {
     lib: {
-      // The entry point of your library
       entry: resolve(__dirname, "src/components/index.ts"),
-      name: "MyComponentLib",
-      // The filename format for the output file
+      name: "Breeze Primitives",
       fileName: (format) => `breeze-primitives.${format}.js`,
       // Formats to build
       formats: ["es", "umd"],
@@ -29,8 +30,6 @@ export default defineConfig({
       // into your library
       external: ["react", "react-dom", "react/jsx-runtime"],
       output: {
-        // Provide global variables to use in the UMD build
-        // for externalized deps
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
@@ -41,7 +40,6 @@ export default defineConfig({
     // Don't minify for easier debugging
     // Comment this out for production
     minify: false,
-    // Enable source maps
     sourcemap: true,
   },
   resolve: {
