@@ -17,6 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/jszymanowski/breeze.git"
   },
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
