@@ -20,7 +20,7 @@ export default defineConfig({
       entry: resolve(__dirname, "src/components/index.ts"),
       name: "MyComponentLib",
       // The filename format for the output file
-      fileName: (format) => `my-component-lib.${format}.js`,
+      fileName: (format) => `breeze-primitives.${format}.js`,
       // Formats to build
       formats: ["es", "umd"],
     },
@@ -43,5 +43,13 @@ export default defineConfig({
     minify: false,
     // Enable source maps
     sourcemap: true,
+  },
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "./src"),
+      "@root": resolve(__dirname, "./"),
+      "@tests": resolve(__dirname, "./tests"),
+      "@stories": resolve(__dirname, "./stories"),
+    },
   },
 });

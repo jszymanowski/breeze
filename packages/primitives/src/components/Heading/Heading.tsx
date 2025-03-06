@@ -1,0 +1,109 @@
+import React from "react";
+
+import { cn } from "@/utils";
+
+export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  level?: "1" | "2" | "3" | "4" | "5" | "6";
+  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
+  weight?: "normal" | "medium" | "semibold" | "bold" | "extrabold";
+  variant?: "default" | "muted" | "accent" | "highlight" | "destructive";
+  align?: "left" | "center" | "right";
+  tracking?: "tighter" | "tight" | "normal" | "wide" | "wider" | "widest";
+  family?: "display" | "serif" | "sans" | "mono";
+  numeric?: boolean;
+}
+
+const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
+  (
+    {
+      className,
+      level = "2",
+      size,
+      weight = "bold",
+      variant = "default",
+      align,
+      tracking = "normal",
+      family = "display",
+      numeric = false,
+      ...props
+    },
+    ref
+  ) => {
+    // Map level to component
+    const Component = `h${level}` as React.ElementType;
+
+    // Default size based on heading level if not specified
+    const defaultSizes: Record<string, string> = {
+      "1": "4xl",
+      "2": "3xl",
+      "3": "2xl",
+      "4": "xl",
+      "5": "lg",
+      "6": "base",
+    };
+
+    const headingSize = size || defaultSizes[level];
+
+    return (
+      <Component
+        className={cn(
+          // Size scales
+          {
+            "text-xs": headingSize === "xs",
+            "text-sm": headingSize === "sm",
+            "text-base": headingSize === "base",
+            "text-lg": headingSize === "lg",
+            "text-xl": headingSize === "xl",
+            "text-2xl": headingSize === "2xl",
+            "text-3xl": headingSize === "3xl",
+            "text-4xl": headingSize === "4xl",
+            "text-5xl": headingSize === "5xl",
+          },
+          // Font weights
+          {
+            "font-normal": weight === "normal",
+            "font-medium": weight === "medium",
+            "font-semibold": weight === "semibold",
+            "font-bold": weight === "bold",
+            "font-extrabold": weight === "extrabold",
+          },
+          // Text colors
+          {
+            "text-foreground": variant === "default",
+            "text-muted-foreground": variant === "muted",
+            "text-primary": variant === "accent",
+            "text-highlight": variant === "highlight",
+            "text-destructive": variant === "destructive",
+          },
+          // Text alignment
+          align && `text-${align}`,
+          // Letter spacing
+          {
+            "tracking-tighter": tracking === "tighter",
+            "tracking-tight": tracking === "tight",
+            "tracking-normal": tracking === "normal",
+            "tracking-wide": tracking === "wide",
+            "tracking-wider": tracking === "wider",
+            "tracking-widest": tracking === "widest",
+          },
+          "scroll-m-20", // Add some scroll margin for better anchor navigation
+          // Font family
+          {
+            "font-display": family === "display",
+            "font-sans": family === "sans",
+            "font-serif": family === "serif",
+            "font-mono": family === "mono",
+          },
+          // Tabular numerals
+          numeric && "tabular-nums",
+          className
+        )}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+Heading.displayName = "Heading";
+
+export { Heading };
