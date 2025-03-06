@@ -1,6 +1,6 @@
 {
   "name": "@jszymanowski/breeze",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "author": "John Szymanowski",
   "license": "MIT",
   "description": "Primitive React components, built with Tailwind CSS",
