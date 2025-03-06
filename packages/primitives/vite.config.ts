@@ -44,4 +44,12 @@ export default defineConfig({
     // Enable source maps
     sourcemap: true,
   },
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "./src"),
+      "@root": resolve(__dirname, "./"),
+      "@tests": resolve(__dirname, "./tests"),
+      "@stories": resolve(__dirname, "./stories"),
+    },
+  },
 });
