@@ -20,7 +20,7 @@ export default defineConfig({
       entry: resolve(__dirname, "src/components/index.ts"),
       name: "MyComponentLib",
       // The filename format for the output file
-      fileName: (format) => `my-component-lib.${format}.js`,
+      fileName: (format) => `breeze-primitives.${format}.js`,
       // Formats to build
       formats: ["es", "umd"],
     },

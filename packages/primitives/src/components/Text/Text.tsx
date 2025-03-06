@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FontFamily, FontWeight } from "@/components/types";
+import { FontFamily, FontWeight } from "@/types";
 import { cn } from "@/utils";
 
 interface TextBaseProps {

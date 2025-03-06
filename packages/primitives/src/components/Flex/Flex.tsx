@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Gap } from "@/components/types";
+import { Gap } from "@/types";
 import { cn } from "@/utils";
 
 export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
