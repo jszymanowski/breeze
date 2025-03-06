@@ -1,7 +1,6 @@
 {
   "name": "@jszymanowski/breeze",
   "version": "0.1.0",
-  "private": true,
   "author": "John Szymanowski",
   "license": "MIT",
   "description": "Primitive React components, built with Tailwind CSS",
@@ -10,8 +9,10 @@
   "files": [
     "dist"
   ],
+  "private": false,
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
   },
   "repository": {
     "type": "git",
