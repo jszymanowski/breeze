@@ -40,6 +40,13 @@ jobs:
       - name: Build package
         run: pnpm build
 
+      - name: Configure npm authentication
+        run: |
+          echo "@jszymanowski:registry=https://npm.pkg.github.com" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
       - name: Publish to GitHub Packages
         run: pnpm publish --no-git-checks
         env:
