@@ -1,17 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Heading, Text } from "@/main";
-import { Stage } from "@stories/Stage";
 
 const meta: Meta<typeof Box> = {
   title: "Primitives/Box",
   component: Box,
-  decorators: [
-    (Story) => (
-      <Stage>
-        <Story />
-      </Stage>
-    ),
-  ],
   parameters: {
     layout: "centered",
   },
