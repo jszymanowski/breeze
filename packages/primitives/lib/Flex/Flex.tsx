@@ -38,7 +38,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
             "flex-row": direction === "row",
             "flex-row-reverse": direction === "row-reverse",
             "flex-col": direction === "col",
-            "flex-col-reverse": direction === "column-reverse",
+            "flex-col-reverse": direction === "col-reverse",
           },
           {
             "items-start": align === "start",

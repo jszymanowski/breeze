@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
 import { Text } from "@/main";
+import { TypographyVariant } from "@/types/typography";
 
 describe("Text", () => {
   it("renders with default props", () => {
@@ -68,11 +69,11 @@ describe("Text", () => {
     const variants = {
       default: "text-foreground",
       muted: "text-muted-foreground",
-      accent: "text-primary",
-      destructive: "text-destructive",
-      highlight: "text-highlight",
+      accent: "text-accent-foreground",
+      destructive: "text-destructive-foreground",
+      highlight: "text-highlight-foreground",
       success: "text-green-600 dark:text-green-500",
-    } as const;
+    } as Record<TypographyVariant, string>;
 
     Object.entries(variants).forEach(([variant, className]) => {
       const { rerender } = render(
@@ -81,6 +82,7 @@ describe("Text", () => {
       const element = screen.getByText(`Variant ${variant}`);
 
       // For success variant, we need to check for individual classes
+      // TODO: ugh, this is a bit of a mess
       if (variant === "success") {
         expect(element).toHaveClass("text-green-600");
       } else {

@@ -3,6 +3,7 @@ import { describe, it, expect } from "vitest";
 import "@testing-library/jest-dom";
 
 import { Flex } from "@/main";
+import { FlexDirection } from "@/types/flex";
 
 describe("Flex", () => {
   it("renders with default props", () => {
@@ -25,7 +26,12 @@ describe("Flex", () => {
   });
 
   it("applies the correct flex direction classes", () => {
-    const directions = ["row", "col", "row-reverse", "column-reverse"] as const;
+    const directions = [
+      "row",
+      "col",
+      "row-reverse",
+      "col-reverse",
+    ] as FlexDirection[];
 
     directions.forEach((direction) => {
       const { rerender } = render(
@@ -34,7 +40,7 @@ describe("Flex", () => {
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
-      expect(element).toHaveClass(`flex-${direction}`);
+      expect(element).toHaveClass(`flex flex-${direction}`);
       rerender(<></>);
     });
   });

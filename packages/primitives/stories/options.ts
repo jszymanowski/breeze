@@ -31,7 +31,7 @@ export const FLEX_DIRECTION_OPTIONS: FlexDirection[] = [
   "row",
   "col",
   "row-reverse",
-  "column-reverse",
+  "col-reverse",
 ];
 
 export const FLEX_ALIGN_OPTIONS: FlexAlign[] = [

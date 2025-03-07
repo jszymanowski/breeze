@@ -1,4 +1,4 @@
-export type FlexDirection = "row" | "col" | "row-reverse" | "column-reverse";
+export type FlexDirection = "row" | "col" | "row-reverse" | "col-reverse";
 export type FlexAlign = "start" | "center" | "end" | "stretch" | "baseline";
 export type FlexJustify =
   | "start"
