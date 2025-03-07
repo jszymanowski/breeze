@@ -4,8 +4,8 @@
   "author": "John Szymanowski",
   "license": "MIT",
   "description": "Primitive React components, built with Tailwind CSS",
-  "main": "./dist/breeze-primitives.umd.js",
-  "module": "./dist/breeze-primitives.es.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
