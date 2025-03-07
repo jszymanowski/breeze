@@ -1,25 +1,27 @@
 import React from "react";
 
-import { FontFamily, FontWeight } from "@/types";
+import {
+  FontFamily,
+  FontWeight,
+  TextLeading,
+  TypographyVariant,
+  TextAlign,
+  FontSize,
+  TypographyElements,
+} from "@/types/typography";
 import { cn } from "@/utils";
 
 interface TextBaseProps {
-  size?: "xs" | "sm" | "base" | "lg" | "xl";
+  size?: FontSize;
   weight?: FontWeight;
-  variant?:
-    | "default"
-    | "muted"
-    | "accent"
-    | "destructive"
-    | "highlight"
-    | "success";
-  align?: "left" | "center" | "right" | "justify";
-  leading?: "none" | "tight" | "snug" | "normal" | "relaxed" | "loose";
+  variant?: TypographyVariant;
+  align?: TextAlign;
+  leading?: TextLeading;
   family?: FontFamily;
   truncate?: boolean;
   numeric?: boolean;
   className?: string;
-  as?: "p" | "span" | "label" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  as?: TypographyElements;
 }
 
 export type TextProps<E extends React.ElementType = "p"> = TextBaseProps & {
