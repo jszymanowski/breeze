@@ -29,6 +29,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest",
+    "test:watch": "vitest --watch",
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
@@ -44,6 +45,8 @@
     "@storybook/react-vite": "^8.6.4",
     "@storybook/test": "^8.6.4",
     "@tailwindcss/vite": "^4.0.11",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
@@ -55,6 +58,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-storybook": "^0.11.4",
     "globals": "^15.15.0",
+    "jsdom": "^26.0.0",
     "path": "^0.12.7",
     "playwright": "^1.50.1",
     "react": "^19.0.0",

@@ -47,4 +47,9 @@ export default defineConfig({
       "@stories": resolve(__dirname, "./stories"),
     },
   },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./vitest.setup.ts",
+  },
 });
