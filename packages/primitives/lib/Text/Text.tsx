@@ -57,6 +57,14 @@ const Text = React.forwardRef(
             "text-base": size === "base",
             "text-lg": size === "lg",
             "text-xl": size === "xl",
+            "text-2xl": size === "2xl",
+            "text-3xl": size === "3xl",
+            "text-4xl": size === "4xl",
+            "text-5xl": size === "5xl",
+            "text-6xl": size === "6xl",
+            "text-7xl": size === "7xl",
+            "text-8xl": size === "8xl",
+            "text-9xl": size === "9xl",
           },
           // Font weights
           {
@@ -76,7 +84,7 @@ const Text = React.forwardRef(
             "text-primary": variant === "accent",
             "text-destructive": variant === "destructive",
             "text-highlight": variant === "highlight",
-            "text-green-600 dark:text-green-500": variant === "success",
+            "text-green-600 dark:text-green-500": variant === "success", // TODO: promote this to theme
           },
           // Text alignment
           {

@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Box, Flex, Grid, Text } from "@/main";
+import { Box, Flex, Grid, Text, Heading } from "@/main";
 import {
   FONT_FAMILIES,
   FONT_WEIGHTS,
@@ -57,39 +57,51 @@ const meta: Meta<typeof Text> = {
 export default meta;
 type Story = StoryObj<typeof Text>;
 
-// Base example
-export const Default: Story = {
-  args: {
-    children: "The quick brown fox jumps over the lazy dog.",
-    className: "max-w-md",
-  },
-};
-
-// Family variations
 export const Families: Story = {
   render: () => (
-    <Flex direction="col" gap="4" className="max-w-3xl">
-      <Text>Default (display): My cat's breath smells like cat food.</Text>
-      <Text family="display">
-        Display: My cat's breath smells like cat food.
-      </Text>
-      <Text family="sans">Sans: My cat's breath smells like cat food.</Text>
-      <Text family="serif">Serif: My cat's breath smells like cat food.</Text>
-      <Text family="mono">Mono: My cat's breath smells like cat food.</Text>
-    </Flex>
+    <Grid cols="6" gap="4" className="w-full max-w-4xl" gapY="6">
+      {FONT_FAMILIES.map((family, f) => (
+        <Fragment key={f}>
+          <div className="col-start-1">
+            <Text family={family} weight="medium">
+              {family.charAt(0).toUpperCase() + family.slice(1)}
+            </Text>
+          </div>
+          <div className="col-start-2 -col-end-1">
+            <Text family={family}>My cat's breath smells like cat food.</Text>
+          </div>
+        </Fragment>
+      ))}
+    </Grid>
   ),
 };
 
 // Size variations
 export const Sizes: Story = {
   render: () => (
-    <Flex direction="col" gap="4" className="max-w-3xl">
-      <Text size="xs">Size: Extra Small (xs)</Text>
-      <Text size="sm">Size: Small (sm)</Text>
-      <Text size="base">Size: Base (base) - Default</Text>
-      <Text size="lg">Size: Large (lg)</Text>
-      <Text size="xl">Size: Extra Large (xl)</Text>
-    </Flex>
+    <>
+      <Flex direction="row" gap="4" className="max-w-3xl">
+        {FONT_FAMILIES.map((family, f) => (
+          <Flex direction="col" gap="4" key={f}>
+            <Heading family={family}>
+              {family.charAt(0).toUpperCase() + family.slice(1)}
+            </Heading>
+            {FONT_SIZES.slice(0, 6).map((size, s) => (
+              <Text key={s} family={family} size={size}>
+                {size.toUpperCase()}: My cat's breath smells like cat food.
+              </Text>
+            ))}
+          </Flex>
+        ))}
+      </Flex>
+      <Text variant="muted" className="mt-8">
+        Note: Options for{" "}
+        <Text as="span" variant="muted" family="mono">
+          {FONT_SIZES.slice(6).join(", ")}
+        </Text>{" "}
+        are not displayed.
+      </Text>
+    </>
   ),
 };
 
@@ -97,7 +109,7 @@ export const Sizes: Story = {
 export const Weights: Story = {
   render: () => (
     <Grid cols="4" gap="8" className="w-full max-w-4xl" gapY="6">
-      {familyOptions.map((family, f) => (
+      {FONT_FAMILIES.map((family, f) => (
         <Fragment key={f}>
           <Text
             variant="highlight"
@@ -109,8 +121,8 @@ export const Weights: Story = {
           </Text>
         </Fragment>
       ))}
-      {weightOptions.map((weight, w) =>
-        familyOptions.map((family, f) => (
+      {FONT_WEIGHTS.map((weight, w) =>
+        FONT_FAMILIES.map((family, f) => (
           <Fragment key={f}>
             <Text key={w} family={family} weight={weight} align="center">
               {weight.charAt(0).toUpperCase() + weight.slice(1)}
