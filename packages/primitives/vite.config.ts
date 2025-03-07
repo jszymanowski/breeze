@@ -22,12 +22,9 @@ export default defineConfig({
       entry: resolve(__dirname, "src/components/index.ts"),
       name: "Breeze Primitives",
       fileName: (format) => `breeze-primitives.${format}.js`,
-      // Formats to build
       formats: ["es", "umd"],
     },
     rollupOptions: {
-      // Make sure to externalize deps that shouldn't be bundled
-      // into your library
       external: ["react", "react-dom", "react/jsx-runtime"],
       output: {
         globals: {
