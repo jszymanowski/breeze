@@ -193,95 +193,86 @@ export const Alignments: Story = {
 
 export const LineHeights: Story = {
   render: () => (
-    <Flex direction="col" gap="6" className="max-w-3xl">
-      <Box className="rounded-md border p-2">
-        <Text className="mb-1 font-semibold">leading="none":</Text>
-        <Text leading="none">
-          This text has no line height specified, making it very tight. Multiple
-          lines of text will have almost no spacing between them, which can make
-          readability difficult but saves vertical space.
-        </Text>
-      </Box>
-
-      <Box className="rounded-md border p-2">
-        <Text className="mb-1 font-semibold">leading="tight":</Text>
-        <Text leading="tight">
-          This text has tight line height. It's more compact than normal while
-          still maintaining reasonable readability for most content. Good for
-          dense information displays where vertical space is at a premium.
-        </Text>
-      </Box>
-
-      <Box className="rounded-md border p-2">
-        <Text className="mb-1 font-semibold">leading="normal" (default):</Text>
-        <Text leading="normal">
-          This text has normal line height. It's the browser default and
-          provides standard spacing between lines. This is suitable for most
-          content and offers good readability for general text.
-        </Text>
-      </Box>
-
-      <Box className="rounded-md border p-2">
-        <Text className="mb-1 font-semibold">leading="relaxed":</Text>
-        <Text leading="relaxed">
-          This text has relaxed line height, which means there's more space
-          between lines than the default. This improves readability, especially
-          for longer text blocks, and can reduce eye strain.
-        </Text>
-      </Box>
-
-      <Box className="rounded-md border p-2">
-        <Text className="mb-1 font-semibold">leading="loose":</Text>
-        <Text leading="loose">
-          This text has loose line height, providing significant space between
-          lines. This is very readable and allows the eyes to easily track from
-          the end of one line to the beginning of the next, but uses more
-          vertical space.
-        </Text>
-      </Box>
-    </Flex>
+    <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">
+      {TEXT_LEADING.map((leading, a) => (
+        <Fragment key={a}>
+          <Box className="col-start-1">
+            <Text weight="medium" align="right">
+              {leading.charAt(0).toUpperCase() + leading.slice(1)}
+            </Text>
+          </Box>
+          <Flex
+            direction="col"
+            gap="4"
+            className="col-start-2 -col-end-1 rounded border-1 border-gray-300 p-1"
+          >
+            <Text leading={leading} size="sm">
+              Now, to take the ferry cost a nickel, and in those days, nickels
+              had pictures of bumblebees on 'em. Gimme five bees for a quarter,
+              you'd say. Now where was I... oh yeah. The important thing was
+              that I had an onion tied to my belt, which was the style at the
+              time. You couldn't get white onions, because of the war. The only
+              thing you could get was those big yellow ones.
+            </Text>
+          </Flex>
+        </Fragment>
+      ))}
+    </Grid>
   ),
 };
 
 // Truncate example
 export const Truncation: Story = {
   render: () => (
-    <Flex direction="col" gap="6" className="max-w-md">
-      <Box className="rounded-md border p-2">
-        <Text className="mb-1 font-semibold">Without truncation:</Text>
-        <Text className="block w-full">
-          This is a very long text that will wrap to multiple lines when it
-          reaches the end of its container. It continues until all content is
-          displayed.
-        </Text>
-      </Box>
-
-      <Box className="rounded-md border p-2">
-        <Text className="mb-1 font-semibold">With truncation:</Text>
-        <Text truncate className="block w-full">
-          This is a very long text that will be truncated with an ellipsis when
-          it reaches the end of its container. The rest of this content won't be
-          visible.
-        </Text>
-      </Box>
-    </Flex>
+    <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">
+      {[false, true].map((truncate, a) => (
+        <Fragment key={a}>
+          <Box className="col-start-1 col-end-3">
+            <Text weight="medium" align="right">
+              {truncate ? "Truncated" : "Not truncated"}
+            </Text>
+          </Box>
+          <Flex
+            direction="col"
+            gap="4"
+            className="col-start-3 -col-end-1 rounded border-1 border-gray-300 p-1"
+          >
+            <Text truncate={truncate} size="sm">
+              Now, to take the ferry cost a nickel, and in those days, nickels
+              had pictures of bumblebees on 'em. Gimme five bees for a quarter,
+              you'd say. Now where was I... oh yeah. The important thing was
+              that I had an onion tied to my belt, which was the style at the
+              time. You couldn't get white onions, because of the war. The only
+              thing you could get was those big yellow ones.
+            </Text>
+          </Flex>
+        </Fragment>
+      ))}
+    </Grid>
   ),
 };
 
-// Polymorphic example
 export const PolymorphicText: Story = {
   render: () => (
-    <Flex direction="col" gap="4" className="max-w-3xl">
-      <Text as="p">Default text as a paragraph (p) element</Text>
-
-      <Text as="div" className="bg-muted rounded-md p-2">
-        This text is actually a div element
-      </Text>
-    </Flex>
+    <Grid cols="2" gap="2" className="w-full max-w-4xl">
+      {TYPOGRAPHY_ELEMENTS.map((element, e) => (
+        <Box
+          key={e}
+          className="bg-card rounded-lg border-1 border-gray-300 p-1"
+        >
+          <Text key={e} as={element}>
+            This is actually a{" "}
+            <Text as="span" family="mono">
+              {element}
+            </Text>{" "}
+            element.
+          </Text>
+        </Box>
+      ))}
+    </Grid>
   ),
 };
 
-// Combined variations
 export const CombinedExamples: Story = {
   render: () => (
     <Flex direction="col" gap="6" className="max-w-3xl">
