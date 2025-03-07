@@ -21,8 +21,8 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/components/index.ts"),
       name: "Breeze Primitives",
-      fileName: (format) => `breeze-primitives.${format}.js`,
-      formats: ["es", "umd"],
+      fileName: "index.js",
+      formats: ["es"],
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
