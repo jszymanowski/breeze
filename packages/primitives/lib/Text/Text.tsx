@@ -7,7 +7,7 @@ import {
   TypographyVariant,
   TextAlign,
   FontSize,
-  TypographyElements,
+  TypographyElement,
 } from "@/types";
 import { cn } from "@/utils";
 
@@ -21,7 +21,7 @@ interface TextBaseProps {
   truncate?: boolean;
   numeric?: boolean;
   className?: string;
-  as?: TypographyElements;
+  as?: TypographyElement;
 }
 
 export type TextProps<E extends React.ElementType = "p"> = TextBaseProps & {
@@ -57,6 +57,14 @@ const Text = React.forwardRef(
             "text-base": size === "base",
             "text-lg": size === "lg",
             "text-xl": size === "xl",
+            "text-2xl": size === "2xl",
+            "text-3xl": size === "3xl",
+            "text-4xl": size === "4xl",
+            "text-5xl": size === "5xl",
+            "text-6xl": size === "6xl",
+            "text-7xl": size === "7xl",
+            "text-8xl": size === "8xl",
+            "text-9xl": size === "9xl",
           },
           // Font weights
           {
@@ -67,19 +75,26 @@ const Text = React.forwardRef(
             "font-medium": weight === "medium",
             "font-semibold": weight === "semibold",
             "font-bold": weight === "bold",
+            "font-extrabold": weight === "extrabold",
             "font-black": weight === "black",
           },
           // Text colors
           {
             "text-foreground": variant === "default",
             "text-muted-foreground": variant === "muted",
-            "text-primary": variant === "accent",
-            "text-destructive": variant === "destructive",
-            "text-highlight": variant === "highlight",
-            "text-green-600 dark:text-green-500": variant === "success",
+            "text-accent-foreground": variant === "accent",
+            "text-highlight-foreground": variant === "highlight",
+            "text-warning-foreground": variant === "warning",
+            "text-destructive-foreground": variant === "destructive",
+            "text-green-600 dark:text-green-500": variant === "success", // TODO: promote this to theme
           },
           // Text alignment
-          align && `text-${align}`,
+          {
+            "text-left": align === "left",
+            "text-center": align === "center",
+            "text-right": align === "right",
+            "text-justify": align === "justify",
+          },
           // Line height
           {
             "leading-none": leading === "none",

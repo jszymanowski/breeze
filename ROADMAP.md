@@ -1,3 +1,5 @@
+1. Audit all variants are applied, tested, and have stories
+1. Clean up, finalize colors & surrounding documentation
 1. Rename package from `primitives` to `react`
 1. Customization
    - [ ] display font

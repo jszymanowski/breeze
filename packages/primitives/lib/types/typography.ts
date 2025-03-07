@@ -16,6 +16,7 @@ export type TypographyVariant =
   | "muted"
   | "accent"
   | "highlight"
+  | "warning"
   | "destructive"
   | "success";
 
@@ -26,6 +27,7 @@ export type TextLeading =
   | "normal"
   | "relaxed"
   | "loose";
+
 export type TextTracking =
   | "tighter"
   | "tight"
@@ -43,11 +45,15 @@ export type FontSize =
   | "2xl"
   | "3xl"
   | "4xl"
-  | "5xl";
+  | "5xl"
+  | "6xl"
+  | "7xl"
+  | "8xl"
+  | "9xl";
 
 export type TextAlign = "left" | "center" | "right" | "justify";
 
-export type TypographyElements =
+export type TypographyElement =
   | "p"
   | "span"
   | "label"
