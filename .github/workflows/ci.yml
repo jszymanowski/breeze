@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "packages/primitives/**"
+
+jobs:
+  primitives-ci:
+    runs-on: self-hosted
+    timeout-minutes: 2
+
+    defaults:
+      run:
+        working-directory: ./packages/primitives
+
+    strategy:
+      matrix:
+        task: [lint, test, build]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.14.0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10.5.2
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run ${{ matrix.task }}
+        run: |
+          if [ "${{ matrix.task }}" == "test" ]; then
+            pnpm test
+          elif [ "${{ matrix.task }}" == "lint" ]; then
+            pnpm lint
+          elif [ "${{ matrix.task }}" == "build" ]; then
+            pnpm build
+          fi

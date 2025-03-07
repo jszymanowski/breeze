@@ -1,6 +1,6 @@
 import { resolve } from "path";
 
-import { defineConfig } from "vite";
+import { defineConfig, ViteUserConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
@@ -47,4 +47,10 @@ export default defineConfig({
       "@stories": resolve(__dirname, "./stories"),
     },
   },
-});
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./vitest.setup.ts",
+    include: ["tests/**/*.test.ts*"],
+  },
+} as ViteUserConfig);
