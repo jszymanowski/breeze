@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { Grid } from "../src/components/Grid/Grid";
 import "@testing-library/jest-dom";
+
+import { Grid } from "@/components/Grid/Grid";
 
 describe("Grid", () => {
   it("renders with default props", () => {

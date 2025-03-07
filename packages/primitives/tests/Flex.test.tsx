@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { Flex } from "../src/components/Flex/Flex";
 import "@testing-library/jest-dom";
+
+import { Flex } from "@/components/Flex/Flex";
 
 describe("Flex", () => {
   it("renders with default props", () => {

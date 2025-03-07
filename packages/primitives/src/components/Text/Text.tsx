@@ -8,7 +8,7 @@ import {
   TextAlign,
   FontSize,
   TypographyElements,
-} from "@/types/typography";
+} from "@/types";
 import { cn } from "@/utils";
 
 interface TextBaseProps {
