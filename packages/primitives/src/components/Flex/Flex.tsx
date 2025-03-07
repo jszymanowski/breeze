@@ -28,7 +28,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       gapY,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <Component
@@ -77,13 +77,13 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
             "gap-y-12": gapY === "12",
             "gap-y-16": gapY === "16",
           },
-          className
+          className,
         )}
         ref={ref}
         {...props}
       />
     );
-  }
+  },
 );
 Flex.displayName = "Flex";
 

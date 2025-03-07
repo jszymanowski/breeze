@@ -29,7 +29,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       numeric = false,
       ...props
     },
-    ref
+    ref,
   ) => {
     // Map level to component
     const Component = `h${level}` as React.ElementType;
@@ -98,13 +98,13 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
           },
           // Tabular numerals
           numeric && "tabular-nums",
-          className
+          className,
         )}
         ref={ref}
         {...props}
       />
     );
-  }
+  },
 );
 Heading.displayName = "Heading";
 

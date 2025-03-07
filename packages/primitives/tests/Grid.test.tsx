@@ -16,7 +16,7 @@ describe("Grid", () => {
     render(
       <Grid as="section" data-testid="grid-element">
         Content
-      </Grid>
+      </Grid>,
     );
     const element = screen.getByTestId("grid-element");
     expect(element.tagName).toBe("SECTION");
@@ -41,7 +41,7 @@ describe("Grid", () => {
       const { rerender } = render(
         <Grid cols={cols} data-testid="grid-element">
           Columns {cols}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element).toHaveClass(`grid-cols-${cols}`);
@@ -67,7 +67,7 @@ describe("Grid", () => {
       const { rerender } = render(
         <Grid rows={rows} data-testid="grid-element">
           Rows {rows}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element).toHaveClass(`grid-rows-${rows}`);
@@ -88,7 +88,7 @@ describe("Grid", () => {
       const { rerender } = render(
         <Grid flow={flow} data-testid="grid-element">
           Flow {flow}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element).toHaveClass(`grid-flow-${flow}`);
@@ -115,7 +115,7 @@ describe("Grid", () => {
       const { rerender } = render(
         <Grid gap={gap} data-testid="grid-element">
           Gap {gap}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element).toHaveClass(`gap-${gap}`);
@@ -142,7 +142,7 @@ describe("Grid", () => {
       const { rerender } = render(
         <Grid gapX={gapX} data-testid="grid-element">
           GapX {gapX}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element).toHaveClass(`gap-x-${gapX}`);
@@ -169,7 +169,7 @@ describe("Grid", () => {
       const { rerender } = render(
         <Grid gapY={gapY} data-testid="grid-element">
           GapY {gapY}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element).toHaveClass(`gap-y-${gapY}`);
@@ -181,7 +181,7 @@ describe("Grid", () => {
     render(
       <Grid gap="2" gapX="4" gapY="8" data-testid="grid-element">
         Mixed gaps
-      </Grid>
+      </Grid>,
     );
 
     const element = screen.getByTestId("grid-element");
@@ -194,7 +194,7 @@ describe("Grid", () => {
     render(
       <Grid data-testid="grid-component" aria-label="grid container">
         Test grid
-      </Grid>
+      </Grid>,
     );
     const element = screen.getByTestId("grid-component");
     expect(element).toHaveAttribute("aria-label", "grid container");
@@ -204,7 +204,7 @@ describe("Grid", () => {
     render(
       <Grid className="custom-class" data-testid="grid-element">
         With custom class
-      </Grid>
+      </Grid>,
     );
     const element = screen.getByTestId("grid-element");
     expect(element).toHaveClass("custom-class");
@@ -216,7 +216,7 @@ describe("Grid", () => {
     render(
       <Grid ref={ref} data-testid="grid-element">
         Ref test
-      </Grid>
+      </Grid>,
     );
 
     expect(ref.current).not.toBeNull();
@@ -227,7 +227,7 @@ describe("Grid", () => {
     render(
       <Grid>
         <div data-testid="child-element">Child content</div>
-      </Grid>
+      </Grid>,
     );
 
     expect(screen.getByTestId("child-element")).toBeInTheDocument();
@@ -244,7 +244,7 @@ describe("Grid", () => {
         data-testid="grid-element"
       >
         Combined grid properties
-      </Grid>
+      </Grid>,
     );
 
     const element = screen.getByTestId("grid-element");
@@ -267,7 +267,7 @@ describe("Grid", () => {
         data-testid="grid-element"
       >
         Responsive grid
-      </Grid>
+      </Grid>,
     );
 
     const element = screen.getByTestId("grid-element");
