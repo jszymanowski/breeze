@@ -29,6 +29,9 @@ importers:
       '@storybook/blocks':
         specifier: ^8.6.4
         version: 8.6.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.4)
+      '@storybook/experimental-addon-test':
+        specifier: ^8.6.4
+        version: 8.6.4(@vitest/browser@3.0.7)(@vitest/runner@3.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.4)(vitest@3.0.7)
       '@storybook/react':
         specifier: ^8.6.4
         version: 8.6.4(@storybook/test@8.6.4(storybook@8.6.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.4)(typescript@5.7.3)
@@ -113,6 +116,9 @@ importers:
       vitest:
         specifier: ^3.0.7
         version: 3.0.7(@vitest/browser@3.0.7)(jiti@2.4.2)(lightningcss@1.29.2)(msw@2.7.3(typescript@5.7.3))
+      vitest-plugin:
+        specifier: link:@storybook/experimental-addon-test/vitest-plugin
+        version: link:@storybook/experimental-addon-test/vitest-plugin
 
 packages:
 
@@ -836,6 +842,21 @@ packages:
 
   '@storybook/csf@0.1.13':
     resolution: {integrity: sha512-7xOOwCLGB3ebM87eemep89MYRFTko+D8qE7EdAAq74lgdqRR5cOUtYWJLjO2dLtP94nqoOdHJo6MdLLKzg412Q==}
+
+  '@storybook/experimental-addon-test@8.6.4':
+    resolution: {integrity: sha512-apFNRotG8+I0RNEFZt0oz5y5bvirQ4j/mu1IQNUSuX1tPyA6tV8VcFNBH/hgliX3xKLWrt3FMJEFo1xLGsa3BA==}
+    peerDependencies:
+      '@vitest/browser': ^2.1.1 || ^3.0.0
+      '@vitest/runner': ^2.1.1 || ^3.0.0
+      storybook: ^8.6.4
+      vitest: ^2.1.1 || ^3.0.0
+    peerDependenciesMeta:
+      '@vitest/browser':
+        optional: true
+      '@vitest/runner':
+        optional: true
+      vitest:
+        optional: true
 
   '@storybook/global@5.0.0':
     resolution: {integrity: sha512-FcOqPAXACP0I3oJ/ws6/rrPT9WGhu915Cg8D02a9YxLo0DE9zI+a9A5gRGvmQ09fiWPukqI8ZAEoQEdWUKMQdQ==}
@@ -1880,6 +1901,10 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
+  kleur@3.0.3:
+    resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
+    engines: {node: '>=6'}
+
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
 
@@ -2181,6 +2206,10 @@ packages:
     resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
     engines: {node: '>= 0.6.0'}
 
+  prompts@2.4.2:
+    resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
+    engines: {node: '>= 6'}
+
   psl@1.15.0:
     resolution: {integrity: sha512-JZd3gMVBAVQkSs6HdNZo9Sdo0LNcQeMNP3CozBJb3JYC/QUYZTnKxP+f8oWRX4rHP5EurWxqAHTSwUCjlNKa1w==}
 
@@ -2308,6 +2337,9 @@ packages:
   sirv@3.0.1:
     resolution: {integrity: sha512-FoqMu0NCGBLCcAkS1qA+XJIQTR6/JHfQXl+uGteNCQ76T91DMUjPa9xfmeqMY3z80nLSg9yQmNjK0Px6RWsH/A==}
     engines: {node: '>=18'}
+
+  sisteransi@1.0.5:
+    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -3373,6 +3405,24 @@ snapshots:
   '@storybook/csf@0.1.13':
     dependencies:
       type-fest: 2.19.0
+
+  '@storybook/experimental-addon-test@8.6.4(@vitest/browser@3.0.7)(@vitest/runner@3.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.4)(vitest@3.0.7)':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@storybook/icons': 1.3.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@storybook/instrumenter': 8.6.4(storybook@8.6.4)
+      '@storybook/test': 8.6.4(storybook@8.6.4)
+      polished: 4.3.1
+      prompts: 2.4.2
+      storybook: 8.6.4
+      ts-dedent: 2.2.0
+    optionalDependencies:
+      '@vitest/browser': 3.0.7(playwright@1.50.1)(typescript@5.7.3)(vite@6.2.0(jiti@2.4.2)(lightningcss@1.29.2))(vitest@3.0.7)
+      '@vitest/runner': 3.0.7
+      vitest: 3.0.7(@vitest/browser@3.0.7)(jiti@2.4.2)(lightningcss@1.29.2)(msw@2.7.3(typescript@5.7.3))
+    transitivePeerDependencies:
+      - react
+      - react-dom
 
   '@storybook/global@5.0.0': {}
 
@@ -4486,6 +4536,8 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
+  kleur@3.0.3: {}
+
   kolorist@1.8.0: {}
 
   levn@0.4.1:
@@ -4766,6 +4818,11 @@ snapshots:
 
   process@0.11.10: {}
 
+  prompts@2.4.2:
+    dependencies:
+      kleur: 3.0.3
+      sisteransi: 1.0.5
+
   psl@1.15.0:
     dependencies:
       punycode: 2.3.1
@@ -4908,6 +4965,8 @@ snapshots:
       '@polka/url': 1.0.0-next.28
       mrmime: 2.0.1
       totalist: 3.0.1
+
+  sisteransi@1.0.5: {}
 
   source-map-js@1.2.1: {}
 
