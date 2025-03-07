@@ -29,8 +29,12 @@
     /* Path aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./lib/*"]
+      "@/*": ["./lib/*"],
+      "@root/*": ["./*"],
+      "@src/*": ["./src/*"],
+      "@tests/*": ["./tests/*"],
+      "@stories/*": ["./stories/*"]
     }
   },
-  "include": ["lib"]
+  "include": ["lib", "src", "stories", "tests"]
 }
