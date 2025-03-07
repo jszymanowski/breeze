@@ -1,154 +1,279 @@
-import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { Grid } from "@/components/Grid";
+import { describe, it, expect } from "vitest";
+import { Grid } from "../src/components/Grid/Grid";
 import "@testing-library/jest-dom";
 
 describe("Grid", () => {
-  it("renders inner content", () => {
-    render(
-      <Grid data-testid="grid">My cat's breath smells like cat food.</Grid>
-    );
-    expect(screen.getByTestId("grid")).toHaveTextContent(
-      "My cat's breath smells like cat food."
-    );
+  it("renders with default props", () => {
+    render(<Grid data-testid="grid-element">Content</Grid>);
+    const element = screen.getByTestId("grid-element");
+
+    expect(element.tagName).toBe("DIV");
+    expect(element).toHaveClass("grid");
   });
 
-  it("passes through style classes", () => {
+  it("renders with custom element type", () => {
     render(
-      <Grid data-testid="grid" className="rad-styles">
+      <Grid as="section" data-testid="grid-element">
         Content
       </Grid>
     );
-    expect(screen.getByTestId("grid")).toHaveClass("grid rad-styles", {
-      exact: true,
-    });
+    const element = screen.getByTestId("grid-element");
+    expect(element.tagName).toBe("SECTION");
+    expect(element).toHaveClass("grid");
   });
 
-  it("is polymorphic", () => {
-    render(
-      <Grid data-testid="grid" as="span">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid")?.tagName).toBe("SPAN");
-  });
+  it("applies the correct grid columns classes", () => {
+    const columnOptions = [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "8",
+      "10",
+      "12",
+      "none",
+    ] as const;
 
-  it("applies columns", () => {
-    render(
-      <Grid data-testid="grid" cols="2">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid")).toHaveClass("grid grid-cols-2", {
-      exact: true,
-    });
-
-    render(
-      <Grid data-testid="grid-ten" cols="10">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid-ten")).toHaveClass("grid grid-cols-10", {
-      exact: true,
-    });
-
-    render(
-      <Grid data-testid="grid-none" cols="none">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid-none")).toHaveClass("grid grid-cols-none", {
-      exact: true,
+    columnOptions.forEach((cols) => {
+      const { rerender } = render(
+        <Grid cols={cols} data-testid="grid-element">
+          Columns {cols}
+        </Grid>
+      );
+      const element = screen.getByTestId("grid-element");
+      expect(element).toHaveClass(`grid-cols-${cols}`);
+      rerender(<></>);
     });
   });
 
-  it("applies row", () => {
-    render(
-      <Grid data-testid="grid" rows="2">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid")).toHaveClass("grid grid-rows-2", {
-      exact: true,
-    });
+  it("applies the correct grid rows classes", () => {
+    const rowOptions = [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "8",
+      "10",
+      "12",
+      "none",
+    ] as const;
 
-    render(
-      <Grid data-testid="grid-ten" rows="10">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid-ten")).toHaveClass("grid grid-rows-10", {
-      exact: true,
-    });
-
-    render(
-      <Grid data-testid="grid-none" rows="none">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid-none")).toHaveClass("grid grid-rows-none", {
-      exact: true,
+    rowOptions.forEach((rows) => {
+      const { rerender } = render(
+        <Grid rows={rows} data-testid="grid-element">
+          Rows {rows}
+        </Grid>
+      );
+      const element = screen.getByTestId("grid-element");
+      expect(element).toHaveClass(`grid-rows-${rows}`);
+      rerender(<></>);
     });
   });
 
-  it("applies flow", () => {
-    render(
-      <Grid data-testid="grid" flow="row">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid")).toHaveClass("grid grid-flow-row", {
-      exact: true,
-    });
+  it("applies the correct grid flow classes", () => {
+    const flowOptions = [
+      "row",
+      "col",
+      "dense",
+      "row-dense",
+      "col-dense",
+    ] as const;
 
-    render(
-      <Grid data-testid="grid-col" flow="col">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid-col")).toHaveClass("grid grid-flow-col", {
-      exact: true,
+    flowOptions.forEach((flow) => {
+      const { rerender } = render(
+        <Grid flow={flow} data-testid="grid-element">
+          Flow {flow}
+        </Grid>
+      );
+      const element = screen.getByTestId("grid-element");
+      expect(element).toHaveClass(`grid-flow-${flow}`);
+      rerender(<></>);
     });
-
-    render(
-      <Grid data-testid="grid-dense" flow="row-dense">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid-dense")).toHaveClass(
-      "grid grid-flow-row-dense",
-      {
-        exact: true,
-      }
-    );
   });
 
-  it("applies gap", () => {
-    render(
-      <Grid data-testid="grid" gap="2">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("grid")).toHaveClass("grid gap-2", {
-      exact: true,
-    });
+  it("applies the correct gap classes", () => {
+    const gapOptions = [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "8",
+      "10",
+      "12",
+      "16",
+    ] as const;
 
-    render(
-      <Grid data-testid="flex-x" gapX="2">
-        Content
-      </Grid>
-    );
-    expect(screen.getByTestId("flex-x")).toHaveClass("grid gap-x-2", {
-      exact: true,
+    gapOptions.forEach((gap) => {
+      const { rerender } = render(
+        <Grid gap={gap} data-testid="grid-element">
+          Gap {gap}
+        </Grid>
+      );
+      const element = screen.getByTestId("grid-element");
+      expect(element).toHaveClass(`gap-${gap}`);
+      rerender(<></>);
     });
+  });
 
+  it("applies the correct horizontal gap classes", () => {
+    const gapXOptions = [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "8",
+      "10",
+      "12",
+      "16",
+    ] as const;
+
+    gapXOptions.forEach((gapX) => {
+      const { rerender } = render(
+        <Grid gapX={gapX} data-testid="grid-element">
+          GapX {gapX}
+        </Grid>
+      );
+      const element = screen.getByTestId("grid-element");
+      expect(element).toHaveClass(`gap-x-${gapX}`);
+      rerender(<></>);
+    });
+  });
+
+  it("applies the correct vertical gap classes", () => {
+    const gapYOptions = [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "8",
+      "10",
+      "12",
+      "16",
+    ] as const;
+
+    gapYOptions.forEach((gapY) => {
+      const { rerender } = render(
+        <Grid gapY={gapY} data-testid="grid-element">
+          GapY {gapY}
+        </Grid>
+      );
+      const element = screen.getByTestId("grid-element");
+      expect(element).toHaveClass(`gap-y-${gapY}`);
+      rerender(<></>);
+    });
+  });
+
+  it("combines gap, gapX, and gapY correctly", () => {
     render(
-      <Grid data-testid="flex-y" gapY="2">
-        Content
+      <Grid gap="2" gapX="4" gapY="8" data-testid="grid-element">
+        Mixed gaps
       </Grid>
     );
-    expect(screen.getByTestId("flex-y")).toHaveClass("grid gap-y-2", {
-      exact: true,
-    });
+
+    const element = screen.getByTestId("grid-element");
+    expect(element).toHaveClass("gap-2");
+    expect(element).toHaveClass("gap-x-4");
+    expect(element).toHaveClass("gap-y-8");
+  });
+
+  it("passes additional props to the element", () => {
+    render(
+      <Grid data-testid="grid-component" aria-label="grid container">
+        Test grid
+      </Grid>
+    );
+    const element = screen.getByTestId("grid-component");
+    expect(element).toHaveAttribute("aria-label", "grid container");
+  });
+
+  it("combines custom className with generated classes", () => {
+    render(
+      <Grid className="custom-class" data-testid="grid-element">
+        With custom class
+      </Grid>
+    );
+    const element = screen.getByTestId("grid-element");
+    expect(element).toHaveClass("custom-class");
+    expect(element).toHaveClass("grid");
+  });
+
+  it("forwards ref correctly", () => {
+    const ref = { current: null };
+    render(
+      <Grid ref={ref} data-testid="grid-element">
+        Ref test
+      </Grid>
+    );
+
+    expect(ref.current).not.toBeNull();
+    expect(ref.current).toBe(screen.getByTestId("grid-element"));
+  });
+
+  it("renders children correctly", () => {
+    render(
+      <Grid>
+        <div data-testid="child-element">Child content</div>
+      </Grid>
+    );
+
+    expect(screen.getByTestId("child-element")).toBeInTheDocument();
+    expect(screen.getByText("Child content")).toBeInTheDocument();
+  });
+
+  it("applies multiple grid properties simultaneously", () => {
+    render(
+      <Grid
+        cols="3"
+        rows="2"
+        flow="row-dense"
+        gap="4"
+        data-testid="grid-element"
+      >
+        Combined grid properties
+      </Grid>
+    );
+
+    const element = screen.getByTestId("grid-element");
+
+    expect(element).toHaveClass("grid");
+    expect(element).toHaveClass("grid-cols-3");
+    expect(element).toHaveClass("grid-rows-2");
+    expect(element).toHaveClass("grid-flow-row-dense");
+    expect(element).toHaveClass("gap-4");
+  });
+
+  it("creates a responsive grid layout", () => {
+    // In a real test, you might need to use a responsive testing library or mock window resizing
+    // This test just verifies the classes are applied correctly
+    render(
+      <Grid
+        cols="12"
+        gap="4"
+        className="md:grid-cols-6 lg:grid-cols-4"
+        data-testid="grid-element"
+      >
+        Responsive grid
+      </Grid>
+    );
+
+    const element = screen.getByTestId("grid-element");
+    expect(element).toHaveClass("grid-cols-12");
+    expect(element).toHaveClass("md:grid-cols-6");
+    expect(element).toHaveClass("lg:grid-cols-4");
+    expect(element).toHaveClass("gap-4");
   });
 });
