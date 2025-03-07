@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src", "stories", "tests"],
+  "compilerOptions": {
+    "paths": {
+      "@root/*": ["./*"],
+      "@src/*": ["./src/*"],
+      "@tests/*": ["./tests/*"],
+      "@stories/*": ["./stories/*"]
+    }
+  }
+}
