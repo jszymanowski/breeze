@@ -47,7 +47,7 @@ export type FontSize =
 
 export type TextAlign = "left" | "center" | "right" | "justify";
 
-export type TypographyElements =
+export type TypographyElement =
   | "p"
   | "span"
   | "label"

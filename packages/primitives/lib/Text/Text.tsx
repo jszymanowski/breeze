@@ -7,7 +7,7 @@ import {
   TypographyVariant,
   TextAlign,
   FontSize,
-  TypographyElements,
+  TypographyElement,
 } from "@/types";
 import { cn } from "@/utils";
 
@@ -21,7 +21,7 @@ interface TextBaseProps {
   truncate?: boolean;
   numeric?: boolean;
   className?: string;
-  as?: TypographyElements;
+  as?: TypographyElement;
 }
 
 export type TextProps<E extends React.ElementType = "p"> = TextBaseProps & {
@@ -79,7 +79,12 @@ const Text = React.forwardRef(
             "text-green-600 dark:text-green-500": variant === "success",
           },
           // Text alignment
-          align && `text-${align}`,
+          {
+            "text-left": align === "left",
+            "text-center": align === "center",
+            "text-right": align === "right",
+            "text-justify": align === "justify",
+          },
           // Line height
           {
             "leading-none": leading === "none",

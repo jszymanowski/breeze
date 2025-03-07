@@ -2,18 +2,15 @@ import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Box, Flex, Grid, Text } from "@/main";
-import type { FontFamily, FontWeight } from "@/types";
-
-const familyOptions: FontFamily[] = ["display", "serif", "sans", "mono"];
-const weightOptions: FontWeight[] = [
-  "thin",
-  "extralight",
-  "light",
-  "normal",
-  "medium",
-  "semibold",
-  "bold",
-];
+import {
+  FONT_FAMILIES,
+  FONT_WEIGHTS,
+  FONT_SIZES,
+  FONT_VARIANTS,
+  TEXT_ALIGN,
+  TEXT_LEADING,
+  TYPOGRAPHY_ELEMENTS,
+} from "@stories/options";
 
 const meta: Meta<typeof Text> = {
   title: "Primitives/Text",
@@ -25,41 +22,34 @@ const meta: Meta<typeof Text> = {
   argTypes: {
     family: {
       control: "select",
-      options: familyOptions,
+      options: FONT_FAMILIES,
     },
     size: {
       control: "select",
-      options: ["xs", "sm", "base", "lg", "xl"],
+      options: FONT_SIZES,
     },
     weight: {
       control: "select",
-      options: weightOptions,
+      options: FONT_WEIGHTS,
     },
     variant: {
       control: "select",
-      options: [
-        "default",
-        "muted",
-        "accent",
-        "highlight",
-        "destructive",
-        "success",
-      ],
+      options: FONT_VARIANTS,
     },
     align: {
       control: "select",
-      options: ["left", "center", "right", "justify"],
+      options: TEXT_ALIGN,
     },
     leading: {
       control: "select",
-      options: ["none", "tight", "snug", "normal", "relaxed", "loose"],
+      options: TEXT_LEADING,
     },
     truncate: {
       control: "boolean",
     },
     as: {
       control: "select",
-      options: ["p", "span", "div", "label"],
+      options: TYPOGRAPHY_ELEMENTS,
     },
   },
 };
@@ -79,25 +69,13 @@ export const Default: Story = {
 export const Families: Story = {
   render: () => (
     <Flex direction="col" gap="4" className="max-w-3xl">
-      <Text>
-        Default (display): Source Serif 4, Georgia, Cambria, Times New Roman,
-        Times, serif
-      </Text>
+      <Text>Default (display): My cat's breath smells like cat food.</Text>
       <Text family="display">
-        Display: Source Serif 4, Georgia, Cambria, "Times New Roman", Times,
-        serif
+        Display: My cat's breath smells like cat food.
       </Text>
-      <Text family="sans">
-        Sans: Apple Color Emoji", "Segoe UI Emoji, Segoe UI Symbol, Noto Color
-        Emoji
-      </Text>
-      <Text family="serif">
-        Serif: Source Serif 4, Georgia, Cambria, Times New Roman, Times, serif
-      </Text>
-      <Text family="mono">
-        Mono: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier
-        New, monospace
-      </Text>
+      <Text family="sans">Sans: My cat's breath smells like cat food.</Text>
+      <Text family="serif">Serif: My cat's breath smells like cat food.</Text>
+      <Text family="mono">Mono: My cat's breath smells like cat food.</Text>
     </Flex>
   ),
 };

@@ -5,6 +5,14 @@ import {
   FlexJustify,
   FlexWrap,
   Gap,
+  FontFamily,
+  FontSize,
+  FontWeight,
+  TextLeading,
+  TextTracking,
+  TextAlign,
+  TypographyVariant,
+  TypographyElement,
 } from "@/types";
 
 export const CONTAINER_OPTIONS: ContainerElement[] = [
@@ -57,4 +65,55 @@ export const GAP_OPTIONS: Gap[] = [
   "10",
   "12",
   "16",
+];
+
+export const FONT_FAMILIES: FontFamily[] = ["display", "serif", "sans", "mono"];
+
+export const FONT_WEIGHTS: FontWeight[] = [
+  "thin",
+  "extralight",
+  "light",
+  "normal",
+  "medium",
+  "semibold",
+  "bold",
+];
+export const FONT_SIZES: FontSize[] = ["xs", "sm", "base", "lg", "xl"];
+export const FONT_VARIANTS: TypographyVariant[] = [
+  "default",
+  "muted",
+  "accent",
+  "highlight",
+  "destructive",
+  "success",
+];
+export const TEXT_ALIGN: TextAlign[] = ["left", "center", "right", "justify"];
+export const TEXT_TRACKING: TextTracking[] = [
+  "tighter",
+  "tight",
+  "normal",
+  "wide",
+  "wider",
+  "widest",
+];
+export const TEXT_LEADING: TextLeading[] = [
+  "none",
+  "tight",
+  "snug",
+  "normal",
+  "relaxed",
+  "loose",
+];
+
+export const TYPOGRAPHY_ELEMENTS: TypographyElement[] = [
+  "p",
+  "span",
+  "label",
+  "div",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
 ];
