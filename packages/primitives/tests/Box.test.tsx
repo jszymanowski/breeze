@@ -5,9 +5,29 @@ import "@testing-library/jest-dom";
 
 describe("Box", () => {
   it("renders inner content", () => {
-    render(<Box>My cat's breath smells like cat food.</Box>);
-    expect(
-      screen.getByText("My cat's breath smells like cat food.")
-    ).toBeInTheDocument();
+    render(<Box data-testid="box">My cat's breath smells like cat food.</Box>);
+    expect(screen.getByTestId("box")).toHaveTextContent(
+      "My cat's breath smells like cat food."
+    );
+  });
+
+  it("passes through style classes", () => {
+    render(
+      <Box data-testid="box" className="rad-styles">
+        My cat's breath smells like cat food.
+      </Box>
+    );
+    expect(screen.getByTestId("box")).toHaveClass("rad-styles", {
+      exact: true,
+    });
+  });
+
+  it("is polymorphic", () => {
+    render(
+      <Box data-testid="box" as="span">
+        My cat's breath smells like cat food.
+      </Box>
+    );
+    expect(screen.getByTestId("box")?.tagName).toBe("SPAN");
   });
 });
