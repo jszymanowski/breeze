@@ -36,6 +36,8 @@ export type TextTracking =
   | "wider"
   | "widest";
 
+export type HeadingSize = "1" | "2" | "3" | "4" | "5" | "6";
+
 export type FontSize =
   | "xs"
   | "sm"

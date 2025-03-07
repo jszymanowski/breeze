@@ -57,6 +57,12 @@ const meta: Meta<typeof Text> = {
 export default meta;
 type Story = StoryObj<typeof Text>;
 
+export const Default: Story = {
+  args: {
+    children: "This is a Text component",
+  },
+};
+
 export const Families: Story = {
   render: () => (
     <Grid cols="6" gap="4" className="w-full max-w-4xl" gapY="6">
