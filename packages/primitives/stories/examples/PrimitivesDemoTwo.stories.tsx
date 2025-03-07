@@ -1,9 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box } from "@/components/Box";
-import { Flex } from "@/components/Flex";
-import { Grid } from "@/components/Grid";
-import { Text } from "@/components/Text";
-import { Heading } from "@/components/Heading";
+import { Heading, Flex, Box, Text, Grid } from "@/main";
 
 // Create a meta object for the combined demo
 const meta: Meta = {

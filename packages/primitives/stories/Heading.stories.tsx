@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Heading } from "@/components/Heading";
-import { Flex } from "@/components/Flex";
-import { Box } from "@/components/Box";
-import { Text } from "@/components/Text";
+import { Heading, Flex, Box, Text } from "@/main";
 
 const meta: Meta<typeof Heading> = {
   title: "Primitives/Heading",

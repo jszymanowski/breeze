@@ -11,38 +11,32 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      include: ["src/components"],
+      include: ["lib/**/*"],
       insertTypesEntry: true,
+      rollupTypes: true,
     }),
     libInjectCss(),
     tailwindcss(),
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/components/index.ts"),
+      entry: resolve(__dirname, "lib/main.ts"),
       name: "Breeze Primitives",
-      fileName: "index.js",
+      fileName: "index",
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-          "react/jsx-runtime": "jsxRuntime",
-        },
-      },
+      external: ["react", "react-dom", "tailwindcss"],
     },
-    // Don't minify for easier debugging
-    // Comment this out for production
-    minify: false,
+    minify: true,
     sourcemap: true,
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
-      "@": resolve(__dirname, "./src"),
+      "@": resolve(__dirname, "./lib"),
       "@root": resolve(__dirname, "./"),
+      "@src": resolve(__dirname, "./src"),
       "@tests": resolve(__dirname, "./tests"),
       "@stories": resolve(__dirname, "./stories"),
     },
@@ -53,7 +47,7 @@ export default defineConfig({
     setupFiles: "./vitest.setup.ts",
     include: ["tests/**/*.test.ts*"],
     coverage: {
-      include: ["src/**/*.tsx"],
+      include: ["lib/**/*"],
     },
   },
 } as ViteUserConfig);

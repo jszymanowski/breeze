@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import { Heading } from "@/components/Heading/Heading";
+import { Heading } from "@/main";
 import { FontWeight, TypographyVariant } from "@/types";
 
 describe("Heading", () => {
