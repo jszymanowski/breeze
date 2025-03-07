@@ -23,7 +23,7 @@ describe("Heading", () => {
 
     levels.forEach((level) => {
       const { rerender } = render(
-        <Heading level={level}>Heading {level}</Heading>,
+        <Heading level={level}>Heading {level}</Heading>
       );
       const element = screen.getByText(`Heading ${level}`);
       expect(element.tagName).toBe(`H${level}`);
@@ -45,7 +45,7 @@ describe("Heading", () => {
       const { rerender } = render(
         <Heading level={level as "1" | "2" | "3" | "4" | "5" | "6"}>
           Heading {level}
-        </Heading>,
+        </Heading>
       );
       const element = screen.getByText(`Heading ${level}`);
       expect(element).toHaveClass(expectedClass);
@@ -68,7 +68,7 @@ describe("Heading", () => {
 
     sizes.forEach((size) => {
       const { rerender } = render(
-        <Heading size={size}>Heading {size}</Heading>,
+        <Heading size={size}>Heading {size}</Heading>
       );
       const element = screen.getByText(`Heading ${size}`);
       expect(element).toHaveClass(`text-${size}`);
@@ -87,7 +87,7 @@ describe("Heading", () => {
 
     weights.forEach((weight) => {
       const { rerender } = render(
-        <Heading weight={weight as FontWeight}>Weight {weight}</Heading>,
+        <Heading weight={weight as FontWeight}>Weight {weight}</Heading>
       );
       const element = screen.getByText(`Weight ${weight}`);
       expect(element).toHaveClass(`font-${weight}`);
@@ -108,7 +108,7 @@ describe("Heading", () => {
       const { rerender } = render(
         <Heading variant={variant as TypographyVariant}>
           Variant {variant}
-        </Heading>,
+        </Heading>
       );
       const element = screen.getByText(`Variant ${variant}`);
       expect(element).toHaveClass(className);
@@ -121,7 +121,7 @@ describe("Heading", () => {
 
     alignments.forEach((align) => {
       const { rerender } = render(
-        <Heading align={align}>Align {align}</Heading>,
+        <Heading align={align}>Align {align}</Heading>
       );
       const element = screen.getByText(`Align ${align}`);
       expect(element).toHaveClass(`text-${align}`);
@@ -141,7 +141,7 @@ describe("Heading", () => {
 
     trackingOptions.forEach((tracking) => {
       const { rerender } = render(
-        <Heading tracking={tracking}>Tracking {tracking}</Heading>,
+        <Heading tracking={tracking}>Tracking {tracking}</Heading>
       );
       const element = screen.getByText(`Tracking ${tracking}`);
       expect(element).toHaveClass(`tracking-${tracking}`);
@@ -154,7 +154,7 @@ describe("Heading", () => {
 
     families.forEach((family) => {
       const { rerender } = render(
-        <Heading family={family}>Family {family}</Heading>,
+        <Heading family={family}>Family {family}</Heading>
       );
       const element = screen.getByText(`Family ${family}`);
       expect(element).toHaveClass(`font-${family}`);
@@ -213,7 +213,7 @@ describe("Heading", () => {
         numeric
       >
         Combined props
-      </Heading>,
+      </Heading>
     );
 
     const element = screen.getByText("Combined props");

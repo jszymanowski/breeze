@@ -16,7 +16,7 @@ describe("Box", () => {
     render(
       <Box as="section" data-testid="box-element">
         Content
-      </Box>,
+      </Box>
     );
     const element = screen.getByTestId("box-element");
     expect(element.tagName).toBe("SECTION");
@@ -26,7 +26,7 @@ describe("Box", () => {
     render(
       <Box className="custom-class" data-testid="box-element">
         With custom class
-      </Box>,
+      </Box>
     );
     const element = screen.getByTestId("box-element");
     expect(element).toHaveClass("custom-class");
@@ -46,7 +46,7 @@ describe("Box", () => {
       const { rerender } = render(
         <Box as={elementType} data-testid="box-element">
           {elementType} box
-        </Box>,
+        </Box>
       );
       const element = screen.getByTestId("box-element");
       expect(element.tagName).toBe(elementType.toUpperCase());
@@ -58,7 +58,7 @@ describe("Box", () => {
     render(
       <Box data-testid="box-component" aria-label="box container" role="region">
         Test box
-      </Box>,
+      </Box>
     );
     const element = screen.getByTestId("box-component");
     expect(element).toHaveAttribute("aria-label", "box container");
@@ -70,7 +70,7 @@ describe("Box", () => {
     render(
       <Box ref={ref} data-testid="box-element">
         Ref test
-      </Box>,
+      </Box>
     );
 
     expect(ref.current).not.toBeNull();
@@ -81,7 +81,7 @@ describe("Box", () => {
     render(
       <Box>
         <div data-testid="child-element">Child content</div>
-      </Box>,
+      </Box>
     );
 
     expect(screen.getByTestId("child-element")).toBeInTheDocument();
@@ -94,7 +94,7 @@ describe("Box", () => {
         <Box data-testid="child-box">
           <Box data-testid="grandchild-box">Nested content</Box>
         </Box>
-      </Box>,
+      </Box>
     );
 
     expect(screen.getByTestId("parent-box")).toBeInTheDocument();
@@ -107,7 +107,7 @@ describe("Box", () => {
     render(
       <Box className="class1 class2 class3" data-testid="box-element">
         Multiple classes
-      </Box>,
+      </Box>
     );
 
     const element = screen.getByTestId("box-element");
@@ -120,7 +120,7 @@ describe("Box", () => {
     render(
       <Box style={{ padding: "10px" }} data-testid="box-element">
         Styled box
-      </Box>,
+      </Box>
     );
 
     const element = screen.getByTestId("box-element");

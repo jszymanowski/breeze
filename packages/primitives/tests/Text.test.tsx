@@ -75,7 +75,7 @@ describe("Text", () => {
 
     Object.entries(variants).forEach(([variant, className]) => {
       const { rerender } = render(
-        <Text variant={variant}>Variant {variant}</Text>,
+        <Text variant={variant}>Variant {variant}</Text>
       );
       const element = screen.getByText(`Variant ${variant}`);
 
@@ -113,7 +113,7 @@ describe("Text", () => {
 
     leadingOptions.forEach((leading) => {
       const { rerender } = render(
-        <Text leading={leading}>Leading {leading}</Text>,
+        <Text leading={leading}>Leading {leading}</Text>
       );
       const element = screen.getByText(`Leading ${leading}`);
       expect(element).toHaveClass(`leading-${leading}`);

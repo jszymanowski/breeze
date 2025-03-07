@@ -140,7 +140,7 @@ export const Weights: Story = {
               1234567890
             </Text>
           </Fragment>
-        )),
+        ))
       )}
     </Grid>
   ),
