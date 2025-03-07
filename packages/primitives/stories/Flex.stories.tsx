@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Flex } from "@/index";
+import { Box, Flex } from "@/main";
 
 const meta: Meta<typeof Flex> = {
   title: "Primitives/Flex",

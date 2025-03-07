@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import { Text } from "@/index";
+import { Text } from "@/main";
 
 describe("Text", () => {
   it("renders with default props", () => {

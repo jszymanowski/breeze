@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import "@testing-library/jest-dom";
 
-import { Box } from "@/index";
+import { Box } from "@/main";
 
 describe("Box", () => {
   it("renders with default props", () => {

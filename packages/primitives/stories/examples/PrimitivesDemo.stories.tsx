@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Heading, Flex, Box, Text, Grid } from "@/index";
+import { Heading, Flex, Box, Text, Grid } from "@/main";
 
 // Create a meta object for the combined demo
 const meta: Meta = {
