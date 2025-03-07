@@ -14,7 +14,7 @@ describe("Box", () => {
   it("passes through style classes", () => {
     render(
       <Box data-testid="box" className="rad-styles">
-        My cat's breath smells like cat food.
+        Content
       </Box>
     );
     expect(screen.getByTestId("box")).toHaveClass("rad-styles", {
@@ -25,7 +25,7 @@ describe("Box", () => {
   it("is polymorphic", () => {
     render(
       <Box data-testid="box" as="span">
-        My cat's breath smells like cat food.
+        Content
       </Box>
     );
     expect(screen.getByTestId("box")?.tagName).toBe("SPAN");

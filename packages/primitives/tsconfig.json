@@ -34,5 +34,5 @@
       "@stories/*": ["./stories/*"]
     }
   },
-  "include": ["src", "stories", "tests"]
+  "include": ["src", "stories", "tests", "stories"]
 }
