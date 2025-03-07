@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Heading, Text, Grid } from "@/main";
+import { Box, Grid } from "@/main";
 
 import { CONTAINER_OPTIONS } from "@stories/options";
 
@@ -96,33 +96,5 @@ export const AlternateElements: Story = {
         </Box>
       ))}
     </Grid>
-  ),
-};
-
-export const Composition: Story = {
-  render: () => (
-    <Box className="bg-card text-card-foreground rounded-lg p-6 shadow-md">
-      <Box className="mb-4 border-b pb-4">
-        <Heading level="2">Card Title</Heading>
-        <Text className="text-muted-foreground">
-          Card subtitle with additional information
-        </Text>
-      </Box>
-      <Box className="space-y-2">
-        <Text>
-          This shows how{" "}
-          <Box as="span" className="text-highlight">
-            Box components
-          </Box>{" "}
-          can be nested to create more complex layouts.
-        </Text>
-        <Text>Each Box can have its own styling and purpose.</Text>
-      </Box>
-      <Box className="mt-4 flex justify-end border-t pt-4">
-        <button className="bg-primary text-primary-foreground rounded-md px-4 py-2">
-          Action
-        </button>
-      </Box>
-    </Box>
   ),
 };
