@@ -3,7 +3,7 @@ import { Heading, Flex, Box, Text, Grid } from "@/main";
 
 // Create a meta object for the combined demo
 const meta: Meta = {
-  title: "Examples/Primitives Demo II",
+  title: "Examples/Demo",
   parameters: {
     layout: "fullscreen",
   },

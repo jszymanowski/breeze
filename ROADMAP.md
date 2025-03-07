@@ -6,5 +6,6 @@
    - [ ] Typography: use Weights as a better model for structure
    - [ ] add a color background to Box/Flex/Grid
 
+1. Storybook tests?
 1. Add responsive options to `Flex` and `Grid`
 1. Add Svelte version
