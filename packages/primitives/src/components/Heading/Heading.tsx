@@ -2,14 +2,16 @@ import React from "react";
 
 import { cn } from "@/utils";
 
+import { TypographyVariant, FontWeight, FontFamily } from "@/types";
+
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   level?: "1" | "2" | "3" | "4" | "5" | "6";
   size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
-  weight?: "normal" | "medium" | "semibold" | "bold" | "extrabold";
-  variant?: "default" | "muted" | "accent" | "highlight" | "destructive";
+  weight?: FontWeight;
+  variant?: TypographyVariant;
   align?: "left" | "center" | "right";
   tracking?: "tighter" | "tight" | "normal" | "wide" | "wider" | "widest";
-  family?: "display" | "serif" | "sans" | "mono";
+  family?: FontFamily;
   numeric?: boolean;
 }
 
