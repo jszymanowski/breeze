@@ -1,12 +1,7 @@
 import { Flex, Box, Text } from "@/main";
 import { Badge } from "@src/components";
 
-const ActivityItem = ({
-  icon,
-  title,
-  time,
-  badge,
-}: {
+interface Props {
   icon: string;
   title: string;
   time: string;
@@ -14,7 +9,9 @@ const ActivityItem = ({
     text: string;
     variant: "default" | "primary" | "outline";
   };
-}) => (
+}
+
+const ActivityItem = ({ icon, title, time, badge }: Props) => (
   <Flex
     direction="row"
     align="center"

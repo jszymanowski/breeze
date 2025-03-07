@@ -1,12 +1,11 @@
 import { Box } from "@/main";
 
-const Card = ({
-  className,
-  children,
-}: {
+interface Props {
   className?: string;
   children: React.ReactNode;
-}) => {
+}
+
+const Card = ({ className, children }: Props) => {
   return (
     <Box
       className={`bg-card text-card-foreground rounded-md border shadow-sm ${

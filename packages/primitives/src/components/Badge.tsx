@@ -1,12 +1,11 @@
 import { Box } from "@/main";
 
-const Badge = ({
-  variant = "default",
-  children,
-}: {
+interface Props {
   variant?: "default" | "secondary" | "outline" | "primary";
   children: React.ReactNode;
-}) => {
+}
+
+const Badge = ({ variant = "default", children }: Props) => {
   const variantClasses = {
     default: "bg-secondary text-secondary-foreground",
     secondary: "bg-secondary text-secondary-foreground",

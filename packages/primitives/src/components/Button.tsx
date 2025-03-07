@@ -1,16 +1,18 @@
 import { Box } from "@/main";
 
+interface Props {
+  className?: string;
+  variant?: "default" | "outline" | "ghost" | "primary";
+  size?: "sm" | "md" | "lg";
+  children: React.ReactNode;
+}
+
 const Button = ({
   className = "",
   variant = "default",
   size = "md",
   children,
-}: {
-  className?: string;
-  variant?: "default" | "outline" | "ghost" | "primary";
-  size?: "sm" | "md" | "lg";
-  children: React.ReactNode;
-}) => {
+}: Props) => {
   const variantClasses = {
     default: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
     outline:
