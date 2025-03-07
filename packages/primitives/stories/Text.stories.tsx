@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Box, Flex, Grid, Text } from "@/components";
+import { Box, Flex, Grid, Text } from "@/index";
 import type { FontFamily, FontWeight } from "@/types";
 
 const familyOptions: FontFamily[] = ["display", "serif", "sans", "mono"];

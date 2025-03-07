@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      include: ["src/components"],
+      include: ["lib/**/*"],
       insertTypesEntry: true,
       rollupTypes: true,
     }),
@@ -20,7 +20,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/components/index.ts"),
+      entry: resolve(__dirname, "lib/index.ts"),
       name: "Breeze Primitives",
       fileName: "index",
       formats: ["es"],
@@ -34,8 +34,9 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": resolve(__dirname, "./src"),
+      "@": resolve(__dirname, "./lib"),
       "@root": resolve(__dirname, "./"),
+      "@src": resolve(__dirname, "./src"),
       "@tests": resolve(__dirname, "./tests"),
       "@stories": resolve(__dirname, "./stories"),
     },
@@ -46,7 +47,7 @@ export default defineConfig({
     setupFiles: "./vitest.setup.ts",
     include: ["tests/**/*.test.ts*"],
     coverage: {
-      include: ["src/**/*.tsx"],
+      include: ["lib/**/*"],
     },
   },
 } as ViteUserConfig);
