@@ -1,0 +1,39 @@
+{
+  "automerge": false,
+  "commitMessagePrefix": "{{#if isMajor}}🚨 {{else}}⬆️ {{/if}}",
+  "commitMessageAction": "Update",
+  "commitMessageTopic": "{{{depName}}}",
+  "commitMessageExtra": "from {{currentValue}} to {{newValue}}",
+  "enabledManagers": ["npm"],
+  "extends": [
+    "group:recommended",
+    "group:monorepos",
+    "npm:unpublishSafe",
+    "packages:eslint",
+    "packages:jsUnitTest",
+    "packages:linters",
+    "packages:react",
+    "packages:vite"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "recreateClosed": false,
+    "schedule": ["before 5am on tuesday"]
+  },
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "matchPackageNames": ["typescript"],
+      "matchUpdateTypes": ["major", "minor"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "matchManagers": "pnpm",
+      "constraints": {
+        "pnpm": "10.5.2"
+      }
+    }
+  ],
+  "prHourlyLimit": 5,
+  "prConcurrentLimit": 10
+}
