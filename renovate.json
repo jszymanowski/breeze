@@ -26,12 +26,6 @@
       "matchPackageNames": ["typescript"],
       "matchUpdateTypes": ["major", "minor"],
       "minimumReleaseAge": "3 days"
-    },
-    {
-      "matchManagers": "pnpm",
-      "constraints": {
-        "pnpm": "10.5.2"
-      }
     }
   ],
   "prHourlyLimit": 5,
