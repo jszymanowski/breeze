@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import { Heading } from "../src/components/Heading/Heading";
-import { FontWeight, TypographyVariant } from "../src/types";
+import { Heading } from "@/components/Heading/Heading";
+import { FontWeight, TypographyVariant } from "@/types";
 
 describe("Heading", () => {
   it("renders with default props", () => {
