@@ -75,15 +75,17 @@ const Text = React.forwardRef(
             "font-medium": weight === "medium",
             "font-semibold": weight === "semibold",
             "font-bold": weight === "bold",
+            "font-extrabold": weight === "extrabold",
             "font-black": weight === "black",
           },
           // Text colors
           {
             "text-foreground": variant === "default",
             "text-muted-foreground": variant === "muted",
-            "text-primary": variant === "accent",
-            "text-destructive": variant === "destructive",
-            "text-highlight": variant === "highlight",
+            "text-accent-foreground": variant === "accent",
+            "text-highlight-foreground": variant === "highlight",
+            "text-warning-foreground": variant === "warning",
+            "text-destructive-foreground": variant === "destructive",
             "text-green-600 dark:text-green-500": variant === "success", // TODO: promote this to theme
           },
           // Text alignment

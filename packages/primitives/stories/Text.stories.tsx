@@ -76,7 +76,6 @@ export const Families: Story = {
   ),
 };
 
-// Size variations
 export const Sizes: Story = {
   render: () => (
     <>
@@ -105,87 +104,93 @@ export const Sizes: Story = {
   ),
 };
 
-// Weight variations
 export const Weights: Story = {
   render: () => (
-    <Grid cols="4" gap="8" className="w-full max-w-4xl" gapY="6">
+    <>
+      <Grid cols="4" gap="8" className="w-full max-w-4xl" gapY="6">
+        {FONT_FAMILIES.map((family, f) => (
+          <Fragment key={f}>
+            <Heading family={family} align="center">
+              {family.charAt(0).toUpperCase() + family.slice(1)}
+            </Heading>
+          </Fragment>
+        ))}
+        {FONT_WEIGHTS.map((weight, w) =>
+          FONT_FAMILIES.map((family, f) => (
+            <Fragment key={f}>
+              <Text key={w} family={family} weight={weight} align="center">
+                {weight.charAt(0).toUpperCase() + weight.slice(1)}
+                <br />
+                1234567890
+              </Text>
+            </Fragment>
+          ))
+        )}
+      </Grid>
+      <Text variant="muted" className="mt-8">
+        Note: Certain fonts may not support all weights.
+      </Text>
+    </>
+  ),
+};
+
+export const Variants: Story = {
+  render: () => (
+    <Flex direction="row" gap="4" className="max-w-3xl">
       {FONT_FAMILIES.map((family, f) => (
-        <Fragment key={f}>
-          <Text
-            variant="highlight"
-            family="mono"
-            weight="semibold"
-            align="center"
-          >
+        <Flex direction="col" gap="4" key={f}>
+          <Heading family={family}>
             {family.charAt(0).toUpperCase() + family.slice(1)}
-          </Text>
+          </Heading>
+          {FONT_VARIANTS.slice(0, 6).map((variant, v) => (
+            <Text key={v} family={family} variant={variant}>
+              {variant.toUpperCase()}: My cat's breath smells like cat food.
+            </Text>
+          ))}
+        </Flex>
+      ))}
+    </Flex>
+  ),
+};
+
+export const Alignments: Story = {
+  render: () => (
+    <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">
+      {TEXT_ALIGN.map((align, a) => (
+        <Fragment key={a}>
+          <Box className="col-start-1">
+            <Text weight="medium" align="right">
+              {align.charAt(0).toUpperCase() + align.slice(1)}
+            </Text>
+          </Box>
+          <Flex
+            direction="col"
+            gap="4"
+            className="col-start-2 -col-end-1 rounded border-1 border-gray-300 p-1"
+          >
+            <Text align={align} size="sm">
+              We can't bust heads like we used to. But we have our ways. One
+              trick is to tell stories that don't go anywhere. Like the time I
+              caught the ferry to Shelbyville. I needed a new heel for m'shoe.
+              So I decided to go to Morganville, which is what they called
+              Shelbyville in those days. So I tied an onion to my belt. Which
+              was the style at the time.
+            </Text>
+            <Text align={align} size="sm">
+              Now, to take the ferry cost a nickel, and in those days, nickels
+              had pictures of bumblebees on 'em. Gimme five bees for a quarter,
+              you'd say. Now where was I... oh yeah. The important thing was
+              that I had an onion tied to my belt, which was the style at the
+              time. You couldn't get white onions, because of the war. The only
+              thing you could get was those big yellow ones.
+            </Text>
+          </Flex>
         </Fragment>
       ))}
-      {FONT_WEIGHTS.map((weight, w) =>
-        FONT_FAMILIES.map((family, f) => (
-          <Fragment key={f}>
-            <Text key={w} family={family} weight={weight} align="center">
-              {weight.charAt(0).toUpperCase() + weight.slice(1)}
-              <br />
-              1234567890
-            </Text>
-          </Fragment>
-        ))
-      )}
     </Grid>
   ),
 };
 
-// Variant (color) variations
-export const Variants: Story = {
-  render: () => (
-    <Flex direction="col" gap="4" className="max-w-3xl">
-      <Text variant="default">Variant: Default</Text>
-      <Text variant="muted">Variant: Muted</Text>
-      <Text variant="accent">Variant: Accent</Text>
-      <Text variant="highlight">Variant: Highlight</Text>
-      <Text variant="destructive">Variant: Destructive</Text>
-      <Text variant="success">Variant: Success</Text>
-    </Flex>
-  ),
-};
-
-// Alignment variations
-export const Alignments: Story = {
-  render: () => (
-    <Flex direction="col" gap="4" className="max-w-3xl">
-      <Box className="rounded-md border p-2">
-        <Text align="left">
-          Align: Left (default). This text is aligned to the left side of its
-          container.
-        </Text>
-      </Box>
-
-      <Box className="rounded-md border p-2">
-        <Text align="center">
-          Align: Center. This text is aligned to the center of its container.
-        </Text>
-      </Box>
-
-      <Box className="rounded-md border p-2">
-        <Text align="right">
-          Align: Right. This text is aligned to the right side of its container.
-        </Text>
-      </Box>
-
-      <Box className="rounded-md border p-2">
-        <Text align="justify">
-          Align: Justify. This text is justified, which means it is aligned to
-          both the left and right edges of its container. This typically creates
-          straight edges on both sides of the text block, and spacing between
-          words is adjusted to make the text fill the width of the container.
-        </Text>
-      </Box>
-    </Flex>
-  ),
-};
-
-// Line height variations
 export const LineHeights: Story = {
   render: () => (
     <Flex direction="col" gap="6" className="max-w-3xl">

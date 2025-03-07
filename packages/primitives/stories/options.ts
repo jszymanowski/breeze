@@ -77,6 +77,8 @@ export const FONT_WEIGHTS: FontWeight[] = [
   "medium",
   "semibold",
   "bold",
+  "extrabold",
+  "black",
 ];
 export const FONT_SIZES: FontSize[] = [
   "xs",
@@ -98,6 +100,7 @@ export const FONT_VARIANTS: TypographyVariant[] = [
   "muted",
   "accent",
   "highlight",
+  "warning",
   "destructive",
   "success",
 ];

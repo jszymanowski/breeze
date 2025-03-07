@@ -16,6 +16,7 @@ export type TypographyVariant =
   | "muted"
   | "accent"
   | "highlight"
+  | "warning"
   | "destructive"
   | "success";
 
@@ -26,6 +27,7 @@ export type TextLeading =
   | "normal"
   | "relaxed"
   | "loose";
+
 export type TextTracking =
   | "tighter"
   | "tight"
