@@ -56,70 +56,31 @@ const meta: Meta<typeof Flex> = {
 export default meta;
 type Story = StoryObj<typeof Flex>;
 
-const FlexItem = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => (
-  <Box
-    className={`bg-muted flex-1 rounded-md p-4 text-center font-medium ${className} `}
-  >
+const FlexItem = ({ children }: { children: React.ReactNode }) => (
+  <Box as="span" className="bg-muted rounded-md p-0.5">
     {children}
   </Box>
 );
 
-export const Default: Story = {
-  args: {
-    direction: "row",
-    gap: "4",
-    className: "w-full max-w-lg",
-    children: (
-      <>
-        <FlexItem>Item 1</FlexItem>
-        <FlexItem>Item 2</FlexItem>
-        <FlexItem>Item 3</FlexItem>
-      </>
-    ),
-  },
-};
-
 export const Directions: Story = {
   render: () => (
-    <Flex direction="col" gap="4" className="w-full max-w-lg">
-      <Flex direction="row" gap="4" className="w-full">
-        <FlexItem>Row 1</FlexItem>
-        <FlexItem>Row 2</FlexItem>
-        <FlexItem>Row 3</FlexItem>
-      </Flex>
-
-      <Flex direction="col" gap="4" className="w-full">
-        <FlexItem>Column 1</FlexItem>
-        <FlexItem>Column 2</FlexItem>
-        <FlexItem>Column 3</FlexItem>
-      </Flex>
-
-      <Flex direction="row-reverse" gap="4" className="w-full">
-        <FlexItem>Row-Reverse 1</FlexItem>
-        <FlexItem>Row-Reverse 2</FlexItem>
-        <FlexItem>Row-Reverse 3</FlexItem>
-      </Flex>
-
-      <Flex direction="column-reverse" gap="4" className="w-full">
-        <FlexItem>Col-Reverse 1</FlexItem>
-        <FlexItem>Col-Reverse 2</FlexItem>
-        <FlexItem>Col-Reverse 3</FlexItem>
-      </Flex>
-    </Flex>
+    <Grid cols="1" gap="4">
+      {FLEX_DIRECTION_OPTIONS.map((direction, i) => (
+        <Flex key={i} direction={direction} gap="1" className="w-full">
+          <FlexItem>{direction} 1</FlexItem>
+          <FlexItem>{direction} 2</FlexItem>
+          <FlexItem>{direction} 3</FlexItem>
+        </Flex>
+      ))}
+    </Grid>
   ),
 };
 
 export const Alignments: Story = {
   render: () => (
     <>
-      <Heading level="4" className="mt-4 mb-2">
-        Row
+      <Heading level="4" family="mono" className="mb-2">
+        flex-row
       </Heading>
       <Grid cols="2" gap="4">
         {FLEX_ALIGN_OPTIONS.map((align, i) => (
@@ -130,17 +91,13 @@ export const Alignments: Story = {
             gap="1"
             className="h-24 w-full min-w-[200px] rounded-md border p-2"
           >
-            <Box as="span" className="bg-accent">
-              {align}
-            </Box>
-            <Box as="span" className="bg-accent">
-              {align}
-            </Box>
+            <FlexItem>{align} 1</FlexItem>
+            <FlexItem>{align} 2</FlexItem>
           </Flex>
         ))}
       </Grid>
-      <Heading level="4" className="mt-4 mb-2">
-        Col
+      <Heading level="4" family="mono" className="mt-4 mb-2">
+        flex-col
       </Heading>
       <Grid cols="2" gap="4">
         {FLEX_ALIGN_OPTIONS.map((align, i) => (
@@ -151,12 +108,8 @@ export const Alignments: Story = {
             gap="1"
             className="h-24 w-full min-w-[200px] rounded-md border p-2"
           >
-            <Box as="span" className="bg-accent">
-              {align}
-            </Box>
-            <Box as="span" className="bg-accent">
-              {align}
-            </Box>
+            <FlexItem>{align} 1</FlexItem>
+            <FlexItem>{align} 2</FlexItem>
           </Flex>
         ))}
       </Grid>
@@ -168,8 +121,8 @@ export const Alignments: Story = {
 export const Justifications: Story = {
   render: () => (
     <>
-      <Heading level="4" className="mb-2">
-        Row
+      <Heading level="4" family="mono" className="mb-2">
+        flex-row
       </Heading>
       <Grid cols="2" gap="4">
         {FLEX_JUSTIFY_OPTIONS.map((justify, i) => (
@@ -180,17 +133,13 @@ export const Justifications: Story = {
             gap="1"
             className="w-full min-w-[200px] rounded-md border p-2"
           >
-            <Box as="span" className="bg-accent">
-              {justify}
-            </Box>
-            <Box as="span" className="bg-accent">
-              {justify}
-            </Box>
+            <FlexItem>{justify} 1</FlexItem>
+            <FlexItem>{justify} 2</FlexItem>
           </Flex>
         ))}
       </Grid>
-      <Heading level="4" className="mt-4 mb-2">
-        Col
+      <Heading level="4" family="mono" className="mt-4 mb-2">
+        flex-col
       </Heading>
       <Grid cols="2" gap="4">
         {FLEX_JUSTIFY_OPTIONS.map((justify, i) => (
@@ -201,12 +150,8 @@ export const Justifications: Story = {
             gap="1"
             className="h-24 w-full min-w-[200px] rounded-md border p-2"
           >
-            <Box as="span" className="bg-accent">
-              {justify}
-            </Box>
-            <Box as="span" className="bg-accent">
-              {justify}
-            </Box>
+            <FlexItem>{justify} 1</FlexItem>
+            <FlexItem>{justify} 2</FlexItem>
           </Flex>
         ))}
       </Grid>
@@ -214,70 +159,45 @@ export const Justifications: Story = {
   ),
 };
 
-// Gap variations
-export const Gaps: Story = {
+export const Gap: Story = {
   render: () => (
-    <Flex direction="col" gap="8" className="w-full max-w-lg">
-      <Flex direction="row" gap="2" className="w-full">
-        <FlexItem>gap="2"</FlexItem>
-        <FlexItem>Two</FlexItem>
-        <FlexItem>Three</FlexItem>
-      </Flex>
-
-      <Flex direction="row" gap="4" className="w-full">
-        <FlexItem>gap="4"</FlexItem>
-        <FlexItem>Two</FlexItem>
-        <FlexItem>Three</FlexItem>
-      </Flex>
-
-      <Flex direction="row" gap="8" className="w-full">
-        <FlexItem>gap="8"</FlexItem>
-        <FlexItem>Two</FlexItem>
-        <FlexItem>Three</FlexItem>
-      </Flex>
-
-      <Flex direction="row" gap="12" className="w-full">
-        <FlexItem>gap="12"</FlexItem>
-        <FlexItem>Two</FlexItem>
-        <FlexItem>Three</FlexItem>
-      </Flex>
+    <Flex direction="col" gap="2" className="w-full">
+      {GAP_OPTIONS.map((gap, i) => (
+        <Flex key={i} direction="row" gap={gap} className="w-full">
+          <FlexItem>gap="{gap}"</FlexItem>
+          <FlexItem>Two</FlexItem>
+          <FlexItem>Three</FlexItem>
+        </Flex>
+      ))}
     </Flex>
   ),
 };
 
-// Wrap variations
 export const Wrapping: Story = {
   render: () => (
     <Flex direction="col" gap="8" className="w-full max-w-lg">
-      <Box className="text-muted-foreground mb-2 text-sm">
-        wrap="nowrap" (default)
-      </Box>
-      <Flex
-        direction="row"
-        wrap="nowrap"
-        gap="4"
-        className="bg-background w-full overflow-x-auto rounded-md border p-2"
-      >
-        {Array.from({ length: 10 }).map((_, i) => (
-          <Box key={i} className="bg-muted rounded-md p-4 whitespace-nowrap">
-            Item {i + 1}
-          </Box>
-        ))}
-      </Flex>
-
-      <Box className="text-muted-foreground mb-2 text-sm">wrap="wrap"</Box>
-      <Flex
-        direction="row"
-        wrap="wrap"
-        gap="4"
-        className="bg-background w-full rounded-md border p-2"
-      >
-        {Array.from({ length: 10 }).map((_, i) => (
-          <Box key={i} className="bg-muted rounded-md p-4 whitespace-nowrap">
-            Item {i + 1}
-          </Box>
-        ))}
-      </Flex>
+      {FLEX_WRAP_OPTIONS.map((wrap, i) => (
+        <Box key={i}>
+          <Heading level="4" family="mono" className="mb-2">
+            wrap = "{wrap}"
+          </Heading>
+          <Flex
+            direction="row"
+            wrap={wrap}
+            gap="2"
+            className="bg-background w-full overflow-x-auto rounded-md border p-2"
+          >
+            {Array.from({ length: 10 }).map((_, i) => (
+              <Box
+                key={i}
+                className="bg-muted rounded-md p-4 whitespace-nowrap"
+              >
+                Item {i + 1}
+              </Box>
+            ))}
+          </Flex>
+        </Box>
+      ))}
     </Flex>
   ),
 };

@@ -35,7 +35,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
         className={cn(
           "flex",
           {
-            "flex-row": !direction || direction === "row",
+            "flex-row": direction === "row",
             "flex-row-reverse": direction === "row-reverse",
             "flex-col": direction === "col",
             "flex-col-reverse": direction === "column-reverse",
