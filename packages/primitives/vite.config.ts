@@ -13,6 +13,7 @@ export default defineConfig({
     dts({
       include: ["src/components"],
       insertTypesEntry: true,
+      rollupTypes: true,
     }),
     libInjectCss(),
     tailwindcss(),
@@ -21,23 +22,15 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/components/index.ts"),
       name: "Breeze Primitives",
-      fileName: "index.js",
+      fileName: "index",
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-          "react/jsx-runtime": "jsxRuntime",
-        },
-      },
+      external: ["react", "react-dom", "tailwindcss"],
     },
-    // Don't minify for easier debugging
-    // Comment this out for production
-    minify: false,
+    minify: true,
     sourcemap: true,
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
