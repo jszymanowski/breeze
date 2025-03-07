@@ -11,7 +11,7 @@ const Header = () => (
       <Flex direction="row" align="center" gap="6">
         <Flex direction="row" align="center" gap="2">
           <Heading level="1" size="lg">
-            Primitives UI
+            Breeze Primitives
           </Heading>
         </Flex>
         <Flex as="nav" direction="row" gap="4">
