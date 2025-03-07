@@ -1,14 +1,14 @@
 import React from "react";
 
-import { Gap } from "@/types";
+import { FlexDirection, Gap, FlexAlign, FlexJustify, FlexWrap } from "@/types";
 import { cn } from "@/utils";
 
 export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: React.ElementType;
-  direction?: "row" | "col" | "row-reverse" | "column-reverse";
-  align?: "start" | "center" | "end" | "stretch" | "baseline";
-  justify?: "start" | "center" | "end" | "between" | "around" | "evenly";
-  wrap?: "nowrap" | "wrap" | "wrap-reverse";
+  direction?: FlexDirection;
+  align?: FlexAlign;
+  justify?: FlexJustify;
+  wrap?: FlexWrap;
   gap?: Gap;
   gapX?: Gap;
   gapY?: Gap;

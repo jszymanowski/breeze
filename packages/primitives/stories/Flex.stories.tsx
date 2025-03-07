@@ -1,5 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { Box, Flex } from "@/main";
+import {
+  FLEX_DIRECTION_OPTIONS,
+  FLEX_ALIGN_OPTIONS,
+  FLEX_JUSTIFY_OPTIONS,
+  CONTAINER_OPTIONS,
+  GAP_OPTIONS,
+  FLEX_WRAP_OPTIONS,
+} from "@stories/options";
 
 const meta: Meta<typeof Flex> = {
   title: "Primitives/Flex",
@@ -11,27 +20,35 @@ const meta: Meta<typeof Flex> = {
   argTypes: {
     direction: {
       control: "select",
-      options: ["row", "column", "row-reverse", "column-reverse"],
+      options: FLEX_DIRECTION_OPTIONS,
     },
     align: {
       control: "select",
-      options: ["start", "center", "end", "stretch", "baseline"],
+      options: FLEX_ALIGN_OPTIONS,
     },
     justify: {
       control: "select",
-      options: ["start", "center", "end", "between", "around", "evenly"],
+      options: FLEX_JUSTIFY_OPTIONS,
     },
     wrap: {
       control: "select",
-      options: ["nowrap", "wrap", "wrap-reverse"],
+      options: FLEX_WRAP_OPTIONS,
     },
     gap: {
       control: "select",
-      options: ["0", "1", "2", "3", "4", "5", "6", "8", "10", "12", "16"],
+      options: GAP_OPTIONS,
+    },
+    gapX: {
+      control: "select",
+      options: GAP_OPTIONS,
+    },
+    gapY: {
+      control: "select",
+      options: GAP_OPTIONS,
     },
     as: {
       control: "select",
-      options: ["div", "section", "article", "main", "aside"],
+      options: CONTAINER_OPTIONS,
     },
   },
 };

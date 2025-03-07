@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Heading, Text, Grid } from "@/main";
 
+import { CONTAINER_OPTIONS } from "@stories/options";
+
 const meta: Meta<typeof Box> = {
   title: "Primitives/Box",
   component: Box,
@@ -12,7 +14,7 @@ const meta: Meta<typeof Box> = {
     className: { control: "text" },
     as: {
       control: "select",
-      options: ["div", "section", "article", "main", "aside"],
+      options: CONTAINER_OPTIONS,
     },
   },
 };
@@ -82,18 +84,17 @@ export const TextColors: Story = {
 export const AlternateElements: Story = {
   render: () => (
     <Grid cols="2" gap="4">
-      <Box className="rounded-md border-1 border-gray-200 p-4">
-        default (div)
-      </Box>
-      <Box as="section" className="rounded-md border-1 border-gray-200 p-4">
-        as section
-      </Box>
-      <Box as="article" className="rounded-md border-1 border-gray-200 p-4">
-        as article
-      </Box>
-      <Box as="button" className="rounded-md border-1 border-gray-200 p-4">
-        as button
-      </Box>
+      {CONTAINER_OPTIONS.map((as, i) => (
+        <Box
+          key={i}
+          as={as}
+          className="rounded-md border-1 border-gray-200 p-4"
+        >
+          {"<"}
+          {as}
+          {">"}
+        </Box>
+      ))}
     </Grid>
   ),
 };
