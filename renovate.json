@@ -26,6 +26,10 @@
       "matchPackageNames": ["typescript"],
       "matchUpdateTypes": ["major", "minor"],
       "minimumReleaseAge": "3 days"
+    },
+    {
+      "enabled": false,
+      "matchDepTypes": ["peerDependencies"]
     }
   ],
   "prHourlyLimit": 5,
