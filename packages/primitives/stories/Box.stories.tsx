@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Flex, Heading, Text } from "@/main";
+import { Box, Heading, Text, Grid } from "@/main";
 
 const meta: Meta<typeof Box> = {
   title: "Primitives/Box",
@@ -26,9 +26,9 @@ export const Default: Story = {
   },
 };
 
-export const Styled: Story = {
+export const StyleExamples: Story = {
   render: () => (
-    <Flex direction="col" gapY="4">
+    <Grid cols="2" gap="4">
       <Box className="p-4">with padding</Box>
       <Box className="bg-purple-200 p-4">with background</Box>
       <Box className="bg-gray-800 p-4 text-gray-100">with dark background</Box>
@@ -39,13 +39,49 @@ export const Styled: Story = {
       <Box className="bg-card text-card-foreground rounded-md border-1 p-4 shadow">
         with rounded border
       </Box>
-    </Flex>
+    </Grid>
+  ),
+};
+
+export const BackgroundColors: Story = {
+  render: () => (
+    <Grid cols="2" gap="4">
+      <Box className="p-4">default</Box>
+      <Box className="bg-primary text-primary-foreground p-4">primary</Box>
+      <Box className="bg-secondary text-secondary-foreground p-4">
+        secondary
+      </Box>
+      <Box className="bg-muted text-muted-foreground p-4">muted</Box>
+      <Box className="bg-accent text-accent-foreground p-4">accent</Box>
+      <Box className="bg-highlight text-highlight-foreground p-4">
+        highlight
+      </Box>
+      <Box className="bg-warning text-warning-foreground p-4">warning</Box>
+      <Box className="bg-destructive text-destructive-foreground p-4">
+        destructive
+      </Box>
+    </Grid>
+  ),
+};
+
+export const TextColors: Story = {
+  render: () => (
+    <Grid cols="2" gap="4">
+      <Box className="p-4">default</Box>
+      <Box className="text-primary p-4">primary</Box>
+      <Box className="text-secondary p-4">secondary</Box>
+      <Box className="text-muted p-4">muted</Box>
+      <Box className="text-accent p-4">accent</Box>
+      <Box className="text-highlight p-4">highlight</Box>
+      <Box className="text-warning p-4">warning</Box>
+      <Box className="text-destructive p-4">destructive</Box>
+    </Grid>
   ),
 };
 
 export const AlternateElements: Story = {
   render: () => (
-    <Flex direction="col" gapY="4">
+    <Grid cols="2" gap="4">
       <Box className="rounded-md border-1 border-gray-200 p-4">
         default (div)
       </Box>
@@ -58,7 +94,7 @@ export const AlternateElements: Story = {
       <Box as="button" className="rounded-md border-1 border-gray-200 p-4">
         as button
       </Box>
-    </Flex>
+    </Grid>
   ),
 };
 
@@ -73,8 +109,11 @@ export const Composition: Story = {
       </Box>
       <Box className="space-y-2">
         <Text>
-          This shows how Box components can be nested to create more complex
-          layouts.
+          This shows how{" "}
+          <Box as="span" className="text-highlight">
+            Box components
+          </Box>{" "}
+          can be nested to create more complex layouts.
         </Text>
         <Text>Each Box can have its own styling and purpose.</Text>
       </Box>
