@@ -266,8 +266,8 @@ export const DashboardExample: Story = {
                         activity.badge === "New"
                           ? "default"
                           : activity.badge === "Completed"
-                          ? "secondary"
-                          : "outline"
+                            ? "secondary"
+                            : "outline"
                       }
                     >
                       {activity.badge}
