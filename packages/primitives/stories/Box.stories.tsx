@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Heading, Text } from "@/main";
+import { Box, Flex, Heading, Text } from "@/main";
 
 const meta: Meta<typeof Box> = {
   title: "Primitives/Box",
@@ -20,62 +20,48 @@ const meta: Meta<typeof Box> = {
 export default meta;
 type Story = StoryObj<typeof Box>;
 
-// Base example
 export const Default: Story = {
   args: {
-    className: "p-4 bg-muted rounded-md",
     children: "This is a Box component",
   },
 };
 
-// Styling variations
-export const WithDifferentStyles: Story = {
+export const Styled: Story = {
   render: () => (
-    <div className="flex flex-col space-y-4">
-      <Box className="bg-primary text-primary-foreground rounded-md p-4">
-        Primary Background
+    <Flex direction="col" gapY="4">
+      <Box className="p-4">with padding</Box>
+      <Box className="bg-purple-200 p-4">with background</Box>
+      <Box className="bg-gray-800 p-4 text-gray-100">with dark background</Box>
+      <Box className="rounded-md bg-gray-200 p-4">with rounded edges</Box>
+      <Box className="bg-card text-card-foreground rounded-md p-4 shadow-md">
+        with shadow
       </Box>
-      <Box className="bg-secondary text-secondary-foreground rounded-md p-4">
-        Secondary Background
+      <Box className="bg-card text-card-foreground rounded-md border-1 p-4 shadow">
+        with rounded border
       </Box>
-      <Box className="bg-accent text-accent-foreground rounded-md p-4">
-        Accent Background
-      </Box>
-      <Box className="bg-destructive text-destructive-foreground rounded-md p-4">
-        Destructive Background
-      </Box>
-      <Box className="bg-muted text-muted-foreground rounded-md p-4">
-        Muted Background
-      </Box>
-      <Box className="bg-card text-card-foreground rounded-md p-4 shadow">
-        Card Background with Shadow
-      </Box>
-    </div>
+    </Flex>
   ),
 };
 
-// Different HTML elements
-export const PolymorphicBox: Story = {
+export const AlternateElements: Story = {
   render: () => (
-    <div className="flex flex-col space-y-4">
-      <Box className="bg-muted rounded-md p-4">Default (div)</Box>
-      <Box as="section" className="bg-muted rounded-md p-4">
-        As section
+    <Flex direction="col" gapY="4">
+      <Box className="rounded-md border-1 border-gray-200 p-4">
+        default (div)
       </Box>
-      <Box as="article" className="bg-muted rounded-md p-4">
-        As article
+      <Box as="section" className="rounded-md border-1 border-gray-200 p-4">
+        as section
       </Box>
-      <Box
-        as="button"
-        className="bg-primary text-primary-foreground rounded-md p-4"
-      >
-        As button
+      <Box as="article" className="rounded-md border-1 border-gray-200 p-4">
+        as article
       </Box>
-    </div>
+      <Box as="button" className="rounded-md border-1 border-gray-200 p-4">
+        as button
+      </Box>
+    </Flex>
   ),
 };
 
-// Box with nested components
 export const Composition: Story = {
   render: () => (
     <Box className="bg-card text-card-foreground rounded-lg p-6 shadow-md">
