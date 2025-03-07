@@ -22,3 +22,11 @@ export type FontWeight =
   | "semibold"
   | "bold"
   | "black";
+
+export type TypographyVariant =
+  | "default"
+  | "muted"
+  | "accent"
+  | "highlight"
+  | "destructive"
+  | "success";

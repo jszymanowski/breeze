@@ -75,7 +75,7 @@ describe("Text", () => {
 
     Object.entries(variants).forEach(([variant, className]) => {
       const { rerender } = render(
-        <Text variant={variant as any}>Variant {variant}</Text>
+        <Text variant={variant}>Variant {variant}</Text>
       );
       const element = screen.getByText(`Variant ${variant}`);
 
