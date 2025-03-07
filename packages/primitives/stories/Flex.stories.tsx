@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Box, Flex } from "@/main";
+import { Box, Flex, Grid, Heading } from "@/main";
 import {
   FLEX_DIRECTION_OPTIONS,
   FLEX_ALIGN_OPTIONS,
@@ -56,13 +56,20 @@ const meta: Meta<typeof Flex> = {
 export default meta;
 type Story = StoryObj<typeof Flex>;
 
-const FlexItem = ({ children }: { children: React.ReactNode }) => (
-  <Box className="bg-muted flex-1 rounded-md p-4 text-center font-medium">
+const FlexItem = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <Box
+    className={`bg-muted flex-1 rounded-md p-4 text-center font-medium ${className} `}
+  >
     {children}
   </Box>
 );
 
-// Base example
 export const Default: Story = {
   args: {
     direction: "row",
@@ -78,7 +85,6 @@ export const Default: Story = {
   },
 };
 
-// Direction variations
 export const Directions: Story = {
   render: () => (
     <Flex direction="col" gap="4" className="w-full max-w-lg">
@@ -109,110 +115,102 @@ export const Directions: Story = {
   ),
 };
 
-// Alignment variations
 export const Alignments: Story = {
   render: () => (
-    <Flex direction="col" gap="8" className="w-full max-w-lg">
-      <Flex
-        direction="row"
-        align="start"
-        gap="4"
-        className="bg-background h-24 w-full rounded-md border p-2"
-      >
-        <FlexItem>align="start"</FlexItem>
-        <FlexItem>Two</FlexItem>
-        <FlexItem>Three</FlexItem>
-      </Flex>
-
-      <Flex
-        direction="row"
-        align="center"
-        gap="4"
-        className="bg-background h-24 w-full rounded-md border p-2"
-      >
-        <FlexItem>align="center"</FlexItem>
-        <FlexItem>Two</FlexItem>
-        <FlexItem>Three</FlexItem>
-      </Flex>
-
-      <Flex
-        direction="row"
-        align="end"
-        gap="4"
-        className="bg-background h-24 w-full rounded-md border p-2"
-      >
-        <FlexItem>align="end"</FlexItem>
-        <FlexItem>Two</FlexItem>
-        <FlexItem>Three</FlexItem>
-      </Flex>
-    </Flex>
+    <>
+      <Heading level="4" className="mt-4 mb-2">
+        Row
+      </Heading>
+      <Grid cols="2" gap="4">
+        {FLEX_ALIGN_OPTIONS.map((align, i) => (
+          <Flex
+            key={i}
+            direction="row"
+            align={align}
+            gap="1"
+            className="h-24 w-full min-w-[200px] rounded-md border p-2"
+          >
+            <Box as="span" className="bg-accent">
+              {align}
+            </Box>
+            <Box as="span" className="bg-accent">
+              {align}
+            </Box>
+          </Flex>
+        ))}
+      </Grid>
+      <Heading level="4" className="mt-4 mb-2">
+        Col
+      </Heading>
+      <Grid cols="2" gap="4">
+        {FLEX_ALIGN_OPTIONS.map((align, i) => (
+          <Flex
+            key={i}
+            direction="col"
+            align={align}
+            gap="1"
+            className="h-24 w-full min-w-[200px] rounded-md border p-2"
+          >
+            <Box as="span" className="bg-accent">
+              {align}
+            </Box>
+            <Box as="span" className="bg-accent">
+              {align}
+            </Box>
+          </Flex>
+        ))}
+      </Grid>
+    </>
   ),
 };
 
 // Justify variations
 export const Justifications: Story = {
   render: () => (
-    <Flex direction="col" gap="8" className="w-full max-w-lg">
-      <Flex
-        direction="row"
-        justify="start"
-        gap="4"
-        className="bg-background w-full rounded-md border p-2"
-      >
-        <FlexItem>1</FlexItem>
-        <FlexItem>2</FlexItem>
-        <FlexItem>3</FlexItem>
-      </Flex>
-      <Box className="text-muted-foreground text-sm">justify="start"</Box>
-
-      <Flex
-        direction="row"
-        justify="center"
-        gap="4"
-        className="bg-background w-full rounded-md border p-2"
-      >
-        <FlexItem>1</FlexItem>
-        <FlexItem>2</FlexItem>
-        <FlexItem>3</FlexItem>
-      </Flex>
-      <Box className="text-muted-foreground text-sm">justify="center"</Box>
-
-      <Flex
-        direction="row"
-        justify="end"
-        gap="4"
-        className="bg-background w-full rounded-md border p-2"
-      >
-        <FlexItem>1</FlexItem>
-        <FlexItem>2</FlexItem>
-        <FlexItem>3</FlexItem>
-      </Flex>
-      <Box className="text-muted-foreground text-sm">justify="end"</Box>
-
-      <Flex
-        direction="row"
-        justify="between"
-        gap="4"
-        className="bg-background w-full rounded-md border p-2"
-      >
-        <FlexItem>1</FlexItem>
-        <FlexItem>2</FlexItem>
-        <FlexItem>3</FlexItem>
-      </Flex>
-      <Box className="text-muted-foreground text-sm">justify="between"</Box>
-
-      <Flex
-        direction="row"
-        justify="around"
-        gap="4"
-        className="bg-background w-full rounded-md border p-2"
-      >
-        <FlexItem>1</FlexItem>
-        <FlexItem>2</FlexItem>
-        <FlexItem>3</FlexItem>
-      </Flex>
-      <Box className="text-muted-foreground text-sm">justify="around"</Box>
-    </Flex>
+    <>
+      <Heading level="4" className="mb-2">
+        Row
+      </Heading>
+      <Grid cols="2" gap="4">
+        {FLEX_JUSTIFY_OPTIONS.map((justify, i) => (
+          <Flex
+            key={i}
+            direction="row"
+            justify={justify}
+            gap="1"
+            className="w-full min-w-[200px] rounded-md border p-2"
+          >
+            <Box as="span" className="bg-accent">
+              {justify}
+            </Box>
+            <Box as="span" className="bg-accent">
+              {justify}
+            </Box>
+          </Flex>
+        ))}
+      </Grid>
+      <Heading level="4" className="mt-4 mb-2">
+        Col
+      </Heading>
+      <Grid cols="2" gap="4">
+        {FLEX_JUSTIFY_OPTIONS.map((justify, i) => (
+          <Flex
+            key={i}
+            direction="col"
+            justify={justify}
+            gap="1"
+            className="h-24 w-full min-w-[200px] rounded-md border p-2"
+          >
+            <Box as="span" className="bg-accent">
+              {justify}
+            </Box>
+            <Box as="span" className="bg-accent">
+              {justify}
+            </Box>
+          </Flex>
+        ))}
+      </Grid>
+    </>
   ),
 };
 

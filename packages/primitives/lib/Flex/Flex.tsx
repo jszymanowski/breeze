@@ -34,10 +34,32 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       <Component
         className={cn(
           "flex",
-          direction && `flex-${direction}`,
-          align && `items-${align}`,
-          justify && `justify-${justify}`,
-          wrap && `flex-${wrap}`,
+          {
+            "flex-row": !direction || direction === "row",
+            "flex-row-reverse": direction === "row-reverse",
+            "flex-col": direction === "col",
+            "flex-col-reverse": direction === "column-reverse",
+          },
+          {
+            "items-start": align === "start",
+            "items-center": align === "center",
+            "items-end": align === "end",
+            "items-stretch": align === "stretch",
+            "items-baseline": align === "baseline",
+          },
+          {
+            "justify-start": justify === "start",
+            "justify-center": justify === "center",
+            "justify-end": justify === "end",
+            "justify-between": justify === "between",
+            "justify-around": justify === "around",
+            "justify-evenly": justify === "evenly",
+          },
+          {
+            "flex-wrap": wrap === "wrap",
+            "flex-wrap-reverse": wrap === "wrap-reverse",
+            "flex-nowrap": wrap === "nowrap",
+          },
           {
             "gap-0": gap === "0",
             "gap-1": gap === "1",
