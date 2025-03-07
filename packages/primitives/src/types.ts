@@ -21,6 +21,7 @@ export type FontWeight =
   | "medium"
   | "semibold"
   | "bold"
+  | "extrabold"
   | "black";
 
 export type TypographyVariant =
