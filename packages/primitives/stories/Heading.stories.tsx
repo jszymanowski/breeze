@@ -8,9 +8,9 @@ import {
   FONT_SIZES,
   FONT_WEIGHTS,
   FONT_VARIANTS,
-  TEXT_ALIGN,
-  TEXT_TRACKING,
-} from "./options";
+  TEXT_ALIGNS,
+  TEXT_TRACKINGS,
+} from "@/types";
 import { HeadingSize } from "@/types";
 
 const meta: Meta<typeof Heading> = {
@@ -43,11 +43,11 @@ const meta: Meta<typeof Heading> = {
     },
     align: {
       control: "select",
-      options: TEXT_ALIGN,
+      options: TEXT_ALIGNS,
     },
     tracking: {
       control: "select",
-      options: TEXT_TRACKING,
+      options: TEXT_TRACKINGS,
     },
   },
 };
@@ -179,7 +179,7 @@ export const Variants: Story = {
 export const Alignments: Story = {
   render: () => (
     <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">
-      {TEXT_ALIGN.map((align, a) => (
+      {TEXT_ALIGNS.map((align, a) => (
         <Fragment key={a}>
           <Box className="col-start-1">
             <Text weight="medium" align="right">
@@ -219,7 +219,7 @@ export const Tracking: Story = {
             </Text>
           </Fragment>
         ))}
-        {TEXT_TRACKING.map((tracking, w) => (
+        {TEXT_TRACKINGS.map((tracking, w) => (
           <Fragment key={w}>
             <Text
               weight="medium"
