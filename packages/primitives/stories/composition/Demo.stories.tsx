@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Demo as DemoDashboard } from "@src/Demo";
 
 const meta: Meta = {
-  title: "Examples/Demo",
+  title: "Composition/Demo",
   parameters: {
     layout: "fullscreen",
   },
