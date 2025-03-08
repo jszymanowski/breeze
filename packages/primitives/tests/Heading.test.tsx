@@ -11,6 +11,8 @@ describe("Heading", () => {
 
     expect(element.tagName).toBe("H2"); // Default level is 2
     expect(element).toHaveClass("text-3xl"); // Default size for h2
+    expect(element).toHaveClass("font-bold"); // Default weight
+    expect(element).toHaveClass("text-foreground"); // Default variant
     expect(element).toHaveClass("tracking-normal"); // Default tracking
     expect(element).toHaveClass("font-display"); // Default family
     expect(element).toHaveClass("scroll-m-20"); // Should have scroll margin

@@ -77,14 +77,19 @@ export const Marketing: Story = {
             <Text variant="muted">Perfect for small projects</Text>
           </Box>
 
-          <Box className="bg-primary text-primary-foreground min-w-64 flex-1 rounded-lg p-6 shadow-md">
-            <Heading level="4" size="lg">
+          <Box className="bg-primary min-w-64 flex-1 rounded-lg p-6 shadow-md">
+            <Heading variant="primary" level="4" size="lg">
               Pro
             </Heading>
-            <Heading level="3" size="3xl" className="mt-2 mb-4">
+            <Heading
+              variant="primary"
+              level="3"
+              size="3xl"
+              className="mt-2 mb-4"
+            >
               $29/mo
             </Heading>
-            <Text>For growing businesses</Text>
+            <Text variant="primary">For growing businesses</Text>
           </Box>
         </Flex>
       </Box>

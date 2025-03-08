@@ -42,7 +42,7 @@
 .dark {
   /* Base */
   --background: oklch(0.14 0 0); /* neutral-950 */
-  --foreground: oklch(0.99 0 0); /* neutral-50 */
+  --foreground: oklch(0.97 0 0); /* neutral-100 */
 
   --muted: oklch(0.56 0 0); /* neutral-500 */
   --muted-foreground: oklch(0.97 0 0); /* neutral-100 */
@@ -71,7 +71,7 @@
   --destructive-foreground: oklch(0.577 0.245 27.325); /* red-600 */
 
   /* Specific elements */
-  --card: oklch(0.14 0 0); /* neutral-950 */
+  --card: oklch(0.2 0 0); /* neutral-900 */
   --card-foreground: oklch(0.97 0 0); /* neutral-100 */
 }
 
@@ -121,5 +121,5 @@
     "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 
-  --font-display: var(--font-serif);
+  --font-display: var(--font-sans);
 }
