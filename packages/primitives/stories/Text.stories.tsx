@@ -206,7 +206,7 @@ export const PolymorphicText: Story = {
       {TYPOGRAPHY_ELEMENTS.map((element, e) => (
         <Box
           key={e}
-          className="bg-card rounded-lg border-1 border-gray-300 p-1"
+          className="rounded border-1 border-dotted border-gray-300 p-1"
         >
           <Text key={e} as={element}>
             This is actually a{" "}

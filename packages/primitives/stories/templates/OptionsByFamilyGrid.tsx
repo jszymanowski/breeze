@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import { Grid, Box, Text, HeadingProps } from "@/main";
+import { Grid, Box, Text, HeadingProps, Flex } from "@/main";
 import { FONT_FAMILIES, FontFamily } from "@/types";
 
 import Code from "@stories/templates/Code";
@@ -22,7 +22,11 @@ export default function OptionsByFamilyGrid<T extends OptionTypes>({
 }: Props<T>) {
   return (
     <>
-      <Grid cols="5" gap="8" className="w-full" gapY="6">
+      <Grid
+        cols="5"
+        gapX="4"
+        className="w-full divide-y divide-dotted divide-gray-300"
+      >
         <Box />
         {FONT_FAMILIES.map((family, f) => (
           <Fragment key={f}>
@@ -33,11 +37,15 @@ export default function OptionsByFamilyGrid<T extends OptionTypes>({
         ))}
         {options.map((option, w) => (
           <Fragment key={w}>
-            <Code>
-              {propKey}="{option as string}"
-            </Code>
+            <Flex align="center" justify="end">
+              <Code>
+                {propKey}="{option as string}"
+              </Code>
+            </Flex>
             {FONT_FAMILIES.map((family, f) => (
-              <Fragment key={f}>{renderOption(family, option)}</Fragment>
+              <Flex key={f} align="center">
+                {renderOption(family, option)}
+              </Flex>
             ))}
           </Fragment>
         ))}

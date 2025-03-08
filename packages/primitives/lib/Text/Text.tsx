@@ -87,7 +87,7 @@ const Text = React.forwardRef(
             "text-info-foreground": variant === "info",
             "text-warning-foreground": variant === "warning",
             "text-destructive-foreground": variant === "destructive",
-            "text-green-600 dark:text-green-500": variant === "success", // TODO: promote this to theme
+            "text-success-foreground": variant === "success",
           },
           // Text alignment
           {
