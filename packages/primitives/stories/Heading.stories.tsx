@@ -10,7 +10,7 @@ import {
   FONT_VARIANTS,
   TEXT_ALIGN,
   TEXT_TRACKING,
-} from "./options";
+} from "@/types";
 import { HeadingSize } from "@/types";
 
 const meta: Meta<typeof Heading> = {

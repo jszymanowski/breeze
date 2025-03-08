@@ -10,7 +10,7 @@ import {
   TEXT_ALIGN,
   TEXT_LEADING,
   TYPOGRAPHY_ELEMENTS,
-} from "@stories/options";
+} from "@/types";
 
 const meta: Meta<typeof Text> = {
   title: "Primitives/Text",

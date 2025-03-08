@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Grid } from "@/main";
 
-import { CONTAINER_OPTIONS } from "@stories/options";
+import { CONTAINER_OPTIONS } from "@/types";
 
 const meta: Meta<typeof Box> = {
   title: "Primitives/Box",

@@ -8,7 +8,7 @@ import {
   CONTAINER_OPTIONS,
   GAP_OPTIONS,
   FLEX_WRAP_OPTIONS,
-} from "@stories/options";
+} from "@/types";
 
 const meta: Meta<typeof Flex> = {
   title: "Primitives/Flex",
