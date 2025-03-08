@@ -1,4 +1,4 @@
-export const CONTAINER_ELEMENTS = [
+export const LAYOUT_ELEMENTS = [
   "div",
   "span",
   "section",
@@ -9,7 +9,7 @@ export const CONTAINER_ELEMENTS = [
   "nav",
   "article",
 ] as const;
-export type ContainerElement = (typeof CONTAINER_ELEMENTS)[number];
+export type LayoutElement = (typeof LAYOUT_ELEMENTS)[number];
 
 export const TYPOGRAPHY_ELEMENTS = [
   "p",

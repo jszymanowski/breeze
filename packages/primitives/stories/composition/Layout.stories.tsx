@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Heading, Text, Flex } from "@/main";
 
 const meta: Meta = {
-  title: "Composition/Structure",
+  title: "Composition/Layout",
   parameters: {
     layout: "fullscreen",
   },
