@@ -15,14 +15,10 @@ type Story = StoryObj;
 export const Card: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Box className="bg-secondary rounded-lg p-6 shadow-md">
+      <Box className="bg-card rounded-lg p-6 shadow-md">
         <Box className="mb-4 border-b pb-4">
-          <Heading level="2" variant="secondary">
-            Card Title
-          </Heading>
-          <Text className="text-muted-foreground">
-            Card subtitle with additional information
-          </Text>
+          <Heading level="2">Card Title</Heading>
+          <Text variant="muted">Card subtitle with additional information</Text>
         </Box>
         <Box className="space-y-2">
           <Text>

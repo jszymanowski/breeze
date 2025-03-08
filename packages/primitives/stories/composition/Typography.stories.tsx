@@ -67,7 +67,7 @@ export const Marketing: Story = {
         </Heading>
 
         <Flex direction="row" gap="6" wrap="wrap">
-          <Box className="bg-muted min-w-64 flex-1 rounded-lg p-6 shadow-sm">
+          <Box className="bg-card min-w-64 flex-1 rounded-lg p-6 shadow-sm">
             <Heading level="4" size="lg">
               Basic
             </Heading>
@@ -301,7 +301,7 @@ export const Blog: Story = {
 export const Announcement: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Box className="bg-secondary max-w-3xl rounded-lg p-6 shadow-sm">
+      <Box className="bg-card max-w-3xl rounded-lg p-6 shadow-sm">
         <Text size="lg" weight="semibold" variant="default" className="mb-2">
           Product Announcement
         </Text>
