@@ -1,3 +1,4 @@
+1. [bug] CSS classes are not bundled in consuming apps
 1. Audit all variants are applied, tested, and have stories
 1. Add more options, from Tailwind:
    - [ ] stretch
