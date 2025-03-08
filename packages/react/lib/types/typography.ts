@@ -7,6 +7,7 @@ export const FONT_SIZES = [
   "xs",
   "sm",
   "base",
+  "md",
   "lg",
   "xl",
   "2xl",

@@ -61,13 +61,17 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
           {
             "text-xs": headingSize === "xs",
             "text-sm": headingSize === "sm",
-            "text-base": headingSize === "base",
+            "text-base": headingSize === "base" || headingSize === "md",
             "text-lg": headingSize === "lg",
             "text-xl": headingSize === "xl",
             "text-2xl": headingSize === "2xl",
             "text-3xl": headingSize === "3xl",
             "text-4xl": headingSize === "4xl",
             "text-5xl": headingSize === "5xl",
+            "text-6xl": headingSize === "6xl",
+            "text-7xl": headingSize === "7xl",
+            "text-8xl": headingSize === "8xl",
+            "text-9xl": headingSize === "9xl",
           },
           // Font weights
           {
