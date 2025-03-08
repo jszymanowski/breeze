@@ -1,17 +1,22 @@
 import { Fragment } from "react";
-import { Heading, Grid, Box, Text } from "@/main";
+import { Heading, Grid, Box, Text, HeadingProps } from "@/main";
 
-import { FONT_FAMILIES, TextTracking, FontVariant } from "@/types";
+import { FONT_FAMILIES } from "@/types";
 
-interface Props<T extends TextTracking | FontVariant> {
+type ValueOf<T> = T[keyof T];
+type OptionTypes = ValueOf<HeadingProps>;
+
+interface Props<T extends OptionTypes> {
   options: T[];
-  propKey: "tracking" | "variant";
+  propKey: keyof HeadingProps;
   value?: string;
 }
 
-export default function OptionsByFamilyGrid<
-  T extends TextTracking | FontVariant,
->({ options, propKey, value = "Breeze" }: Props<T>) {
+export default function OptionsByFamilyGrid<T extends OptionTypes>({
+  options,
+  propKey,
+  value = "Breeze",
+}: Props<T>) {
   return (
     <>
       <Grid cols="5" gap="8" className="w-full" gapY="6">

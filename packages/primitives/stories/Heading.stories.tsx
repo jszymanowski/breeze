@@ -12,6 +12,7 @@ import {
   TEXT_TRACKINGS,
   TextTracking,
   FontVariant,
+  FontWeight,
 } from "@/types";
 import { HeadingSize } from "@/types";
 
@@ -129,32 +130,11 @@ export const Sizes: Story = {
 export const Weights: Story = {
   render: () => (
     <>
-      <Grid cols="4" gap="8" className="w-full max-w-4xl" gapY="6">
-        {FONT_FAMILIES.map((family, f) => (
-          <Fragment key={f}>
-            <Heading family={family} align="center">
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Heading>
-          </Fragment>
-        ))}
-        {FONT_WEIGHTS.map((weight, w) =>
-          FONT_FAMILIES.map((family, f) => (
-            <Fragment key={f}>
-              <Heading
-                level="4"
-                key={w}
-                family={family}
-                weight={weight}
-                align="center"
-              >
-                {weight.charAt(0).toUpperCase() + weight.slice(1)}
-                <br />
-                1234567890
-              </Heading>
-            </Fragment>
-          ))
-        )}
-      </Grid>
+      <OptionsByFamilyGrid<FontWeight>
+        options={FONT_WEIGHTS as unknown as FontWeight[]}
+        propKey="weight"
+        value="Old Man Yells At Cloud"
+      />
       <Text variant="muted" className="mt-8">
         Note: Certain fonts may not support all weights.
       </Text>
