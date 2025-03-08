@@ -14,9 +14,11 @@ import {
   FontVariant,
   FontWeight,
   FontSize,
+  FontFamily,
 } from "@/types";
 import { HeadingSize } from "@/types";
 
+import FamilyGrid from "@stories/support/FamilyGrid";
 import OptionsByFamilyGrid from "@stories/support/OptionsByFamilyGrid";
 
 const meta: Meta<typeof Heading> = {
@@ -71,7 +73,7 @@ export const HeadingLevels: Story = {
   render: () => (
     <Flex direction="col" gap="4" className="max-w-2xl">
       {HEADING_LEVELS.map((level) => (
-        <Heading key={level} level={level as HeadingSize}>
+        <Heading key={level} level={level}>
           Heading Level {level} (h{level})
         </Heading>
       ))}
@@ -81,22 +83,13 @@ export const HeadingLevels: Story = {
 
 export const Families: Story = {
   render: () => (
-    <Grid cols="6" gap="4" className="w-full max-w-4xl" gapY="6">
-      {FONT_FAMILIES.map((family, f) => (
-        <Fragment key={f}>
-          <div className="col-start-1">
-            <Text family={family} weight="medium">
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Text>
-          </div>
-          <div className="col-start-2 -col-end-1">
-            <Heading level="4" family={family}>
-              My cat's breath smells like cat food.
-            </Heading>
-          </div>
-        </Fragment>
-      ))}
-    </Grid>
+    <FamilyGrid
+      renderOption={(family: FontFamily) => (
+        <Heading level="4" family={family}>
+          My cat's breath smells like cat food.
+        </Heading>
+      )}
+    />
   ),
 };
 
