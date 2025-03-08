@@ -99,9 +99,10 @@ describe("Heading", () => {
     const variants = {
       default: "text-foreground",
       muted: "text-muted-foreground",
-      accent: "text-primary",
-      highlight: "text-highlight",
-      destructive: "text-destructive",
+      primary: "text-primary-foreground",
+      accent: "text-accent-foreground",
+      highlight: "text-highlight-foreground",
+      destructive: "text-destructive-foreground",
     } as const;
 
     Object.entries(variants).forEach(([variant, className]) => {
@@ -221,7 +222,7 @@ describe("Heading", () => {
     expect(element.tagName).toBe("H1");
     expect(element).toHaveClass("text-5xl");
     expect(element).toHaveClass("font-extrabold");
-    expect(element).toHaveClass("text-primary");
+    expect(element).toHaveClass("text-accent-foreground");
     expect(element).toHaveClass("text-center");
     expect(element).toHaveClass("tracking-wide");
     expect(element).toHaveClass("font-serif");

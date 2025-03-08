@@ -86,6 +86,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
             "text-foreground": variant === "default",
             "text-muted-foreground": variant === "muted",
             "text-primary-foreground": variant === "primary",
+            "text-secondary-foreground": variant === "secondary",
             "text-accent-foreground": variant === "accent",
             "text-highlight-foreground": variant === "highlight",
             "text-destructive-foreground": variant === "destructive",
