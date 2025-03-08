@@ -13,6 +13,7 @@ import {
   TextTracking,
   FontVariant,
   FontWeight,
+  FontSize,
 } from "@/types";
 import { HeadingSize } from "@/types";
 
@@ -116,6 +117,24 @@ export const Sizes: Story = {
           </Flex>
         ))}
       </Flex>
+      <Text variant="muted" className="mt-8">
+        Note: Options for{" "}
+        <Text as="span" variant="muted" family="mono">
+          {FONT_SIZES.slice(6).join(", ")}
+        </Text>{" "}
+        are not displayed.
+      </Text>
+    </>
+  ),
+};
+export const Sizes2: Story = {
+  render: () => (
+    <>
+      <OptionsByFamilyGrid<FontSize>
+        options={FONT_SIZES.slice(0, 6) as unknown as FontSize[]}
+        propKey="size"
+        value="Old Man Yells At Cloud"
+      />
       <Text variant="muted" className="mt-8">
         Note: Options for{" "}
         <Text as="span" variant="muted" family="mono">
