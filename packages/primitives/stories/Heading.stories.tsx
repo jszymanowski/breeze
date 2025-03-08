@@ -1,17 +1,24 @@
-import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Heading, Flex, Grid, Box, Text } from "@/main";
+import { Heading, Flex, Text } from "@/main";
 import {
   HEADING_LEVELS,
   FONT_FAMILIES,
   FONT_SIZES,
   FONT_WEIGHTS,
-  FONT_VARIANTS,
+  TYPOGRAPHY_VARIANTS,
   TEXT_ALIGNS,
   TEXT_TRACKINGS,
+  TextTracking,
+  TypographyVariant,
+  FontWeight,
+  FontSize,
+  FontFamily,
+  TextAlign,
 } from "@/types";
-import { HeadingSize } from "@/types";
+
+import OptionList from "@root/stories/templates/OptionList";
+import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
 
 const meta: Meta<typeof Heading> = {
   title: "Primitives/Heading",
@@ -39,7 +46,7 @@ const meta: Meta<typeof Heading> = {
     },
     variant: {
       control: "select",
-      options: FONT_VARIANTS,
+      options: TYPOGRAPHY_VARIANTS,
     },
     align: {
       control: "select",
@@ -55,6 +62,16 @@ const meta: Meta<typeof Heading> = {
 export default meta;
 type Story = StoryObj<typeof Heading>;
 
+const sampleHeading = "Old Man Yells At Cloud";
+const sampleLongText =
+  " \
+  Now, to take the ferry cost a nickel, and in those days, nickels \
+  had pictures of bumblebees on 'em. Gimme five bees for a quarter, \
+  you'd say. Now where was I... oh yeah. The important thing was \
+  that I had an onion tied to my belt, which was the style at the \
+  time. You couldn't get white onions, because of the war. The only \
+  thing you could get was those big yellow ones.";
+
 export const Default: Story = {
   args: {
     children: "This is a Heading component",
@@ -65,7 +82,7 @@ export const HeadingLevels: Story = {
   render: () => (
     <Flex direction="col" gap="4" className="max-w-2xl">
       {HEADING_LEVELS.map((level) => (
-        <Heading key={level} level={level as HeadingSize}>
+        <Heading key={level} level={level}>
           Heading Level {level} (h{level})
         </Heading>
       ))}
@@ -75,42 +92,29 @@ export const HeadingLevels: Story = {
 
 export const Families: Story = {
   render: () => (
-    <Grid cols="6" gap="4" className="w-full max-w-4xl" gapY="6">
-      {FONT_FAMILIES.map((family, f) => (
-        <Fragment key={f}>
-          <div className="col-start-1">
-            <Text family={family} weight="medium">
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Text>
-          </div>
-          <div className="col-start-2 -col-end-1">
-            <Heading level="4" family={family}>
-              My cat's breath smells like cat food.
-            </Heading>
-          </div>
-        </Fragment>
-      ))}
-    </Grid>
+    <OptionList<FontFamily>
+      options={FONT_FAMILIES as unknown as FontFamily[]}
+      renderOption={(family: FontFamily) => (
+        <Heading level="4" family={family}>
+          {sampleHeading}
+        </Heading>
+      )}
+    />
   ),
 };
 
 export const Sizes: Story = {
   render: () => (
     <>
-      <Flex direction="row" gap="4" className="max-w-3xl">
-        {FONT_FAMILIES.map((family, f) => (
-          <Flex direction="col" gap="4" key={f}>
-            <Heading family={family}>
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Heading>
-            {FONT_SIZES.slice(0, 6).map((size, s) => (
-              <Heading key={s} family={family} size={size}>
-                {size.toUpperCase()}: My cat's breath smells like cat food.
-              </Heading>
-            ))}
-          </Flex>
-        ))}
-      </Flex>
+      <OptionsByFamilyGrid<FontSize>
+        options={FONT_SIZES.slice(0, 6) as unknown as FontSize[]}
+        propKey="size"
+        renderOption={(family, option) => (
+          <Heading level="4" align="center" family={family} size={option}>
+            {sampleHeading}
+          </Heading>
+        )}
+      />
       <Text variant="muted" className="mt-8">
         Note: Options for{" "}
         <Text as="span" variant="muted" family="mono">
@@ -125,32 +129,15 @@ export const Sizes: Story = {
 export const Weights: Story = {
   render: () => (
     <>
-      <Grid cols="4" gap="8" className="w-full max-w-4xl" gapY="6">
-        {FONT_FAMILIES.map((family, f) => (
-          <Fragment key={f}>
-            <Heading family={family} align="center">
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Heading>
-          </Fragment>
-        ))}
-        {FONT_WEIGHTS.map((weight, w) =>
-          FONT_FAMILIES.map((family, f) => (
-            <Fragment key={f}>
-              <Heading
-                level="4"
-                key={w}
-                family={family}
-                weight={weight}
-                align="center"
-              >
-                {weight.charAt(0).toUpperCase() + weight.slice(1)}
-                <br />
-                1234567890
-              </Heading>
-            </Fragment>
-          ))
+      <OptionsByFamilyGrid<FontWeight>
+        options={FONT_WEIGHTS as unknown as FontWeight[]}
+        propKey="weight"
+        renderOption={(family, option) => (
+          <Heading level="4" align="center" family={family} weight={option}>
+            {sampleHeading}
+          </Heading>
         )}
-      </Grid>
+      />
       <Text variant="muted" className="mt-8">
         Note: Certain fonts may not support all weights.
       </Text>
@@ -160,91 +147,44 @@ export const Weights: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <Flex direction="row" gap="4" className="max-w-3xl">
-      {FONT_FAMILIES.map((family, f) => (
-        <Flex direction="col" gap="4" key={f}>
-          <Heading family={family}>
-            {family.charAt(0).toUpperCase() + family.slice(1)}
-          </Heading>
-          {FONT_VARIANTS.slice(0, 6).map((variant, v) => (
-            <Heading level="4" key={v} family={family} variant={variant}>
-              {variant.toUpperCase()}: My cat's breath smells like cat food.
-            </Heading>
-          ))}
-        </Flex>
-      ))}
-    </Flex>
-  ),
-};
-export const Alignments: Story = {
-  render: () => (
-    <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">
-      {TEXT_ALIGNS.map((align, a) => (
-        <Fragment key={a}>
-          <Box className="col-start-1">
-            <Text weight="medium" align="right">
-              {align.charAt(0).toUpperCase() + align.slice(1)}
-            </Text>
-          </Box>
-          <Flex
-            direction="col"
-            gap="2"
-            className="col-start-2 -col-end-1 rounded border-1 border-gray-300 p-1"
-          >
-            <Heading align={align}>Old Man Yells at Cloud</Heading>
-            <Text variant="muted" align={align} size="sm">
-              Now, to take the ferry cost a nickel, and in those days, nickels
-              had pictures of bumblebees on 'em. Gimme five bees for a quarter,
-              you'd say. Now where was I... oh yeah. The important thing was
-              that I had an onion tied to my belt, which was the style at the
-              time. You couldn't get white onions, because of the war. The only
-              thing you could get was those big yellow ones.
-            </Text>
-          </Flex>
-        </Fragment>
-      ))}
-    </Grid>
+    <OptionsByFamilyGrid<TypographyVariant>
+      options={TYPOGRAPHY_VARIANTS as unknown as TypographyVariant[]}
+      propKey="variant"
+      renderOption={(family, option) => (
+        <Heading level="4" align="center" family={family} variant={option}>
+          {sampleHeading}
+        </Heading>
+      )}
+    />
   ),
 };
 
 export const Tracking: Story = {
   render: () => (
-    <>
-      <Grid cols="5" gap="8" className="w-full max-w-4xl" gapY="6">
-        <Box />
-        {FONT_FAMILIES.map((family, f) => (
-          <Fragment key={f}>
-            <Text weight="medium" align="center" variant="accent">
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Text>
-          </Fragment>
-        ))}
-        {TEXT_TRACKINGS.map((tracking, w) => (
-          <Fragment key={w}>
-            <Text
-              weight="medium"
-              align="right"
-              className="col-start-1"
-              variant="accent"
-            >
-              {tracking.charAt(0).toUpperCase() + tracking.slice(1)}
-            </Text>
-            {FONT_FAMILIES.map((family, f) => (
-              <Fragment key={f}>
-                <Heading
-                  level="4"
-                  key={w}
-                  family={family}
-                  tracking={tracking}
-                  align="center"
-                >
-                  Breeze
-                </Heading>
-              </Fragment>
-            ))}
-          </Fragment>
-        ))}
-      </Grid>
-    </>
+    <OptionsByFamilyGrid<TextTracking>
+      options={TEXT_TRACKINGS as unknown as TextTracking[]}
+      propKey="tracking"
+      renderOption={(family, option) => (
+        <Heading level="4" align="center" family={family} tracking={option}>
+          {sampleHeading}
+        </Heading>
+      )}
+    />
+  ),
+};
+
+export const Alignments: Story = {
+  render: () => (
+    <OptionList<TextAlign>
+      options={TEXT_ALIGNS as unknown as TextAlign[]}
+      renderOption={(align: TextAlign) => (
+        <>
+          <Heading align={align}>{sampleHeading}</Heading>
+          <Text variant="secondary" align={align} size="sm">
+            {sampleLongText}
+          </Text>
+        </>
+      )}
+    />
   ),
 };

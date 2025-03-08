@@ -21,7 +21,7 @@ export type FontSize = (typeof FONT_SIZES)[number];
 export const FONT_FAMILIES = ["display", "serif", "sans", "mono"] as const;
 export type FontFamily = (typeof FONT_FAMILIES)[number];
 
-export const FONT_VARIANTS = [
+export const TYPOGRAPHY_VARIANTS = [
   "default",
   "muted",
   "accent",
@@ -30,7 +30,7 @@ export const FONT_VARIANTS = [
   "destructive",
   "success",
 ] as const;
-export type TypographyVariant = (typeof FONT_VARIANTS)[number];
+export type TypographyVariant = (typeof TYPOGRAPHY_VARIANTS)[number];
 
 export const FONT_WEIGHTS = [
   "thin",
