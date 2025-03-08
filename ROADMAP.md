@@ -1,5 +1,6 @@
 1. Audit all variants are applied, tested, and have stories
 1. Clean up, finalize colors & surrounding documentation
+1. Remove defaults from typography, to enable inherited styles
 1. Rename package from `primitives` to `react`
 1. Add more options, from Tailwind:
    - [ ] stretch

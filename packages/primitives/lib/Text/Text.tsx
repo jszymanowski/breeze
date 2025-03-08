@@ -35,7 +35,7 @@ const Text = React.forwardRef(
       as,
       size = "base",
       weight = "normal",
-      variant = "default",
+      variant,
       align,
       leading = "normal",
       family = "display",

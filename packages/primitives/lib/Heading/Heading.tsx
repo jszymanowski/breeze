@@ -30,7 +30,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       level = "2",
       size,
       weight = "bold",
-      variant = "default",
+      variant,
       align,
       tracking = "normal",
       family = "display",
