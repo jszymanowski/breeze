@@ -3,15 +3,9 @@
 /* Colors are based around shadcn color schemes: https://ui.shadcn.com/colors */
 
 :root {
-  /* Base theme colors */
+  /* Base colors */
   --background: oklch(0.99 0 0); /* neutral-50 */
   --foreground: oklch(0.14 0 0); /* neutral-950 */
-
-  --primary: oklch(0.14 0 0); /* neutral-950 */
-  --primary-foreground: oklch(0.97 0 0); /* neutral-100 */
-
-  --secondary: oklch(0.97 0 0); /* neutral-100 */
-  --secondary-foreground: oklch(0.14 0 0); /* neutral-950 */
 
   --muted: oklch(0.97 0 0); /* neutral-100 */
   --muted-foreground: oklch(0.56 0 0); /* neutral-500 */
@@ -19,7 +13,15 @@
   --accent: oklch(0.97 0 0); /* neutral-100 */
   --accent-foreground: oklch(0.14 0 0); /* neutral-950 */
 
-  /* Attention-getting colors */
+  /* Action colors */
+
+  --primary: oklch(0.14 0 0); /* neutral-950 */
+  --primary-foreground: oklch(0.97 0 0); /* neutral-100 */
+
+  --secondary: oklch(0.97 0 0); /* neutral-100 */
+  --secondary-foreground: oklch(0.14 0 0); /* neutral-950 */
+
+  /* Alerts */
   --info: oklch(0.61 0.22 293); /* violet-500 */
   --info-foreground: oklch(0.61 0.22 293); /* violet-500 */
 
@@ -38,14 +40,9 @@
 }
 
 @theme inline {
+  /* Base colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
 
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
@@ -53,7 +50,14 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
 
-  /* Attention-getting colors */
+  /* Actions */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  /* Alerts */
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
 
