@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Box, Flex, Grid, Heading } from "@/main";
 import {
-  FLEX_DIRECTION_OPTIONS,
-  FLEX_ALIGN_OPTIONS,
-  FLEX_JUSTIFY_OPTIONS,
-  CONTAINER_OPTIONS,
-  GAP_OPTIONS,
-  FLEX_WRAP_OPTIONS,
+  FLEX_DIRECTIONS,
+  FLEX_ALIGNS,
+  FLEX_JUSTIFIES,
+  CONTAINER_ELEMENTS,
+  GAPS,
+  FLEX_WRAPS,
 } from "@/types";
 
 const meta: Meta<typeof Flex> = {
@@ -20,35 +20,35 @@ const meta: Meta<typeof Flex> = {
   argTypes: {
     direction: {
       control: "select",
-      options: FLEX_DIRECTION_OPTIONS,
+      options: FLEX_DIRECTIONS,
     },
     align: {
       control: "select",
-      options: FLEX_ALIGN_OPTIONS,
+      options: FLEX_ALIGNS,
     },
     justify: {
       control: "select",
-      options: FLEX_JUSTIFY_OPTIONS,
+      options: FLEX_JUSTIFIES,
     },
     wrap: {
       control: "select",
-      options: FLEX_WRAP_OPTIONS,
+      options: FLEX_WRAPS,
     },
     gap: {
       control: "select",
-      options: GAP_OPTIONS,
+      options: GAPS,
     },
     gapX: {
       control: "select",
-      options: GAP_OPTIONS,
+      options: GAPS,
     },
     gapY: {
       control: "select",
-      options: GAP_OPTIONS,
+      options: GAPS,
     },
     as: {
       control: "select",
-      options: CONTAINER_OPTIONS,
+      options: CONTAINER_ELEMENTS,
     },
   },
 };
@@ -65,7 +65,7 @@ const FlexItem = ({ children }: { children: React.ReactNode }) => (
 export const Directions: Story = {
   render: () => (
     <Grid cols="1" gap="4">
-      {FLEX_DIRECTION_OPTIONS.map((direction, i) => (
+      {FLEX_DIRECTIONS.map((direction, i) => (
         <Flex key={i} direction={direction} gap="1" className="w-full">
           <FlexItem>{direction} 1</FlexItem>
           <FlexItem>{direction} 2</FlexItem>
@@ -83,7 +83,7 @@ export const Alignments: Story = {
         flex-row
       </Heading>
       <Grid cols="2" gap="4">
-        {FLEX_ALIGN_OPTIONS.map((align, i) => (
+        {FLEX_ALIGNS.map((align, i) => (
           <Flex
             key={i}
             direction="row"
@@ -100,7 +100,7 @@ export const Alignments: Story = {
         flex-col
       </Heading>
       <Grid cols="2" gap="4">
-        {FLEX_ALIGN_OPTIONS.map((align, i) => (
+        {FLEX_ALIGNS.map((align, i) => (
           <Flex
             key={i}
             direction="col"
@@ -125,7 +125,7 @@ export const Justifications: Story = {
         flex-row
       </Heading>
       <Grid cols="2" gap="4">
-        {FLEX_JUSTIFY_OPTIONS.map((justify, i) => (
+        {FLEX_JUSTIFIES.map((justify, i) => (
           <Flex
             key={i}
             direction="row"
@@ -142,7 +142,7 @@ export const Justifications: Story = {
         flex-col
       </Heading>
       <Grid cols="2" gap="4">
-        {FLEX_JUSTIFY_OPTIONS.map((justify, i) => (
+        {FLEX_JUSTIFIES.map((justify, i) => (
           <Flex
             key={i}
             direction="col"
@@ -162,7 +162,7 @@ export const Justifications: Story = {
 export const Gap: Story = {
   render: () => (
     <Flex direction="col" gap="2" className="w-full">
-      {GAP_OPTIONS.map((gap, i) => (
+      {GAPS.map((gap, i) => (
         <Flex key={i} direction="row" gap={gap} className="w-full">
           <FlexItem>gap="{gap}"</FlexItem>
           <FlexItem>Two</FlexItem>
@@ -176,7 +176,7 @@ export const Gap: Story = {
 export const Wrapping: Story = {
   render: () => (
     <Flex direction="col" gap="8" className="w-full max-w-lg">
-      {FLEX_WRAP_OPTIONS.map((wrap, i) => (
+      {FLEX_WRAPS.map((wrap, i) => (
         <Box key={i}>
           <Heading level="4" family="mono" className="mb-2">
             wrap = "{wrap}"

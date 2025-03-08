@@ -7,8 +7,8 @@ import {
   FONT_WEIGHTS,
   FONT_SIZES,
   FONT_VARIANTS,
-  TEXT_ALIGN,
-  TEXT_LEADING,
+  TEXT_ALIGNS,
+  TEXT_LEADINGS,
   TYPOGRAPHY_ELEMENTS,
 } from "@/types";
 
@@ -38,11 +38,11 @@ const meta: Meta<typeof Text> = {
     },
     align: {
       control: "select",
-      options: TEXT_ALIGN,
+      options: TEXT_ALIGNS,
     },
     leading: {
       control: "select",
-      options: TEXT_LEADING,
+      options: TEXT_LEADINGS,
     },
     truncate: {
       control: "boolean",
@@ -162,7 +162,7 @@ export const Variants: Story = {
 export const Alignments: Story = {
   render: () => (
     <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">
-      {TEXT_ALIGN.map((align, a) => (
+      {TEXT_ALIGNS.map((align, a) => (
         <Fragment key={a}>
           <Box className="col-start-1">
             <Text weight="medium" align="right">
@@ -200,7 +200,7 @@ export const Alignments: Story = {
 export const LineHeights: Story = {
   render: () => (
     <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">
-      {TEXT_LEADING.map((leading, a) => (
+      {TEXT_LEADINGS.map((leading, a) => (
         <Fragment key={a}>
           <Box className="col-start-1">
             <Text weight="medium" align="right">

@@ -45,10 +45,10 @@ export const FONT_WEIGHTS = [
 ] as const;
 export type FontWeight = (typeof FONT_WEIGHTS)[number];
 
-export const TEXT_ALIGN = ["left", "center", "right", "justify"] as const;
-export type TextAlign = (typeof TEXT_ALIGN)[number];
+export const TEXT_ALIGNS = ["left", "center", "right", "justify"] as const;
+export type TextAlign = (typeof TEXT_ALIGNS)[number];
 
-export const TEXT_LEADING = [
+export const TEXT_LEADINGS = [
   "none",
   "tight",
   "snug",
@@ -56,9 +56,9 @@ export const TEXT_LEADING = [
   "relaxed",
   "loose",
 ] as const;
-export type TextLeading = (typeof TEXT_LEADING)[number];
+export type TextLeading = (typeof TEXT_LEADINGS)[number];
 
-export const TEXT_TRACKING = [
+export const TEXT_TRACKINGS = [
   "tighter",
   "tight",
   "normal",
@@ -66,4 +66,4 @@ export const TEXT_TRACKING = [
   "wider",
   "widest",
 ] as const;
-export type TextTracking = (typeof TEXT_TRACKING)[number];
+export type TextTracking = (typeof TEXT_TRACKINGS)[number];

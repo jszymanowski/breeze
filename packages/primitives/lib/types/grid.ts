@@ -1,4 +1,4 @@
-export const GAP_OPTIONS = [
+export const GAPS = [
   "0",
   "1",
   "2",
@@ -11,4 +11,4 @@ export const GAP_OPTIONS = [
   "12",
   "16",
 ] as const;
-export type Gap = (typeof GAP_OPTIONS)[number];
+export type Gap = (typeof GAPS)[number];
