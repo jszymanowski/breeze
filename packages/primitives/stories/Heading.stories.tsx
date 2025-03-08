@@ -103,38 +103,12 @@ export const Families: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <Flex direction="row" gap="4" className="max-w-3xl">
-        {FONT_FAMILIES.map((family, f) => (
-          <Flex direction="col" gap="4" key={f}>
-            <Heading family={family}>
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Heading>
-            {FONT_SIZES.slice(0, 6).map((size, s) => (
-              <Heading key={s} family={family} size={size}>
-                {size.toUpperCase()}: My cat's breath smells like cat food.
-              </Heading>
-            ))}
-          </Flex>
-        ))}
-      </Flex>
-      <Text variant="muted" className="mt-8">
-        Note: Options for{" "}
-        <Text as="span" variant="muted" family="mono">
-          {FONT_SIZES.slice(6).join(", ")}
-        </Text>{" "}
-        are not displayed.
-      </Text>
-    </>
-  ),
-};
-export const Sizes2: Story = {
-  render: () => (
-    <>
       <OptionsByFamilyGrid<FontSize>
         options={FONT_SIZES.slice(0, 6) as unknown as FontSize[]}
         propKey="size"
-        value="Old Man Yells At Cloud"
-      />
+      >
+        Old Man Yells At Cloud
+      </OptionsByFamilyGrid>
       <Text variant="muted" className="mt-8">
         Note: Options for{" "}
         <Text as="span" variant="muted" family="mono">
@@ -152,8 +126,9 @@ export const Weights: Story = {
       <OptionsByFamilyGrid<FontWeight>
         options={FONT_WEIGHTS as unknown as FontWeight[]}
         propKey="weight"
-        value="Old Man Yells At Cloud"
-      />
+      >
+        Old Man Yells At Cloud
+      </OptionsByFamilyGrid>
       <Text variant="muted" className="mt-8">
         Note: Certain fonts may not support all weights.
       </Text>
@@ -166,8 +141,9 @@ export const Variants: Story = {
     <OptionsByFamilyGrid<FontVariant>
       options={FONT_VARIANTS as unknown as FontVariant[]}
       propKey="variant"
-      value="Old Man Yells At Cloud"
-    />
+    >
+      Old Man Yells At Cloud
+    </OptionsByFamilyGrid>
   ),
 };
 
@@ -207,6 +183,8 @@ export const Tracking: Story = {
     <OptionsByFamilyGrid<TextTracking>
       options={TEXT_TRACKINGS as unknown as TextTracking[]}
       propKey="tracking"
-    />
+    >
+      Old Man Yells At Cloud
+    </OptionsByFamilyGrid>
   ),
 };

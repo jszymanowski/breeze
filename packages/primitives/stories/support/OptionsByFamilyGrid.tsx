@@ -17,7 +17,7 @@ type OptionTypes = ValueOf<HeadingProps>;
 interface Props<T extends OptionTypes> {
   options: T[];
   propKey: keyof HeadingProps;
-  value?: string;
+  children?: React.ReactElement | string;
 }
 
 const Code = ({ children }: TextProps) => (
@@ -37,7 +37,7 @@ const Code = ({ children }: TextProps) => (
 export default function OptionsByFamilyGrid<T extends OptionTypes>({
   options,
   propKey,
-  value = "Breeze",
+  children,
 }: Props<T>) {
   return (
     <>
@@ -64,7 +64,7 @@ export default function OptionsByFamilyGrid<T extends OptionTypes>({
                   family={family}
                   {...{ [propKey]: option }}
                 >
-                  {value}
+                  {children}
                 </Heading>
               </Fragment>
             ))}
