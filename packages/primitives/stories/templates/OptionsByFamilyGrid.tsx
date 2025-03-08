@@ -1,7 +1,9 @@
 import { Fragment } from "react";
-import { Grid, Box, Text, HeadingProps, TextProps, Flex } from "@/main";
 
+import { Grid, Box, Text, HeadingProps } from "@/main";
 import { FONT_FAMILIES, FontFamily } from "@/types";
+
+import Code from "@stories/templates/Code";
 
 type ValueOf<T> = T[keyof T];
 type OptionTypes = ValueOf<HeadingProps>;
@@ -12,20 +14,6 @@ interface Props<T extends OptionTypes> {
   renderOption: (family: FontFamily, option: T) => React.ReactNode;
   children?: React.ReactElement | string;
 }
-
-const Code = ({ children }: TextProps) => (
-  <Flex justify="end" align="center">
-    <Text
-      size="sm"
-      family="mono"
-      align="right"
-      variant="accent"
-      className="col-start-1 h-min w-min rounded bg-gray-200 px-2"
-    >
-      {children}
-    </Text>
-  </Flex>
-);
 
 export default function OptionsByFamilyGrid<T extends OptionTypes>({
   options,
