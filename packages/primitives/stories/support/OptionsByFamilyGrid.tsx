@@ -1,15 +1,7 @@
 import { Fragment } from "react";
-import {
-  Heading,
-  Grid,
-  Box,
-  Text,
-  HeadingProps,
-  TextProps,
-  Flex,
-} from "@/main";
+import { Grid, Box, Text, HeadingProps, TextProps, Flex } from "@/main";
 
-import { FONT_FAMILIES } from "@/types";
+import { FONT_FAMILIES, FontFamily } from "@/types";
 
 type ValueOf<T> = T[keyof T];
 type OptionTypes = ValueOf<HeadingProps>;
@@ -17,6 +9,7 @@ type OptionTypes = ValueOf<HeadingProps>;
 interface Props<T extends OptionTypes> {
   options: T[];
   propKey: keyof HeadingProps;
+  renderOption: (family: FontFamily, option: T) => React.ReactNode;
   children?: React.ReactElement | string;
 }
 
@@ -36,8 +29,8 @@ const Code = ({ children }: TextProps) => (
 
 export default function OptionsByFamilyGrid<T extends OptionTypes>({
   options,
+  renderOption,
   propKey,
-  children,
 }: Props<T>) {
   return (
     <>
@@ -56,17 +49,7 @@ export default function OptionsByFamilyGrid<T extends OptionTypes>({
               {propKey}="{option as string}"
             </Code>
             {FONT_FAMILIES.map((family, f) => (
-              <Fragment key={f}>
-                <Heading
-                  level="4"
-                  key={w}
-                  align="center"
-                  family={family}
-                  {...{ [propKey]: option }}
-                >
-                  {children}
-                </Heading>
-              </Fragment>
+              <Fragment key={f}>{renderOption(family, option)}</Fragment>
             ))}
           </Fragment>
         ))}

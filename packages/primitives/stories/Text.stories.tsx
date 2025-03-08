@@ -10,7 +10,15 @@ import {
   TEXT_ALIGNS,
   TEXT_LEADINGS,
   TYPOGRAPHY_ELEMENTS,
+  TextTracking,
+  FontVariant,
+  FontWeight,
+  FontSize,
+  FontFamily,
 } from "@/types";
+
+import FamilyGrid from "@stories/support/FamilyGrid";
+import OptionsByFamilyGrid from "@stories/support/OptionsByFamilyGrid";
 
 const meta: Meta<typeof Text> = {
   title: "Primitives/Text",
@@ -57,6 +65,8 @@ const meta: Meta<typeof Text> = {
 export default meta;
 type Story = StoryObj<typeof Text>;
 
+const sampleText = "My cat's breath smells like cat food.";
+
 export const Default: Story = {
   args: {
     children: "This is a Text component",
@@ -65,40 +75,26 @@ export const Default: Story = {
 
 export const Families: Story = {
   render: () => (
-    <Grid cols="6" gap="4" className="w-full max-w-4xl" gapY="6">
-      {FONT_FAMILIES.map((family, f) => (
-        <Fragment key={f}>
-          <div className="col-start-1">
-            <Text family={family} weight="medium">
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Text>
-          </div>
-          <div className="col-start-2 -col-end-1">
-            <Text family={family}>My cat's breath smells like cat food.</Text>
-          </div>
-        </Fragment>
-      ))}
-    </Grid>
+    <FamilyGrid
+      renderOption={(family: FontFamily) => (
+        <Text family={family}>{sampleText}</Text>
+      )}
+    />
   ),
 };
 
 export const Sizes: Story = {
   render: () => (
     <>
-      <Flex direction="row" gap="4" className="max-w-3xl">
-        {FONT_FAMILIES.map((family, f) => (
-          <Flex direction="col" gap="4" key={f}>
-            <Heading family={family}>
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Heading>
-            {FONT_SIZES.slice(0, 6).map((size, s) => (
-              <Text key={s} family={family} size={size}>
-                {size.toUpperCase()}: My cat's breath smells like cat food.
-              </Text>
-            ))}
-          </Flex>
-        ))}
-      </Flex>
+      <OptionsByFamilyGrid<FontSize>
+        options={FONT_SIZES.slice(0, 6) as unknown as FontSize[]}
+        propKey="size"
+        renderOption={(family, option) => (
+          <Text family={family} size={option}>
+            {sampleText}
+          </Text>
+        )}
+      />
       <Text variant="muted" className="mt-8">
         Note: Options for{" "}
         <Text as="span" variant="muted" family="mono">
@@ -113,26 +109,15 @@ export const Sizes: Story = {
 export const Weights: Story = {
   render: () => (
     <>
-      <Grid cols="4" gap="8" className="w-full max-w-4xl" gapY="6">
-        {FONT_FAMILIES.map((family, f) => (
-          <Fragment key={f}>
-            <Heading family={family} align="center">
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Heading>
-          </Fragment>
-        ))}
-        {FONT_WEIGHTS.map((weight, w) =>
-          FONT_FAMILIES.map((family, f) => (
-            <Fragment key={f}>
-              <Text key={w} family={family} weight={weight} align="center">
-                {weight.charAt(0).toUpperCase() + weight.slice(1)}
-                <br />
-                1234567890
-              </Text>
-            </Fragment>
-          ))
+      <OptionsByFamilyGrid<FontWeight>
+        options={FONT_WEIGHTS as unknown as FontWeight[]}
+        propKey="weight"
+        renderOption={(family, option) => (
+          <Text family={family} weight={option}>
+            {sampleText}
+          </Text>
         )}
-      </Grid>
+      />
       <Text variant="muted" className="mt-8">
         Note: Certain fonts may not support all weights.
       </Text>
@@ -142,20 +127,15 @@ export const Weights: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <Flex direction="row" gap="4" className="max-w-3xl">
-      {FONT_FAMILIES.map((family, f) => (
-        <Flex direction="col" gap="4" key={f}>
-          <Heading family={family}>
-            {family.charAt(0).toUpperCase() + family.slice(1)}
-          </Heading>
-          {FONT_VARIANTS.slice(0, 6).map((variant, v) => (
-            <Text key={v} family={family} variant={variant}>
-              {variant.toUpperCase()}: My cat's breath smells like cat food.
-            </Text>
-          ))}
-        </Flex>
-      ))}
-    </Flex>
+    <OptionsByFamilyGrid<FontVariant>
+      options={FONT_VARIANTS as unknown as FontVariant[]}
+      propKey="variant"
+      renderOption={(family, option) => (
+        <Text family={family} variant={option}>
+          {sampleText}
+        </Text>
+      )}
+    />
   ),
 };
 

@@ -16,7 +16,6 @@ import {
   FontSize,
   FontFamily,
 } from "@/types";
-import { HeadingSize } from "@/types";
 
 import FamilyGrid from "@stories/support/FamilyGrid";
 import OptionsByFamilyGrid from "@stories/support/OptionsByFamilyGrid";
@@ -99,9 +98,12 @@ export const Sizes: Story = {
       <OptionsByFamilyGrid<FontSize>
         options={FONT_SIZES.slice(0, 6) as unknown as FontSize[]}
         propKey="size"
-      >
-        Old Man Yells At Cloud
-      </OptionsByFamilyGrid>
+        renderOption={(family, option) => (
+          <Heading level="4" align="center" family={family} size={option}>
+            Old Man Yells At Cloud
+          </Heading>
+        )}
+      />
       <Text variant="muted" className="mt-8">
         Note: Options for{" "}
         <Text as="span" variant="muted" family="mono">
@@ -119,6 +121,11 @@ export const Weights: Story = {
       <OptionsByFamilyGrid<FontWeight>
         options={FONT_WEIGHTS as unknown as FontWeight[]}
         propKey="weight"
+        renderOption={(family, option) => (
+          <Heading level="4" align="center" family={family} weight={option}>
+            Old Man Yells At Cloud
+          </Heading>
+        )}
       >
         Old Man Yells At Cloud
       </OptionsByFamilyGrid>
@@ -134,6 +141,27 @@ export const Variants: Story = {
     <OptionsByFamilyGrid<FontVariant>
       options={FONT_VARIANTS as unknown as FontVariant[]}
       propKey="variant"
+      renderOption={(family, option) => (
+        <Heading level="4" align="center" family={family} variant={option}>
+          Old Man Yells At Cloud
+        </Heading>
+      )}
+    >
+      Old Man Yells At Cloud
+    </OptionsByFamilyGrid>
+  ),
+};
+
+export const Tracking: Story = {
+  render: () => (
+    <OptionsByFamilyGrid<TextTracking>
+      options={TEXT_TRACKINGS as unknown as TextTracking[]}
+      propKey="tracking"
+      renderOption={(family, option) => (
+        <Heading level="4" align="center" family={family} tracking={option}>
+          Old Man Yells At Cloud
+        </Heading>
+      )}
     >
       Old Man Yells At Cloud
     </OptionsByFamilyGrid>
@@ -168,16 +196,5 @@ export const Alignments: Story = {
         </Fragment>
       ))}
     </Grid>
-  ),
-};
-
-export const Tracking: Story = {
-  render: () => (
-    <OptionsByFamilyGrid<TextTracking>
-      options={TEXT_TRACKINGS as unknown as TextTracking[]}
-      propKey="tracking"
-    >
-      Old Man Yells At Cloud
-    </OptionsByFamilyGrid>
   ),
 };
