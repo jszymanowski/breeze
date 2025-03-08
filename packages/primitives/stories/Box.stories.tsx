@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Grid } from "@/main";
+import { Box, Grid, Heading } from "@/main";
 
 import { LAYOUT_ELEMENTS } from "@/types";
 
@@ -30,16 +30,18 @@ export const Default: Story = {
 
 export const StyleExamples: Story = {
   render: () => (
-    <Grid cols="2" gap="4">
-      <Box className="p-4">with padding</Box>
-      <Box className="bg-purple-200 p-4">with background</Box>
-      <Box className="bg-gray-800 p-4 text-gray-100">with dark background</Box>
-      <Box className="rounded-md bg-gray-200 p-4">with rounded edges</Box>
+    <Grid cols="2" gap="4" className="m-4">
+      <Box className="border-1 border-dashed border-gray-200 p-4">padding</Box>
+      <Box className="border-1 border-dashed border-gray-200 p-4">centered</Box>
+      <Box className="bg-muted rounded-md p-4">rounded background</Box>
       <Box className="bg-card text-card-foreground rounded-md p-4 shadow-md">
-        with shadow
+        shadow
       </Box>
       <Box className="bg-card text-card-foreground rounded-md border-1 p-4 shadow">
-        with rounded border
+        rounded border
+      </Box>
+      <Box className="bg-muted text-card-foreground rounded-md p-4 outline-2 outline-offset-2 outline-gray-300">
+        outline, background
       </Box>
     </Grid>
   ),
@@ -48,35 +50,67 @@ export const StyleExamples: Story = {
 export const BackgroundColors: Story = {
   render: () => (
     <Grid cols="2" gap="4">
-      <Box className="p-4">default</Box>
-      <Box className="bg-primary text-primary-foreground p-4">primary</Box>
-      <Box className="bg-secondary text-secondary-foreground p-4">
+      <Box className="bg-primary text-primary-foreground col-span-2 rounded p-1 text-center">
+        <Heading level="3">Base</Heading>
+      </Box>
+      <Box className="p-4 text-center">default</Box>
+      <Box className="bg-muted text-muted-foreground p-4 text-center">
+        muted
+      </Box>
+      <Box className="bg-accent text-accent-foreground p-4 text-center">
+        accent
+      </Box>
+      <Box className="bg-primary text-primary-foreground col-span-2 rounded p-1 text-center">
+        <Heading level="3">Actions</Heading>
+      </Box>
+      <Box className="bg-primary text-primary-foreground p-4 text-center">
+        primary
+      </Box>
+      <Box className="bg-secondary text-secondary-foreground p-4 text-center">
         secondary
       </Box>
-      <Box className="bg-muted text-muted-foreground p-4">muted</Box>
-      <Box className="bg-accent text-accent-foreground p-4">accent</Box>
-      <Box className="bg-highlight text-highlight-foreground p-4">
-        highlight
+      <Box className="bg-primary text-primary-foreground col-span-2 mt-4 rounded p-1 text-center">
+        <Heading level="3">Alerts</Heading>
       </Box>
-      <Box className="bg-warning text-warning-foreground p-4">warning</Box>
-      <Box className="bg-destructive text-destructive-foreground p-4">
+      <Box className="bg-info text-primary-foreground p-4 text-center">
+        info
+      </Box>
+      <Box className="bg-success text-primary-foreground p-4 text-center">
+        success
+      </Box>
+      <Box className="bg-warning text-primary-foreground p-4 text-center">
+        warning
+      </Box>
+      <Box className="bg-destructive text-primary-foreground p-4 text-center">
         destructive
       </Box>
     </Grid>
   ),
 };
 
-export const TextColors: Story = {
+export const TextForegroundColors: Story = {
   render: () => (
     <Grid cols="2" gap="4">
-      <Box className="p-4">default</Box>
-      <Box className="text-primary p-4">primary</Box>
-      <Box className="text-secondary p-4">secondary</Box>
-      <Box className="text-muted p-4">muted</Box>
-      <Box className="text-accent p-4">accent</Box>
-      <Box className="text-highlight p-4">highlight</Box>
-      <Box className="text-warning p-4">warning</Box>
-      <Box className="text-destructive p-4">destructive</Box>
+      <Box className="bg-primary text-primary-foreground col-span-2 rounded p-1 text-center">
+        <Heading level="3">Base</Heading>
+      </Box>
+      <Box className="text-foreground p-4 text-center">default</Box>
+      <Box className="text-muted-foreground p-4 text-center">muted</Box>
+      <Box className="text-accent-foreground p-4 text-center">accent</Box>
+      <Box className="bg-primary text-primary-foreground col-span-2 rounded p-1 text-center">
+        <Heading level="3">Actions</Heading>
+      </Box>
+      <Box className="text-primary-foreground p-4 text-center">primary</Box>
+      <Box className="text-secondary-foreground p-4 text-center">secondary</Box>
+      <Box className="bg-primary text-primary-foreground col-span-2 mt-4 rounded p-1 text-center">
+        <Heading level="3">Alerts</Heading>
+      </Box>
+      <Box className="text-info-foreground p-4 text-center">info</Box>
+      <Box className="text-success-foreground p-4 text-center">success</Box>
+      <Box className="text-warning-foreground p-4 text-center">warning</Box>
+      <Box className="text-destructive-foreground p-4 text-center">
+        destructive
+      </Box>
     </Grid>
   ),
 };

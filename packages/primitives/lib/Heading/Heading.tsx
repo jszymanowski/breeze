@@ -29,7 +29,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       className,
       level = "2",
       size,
-      weight = "bold",
+      weight,
       variant,
       align,
       tracking = "normal",
@@ -88,7 +88,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
             "text-primary-foreground": variant === "primary",
             "text-secondary-foreground": variant === "secondary",
             "text-accent-foreground": variant === "accent",
-            "text-highlight-foreground": variant === "highlight",
+            "text-info-foreground": variant === "info",
             "text-destructive-foreground": variant === "destructive",
           },
           // Text alignment

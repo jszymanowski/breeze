@@ -4,7 +4,7 @@ import type { Decorator, Preview } from "@storybook/react";
 import "@src/index.css";
 
 const withStage: Decorator = (Story) => (
-  <div className="bg-white p-1 outline-2 outline-gray-200">
+  <div className="bg-background p-1 outline-2 outline-gray-200">
     <Story />
   </div>
 );

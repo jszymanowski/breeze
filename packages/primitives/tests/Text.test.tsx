@@ -70,8 +70,8 @@ describe("Text", () => {
       muted: "text-muted-foreground",
       accent: "text-accent-foreground",
       destructive: "text-destructive-foreground",
-      highlight: "text-highlight-foreground",
-      success: "text-green-600 dark:text-green-500",
+      info: "text-info-foreground",
+      success: "text-success-foreground",
     } as Record<TypographyVariant, string>;
 
     Object.entries(variants).forEach(([variant, className]) => {
@@ -80,13 +80,7 @@ describe("Text", () => {
       );
       const element = screen.getByText(`Variant ${variant}`);
 
-      // For success variant, we need to check for individual classes
-      // TODO: ugh, this is a bit of a mess
-      if (variant === "success") {
-        expect(element).toHaveClass("text-green-600");
-      } else {
-        expect(element).toHaveClass(className);
-      }
+      expect(element).toHaveClass(className);
 
       rerender(<></>);
     });
