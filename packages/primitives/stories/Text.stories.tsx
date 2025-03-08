@@ -1,7 +1,6 @@
-import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Box, Flex, Grid, Text } from "@/main";
+import { Box, Grid, Text } from "@/main";
 import {
   FONT_FAMILIES,
   FONT_WEIGHTS,
@@ -15,6 +14,7 @@ import {
   FontSize,
   FontFamily,
   TextLeading,
+  TextAlign,
 } from "@/types";
 
 import OptionList from "@root/stories/templates/OptionList";
@@ -156,39 +156,18 @@ export const Variants: Story = {
 
 export const Alignments: Story = {
   render: () => (
-    <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">
-      {TEXT_ALIGNS.map((align, a) => (
-        <Fragment key={a}>
-          <Box className="col-start-1">
-            <Text weight="medium" align="right">
-              {align.charAt(0).toUpperCase() + align.slice(1)}
+    <OptionList<TextAlign>
+      options={TEXT_ALIGNS as unknown as TextAlign[]}
+      renderOption={(align: TextAlign) => (
+        <>
+          {longSampleText.map((text, t) => (
+            <Text align={align} size="sm" key={t}>
+              {text}
             </Text>
-          </Box>
-          <Flex
-            direction="col"
-            gap="4"
-            className="col-start-2 -col-end-1 rounded border-1 border-gray-300 p-1"
-          >
-            <Text align={align} size="sm">
-              We can't bust heads like we used to. But we have our ways. One
-              trick is to tell stories that don't go anywhere. Like the time I
-              caught the ferry to Shelbyville. I needed a new heel for m'shoe.
-              So I decided to go to Morganville, which is what they called
-              Shelbyville in those days. So I tied an onion to my belt. Which
-              was the style at the time.
-            </Text>
-            <Text align={align} size="sm">
-              Now, to take the ferry cost a nickel, and in those days, nickels
-              had pictures of bumblebees on 'em. Gimme five bees for a quarter,
-              you'd say. Now where was I... oh yeah. The important thing was
-              that I had an onion tied to my belt, which was the style at the
-              time. You couldn't get white onions, because of the war. The only
-              thing you could get was those big yellow ones.
-            </Text>
-          </Flex>
-        </Fragment>
-      ))}
-    </Grid>
+          ))}
+        </>
+      )}
+    />
   ),
 };
 
