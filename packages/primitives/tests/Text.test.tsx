@@ -12,7 +12,6 @@ describe("Text", () => {
     expect(element.tagName).toBe("P");
     expect(element).toHaveClass("text-base");
     expect(element).toHaveClass("font-normal");
-    expect(element).toHaveClass("text-foreground");
     expect(element).toHaveClass("leading-normal");
     expect(element).toHaveClass("font-display");
   });

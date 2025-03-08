@@ -12,7 +12,6 @@ describe("Heading", () => {
     expect(element.tagName).toBe("H2"); // Default level is 2
     expect(element).toHaveClass("text-3xl"); // Default size for h2
     expect(element).toHaveClass("font-bold"); // Default weight
-    expect(element).toHaveClass("text-foreground"); // Default variant
     expect(element).toHaveClass("tracking-normal"); // Default tracking
     expect(element).toHaveClass("font-display"); // Default family
     expect(element).toHaveClass("scroll-m-20"); // Should have scroll margin
@@ -99,9 +98,10 @@ describe("Heading", () => {
     const variants = {
       default: "text-foreground",
       muted: "text-muted-foreground",
-      accent: "text-primary",
-      highlight: "text-highlight",
-      destructive: "text-destructive",
+      primary: "text-primary-foreground",
+      accent: "text-accent-foreground",
+      highlight: "text-highlight-foreground",
+      destructive: "text-destructive-foreground",
     } as const;
 
     Object.entries(variants).forEach(([variant, className]) => {
@@ -221,7 +221,7 @@ describe("Heading", () => {
     expect(element.tagName).toBe("H1");
     expect(element).toHaveClass("text-5xl");
     expect(element).toHaveClass("font-extrabold");
-    expect(element).toHaveClass("text-primary");
+    expect(element).toHaveClass("text-accent-foreground");
     expect(element).toHaveClass("text-center");
     expect(element).toHaveClass("tracking-wide");
     expect(element).toHaveClass("font-serif");

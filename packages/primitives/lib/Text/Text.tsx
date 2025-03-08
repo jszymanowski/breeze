@@ -35,7 +35,7 @@ const Text = React.forwardRef(
       as,
       size = "base",
       weight = "normal",
-      variant = "default",
+      variant,
       align,
       leading = "normal",
       family = "display",
@@ -81,6 +81,7 @@ const Text = React.forwardRef(
           // Text colors
           {
             "text-foreground": variant === "default",
+            "text-primary-foreground": variant === "primary",
             "text-muted-foreground": variant === "muted",
             "text-accent-foreground": variant === "accent",
             "text-highlight-foreground": variant === "highlight",

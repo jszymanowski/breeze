@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Heading, Flex, Box, Text } from "@/main";
 
 const meta: Meta = {
-  title: "Examples/Typography",
+  title: "Composition/Typography",
   parameters: {
     layout: "fullscreen",
   },
@@ -12,7 +12,7 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const RealWorldExamples: Story = {
+export const Marketing: Story = {
   render: () => (
     <Flex direction="col" gap="12" className="max-w-3xl">
       <Box className="space-y-6">
@@ -92,7 +92,7 @@ export const RealWorldExamples: Story = {
   ),
 };
 
-export const TypographyHierarchy: Story = {
+export const Documentation: Story = {
   render: () => (
     <Box className="max-w-3xl space-y-12">
       <Box className="space-y-2">
@@ -137,10 +137,13 @@ export const TypographyHierarchy: Story = {
             <Heading level="5" size="base">
               System Requirements
             </Heading>
-            <Text>
-              - Operating System: Windows 10+, macOS 10.15+, or Linux - Memory:
-              4GB RAM minimum, 8GB recommended - Storage: 1GB of available space
-            </Text>
+            <ul>
+              <Text as="li">
+                Operating System: Windows 10+, macOS 10.15+, or Linux
+              </Text>
+              <Text as="li">Memory: 4GB RAM minimum, 8GB recommended</Text>
+              <Text as="li">Storage: 1GB of available space</Text>
+            </ul>
 
             <Heading level="6" size="sm" weight="medium">
               Optional Dependencies
@@ -153,7 +156,7 @@ export const TypographyHierarchy: Story = {
   ),
 };
 
-export const LandingPageHeadlines: Story = {
+export const LandingPage: Story = {
   render: () => (
     <Flex direction="col" gap="16" className="max-w-3xl">
       <Box className="space-y-6 text-center">
@@ -226,7 +229,7 @@ export const LandingPageHeadlines: Story = {
   ),
 };
 
-export const BlogArticle: Story = {
+export const Blog: Story = {
   render: () => (
     <Box className="max-w-2xl space-y-8">
       <Box className="space-y-2">
@@ -290,10 +293,10 @@ export const BlogArticle: Story = {
   ),
 };
 
-export const CombinedExamples: Story = {
+export const Announcement: Story = {
   render: () => (
-    <Flex direction="col" gap="6" className="max-w-3xl">
-      <Box className="bg-card rounded-lg p-6 shadow-sm">
+    <Flex direction="col" align="center" justify="center" className="h-screen">
+      <Box className="bg-card max-w-3xl rounded-lg p-6 shadow-sm">
         <Text size="lg" weight="semibold" variant="default" className="mb-2">
           Product Announcement
         </Text>
@@ -312,8 +315,14 @@ export const CombinedExamples: Story = {
           Read the full announcement →
         </Text>
       </Box>
+    </Flex>
+  ),
+};
 
-      <Box className="bg-destructive/10 rounded-lg p-6">
+export const Notice: Story = {
+  render: () => (
+    <Flex direction="col" align="center" justify="center" className="h-screen">
+      <Box className="bg-destructive/10 max-w-3xl rounded-lg p-6">
         <Text weight="semibold" variant="destructive" className="mb-2">
           Important Notice
         </Text>
@@ -323,8 +332,14 @@ export const CombinedExamples: Story = {
           interruption.
         </Text>
       </Box>
+    </Flex>
+  ),
+};
 
-      <Box className="bg-muted rounded-lg p-6">
+export const Testimonial: Story = {
+  render: () => (
+    <Flex direction="col" align="center" justify="center" className="h-screen">
+      <Box className="bg-muted max-w-3xl rounded-lg p-6">
         <Text align="center" weight="bold" className="mb-4">
           Testimonials
         </Text>

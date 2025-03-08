@@ -5,7 +5,7 @@ import {
   FLEX_DIRECTIONS,
   FLEX_ALIGNS,
   FLEX_JUSTIFIES,
-  CONTAINER_ELEMENTS,
+  LAYOUT_ELEMENTS,
   GAPS,
   FLEX_WRAPS,
 } from "@/types";
@@ -48,7 +48,7 @@ const meta: Meta<typeof Flex> = {
     },
     as: {
       control: "select",
-      options: CONTAINER_ELEMENTS,
+      options: LAYOUT_ELEMENTS,
     },
   },
 };
