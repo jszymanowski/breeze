@@ -19,7 +19,8 @@ const preview: Preview = {
       themes: {
         light: "",
         dark: "dark",
-        slate: "slate-dark",
+        slateLight: "slate-light",
+        slateDark: "slate-dark",
       },
       defaultTheme: "light",
       parentSelector: "html",
