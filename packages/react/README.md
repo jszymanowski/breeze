@@ -1,6 +1,10 @@
-# Breeze (React)
+# Breeze React
 
 _Primitive React components, built with Tailwind CSS_
+
+**Resources**
+
+- [Changelog](CHANGELOG.md)
 
 ## Usage
 
