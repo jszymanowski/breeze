@@ -30,16 +30,18 @@ export const Default: Story = {
 
 export const StyleExamples: Story = {
   render: () => (
-    <Grid cols="2" gap="4">
-      <Box className="p-4">with padding</Box>
-      <Box className="bg-purple-200 p-4">with background</Box>
-      <Box className="bg-gray-800 p-4 text-gray-100">with dark background</Box>
-      <Box className="rounded-md bg-gray-200 p-4">with rounded edges</Box>
+    <Grid cols="2" gap="4" className="m-4">
+      <Box className="border-1 border-dashed border-gray-200 p-4">padding</Box>
+      <Box className="border-1 border-dashed border-gray-200 p-4">centered</Box>
+      <Box className="bg-muted rounded-md p-4">rounded background</Box>
       <Box className="bg-card text-card-foreground rounded-md p-4 shadow-md">
-        with shadow
+        shadow
       </Box>
       <Box className="bg-card text-card-foreground rounded-md border-1 p-4 shadow">
-        with rounded border
+        rounded border
+      </Box>
+      <Box className="bg-muted text-card-foreground rounded-md p-4 outline-2 outline-offset-2 outline-gray-300">
+        outline, background
       </Box>
     </Grid>
   ),
@@ -48,18 +50,26 @@ export const StyleExamples: Story = {
 export const BackgroundColors: Story = {
   render: () => (
     <Grid cols="2" gap="4">
-      <Box className="p-4">default</Box>
-      <Box className="bg-primary text-primary-foreground p-4">primary</Box>
-      <Box className="bg-secondary text-secondary-foreground p-4">
+      <Box className="p-4 text-center">default</Box>
+      <Box className="bg-muted text-muted-foreground p-4 text-center">
+        muted
+      </Box>
+      <Box className="bg-primary text-primary-foreground p-4 text-center">
+        primary
+      </Box>
+      <Box className="bg-secondary text-secondary-foreground p-4 text-center">
         secondary
       </Box>
-      <Box className="bg-muted text-muted-foreground p-4">muted</Box>
-      <Box className="bg-accent text-accent-foreground p-4">accent</Box>
-      <Box className="bg-highlight text-highlight-foreground p-4">
+      <Box className="bg-accent text-accent-foreground p-4 text-center">
+        accent
+      </Box>
+      <Box className="bg-highlight text-highlight-foreground p-4 text-center">
         highlight
       </Box>
-      <Box className="bg-warning text-warning-foreground p-4">warning</Box>
-      <Box className="bg-destructive text-destructive-foreground p-4">
+      <Box className="bg-warning text-warning-foreground p-4 text-center">
+        warning
+      </Box>
+      <Box className="bg-destructive text-destructive-foreground p-4 text-center">
         destructive
       </Box>
     </Grid>
