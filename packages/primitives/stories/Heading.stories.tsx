@@ -1,7 +1,6 @@
-import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Heading, Flex, Grid, Box, Text } from "@/main";
+import { Heading, Flex, Text } from "@/main";
 import {
   HEADING_LEVELS,
   FONT_FAMILIES,
@@ -15,6 +14,7 @@ import {
   FontWeight,
   FontSize,
   FontFamily,
+  TextAlign,
 } from "@/types";
 
 import OptionList from "@root/stories/templates/OptionList";
@@ -62,6 +62,16 @@ const meta: Meta<typeof Heading> = {
 export default meta;
 type Story = StoryObj<typeof Heading>;
 
+const sampleHeading = "Old Man Yells At Cloud";
+const sampleLongText =
+  " \
+  Now, to take the ferry cost a nickel, and in those days, nickels \
+  had pictures of bumblebees on 'em. Gimme five bees for a quarter, \
+  you'd say. Now where was I... oh yeah. The important thing was \
+  that I had an onion tied to my belt, which was the style at the \
+  time. You couldn't get white onions, because of the war. The only \
+  thing you could get was those big yellow ones.";
+
 export const Default: Story = {
   args: {
     children: "This is a Heading component",
@@ -86,7 +96,7 @@ export const Families: Story = {
       options={FONT_FAMILIES as unknown as FontFamily[]}
       renderOption={(family: FontFamily) => (
         <Heading level="4" family={family}>
-          My cat's breath smells like cat food.
+          {sampleHeading}
         </Heading>
       )}
     />
@@ -101,7 +111,7 @@ export const Sizes: Story = {
         propKey="size"
         renderOption={(family, option) => (
           <Heading level="4" align="center" family={family} size={option}>
-            Old Man Yells At Cloud
+            {sampleHeading}
           </Heading>
         )}
       />
@@ -124,12 +134,10 @@ export const Weights: Story = {
         propKey="weight"
         renderOption={(family, option) => (
           <Heading level="4" align="center" family={family} weight={option}>
-            Old Man Yells At Cloud
+            {sampleHeading}
           </Heading>
         )}
-      >
-        Old Man Yells At Cloud
-      </OptionsByFamilyGrid>
+      />
       <Text variant="muted" className="mt-8">
         Note: Certain fonts may not support all weights.
       </Text>
@@ -144,12 +152,10 @@ export const Variants: Story = {
       propKey="variant"
       renderOption={(family, option) => (
         <Heading level="4" align="center" family={family} variant={option}>
-          Old Man Yells At Cloud
+          {sampleHeading}
         </Heading>
       )}
-    >
-      Old Man Yells At Cloud
-    </OptionsByFamilyGrid>
+    />
   ),
 };
 
@@ -160,42 +166,25 @@ export const Tracking: Story = {
       propKey="tracking"
       renderOption={(family, option) => (
         <Heading level="4" align="center" family={family} tracking={option}>
-          Old Man Yells At Cloud
+          {sampleHeading}
         </Heading>
       )}
-    >
-      Old Man Yells At Cloud
-    </OptionsByFamilyGrid>
+    />
   ),
 };
 
 export const Alignments: Story = {
   render: () => (
-    <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">
-      {TEXT_ALIGNS.map((align, a) => (
-        <Fragment key={a}>
-          <Box className="col-start-1">
-            <Text weight="medium" align="right">
-              {align.charAt(0).toUpperCase() + align.slice(1)}
-            </Text>
-          </Box>
-          <Flex
-            direction="col"
-            gap="2"
-            className="col-start-2 -col-end-1 rounded border-1 border-gray-300 p-1"
-          >
-            <Heading align={align}>Old Man Yells at Cloud</Heading>
-            <Text variant="muted" align={align} size="sm">
-              Now, to take the ferry cost a nickel, and in those days, nickels
-              had pictures of bumblebees on 'em. Gimme five bees for a quarter,
-              you'd say. Now where was I... oh yeah. The important thing was
-              that I had an onion tied to my belt, which was the style at the
-              time. You couldn't get white onions, because of the war. The only
-              thing you could get was those big yellow ones.
-            </Text>
-          </Flex>
-        </Fragment>
-      ))}
-    </Grid>
+    <OptionList<TextAlign>
+      options={TEXT_ALIGNS as unknown as TextAlign[]}
+      renderOption={(align: TextAlign) => (
+        <>
+          <Heading align={align}>{sampleHeading}</Heading>
+          <Text variant="secondary" align={align} size="sm">
+            {sampleLongText}
+          </Text>
+        </>
+      )}
+    />
   ),
 };
