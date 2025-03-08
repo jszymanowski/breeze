@@ -3,9 +3,9 @@ name: Publish to npm Registry
 on:
   push:
     tags:
-      - "primitives@*"
+      - "react@*"
     paths:
-      - "packages/primitives/**"
+      - "packages/react/**"
 
 jobs:
   build-and-publish:
@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./packages/primitives
+        working-directory: ./packages/react
 
     steps:
       - uses: actions/checkout@v4

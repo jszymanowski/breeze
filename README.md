@@ -6,7 +6,7 @@ _Primitive React components, built with Tailwind CSS_
 
 ### Distribution
 
-Published to [npm registry](https://www.npmjs.com/package/@jszymanowski/breeze).
+Published to [npm registry](https://www.npmjs.com/package/@jszymanowski/breeze-react).
 
 ### Renovate for depedency maintenance
 
