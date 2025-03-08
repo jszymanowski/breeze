@@ -84,16 +84,14 @@ export const BackgroundColors: Story = {
           Alerts
         </Heading>
       </Box>
-      <Box className="bg-info text-primary-foreground p-4 text-center">
-        info
-      </Box>
-      <Box className="bg-success text-primary-foreground p-4 text-center">
+      <Box className="bg-info text-info-foreground p-4 text-center">info</Box>
+      <Box className="bg-success text-success-foreground p-4 text-center">
         success
       </Box>
-      <Box className="bg-warning text-primary-foreground p-4 text-center">
+      <Box className="bg-warning text-warning-foreground p-4 text-center">
         warning
       </Box>
-      <Box className="bg-destructive text-primary-foreground p-4 text-center">
+      <Box className="bg-destructive text-destructive-foreground p-4 text-center">
         destructive
       </Box>
     </Grid>
