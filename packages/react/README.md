@@ -2,6 +2,23 @@
 
 _Primitive React components, built with Tailwind CSS_
 
+## Usage
+
+### Installation
+
+When using Vite, Breeze must be included in your primary `.css` file in order to ensure the necessary CSS classes are included in the build. For more details, read the Tailwind CSS documentation on [explicitly registering sources](https://tailwindcss.com/docs/detecting-classes-in-source-files#explicitly-registering-sources).
+
+Example `index.css`:
+
+```css
+@import "tailwindcss";
+@source "../node_modules/@jszymanowski/breeze-react/dist";
+
+@layer base {
+  /* your usual CSS definitions */
+}
+```
+
 ---
 
 ### Publishing
