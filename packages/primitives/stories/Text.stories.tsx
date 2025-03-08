@@ -57,6 +57,12 @@ const meta: Meta<typeof Text> = {
 export default meta;
 type Story = StoryObj<typeof Text>;
 
+export const Default: Story = {
+  args: {
+    children: "This is a Text component",
+  },
+};
+
 export const Families: Story = {
   render: () => (
     <Grid cols="6" gap="4" className="w-full max-w-4xl" gapY="6">
@@ -221,7 +227,6 @@ export const LineHeights: Story = {
   ),
 };
 
-// Truncate example
 export const Truncation: Story = {
   render: () => (
     <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">
@@ -270,57 +275,5 @@ export const PolymorphicText: Story = {
         </Box>
       ))}
     </Grid>
-  ),
-};
-
-export const CombinedExamples: Story = {
-  render: () => (
-    <Flex direction="col" gap="6" className="max-w-3xl">
-      <Box className="bg-card rounded-lg p-6 shadow-sm">
-        <Text size="lg" weight="semibold" variant="default" className="mb-2">
-          Product Announcement
-        </Text>
-
-        <Text variant="muted" className="mb-4">
-          Posted on March 1, 2025
-        </Text>
-
-        <Text leading="relaxed" className="mb-4">
-          We're excited to announce our new product line that will revolutionize
-          how you interact with our services. The new features include improved
-          performance, better user experience, and more customization options.
-        </Text>
-
-        <Text size="sm" variant="accent" weight="medium">
-          Read the full announcement →
-        </Text>
-      </Box>
-
-      <Box className="bg-destructive/10 rounded-lg p-6">
-        <Text weight="semibold" variant="destructive" className="mb-2">
-          Important Notice
-        </Text>
-
-        <Text variant="destructive" size="sm">
-          Your subscription will expire in 3 days. Please renew to avoid service
-          interruption.
-        </Text>
-      </Box>
-
-      <Box className="bg-muted rounded-lg p-6">
-        <Text align="center" weight="bold" className="mb-4">
-          Testimonials
-        </Text>
-
-        <Text align="center" size="sm" leading="relaxed" className="italic">
-          "This product has completely transformed our workflow. The time saved
-          has allowed our team to focus on what really matters — innovation."
-        </Text>
-
-        <Text align="center" size="xs" variant="muted" className="mt-2">
-          — Jane Doe, CEO at Example Corp
-        </Text>
-      </Box>
-    </Flex>
   ),
 };

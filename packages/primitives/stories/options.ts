@@ -134,3 +134,5 @@ export const TYPOGRAPHY_ELEMENTS: TypographyElement[] = [
   "h5",
   "h6",
 ];
+
+export const HEADING_LEVELS = ["1", "2", "3", "4", "5", "6"];

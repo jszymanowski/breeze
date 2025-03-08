@@ -3,6 +3,7 @@ import React from "react";
 import { cn } from "@/utils";
 
 import {
+  HeadingSize,
   FontSize,
   TypographyVariant,
   FontWeight,
@@ -12,7 +13,7 @@ import {
 } from "@/types";
 
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  level?: "1" | "2" | "3" | "4" | "5" | "6";
+  level?: HeadingSize;
   size?: FontSize;
   weight?: FontWeight;
   variant?: TypographyVariant;
@@ -70,11 +71,15 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
           },
           // Font weights
           {
+            "font-thin": weight === "thin",
+            "font-extralight": weight === "extralight",
+            "font-light": weight === "light",
             "font-normal": weight === "normal",
             "font-medium": weight === "medium",
             "font-semibold": weight === "semibold",
             "font-bold": weight === "bold",
             "font-extrabold": weight === "extrabold",
+            "font-black": weight === "black",
           },
           // Text colors
           {
@@ -85,7 +90,12 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
             "text-destructive": variant === "destructive",
           },
           // Text alignment
-          align && `text-${align}`,
+          {
+            "text-left": align === "left",
+            "text-center": align === "center",
+            "text-right": align === "right",
+            "text-justify": align === "justify",
+          },
           // Letter spacing
           {
             "tracking-tighter": tracking === "tighter",
