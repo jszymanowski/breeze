@@ -180,7 +180,7 @@ export const Alignments: Story = {
       renderOption={(align: TextAlign) => (
         <>
           <Heading align={align}>{sampleHeading}</Heading>
-          <Text variant="secondary" align={align} size="sm">
+          <Text variant="muted" align={align} size="sm">
             {sampleLongText}
           </Text>
         </>

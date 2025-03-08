@@ -57,7 +57,7 @@ export default meta;
 type Story = StoryObj<typeof Flex>;
 
 const FlexItem = ({ children }: { children: React.ReactNode }) => (
-  <Box as="span" className="bg-muted rounded-md p-0.5">
+  <Box as="span" className="bg-muted text-muted-foreground rounded-md p-0.5">
     {children}
   </Box>
 );
@@ -79,7 +79,7 @@ export const Directions: Story = {
 export const Alignments: Story = {
   render: () => (
     <>
-      <Heading level="4" family="mono" className="mb-2">
+      <Heading level="4" family="mono" weight="medium" className="mb-2">
         flex-row
       </Heading>
       <Grid cols="2" gap="4">
@@ -89,14 +89,14 @@ export const Alignments: Story = {
             direction="row"
             align={align}
             gap="1"
-            className="h-24 w-full min-w-[200px] rounded-md border p-2"
+            className="border-muted h-24 w-full min-w-[200px] rounded-md border p-2"
           >
             <FlexItem>{align} 1</FlexItem>
             <FlexItem>{align} 2</FlexItem>
           </Flex>
         ))}
       </Grid>
-      <Heading level="4" family="mono" className="mt-4 mb-2">
+      <Heading level="4" family="mono" weight="medium" className="mt-4 mb-2">
         flex-col
       </Heading>
       <Grid cols="2" gap="4">
@@ -106,7 +106,7 @@ export const Alignments: Story = {
             direction="col"
             align={align}
             gap="1"
-            className="h-24 w-full min-w-[200px] rounded-md border p-2"
+            className="border-muted h-24 w-full min-w-[200px] rounded-md border p-2"
           >
             <FlexItem>{align} 1</FlexItem>
             <FlexItem>{align} 2</FlexItem>
@@ -121,7 +121,7 @@ export const Alignments: Story = {
 export const Justifications: Story = {
   render: () => (
     <>
-      <Heading level="4" family="mono" className="mb-2">
+      <Heading level="4" family="mono" weight="medium" className="mb-2">
         flex-row
       </Heading>
       <Grid cols="2" gap="4">
@@ -131,14 +131,14 @@ export const Justifications: Story = {
             direction="row"
             justify={justify}
             gap="1"
-            className="w-full min-w-[200px] rounded-md border p-2"
+            className="border-muted w-full min-w-[200px] rounded-md border p-2"
           >
             <FlexItem>{justify} 1</FlexItem>
             <FlexItem>{justify} 2</FlexItem>
           </Flex>
         ))}
       </Grid>
-      <Heading level="4" family="mono" className="mt-4 mb-2">
+      <Heading level="4" family="mono" weight="medium" className="mt-4 mb-2">
         flex-col
       </Heading>
       <Grid cols="2" gap="4">
@@ -148,7 +148,7 @@ export const Justifications: Story = {
             direction="col"
             justify={justify}
             gap="1"
-            className="h-24 w-full min-w-[200px] rounded-md border p-2"
+            className="border-muted h-24 w-full min-w-[200px] rounded-md border p-2"
           >
             <FlexItem>{justify} 1</FlexItem>
             <FlexItem>{justify} 2</FlexItem>
@@ -178,7 +178,7 @@ export const Wrapping: Story = {
     <Flex direction="col" gap="8" className="w-full max-w-lg">
       {FLEX_WRAPS.map((wrap, i) => (
         <Box key={i}>
-          <Heading level="4" family="mono" className="mb-2">
+          <Heading level="4" family="mono" weight="medium" className="mb-2">
             wrap = "{wrap}"
           </Heading>
           <Flex
@@ -190,7 +190,7 @@ export const Wrapping: Story = {
             {Array.from({ length: 10 }).map((_, i) => (
               <Box
                 key={i}
-                className="bg-muted rounded-md p-4 whitespace-nowrap"
+                className="bg-muted text-muted-foreground rounded-md p-4 whitespace-nowrap"
               >
                 Item {i + 1}
               </Box>

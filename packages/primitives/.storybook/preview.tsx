@@ -19,6 +19,7 @@ const preview: Preview = {
       themes: {
         light: "",
         dark: "dark",
+        slate: "slate-dark",
       },
       defaultTheme: "light",
       parentSelector: "html",
@@ -26,10 +27,6 @@ const preview: Preview = {
   ],
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
-    backgrounds: {
-      default: "custom",
-      values: [{ name: "custom", value: "var(--color-gray-100)" }],
-    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

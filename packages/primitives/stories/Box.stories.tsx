@@ -31,9 +31,15 @@ export const Default: Story = {
 export const StyleExamples: Story = {
   render: () => (
     <Grid cols="2" gap="4" className="m-4">
-      <Box className="border-1 border-dashed border-gray-200 p-4">padding</Box>
-      <Box className="border-1 border-dashed border-gray-200 p-4">centered</Box>
-      <Box className="bg-muted rounded-md p-4">rounded background</Box>
+      <Box className="text-foreground border-1 border-dashed border-gray-200 p-4">
+        padding
+      </Box>
+      <Box className="text-foreground border-1 border-dashed border-gray-200 p-4">
+        centered
+      </Box>
+      <Box className="bg-muted text-muted-foreground rounded-md p-4">
+        rounded background
+      </Box>
       <Box className="bg-card text-card-foreground rounded-md p-4 shadow-md">
         shadow
       </Box>
@@ -55,7 +61,7 @@ export const BackgroundColors: Story = {
           Base
         </Heading>
       </Box>
-      <Box className="p-4 text-center">default</Box>
+      <Box className="text-foreground p-4 text-center">default</Box>
       <Box className="bg-muted text-muted-foreground p-4 text-center">
         muted
       </Box>
@@ -134,7 +140,7 @@ export const AlternateElements: Story = {
         <Box
           key={i}
           as={as}
-          className="rounded-md border-1 border-gray-200 p-4"
+          className="text-foreground rounded-md border-1 border-gray-200 p-4 text-center"
         >
           {"<"}
           {as}

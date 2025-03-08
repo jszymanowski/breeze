@@ -14,7 +14,7 @@ type Story = StoryObj;
 
 export const Marketing: Story = {
   render: () => (
-    <Flex direction="col" gap="12" className="max-w-3xl">
+    <Flex direction="col" gap="12" className="h-screen max-w-3xl">
       <Box className="space-y-6">
         <Heading level="1" size="5xl" weight="extrabold" tracking="tight">
           Build your next project with our primitives
@@ -99,7 +99,7 @@ export const Marketing: Story = {
 
 export const Documentation: Story = {
   render: () => (
-    <Box className="max-w-3xl space-y-12">
+    <Box className="h-screen max-w-3xl space-y-12">
       <Box className="space-y-2">
         <Heading level="1" size="5xl" weight="extrabold" tracking="tight">
           The Complete Guide
@@ -163,7 +163,7 @@ export const Documentation: Story = {
 
 export const LandingPage: Story = {
   render: () => (
-    <Flex direction="col" gap="16" className="max-w-3xl">
+    <Flex direction="col" gap="16" className="h-screen max-w-3xl">
       <Box className="space-y-6 text-center">
         <Heading level="1" size="5xl" weight="extrabold" tracking="tight">
           Transform your workflow with AI
@@ -236,7 +236,7 @@ export const LandingPage: Story = {
 
 export const Blog: Story = {
   render: () => (
-    <Box className="max-w-2xl space-y-8">
+    <Box className="h-screen max-w-2xl space-y-8">
       <Box className="space-y-2">
         <Heading level="1" size="4xl" weight="bold" tracking="tight">
           The Future of Web Development
