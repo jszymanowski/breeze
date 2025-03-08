@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Box, Flex, Grid, Text, Heading } from "@/main";
+import { Box, Flex, Grid, Text } from "@/main";
 import {
   FONT_FAMILIES,
   FONT_WEIGHTS,
@@ -10,15 +10,14 @@ import {
   TEXT_ALIGNS,
   TEXT_LEADINGS,
   TYPOGRAPHY_ELEMENTS,
-  TextTracking,
   FontVariant,
   FontWeight,
   FontSize,
   FontFamily,
 } from "@/types";
 
-import FamilyGrid from "@stories/support/FamilyGrid";
-import OptionsByFamilyGrid from "@stories/support/OptionsByFamilyGrid";
+import OptionList from "@root/stories/templates/OptionList";
+import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
 
 const meta: Meta<typeof Text> = {
   title: "Primitives/Text",
@@ -75,7 +74,8 @@ export const Default: Story = {
 
 export const Families: Story = {
   render: () => (
-    <FamilyGrid
+    <OptionList<FontFamily>
+      options={FONT_FAMILIES as unknown as FontFamily[]}
       renderOption={(family: FontFamily) => (
         <Text family={family}>{sampleText}</Text>
       )}

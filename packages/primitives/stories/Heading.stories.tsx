@@ -17,8 +17,8 @@ import {
   FontFamily,
 } from "@/types";
 
-import FamilyGrid from "@stories/support/FamilyGrid";
-import OptionsByFamilyGrid from "@stories/support/OptionsByFamilyGrid";
+import OptionList from "@root/stories/templates/OptionList";
+import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
 
 const meta: Meta<typeof Heading> = {
   title: "Primitives/Heading",
@@ -82,7 +82,8 @@ export const HeadingLevels: Story = {
 
 export const Families: Story = {
   render: () => (
-    <FamilyGrid
+    <OptionList<FontFamily>
+      options={FONT_FAMILIES as unknown as FontFamily[]}
       renderOption={(family: FontFamily) => (
         <Heading level="4" family={family}>
           My cat's breath smells like cat food.
