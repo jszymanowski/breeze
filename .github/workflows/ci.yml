@@ -5,16 +5,16 @@ on:
     branches:
       - main
     paths:
-      - "packages/primitives/**"
+      - "packages/react/**"
 
 jobs:
-  primitives-ci:
+  react-ci:
     runs-on: self-hosted
     timeout-minutes: 2
 
     defaults:
       run:
-        working-directory: ./packages/primitives
+        working-directory: ./packages/react
 
     strategy:
       matrix:

@@ -1,5 +1,4 @@
 1. Audit all variants are applied, tested, and have stories
-1. Rename package from `primitives` to `react`
 1. Add more options, from Tailwind:
    - [ ] stretch
    - [ ] numeric variants

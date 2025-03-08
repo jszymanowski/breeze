@@ -1,4 +1,4 @@
-# Breeze Primitives
+# Breeze (React)
 
 _Primitive React components, built with Tailwind CSS_
 
@@ -16,6 +16,6 @@ git push && git push --tags
 Manual:
 
 ```bash
-git tag primitives@0.1.6
-git push origin primitives@0.1.6
+git tag react@0.4.1
+git push origin react@0.4.1
 ```
