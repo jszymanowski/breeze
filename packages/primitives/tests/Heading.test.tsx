@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
 import { Heading } from "@/main";
-import { FontWeight, TypographyVariant } from "@/types";
+import { FontWeight, FontVariant } from "@/types";
 
 describe("Heading", () => {
   it("renders with default props", () => {
@@ -106,9 +106,7 @@ describe("Heading", () => {
 
     Object.entries(variants).forEach(([variant, className]) => {
       const { rerender } = render(
-        <Heading variant={variant as TypographyVariant}>
-          Variant {variant}
-        </Heading>
+        <Heading variant={variant as FontVariant}>Variant {variant}</Heading>
       );
       const element = screen.getByText(`Variant ${variant}`);
       expect(element).toHaveClass(className);

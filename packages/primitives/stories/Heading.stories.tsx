@@ -11,6 +11,7 @@ import {
   TEXT_ALIGNS,
   TEXT_TRACKINGS,
   TextTracking,
+  FontVariant,
 } from "@/types";
 import { HeadingSize } from "@/types";
 
@@ -163,22 +164,14 @@ export const Weights: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <Flex direction="row" gap="4" className="max-w-3xl">
-      {FONT_FAMILIES.map((family, f) => (
-        <Flex direction="col" gap="4" key={f}>
-          <Heading family={family}>
-            {family.charAt(0).toUpperCase() + family.slice(1)}
-          </Heading>
-          {FONT_VARIANTS.slice(0, 6).map((variant, v) => (
-            <Heading level="4" key={v} family={family} variant={variant}>
-              {variant.toUpperCase()}: My cat's breath smells like cat food.
-            </Heading>
-          ))}
-        </Flex>
-      ))}
-    </Flex>
+    <OptionsByFamilyGrid<FontVariant>
+      options={FONT_VARIANTS as unknown as FontVariant[]}
+      propKey="variant"
+      value="Old Man Yells At Cloud"
+    />
   ),
 };
+
 export const Alignments: Story = {
   render: () => (
     <Grid cols="12" gap="4" className="w-full max-w-4xl" gapY="6">

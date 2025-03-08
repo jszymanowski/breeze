@@ -30,7 +30,7 @@ export const FONT_VARIANTS = [
   "destructive",
   "success",
 ] as const;
-export type TypographyVariant = (typeof FONT_VARIANTS)[number];
+export type FontVariant = (typeof FONT_VARIANTS)[number];
 
 export const FONT_WEIGHTS = [
   "thin",
