@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Box, Grid, Text } from "@/main";
+import { Flex, Grid, Text } from "@/main";
 import {
   FONT_FAMILIES,
   FONT_WEIGHTS,
@@ -204,18 +204,18 @@ export const PolymorphicText: Story = {
   render: () => (
     <Grid cols="2" gap="2" className="w-full max-w-4xl">
       {TYPOGRAPHY_ELEMENTS.map((element, e) => (
-        <Box
-          key={e}
-          className="rounded border-1 border-dotted border-gray-300 p-1"
-        >
-          <Text key={e} as={element}>
-            This is actually a{" "}
-            <Text as="span" family="mono">
-              {element}
-            </Text>{" "}
-            element.
+        <Flex key={e} justify="center" className="w-16 p-1">
+          <Text
+            key={e}
+            as={element}
+            align="center"
+            className="border-accent rounded border-1 border-dotted"
+          >
+            {"<"}
+            {element}
+            {">"}
           </Text>
-        </Box>
+        </Flex>
       ))}
     </Grid>
   ),

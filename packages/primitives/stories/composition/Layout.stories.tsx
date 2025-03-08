@@ -16,7 +16,7 @@ export const Card: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
       <Box className="bg-card rounded-lg p-6 shadow-md">
-        <Box className="mb-4 border-b pb-4">
+        <Box className="border-muted mb-4 border-b pb-4">
           <Heading level="2">Card Title</Heading>
           <Text variant="muted">Card subtitle with additional information</Text>
         </Box>
@@ -30,7 +30,7 @@ export const Card: Story = {
           </Text>
           <Text>Each Box can have its own styling and purpose.</Text>
         </Box>
-        <Box className="mt-4 flex justify-end border-t pt-4">
+        <Box className="border-muted mt-4 flex justify-end border-t pt-4">
           <button className="bg-primary text-primary-foreground rounded-md px-4 py-2">
             Action
           </button>
@@ -54,7 +54,7 @@ export const Contact: Story = {
           justify="between"
           className="w-full"
         >
-          <Box className="text-xl font-bold">User Profile</Box>
+          <Heading level="4">User Profile</Heading>
           <Box className="bg-primary/10 text-primary rounded-full p-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,31 +77,35 @@ export const Contact: Story = {
 
         <Flex direction="row" gap="4" className="w-full">
           <Box className="bg-primary/20 flex h-16 w-16 items-center justify-center rounded-full">
-            <Box className="text-primary text-2xl font-bold">JD</Box>
+            <Heading family="sans">JD</Heading>
           </Box>
 
           <Flex direction="col" justify="center" gap="1">
-            <Box className="font-semibold">Jane Doe</Box>
-            <Box className="text-muted-foreground text-sm">
+            <Text weight="semibold">Jane Doe</Text>
+            <Text variant="muted" size="sm">
               Product Designer
-            </Box>
+            </Text>
           </Flex>
         </Flex>
 
         <Flex direction="row" gap="4" wrap="wrap" className="w-full">
           <Flex direction="col" gap="1" className="min-w-[120px] flex-1">
-            <Box className="text-muted-foreground text-sm">Email</Box>
-            <Box className="font-medium">jane@example.com</Box>
+            <Text variant="muted" size="sm">
+              Email
+            </Text>
+            <Text weight="medium">jane@example.com</Text>
           </Flex>
 
           <Flex direction="col" gap="1" className="min-w-[120px] flex-1">
-            <Box className="text-muted-foreground text-sm">Phone</Box>
-            <Box className="font-medium">+1 (555) 123-4567</Box>
+            <Text variant="muted" size="sm">
+              Phone
+            </Text>
+            <Text weight="medium">+1 (555) 123-4567</Text>
           </Flex>
         </Flex>
 
         <Flex direction="row" gap="4" justify="end" className="w-full">
-          <button className="bg-muted text-muted-foreground rounded-md px-4 py-2">
+          <button className="bg-secondary text-secondary-foreground rounded-md px-4 py-2">
             Cancel
           </button>
           <button className="bg-primary text-primary-foreground rounded-md px-4 py-2">

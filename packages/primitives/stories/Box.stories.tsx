@@ -31,9 +31,15 @@ export const Default: Story = {
 export const StyleExamples: Story = {
   render: () => (
     <Grid cols="2" gap="4" className="m-4">
-      <Box className="border-1 border-dashed border-gray-200 p-4">padding</Box>
-      <Box className="border-1 border-dashed border-gray-200 p-4">centered</Box>
-      <Box className="bg-muted rounded-md p-4">rounded background</Box>
+      <Box className="text-foreground border-1 border-dashed border-gray-200 p-4">
+        padding
+      </Box>
+      <Box className="text-foreground border-1 border-dashed border-gray-200 p-4">
+        centered
+      </Box>
+      <Box className="bg-muted text-muted-foreground rounded-md p-4">
+        rounded background
+      </Box>
       <Box className="bg-card text-card-foreground rounded-md p-4 shadow-md">
         shadow
       </Box>
@@ -50,18 +56,22 @@ export const StyleExamples: Story = {
 export const BackgroundColors: Story = {
   render: () => (
     <Grid cols="2" gap="4">
-      <Box className="bg-primary text-primary-foreground col-span-2 rounded p-1 text-center">
-        <Heading level="3">Base</Heading>
+      <Box className="bg-primary col-span-2 rounded p-1 text-center">
+        <Heading level="3" variant="primary">
+          Base
+        </Heading>
       </Box>
-      <Box className="p-4 text-center">default</Box>
+      <Box className="text-foreground p-4 text-center">default</Box>
       <Box className="bg-muted text-muted-foreground p-4 text-center">
         muted
       </Box>
       <Box className="bg-accent text-accent-foreground p-4 text-center">
         accent
       </Box>
-      <Box className="bg-primary text-primary-foreground col-span-2 rounded p-1 text-center">
-        <Heading level="3">Actions</Heading>
+      <Box className="bg-primary col-span-2 rounded p-1 text-center">
+        <Heading level="3" variant="primary">
+          Actions
+        </Heading>
       </Box>
       <Box className="bg-primary text-primary-foreground p-4 text-center">
         primary
@@ -69,8 +79,10 @@ export const BackgroundColors: Story = {
       <Box className="bg-secondary text-secondary-foreground p-4 text-center">
         secondary
       </Box>
-      <Box className="bg-primary text-primary-foreground col-span-2 mt-4 rounded p-1 text-center">
-        <Heading level="3">Alerts</Heading>
+      <Box className="bg-primary col-span-2 mt-4 rounded p-1 text-center">
+        <Heading level="3" variant="primary">
+          Alerts
+        </Heading>
       </Box>
       <Box className="bg-info text-primary-foreground p-4 text-center">
         info
@@ -92,18 +104,24 @@ export const TextForegroundColors: Story = {
   render: () => (
     <Grid cols="2" gap="4">
       <Box className="bg-primary text-primary-foreground col-span-2 rounded p-1 text-center">
-        <Heading level="3">Base</Heading>
+        <Heading level="3" variant="primary">
+          Base
+        </Heading>
       </Box>
       <Box className="text-foreground p-4 text-center">default</Box>
       <Box className="text-muted-foreground p-4 text-center">muted</Box>
       <Box className="text-accent-foreground p-4 text-center">accent</Box>
       <Box className="bg-primary text-primary-foreground col-span-2 rounded p-1 text-center">
-        <Heading level="3">Actions</Heading>
+        <Heading level="3" variant="primary">
+          Actions
+        </Heading>
       </Box>
       <Box className="text-primary-foreground p-4 text-center">primary</Box>
       <Box className="text-secondary-foreground p-4 text-center">secondary</Box>
       <Box className="bg-primary text-primary-foreground col-span-2 mt-4 rounded p-1 text-center">
-        <Heading level="3">Alerts</Heading>
+        <Heading level="3" variant="primary">
+          Alerts
+        </Heading>
       </Box>
       <Box className="text-info-foreground p-4 text-center">info</Box>
       <Box className="text-success-foreground p-4 text-center">success</Box>
@@ -122,7 +140,7 @@ export const AlternateElements: Story = {
         <Box
           key={i}
           as={as}
-          className="rounded-md border-1 border-gray-200 p-4"
+          className="text-foreground rounded-md border-1 border-gray-200 p-4 text-center"
         >
           {"<"}
           {as}

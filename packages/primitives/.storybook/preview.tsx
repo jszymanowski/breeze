@@ -1,22 +1,33 @@
 import React from "react";
-import type { Decorator, Preview } from "@storybook/react";
+import type { Preview } from "@storybook/react";
+import { withThemeByClassName } from "@storybook/addon-themes";
+
+import ThemeProvider from "../src/context/ThemeProvider";
 
 import "@src/index.css";
 
-const withStage: Decorator = (Story) => (
-  <div className="bg-background p-1 outline-2 outline-gray-200">
-    <Story />
-  </div>
-);
-
 const preview: Preview = {
-  decorators: [withStage],
+  decorators: [
+    (Story) => (
+      <ThemeProvider defaultTheme="light" storageKey="breeze-storybook-theme">
+        <div className="bg-background p-1 outline-2 outline-gray-200">
+          <Story />
+        </div>
+      </ThemeProvider>
+    ),
+    withThemeByClassName({
+      themes: {
+        light: "",
+        dark: "dark",
+        slateLight: "slate-light",
+        slateDark: "slate-dark",
+      },
+      defaultTheme: "light",
+      parentSelector: "html",
+    }),
+  ],
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
-    backgrounds: {
-      default: "custom",
-      values: [{ name: "custom", value: "var(--color-gray-100)" }],
-    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
