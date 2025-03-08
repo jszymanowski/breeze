@@ -70,7 +70,7 @@ describe("Text", () => {
       muted: "text-muted-foreground",
       accent: "text-accent-foreground",
       destructive: "text-destructive-foreground",
-      highlight: "text-highlight-foreground",
+      info: "text-info-foreground",
       success: "text-green-600 dark:text-green-500",
     } as Record<TypographyVariant, string>;
 

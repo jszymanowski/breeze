@@ -100,7 +100,7 @@ describe("Heading", () => {
       muted: "text-muted-foreground",
       primary: "text-primary-foreground",
       accent: "text-accent-foreground",
-      highlight: "text-highlight-foreground",
+      info: "text-info-foreground",
       destructive: "text-destructive-foreground",
     } as const;
 

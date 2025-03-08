@@ -1,33 +1,40 @@
 @import "tailwindcss";
 
+/* Colors are based around shadcn color schemes: https://ui.shadcn.com/colors */
+
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  /* Base theme colors */
+  --background: oklch(0.99 0 0); /* neutral-50 */
+  --foreground: oklch(0.14 0 0); /* neutral-950 */
 
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.14 0 0); /* neutral-950 */
+  --primary-foreground: oklch(0.97 0 0); /* neutral-100 */
 
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.97 0 0); /* neutral-100 */
+  --secondary-foreground: oklch(0.14 0 0); /* neutral-950 */
 
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
+  --muted: oklch(0.97 0 0); /* neutral-100 */
+  --muted-foreground: oklch(0.56 0 0); /* neutral-500 */
 
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --accent: oklch(0.97 0 0); /* neutral-100 */
+  --accent-foreground: oklch(0.14 0 0); /* neutral-950 */
 
-  --highlight: oklch(0.673 0.182 276.935);
-  --highlight-foreground: oklch(0.673 0.182 276.935);
+  /* Attention-getting colors */
+  --info: oklch(0.61 0.22 293); /* violet-500 */
+  --info-foreground: oklch(0.61 0.22 293); /* violet-500 */
 
-  --warning: rgb(249, 115, 22);
-  --warning-foreground: rgb(249, 115, 22);
+  --success: oklch(0.63 0.17 149); /* green-600 */
+  --success-foreground: oklch(0.63 0.17 149); /* green-600 */
 
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --warning: oklch(0.7 0.19 48); /* orange-500 */
+  --warning-foreground: oklch(0.7 0.19 48); /* orange-500 */
+
+  --destructive: oklch(0.577 0.245 27.325); /* red-600 */
+  --destructive-foreground: oklch(0.577 0.245 27.325); /* red-600 */
 
   /* Specific elements */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(0.97 0 0); /* neutral-100 */
+  --card-foreground: oklch(0.14 0 0); /* neutral-950 */
 }
 
 @theme inline {
@@ -46,8 +53,12 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
 
-  --color-highlight: var(--highlight);
-  --color-highlight-foreground: var(--highlight-foreground);
+  /* Attention-getting colors */
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
 
   --color-warning: var(--warning);
   --color-warning-foreground: var(--warning-foreground);
@@ -58,4 +69,17 @@
   /* Specific elements */
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
+  /* Typography */
+  --font-sans:
+    "Source Sans 3", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif:
+    "Source Serif 4", ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    serif;
+  --font-mono:
+    "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --font-display: var(--font-serif);
 }

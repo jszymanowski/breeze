@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Grid } from "@/main";
+import { Box, Grid, Heading } from "@/main";
 
-import { LAYOUT_ELEMENTS } from "@/types";
+import { LAYOUT_ELEMENTS, COLOR_VARIANTS } from "@/types";
 
 const meta: Meta<typeof Box> = {
   title: "Primitives/Box",
@@ -50,6 +50,9 @@ export const StyleExamples: Story = {
 export const BackgroundColors: Story = {
   render: () => (
     <Grid cols="2" gap="4">
+      <Box className="bg-primary text-primary-foreground col-span-2 rounded p-1 text-center">
+        <Heading level="3">Base</Heading>
+      </Box>
       <Box className="p-4 text-center">default</Box>
       <Box className="bg-muted text-muted-foreground p-4 text-center">
         muted
@@ -63,13 +66,19 @@ export const BackgroundColors: Story = {
       <Box className="bg-accent text-accent-foreground p-4 text-center">
         accent
       </Box>
-      <Box className="bg-highlight text-highlight-foreground p-4 text-center">
-        highlight
+      <Box className="bg-primary text-primary-foreground col-span-2 mt-4 rounded p-1 text-center">
+        <Heading level="3">Hi-vis</Heading>
       </Box>
-      <Box className="bg-warning text-warning-foreground p-4 text-center">
+      <Box className="bg-success text-primary-foreground p-4 text-center">
+        success
+      </Box>
+      <Box className="bg-info text-primary-foreground p-4 text-center">
+        info
+      </Box>
+      <Box className="bg-warning text-primary-foreground p-4 text-center">
         warning
       </Box>
-      <Box className="bg-destructive text-destructive-foreground p-4 text-center">
+      <Box className="bg-destructive text-primary-foreground p-4 text-center">
         destructive
       </Box>
     </Grid>
@@ -84,7 +93,7 @@ export const TextColors: Story = {
       <Box className="text-secondary p-4">secondary</Box>
       <Box className="text-muted p-4">muted</Box>
       <Box className="text-accent p-4">accent</Box>
-      <Box className="text-highlight p-4">highlight</Box>
+      <Box className="text-info p-4">info</Box>
       <Box className="text-warning p-4">warning</Box>
       <Box className="text-destructive p-4">destructive</Box>
     </Grid>

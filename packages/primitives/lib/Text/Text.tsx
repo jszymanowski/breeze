@@ -84,7 +84,7 @@ const Text = React.forwardRef(
             "text-primary-foreground": variant === "primary",
             "text-muted-foreground": variant === "muted",
             "text-accent-foreground": variant === "accent",
-            "text-highlight-foreground": variant === "highlight",
+            "text-info-foreground": variant === "info",
             "text-warning-foreground": variant === "warning",
             "text-destructive-foreground": variant === "destructive",
             "text-green-600 dark:text-green-500": variant === "success", // TODO: promote this to theme

@@ -23,7 +23,7 @@ export const Card: Story = {
         <Box className="space-y-2">
           <Text>
             This shows how{" "}
-            <Box as="span" className="text-highlight">
+            <Box as="span" className="text-info">
               Box components
             </Box>{" "}
             can be nested to create more complex layouts.

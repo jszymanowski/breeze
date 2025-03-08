@@ -1,3 +1,5 @@
+import { COLOR_VARIANTS } from "./color";
+
 export const HEADING_LEVELS = ["1", "2", "3", "4", "5", "6"] as const;
 export type HeadingSize = (typeof HEADING_LEVELS)[number];
 
@@ -21,17 +23,7 @@ export type FontSize = (typeof FONT_SIZES)[number];
 export const FONT_FAMILIES = ["display", "serif", "sans", "mono"] as const;
 export type FontFamily = (typeof FONT_FAMILIES)[number];
 
-export const TYPOGRAPHY_VARIANTS = [
-  "default",
-  "primary",
-  "secondary",
-  "muted",
-  "accent",
-  "highlight",
-  "warning",
-  "destructive",
-  "success",
-] as const;
+export const TYPOGRAPHY_VARIANTS = ["default", ...COLOR_VARIANTS] as const;
 export type TypographyVariant = (typeof TYPOGRAPHY_VARIANTS)[number];
 
 export const FONT_WEIGHTS = [
