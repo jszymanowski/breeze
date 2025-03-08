@@ -85,9 +85,10 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
           {
             "text-foreground": variant === "default",
             "text-muted-foreground": variant === "muted",
-            "text-primary": variant === "accent",
-            "text-highlight": variant === "highlight",
-            "text-destructive": variant === "destructive",
+            "text-primary-foreground": variant === "primary",
+            "text-accent-foreground": variant === "accent",
+            "text-highlight-foreground": variant === "highlight",
+            "text-destructive-foreground": variant === "destructive",
           },
           // Text alignment
           {

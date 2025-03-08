@@ -23,6 +23,7 @@ export type FontFamily = (typeof FONT_FAMILIES)[number];
 
 export const TYPOGRAPHY_VARIANTS = [
   "default",
+  "primary",
   "muted",
   "accent",
   "highlight",

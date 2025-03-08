@@ -40,7 +40,7 @@ export const Composition: Story = {
   ),
 };
 
-export const RealWorldExample: Story = {
+export const Card: Story = {
   render: () => (
     <Flex
       direction="col"
