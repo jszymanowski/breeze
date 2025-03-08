@@ -6,11 +6,11 @@ import {
   FONT_FAMILIES,
   FONT_SIZES,
   FONT_WEIGHTS,
-  FONT_VARIANTS,
+  TYPOGRAPHY_VARIANTS,
   TEXT_ALIGNS,
   TEXT_TRACKINGS,
   TextTracking,
-  FontVariant,
+  TypographyVariant,
   FontWeight,
   FontSize,
   FontFamily,
@@ -46,7 +46,7 @@ const meta: Meta<typeof Heading> = {
     },
     variant: {
       control: "select",
-      options: FONT_VARIANTS,
+      options: TYPOGRAPHY_VARIANTS,
     },
     align: {
       control: "select",
@@ -147,8 +147,8 @@ export const Weights: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <OptionsByFamilyGrid<FontVariant>
-      options={FONT_VARIANTS as unknown as FontVariant[]}
+    <OptionsByFamilyGrid<TypographyVariant>
+      options={TYPOGRAPHY_VARIANTS as unknown as TypographyVariant[]}
       propKey="variant"
       renderOption={(family, option) => (
         <Heading level="4" align="center" family={family} variant={option}>

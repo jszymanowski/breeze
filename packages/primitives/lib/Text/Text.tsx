@@ -4,7 +4,7 @@ import {
   FontFamily,
   FontWeight,
   TextLeading,
-  FontVariant,
+  TypographyVariant,
   TextAlign,
   FontSize,
   TypographyElement,
@@ -14,7 +14,7 @@ import { cn } from "@/utils";
 interface TextBaseProps {
   size?: FontSize;
   weight?: FontWeight;
-  variant?: FontVariant;
+  variant?: TypographyVariant;
   align?: TextAlign;
   leading?: TextLeading;
   family?: FontFamily;

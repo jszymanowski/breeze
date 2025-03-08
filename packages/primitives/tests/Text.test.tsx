@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
 import { Text } from "@/main";
-import { FontVariant } from "@/types/typography";
+import { TypographyVariant } from "@/types/typography";
 
 describe("Text", () => {
   it("renders with default props", () => {
@@ -73,7 +73,7 @@ describe("Text", () => {
       destructive: "text-destructive-foreground",
       highlight: "text-highlight-foreground",
       success: "text-green-600 dark:text-green-500",
-    } as Record<FontVariant, string>;
+    } as Record<TypographyVariant, string>;
 
     Object.entries(variants).forEach(([variant, className]) => {
       const { rerender } = render(

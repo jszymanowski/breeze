@@ -5,11 +5,11 @@ import {
   FONT_FAMILIES,
   FONT_WEIGHTS,
   FONT_SIZES,
-  FONT_VARIANTS,
+  TYPOGRAPHY_VARIANTS,
   TEXT_ALIGNS,
   TEXT_LEADINGS,
   TYPOGRAPHY_ELEMENTS,
-  FontVariant,
+  TypographyVariant,
   FontWeight,
   FontSize,
   FontFamily,
@@ -42,7 +42,7 @@ const meta: Meta<typeof Text> = {
     },
     variant: {
       control: "select",
-      options: FONT_VARIANTS,
+      options: TYPOGRAPHY_VARIANTS,
     },
     align: {
       control: "select",
@@ -66,7 +66,7 @@ export default meta;
 type Story = StoryObj<typeof Text>;
 
 const sampleText = "My cat's breath smells like cat food.";
-const longSampleText = [
+const sampleLongText = [
   "We can't bust heads like we used to. But we have our ways. One \
     trick is to tell stories that don't go anywhere. Like the time I \
     caught the ferry to Shelbyville. I needed a new heel for m'shoe. \
@@ -142,8 +142,8 @@ export const Weights: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <OptionsByFamilyGrid<FontVariant>
-      options={FONT_VARIANTS as unknown as FontVariant[]}
+    <OptionsByFamilyGrid<TypographyVariant>
+      options={TYPOGRAPHY_VARIANTS as unknown as TypographyVariant[]}
       propKey="variant"
       renderOption={(family, option) => (
         <Text family={family} variant={option}>
@@ -160,7 +160,7 @@ export const Alignments: Story = {
       options={TEXT_ALIGNS as unknown as TextAlign[]}
       renderOption={(align: TextAlign) => (
         <>
-          {longSampleText.map((text, t) => (
+          {sampleLongText.map((text, t) => (
             <Text align={align} size="sm" key={t}>
               {text}
             </Text>
@@ -177,7 +177,7 @@ export const LineHeights: Story = {
       options={TEXT_LEADINGS as unknown as TextLeading[]}
       renderOption={(leading: TextLeading) => (
         <Text leading={leading} size="sm">
-          {longSampleText[1]}
+          {sampleLongText[1]}
         </Text>
       )}
     />
@@ -193,7 +193,7 @@ export const Truncation: Story = {
       )}
       renderOption={(truncated) => (
         <Text truncate={truncated} size="sm">
-          {longSampleText[1]}
+          {sampleLongText[1]}
         </Text>
       )}
     />
