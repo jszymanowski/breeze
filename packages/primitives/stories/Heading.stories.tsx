@@ -10,8 +10,11 @@ import {
   FONT_VARIANTS,
   TEXT_ALIGNS,
   TEXT_TRACKINGS,
+  TextTracking,
 } from "@/types";
 import { HeadingSize } from "@/types";
+
+import OptionsByFamilyGrid from "@stories/support/OptionsByFamilyGrid";
 
 const meta: Meta<typeof Heading> = {
   title: "Primitives/Heading",
@@ -209,42 +212,9 @@ export const Alignments: Story = {
 
 export const Tracking: Story = {
   render: () => (
-    <>
-      <Grid cols="5" gap="8" className="w-full max-w-4xl" gapY="6">
-        <Box />
-        {FONT_FAMILIES.map((family, f) => (
-          <Fragment key={f}>
-            <Text weight="medium" align="center" variant="accent">
-              {family.charAt(0).toUpperCase() + family.slice(1)}
-            </Text>
-          </Fragment>
-        ))}
-        {TEXT_TRACKINGS.map((tracking, w) => (
-          <Fragment key={w}>
-            <Text
-              weight="medium"
-              align="right"
-              className="col-start-1"
-              variant="accent"
-            >
-              {tracking.charAt(0).toUpperCase() + tracking.slice(1)}
-            </Text>
-            {FONT_FAMILIES.map((family, f) => (
-              <Fragment key={f}>
-                <Heading
-                  level="4"
-                  key={w}
-                  family={family}
-                  tracking={tracking}
-                  align="center"
-                >
-                  Breeze
-                </Heading>
-              </Fragment>
-            ))}
-          </Fragment>
-        ))}
-      </Grid>
-    </>
+    <OptionsByFamilyGrid<TextTracking>
+      options={TEXT_TRACKINGS as unknown as TextTracking[]}
+      propKey="tracking"
+    />
   ),
 };
