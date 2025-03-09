@@ -1,4 +1,4 @@
-name: Publish Storybook to GitHub Pages
+name: Publish Storybook Docs to GitHub Pages
 
 on:
   push:
@@ -38,7 +38,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Storybook
-        run: pnpm storybook:build
+        run: pnpm storybook:build:docs
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

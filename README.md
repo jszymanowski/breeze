@@ -2,6 +2,8 @@
 
 _Primitive React components, built with Tailwind CSS_
 
+[Go to Breeze React readme](packages/react/README.md)
+
 ---
 
 ### Distribution

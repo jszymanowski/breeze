@@ -6,8 +6,15 @@ _Primitive React components, built with Tailwind CSS_
 
 **Resources**
 
+- Documentation via Storybook
+  - [Github Pages](https://jszymanowski.github.io/breeze/) - docs only
+  - [Chromatic](https://67ccefd8fafa91b1c6c38501-dubbfpsqzi.chromatic.com/) - full suite of stories
+- Development
+  - [Chromatic builds](https://www.chromatic.com/builds?appId=67ccefd8fafa91b1c6c38501)
 - [Changelog](CHANGELOG.md)
 - [Roadmap](ROADMAP.md)
+
+---
 
 ## Usage
 
