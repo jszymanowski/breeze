@@ -37,14 +37,6 @@ const meta: Meta<typeof Heading> = {
         type: { summary: HEADING_LEVELS.join(" | ") },
       },
     },
-    family: {
-      control: "select",
-      options: [null, undefined, ...FONT_FAMILIES],
-      description: "Controls the font family",
-      table: {
-        type: { summary: FONT_FAMILIES.join(" | ") },
-      },
-    },
     size: {
       control: "select",
       options: [null, undefined, ...FONT_SIZES],
@@ -52,6 +44,14 @@ const meta: Meta<typeof Heading> = {
         "Controls font size on a more granular basis (this will override `level`)",
       table: {
         type: { summary: FONT_SIZES.join(" | ") },
+      },
+    },
+    family: {
+      control: "select",
+      options: [null, undefined, ...FONT_FAMILIES],
+      description: "Controls the font family",
+      table: {
+        type: { summary: FONT_FAMILIES.join(" | ") },
       },
     },
     weight: {
@@ -91,6 +91,7 @@ const meta: Meta<typeof Heading> = {
       description: "If true, use tabular numbers for even spacing",
     },
     className: {
+      control: "text",
       description: "Comma-separated CSS class names",
       table: {
         type: { summary: "string" },
@@ -99,7 +100,7 @@ const meta: Meta<typeof Heading> = {
     children: {
       description: "Content (text) to render",
       table: {
-        type: { summary: "React.ReactNode" },
+        type: { summary: "string | React.ReactNode" },
       },
     },
   },
@@ -131,15 +132,15 @@ export const Default: Story = {
   ],
 };
 
-export const WithArgs: Story = {
+export const WithSampleProps: Story = {
   args: {
     level: "3",
     family: "serif",
     weight: "normal",
     tracking: "tighter",
     variant: "muted",
-    children: "This is a Heading component",
     numeric: false,
+    children: "This is a Heading component",
   },
   decorators: [
     (Story) => (
