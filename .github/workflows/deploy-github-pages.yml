@@ -1,11 +1,11 @@
 name: Publish Storybook to GitHub Pages
 
 on:
-  pull_request: # TODO: temporary
+  push:
     branches:
       - main
-    # paths:
-    #   - "packages/react/**"
+    paths:
+      - "packages/react/**"
 
 permissions:
   contents: read
