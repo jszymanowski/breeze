@@ -20,6 +20,9 @@ importers:
       '@storybook/addon-themes':
         specifier: ^8.6.4
         version: 8.6.4(storybook@8.6.4(prettier@3.5.3))
+      '@storybook/builder-vite':
+        specifier: ^8.6.4
+        version: 8.6.4(storybook@8.6.4(prettier@3.5.3))(vite@6.2.0(@types/node@22.13.9)(jiti@2.4.2)(lightningcss@1.29.2))
       '@storybook/react':
         specifier: ^8.6.4
         version: 8.6.4(@storybook/test@8.6.4(storybook@8.6.4(prettier@3.5.3)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.6.4(prettier@3.5.3))(typescript@5.8.2)

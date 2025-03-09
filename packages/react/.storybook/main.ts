@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import { withoutVitePlugins } from "@storybook/builder-vite";
 
 const config: StorybookConfig = {
   stories: ["../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -17,6 +18,11 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag",
+  },
+  async viteFinal(config) {
+    config.plugins = await withoutVitePlugins(config.plugins, ["vite:dts"]);
+
+    return config;
   },
 };
 
