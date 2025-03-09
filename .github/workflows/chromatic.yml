@@ -10,7 +10,7 @@ on:
 jobs:
   chromatic:
     name: Run Chromatic
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     defaults:
       run:
