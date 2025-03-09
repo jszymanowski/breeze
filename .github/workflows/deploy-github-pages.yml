@@ -4,8 +4,8 @@ on:
   pull_request: # TODO: temporary
     branches:
       - main
-    paths:
-      - "packages/react/**"
+    # paths:
+    #   - "packages/react/**"
 
 permissions:
   contents: read
