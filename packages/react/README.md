@@ -5,6 +5,7 @@ _Primitive React components, built with Tailwind CSS_
 **Resources**
 
 - [Changelog](CHANGELOG.md)
+- [Roadmap](ROADMAP.md)
 
 ## Usage
 
