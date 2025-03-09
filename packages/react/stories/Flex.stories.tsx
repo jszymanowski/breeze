@@ -120,7 +120,7 @@ export const Default: Story = {
     wrap: "wrap",
     gap: "2",
     as: "div",
-    className: "w-full h-full",
+    className: "w-full h-full border-1 border-dashed border-gray-200",
     children: (
       <Fragment>
         <FlexItem>
@@ -199,7 +199,6 @@ export const Alignments: Story = {
   ),
 };
 
-// Justify variations
 export const Justifications: Story = {
   render: () => (
     <>
