@@ -3,7 +3,7 @@ import { describe, it, expect } from "vitest";
 import "@testing-library/jest-dom";
 
 import { Flex } from "@/main";
-import { FlexDirection } from "@/types/flex";
+import { FlexDirection } from "@/types/layout";
 
 describe("Flex", () => {
   it("renders with default props", () => {
