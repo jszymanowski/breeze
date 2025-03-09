@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Grid, Heading } from "@/main";
+import { summarizeValues } from "@stories/utils";
 
 import { LAYOUT_ELEMENTS } from "@/types";
 
@@ -16,7 +17,7 @@ const meta: Meta<typeof Box> = {
       options: LAYOUT_ELEMENTS,
       description: "Specific HTML element to use",
       table: {
-        type: { summary: LAYOUT_ELEMENTS.join(" | ") },
+        type: { summary: summarizeValues(LAYOUT_ELEMENTS, true) },
       },
     },
     className: {

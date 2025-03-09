@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { asOptionalValue, summarizeValues } from "@stories/utils";
 
 import { Box, Flex, Grid, Heading, Text } from "@/main";
 import {
@@ -21,68 +22,68 @@ const meta: Meta<typeof Flex> = {
   argTypes: {
     direction: {
       control: "select",
-      options: FLEX_DIRECTIONS,
+      options: asOptionalValue(FLEX_DIRECTIONS),
       description: "Controls the direction of flex items",
       table: {
-        type: { summary: FLEX_DIRECTIONS.join(" | ") },
+        type: { summary: summarizeValues(FLEX_DIRECTIONS, true) },
       },
     },
     justify: {
       control: "select",
-      options: FLEX_JUSTIFIES,
+      options: asOptionalValue(FLEX_JUSTIFIES),
       description:
         "Controls how flex and grid items are positioned along a container's main axis",
       table: {
-        type: { summary: FLEX_JUSTIFIES.join(" | ") },
+        type: { summary: summarizeValues(FLEX_JUSTIFIES, true) },
       },
     },
     align: {
       control: "select",
-      options: FLEX_ALIGNS,
+      options: asOptionalValue(FLEX_ALIGNS),
       description:
         "Controls how flex and grid items are positioned along a container's cross axis",
       table: {
-        type: { summary: FLEX_ALIGNS.join(" | ") },
+        type: { summary: summarizeValues(FLEX_ALIGNS, true) },
       },
     },
     wrap: {
       control: "select",
-      options: FLEX_WRAPS,
+      options: asOptionalValue(FLEX_WRAPS),
       description: "Controls how flex items wrap",
       table: {
-        type: { summary: FLEX_WRAPS.join(" | ") },
+        type: { summary: summarizeValues(FLEX_WRAPS, true) },
       },
     },
     gap: {
       control: "select",
-      options: GAPS,
+      options: asOptionalValue(GAPS),
       description: "Controls gutters between flex items (X+Y axes)",
       table: {
-        type: { summary: GAPS.join(" | ") },
+        type: { summary: summarizeValues(GAPS, true) },
       },
     },
     gapX: {
       control: "select",
-      options: GAPS,
+      options: asOptionalValue(GAPS),
       description: "Controls gutters between flex items (X-axis only)",
       table: {
-        type: { summary: GAPS.join(" | ") },
+        type: { summary: summarizeValues(GAPS, true) },
       },
     },
     gapY: {
       control: "select",
-      options: GAPS,
+      options: asOptionalValue(GAPS),
       description: "Controls gutters between flex items (Y-axis only)",
       table: {
-        type: { summary: GAPS.join(" | ") },
+        type: { summary: summarizeValues(GAPS, true) },
       },
     },
     as: {
       control: "select",
-      options: LAYOUT_ELEMENTS,
+      options: asOptionalValue(LAYOUT_ELEMENTS),
       description: "Specific HTML element to use as the basis for flex",
       table: {
-        type: { summary: LAYOUT_ELEMENTS.join(" | ") },
+        type: { summary: summarizeValues(LAYOUT_ELEMENTS, true) },
       },
     },
     className: {

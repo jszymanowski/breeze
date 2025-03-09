@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { asOptionalValue, summarizeValues } from "@stories/utils";
 
 import { Box, Heading, Flex, Text } from "@/main";
 import {
@@ -30,61 +31,61 @@ const meta: Meta<typeof Heading> = {
   argTypes: {
     level: {
       control: "select",
-      options: [null, undefined, ...HEADING_LEVELS],
+      options: asOptionalValue(HEADING_LEVELS),
       description:
         "Controls heading level to use, translating to usage of an `<hX>` HTML element",
       table: {
-        type: { summary: HEADING_LEVELS.join(" | ") },
+        type: { summary: summarizeValues(HEADING_LEVELS, true) },
       },
     },
     size: {
       control: "select",
-      options: [null, undefined, ...FONT_SIZES],
+      options: asOptionalValue(FONT_SIZES),
       description:
         "Controls font size on a more granular basis (this will override `level`)",
       table: {
-        type: { summary: FONT_SIZES.join(" | ") },
+        type: { summary: summarizeValues(FONT_SIZES, true) },
       },
     },
     family: {
       control: "select",
-      options: [null, undefined, ...FONT_FAMILIES],
+      options: asOptionalValue(FONT_FAMILIES),
       description: "Controls the font family",
       table: {
-        type: { summary: FONT_FAMILIES.join(" | ") },
+        type: { summary: summarizeValues(FONT_FAMILIES, true) },
       },
     },
     weight: {
       control: "select",
-      options: [null, undefined, ...FONT_WEIGHTS],
+      options: asOptionalValue(FONT_WEIGHTS),
       description: "Controls font weight",
       nullable: true,
       table: {
-        type: { summary: FONT_WEIGHTS.join(" | ") },
+        type: { summary: summarizeValues(FONT_WEIGHTS, true) },
       },
     },
     variant: {
       control: "select",
-      options: [null, undefined, ...TYPOGRAPHY_VARIANTS],
+      options: asOptionalValue(TYPOGRAPHY_VARIANTS),
       description: "Controls font color, according to the theme",
       table: {
-        type: { summary: TYPOGRAPHY_VARIANTS.join(" | ") },
+        type: { summary: summarizeValues(TYPOGRAPHY_VARIANTS, true) },
       },
     },
     align: {
       control: "select",
-      options: [null, undefined, ...TEXT_ALIGNS],
+      options: asOptionalValue(TEXT_ALIGNS),
       description: "Controls text alignment",
       table: {
-        type: { summary: TEXT_ALIGNS.join(" | ") },
+        type: { summary: summarizeValues(TEXT_ALIGNS, true) },
       },
     },
     tracking: {
       control: "select",
-      options: [null, undefined, ...TEXT_TRACKINGS],
+      options: asOptionalValue(TEXT_TRACKINGS),
       description: "Controls text tracking (a.k.a. letter spacing)",
       table: {
-        type: { summary: [null, undefined, ...TEXT_TRACKINGS].join(" | ") },
+        type: { summary: summarizeValues(TEXT_TRACKINGS, true) },
       },
     },
     numeric: {
