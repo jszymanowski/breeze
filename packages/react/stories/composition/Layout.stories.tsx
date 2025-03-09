@@ -117,41 +117,80 @@ export const Contact: Story = {
   ),
 };
 
-export const DashboardLayout: Story = {
+export const GridLayout: Story = {
   args: {
+    cols: "4",
+    rows: "4",
     gap: "4",
-    className: "w-full max-w-5xl h-[600px] grid-cols-4 grid-rows-4",
+    className: "w-full max-w-5xl mb-12",
   },
   render: (args) => (
     <Grid {...args}>
-      <div className="col-span-4 flex items-center justify-between rounded-lg bg-slate-800 p-4 text-white">
-        <div className="text-xl font-bold">Dashboard</div>
-        <div className="flex space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-600"></div>
-          <div className="h-8 w-8 rounded-full bg-slate-600"></div>
-        </div>
-      </div>
+      <Flex
+        align="center"
+        justify="between"
+        className="bg-primary col-span-4 rounded-lg p-4"
+      >
+        <Heading level="2" variant="primary">
+          Dashboard
+        </Heading>
+        <Flex className="space-x-2">
+          <Box className="bg-info h-8 w-8 rounded-full" />
+          <Box className="bg-success h-8 w-8 rounded-full" />
+          <Box className="bg-warning h-8 w-8 rounded-full" />
+          <Box className="bg-destructive h-8 w-8 rounded-full" />
+        </Flex>
+      </Flex>
 
-      <div className="col-span-3 row-span-2 rounded-lg bg-slate-100 p-4">
-        <div className="mb-2 font-semibold">Main Content Area</div>
-        <div className="h-full rounded-md bg-white p-2 shadow-sm"></div>
-      </div>
+      <Box className="bg-muted col-span-3 row-span-2 rounded-lg p-4">
+        <Heading level="4" weight="semibold" className="mb-2">
+          Main Content Area
+        </Heading>
+        <Box className="bg-background rounded-md p-2 shadow-sm">
+          <Text className="mb-2">
+            We can't bust heads like we used to. But we have our ways. One trick
+            is to tell stories that don't go anywhere. Like the time I caught
+            the ferry to Shelbyville. I needed a new heel for m'shoe. So I
+            decided to go to Morganville, which is what they called Shelbyville
+            in those days. So I tied an onion to my belt. Which was the style at
+            the time.
+          </Text>
+          <Text>
+            Now, to take the ferry cost a nickel, and in those days, nickels had
+            pictures of bumblebees on 'em. Gimme five bees for a quarter, you'd
+            say. Now where was I... oh yeah. The important thing was that I had
+            an onion tied to my belt, which was the style at the time. You
+            couldn't get white onions, because of the war. The only thing you
+            could get was those big yellow ones.
+          </Text>
+        </Box>
+      </Box>
 
-      <div className="row-span-2 rounded-lg bg-slate-200 p-4">
-        <div className="mb-2 font-semibold">Sidebar</div>
-        <div className="flex flex-col space-y-2">
+      <Box className="bg-muted row-span-2 rounded-lg p-4">
+        <Heading level="4" weight="semibold" className="mb-2">
+          Sidebar
+        </Heading>
+        <Flex direction="col" gapY="2">
           {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="rounded bg-white p-2 shadow-sm">
-              Menu Item {i + 1}
-            </div>
+            <Box key={i} className="bg-background rounded p-2 shadow-sm">
+              <Text>Menu Item {i + 1}</Text>
+            </Box>
           ))}
-        </div>
-      </div>
+        </Flex>
+      </Box>
 
-      <div className="rounded-lg bg-blue-100 p-4">Widget 1</div>
-      <div className="rounded-lg bg-green-100 p-4">Widget 2</div>
-      <div className="rounded-lg bg-yellow-100 p-4">Widget 3</div>
-      <div className="rounded-lg bg-purple-100 p-4">Widget 4</div>
+      <Box className="bg-muted rounded-lg p-4">
+        <Text>Widget 1</Text>
+      </Box>
+      <Box className="bg-muted rounded-lg p-4">
+        <Text>Widget 2</Text>
+      </Box>
+      <Box className="bg-muted rounded-lg p-4">
+        <Text>Widget 3</Text>
+      </Box>
+      <Box className="bg-muted rounded-lg p-4">
+        <Text>Widget 4</Text>
+      </Box>
     </Grid>
   ),
 };

@@ -121,5 +121,5 @@
     "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 
-  --font-display: var(--font-sans);
+  --font-display: var(--font-serif);
 }
