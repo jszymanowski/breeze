@@ -1,14 +1,19 @@
-name: Publish to npm Registry
+name: Publish Storybook to GitHub Pages
 
 on:
   push:
-    tags:
-      - "react@*"
+    branches:
+      - main
     paths:
       - "packages/react/**"
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  build-and-publish:
+  deploy:
     runs-on: self-hosted
 
     defaults:
@@ -19,11 +24,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
-          registry-url: "https://registry.npmjs.org"
+          node-version: 22.14.0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -33,10 +37,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build package
-        run: pnpm build
-
-      - name: Publish to npm Registry
-        run: pnpm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+        with:
+          install_command: pnpm install
+          build_command: pnpm storybook:build
+          path: storybook-static
+          checkout: false
