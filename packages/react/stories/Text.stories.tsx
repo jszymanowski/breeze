@@ -9,11 +9,13 @@ import {
   TYPOGRAPHY_VARIANTS,
   TEXT_ALIGNS,
   TEXT_LEADINGS,
+  TEXT_TRACKINGS,
   TYPOGRAPHY_ELEMENTS,
   TypographyVariant,
   FontWeight,
   FontSize,
   FontFamily,
+  TextTracking,
   TextLeading,
   TextAlign,
 } from "@/types";
@@ -76,6 +78,14 @@ const meta: Meta<typeof Text> = {
       description: "Controls the leading, or line height, of text",
       table: {
         type: { summary: summarizeValues(TEXT_LEADINGS, true) },
+      },
+    },
+    tracking: {
+      control: "select",
+      options: asOptionalValue(TEXT_TRACKINGS),
+      description: "Controls text tracking (a.k.a. letter spacing)",
+      table: {
+        type: { summary: summarizeValues(TEXT_TRACKINGS, true) },
       },
     },
     truncate: {
@@ -251,6 +261,20 @@ export const Leading: Story = {
       renderOption={(leading: TextLeading) => (
         <Text leading={leading} size="sm">
           {sampleLongText[1]}
+        </Text>
+      )}
+    />
+  ),
+};
+
+export const Tracking: Story = {
+  render: () => (
+    <OptionsByFamilyGrid<TextTracking>
+      options={TEXT_TRACKINGS as unknown as TextTracking[]}
+      propKey="tracking"
+      renderOption={(family, option) => (
+        <Text align="center" family={family} tracking={option}>
+          {sampleText}
         </Text>
       )}
     />

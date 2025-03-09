@@ -9,11 +9,13 @@ import {
   FONT_WEIGHTS,
   TYPOGRAPHY_VARIANTS,
   TEXT_ALIGNS,
+  TEXT_LEADINGS,
   TEXT_TRACKINGS,
-  TextTracking,
   TypographyVariant,
   FontWeight,
   FontSize,
+  TextTracking,
+  TextLeading,
   FontFamily,
   TextAlign,
 } from "@/types";
@@ -80,6 +82,14 @@ const meta: Meta<typeof Heading> = {
         type: { summary: summarizeValues(TEXT_ALIGNS, true) },
       },
     },
+    leading: {
+      control: "select",
+      options: asOptionalValue(TEXT_LEADINGS),
+      description: "Controls the leading, or line height, of text",
+      table: {
+        type: { summary: summarizeValues(TEXT_LEADINGS, true) },
+      },
+    },
     tracking: {
       control: "select",
       options: asOptionalValue(TEXT_TRACKINGS),
@@ -111,6 +121,8 @@ export default meta;
 type Story = StoryObj<typeof Heading>;
 
 const sampleHeading = "Old Man Yells At Cloud";
+const sampleLongHeading =
+  "Local Man Loses Pants, Life; Beaver Rescue Falls Short";
 const sampleLongText =
   " \
   Now, to take the ferry cost a nickel, and in those days, nickels \
@@ -233,6 +245,23 @@ export const Variants: Story = {
   ),
 };
 
+export const Leading: Story = {
+  render: () => (
+    <OptionList<TextLeading>
+      options={TEXT_LEADINGS as unknown as TextLeading[]}
+      gapY="0"
+      renderOption={(leading: TextLeading) => (
+        <>
+          <Heading leading={leading}>{sampleHeading}</Heading>
+          <Text variant="muted" size="sm">
+            {sampleLongText}
+          </Text>
+        </>
+      )}
+    />
+  ),
+};
+
 export const Tracking: Story = {
   render: () => (
     <OptionsByFamilyGrid<TextTracking>
@@ -247,10 +276,27 @@ export const Tracking: Story = {
   ),
 };
 
+export const Truncation: Story = {
+  render: () => (
+    <Box className="max-w-[600px]">
+      <OptionList<boolean>
+        options={[true, false]}
+        renderRowTitle={(option) => (
+          <Text>{option ? "Truncated" : "Not truncated"}</Text>
+        )}
+        renderOption={(truncated) => (
+          <Heading truncate={truncated}>{sampleLongHeading}</Heading>
+        )}
+      />
+    </Box>
+  ),
+};
+
 export const Alignments: Story = {
   render: () => (
     <OptionList<TextAlign>
       options={TEXT_ALIGNS as unknown as TextAlign[]}
+      gapY="0"
       renderOption={(align: TextAlign) => (
         <>
           <Heading align={align}>{sampleHeading}</Heading>

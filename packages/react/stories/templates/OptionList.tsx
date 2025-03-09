@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Flex, Grid, HeadingProps } from "@/main";
+import type { Gap } from "@/types";
 
 import Code from "@stories/templates/Code";
 
@@ -10,12 +11,14 @@ interface Props<T extends OptionTypes> {
   options: T[];
   renderRowTitle?: (option: T) => React.ReactNode;
   renderOption: (option: T) => React.ReactNode;
+  gapY?: Gap;
 }
 
 export default function OptionList<T extends OptionTypes>({
   options,
   renderRowTitle = (option) => <Code>{option as string}</Code>,
   renderOption,
+  gapY = "6",
 }: Props<T>) {
   return (
     <Grid cols="6" gap="4" className="w-full max-w-4xl" gapY="6">
@@ -28,6 +31,7 @@ export default function OptionList<T extends OptionTypes>({
           <Flex
             direction="col"
             gap="4"
+            gapY={gapY}
             className="col-start-2 -col-end-1 rounded border-1 border-dotted border-gray-300 p-1"
           >
             {renderOption(option)}
