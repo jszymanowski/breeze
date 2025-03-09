@@ -1,9 +1,10 @@
+import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Box, Flex, Grid, Heading, Text } from "@/main";
 import {
-  FLEX_DIRECTIONS,
   FLEX_ALIGNS,
+  FLEX_DIRECTIONS,
   FLEX_JUSTIFIES,
   LAYOUT_ELEMENTS,
   GAPS,
@@ -21,34 +22,80 @@ const meta: Meta<typeof Flex> = {
     direction: {
       control: "select",
       options: FLEX_DIRECTIONS,
-    },
-    align: {
-      control: "select",
-      options: FLEX_ALIGNS,
+      description: "Controls the direction of flex items",
+      table: {
+        type: { summary: FLEX_DIRECTIONS.join(" | ") },
+      },
     },
     justify: {
       control: "select",
       options: FLEX_JUSTIFIES,
+      description:
+        "Controls how flex and grid items are positioned along a container's main axis",
+      table: {
+        type: { summary: FLEX_JUSTIFIES.join(" | ") },
+      },
+    },
+    align: {
+      control: "select",
+      options: FLEX_ALIGNS,
+      description:
+        "Controls how flex and grid items are positioned along a container's cross axis",
+      table: {
+        type: { summary: FLEX_ALIGNS.join(" | ") },
+      },
     },
     wrap: {
       control: "select",
       options: FLEX_WRAPS,
+      description: "Controls how flex items wrap",
+      table: {
+        type: { summary: FLEX_WRAPS.join(" | ") },
+      },
     },
     gap: {
       control: "select",
       options: GAPS,
+      description: "Controls gutters between flex items (X+Y axes)",
+      table: {
+        type: { summary: GAPS.join(" | ") },
+      },
     },
     gapX: {
       control: "select",
       options: GAPS,
+      description: "Controls gutters between flex items (X-axis only)",
+      table: {
+        type: { summary: GAPS.join(" | ") },
+      },
     },
     gapY: {
       control: "select",
       options: GAPS,
+      description: "Controls gutters between flex items (Y-axis only)",
+      table: {
+        type: { summary: GAPS.join(" | ") },
+      },
     },
     as: {
       control: "select",
       options: LAYOUT_ELEMENTS,
+      description: "Specific HTML element to use as the basis for flex",
+      table: {
+        type: { summary: LAYOUT_ELEMENTS.join(" | ") },
+      },
+    },
+    className: {
+      description: "Comma-separated CSS class names",
+      table: {
+        type: { summary: "string" },
+      },
+    },
+    children: {
+      control: { disable: true },
+      table: {
+        type: { summary: "React.ReactNode" },
+      },
     },
   },
 };
@@ -67,8 +114,15 @@ const FlexItem = ({ children }: { children: React.ReactNode }) => (
 
 export const Default: Story = {
   args: {
+    direction: "row",
+    justify: "center",
+    align: "center",
+    wrap: "wrap",
+    gap: "2",
+    as: "div",
+    className: "w-full h-full",
     children: (
-      <>
+      <Fragment>
         <FlexItem>
           <Text variant="info">Item 1</Text>
         </FlexItem>
@@ -78,9 +132,16 @@ export const Default: Story = {
         <FlexItem>
           <Text variant="info">Item 3</Text>
         </FlexItem>
-      </>
+      </Fragment>
     ),
   },
+  decorators: [
+    (Story) => (
+      <Box className="h-[300px] w-[300px]">
+        <Story />
+      </Box>
+    ),
+  ],
 };
 
 export const Directions: Story = {
