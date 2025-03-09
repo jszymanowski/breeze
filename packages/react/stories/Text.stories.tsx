@@ -244,7 +244,7 @@ export const Alignments: Story = {
   ),
 };
 
-export const LineHeights: Story = {
+export const Leading: Story = {
   render: () => (
     <OptionList<TextLeading>
       options={TEXT_LEADINGS as unknown as TextLeading[]}

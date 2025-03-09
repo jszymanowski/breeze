@@ -40,7 +40,14 @@ export const FONT_WEIGHTS = [
 ] as const;
 export type FontWeight = (typeof FONT_WEIGHTS)[number];
 
-export const TEXT_ALIGNS = ["left", "center", "right", "justify"] as const;
+export const TEXT_ALIGNS = [
+  "left",
+  "center",
+  "right",
+  "justify",
+  "start",
+  "end",
+] as const;
 export type TextAlign = (typeof TEXT_ALIGNS)[number];
 
 export const TEXT_LEADINGS = [

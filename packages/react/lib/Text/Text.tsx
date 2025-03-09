@@ -50,7 +50,7 @@ const Text = React.forwardRef(
     return (
       <Component
         className={cn(
-          // Size scales
+          // Font sizes
           {
             "text-xs": size === "xs",
             "text-sm": size === "sm",
@@ -95,6 +95,8 @@ const Text = React.forwardRef(
             "text-center": align === "center",
             "text-right": align === "right",
             "text-justify": align === "justify",
+            "text-start": align === "start",
+            "text-end": align === "end",
           },
           // Line height
           {

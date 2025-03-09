@@ -103,6 +103,8 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
             "text-center": align === "center",
             "text-right": align === "right",
             "text-justify": align === "justify",
+            "text-start": align === "start",
+            "text-end": align === "end",
           },
           // Letter spacing
           {
