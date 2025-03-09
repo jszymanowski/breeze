@@ -24,7 +24,7 @@ import OptionList from "@root/stories/templates/OptionList";
 import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
 
 const meta: Meta<typeof Heading> = {
-  title: "Primitives/Heading",
+  title: "Typography/Heading",
   component: Heading,
   parameters: {
     layout: "centered",

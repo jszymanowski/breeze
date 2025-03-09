@@ -77,6 +77,15 @@ export const GRID_ROWS = [
 ] as const;
 export type GridRows = (typeof GRID_ROWS)[number];
 
+export const GRID_FLOWS = [
+  "row",
+  "col",
+  "dense",
+  "row-dense",
+  "col-dense",
+] as const;
+export type GridFlow = (typeof GRID_FLOWS)[number];
+
 export const GAPS = [
   "0",
   "1",

@@ -5,7 +5,7 @@ import { summarizeValues } from "@stories/utils";
 import { LAYOUT_ELEMENTS } from "@/types";
 
 const meta: Meta<typeof Box> = {
-  title: "Primitives/Box",
+  title: "Layout/Box",
   component: Box,
   parameters: {
     layout: "centered",

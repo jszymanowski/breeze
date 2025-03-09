@@ -7,12 +7,13 @@
 1. Testing completeness:
    - [ ] Audit all variants are ~~applied and~~ tested
    - [ ] Consider Storybook or Playwright tests
-1. Storybook completeness:
-   - [ ] Add stories for `Grid`
+1. Add `inherit` option for certain things, such as color?
 1. Add a few props to `Box`:
    - [ ] `box-sizing`
    - [ ] `overflow`
    - [ ] `position`
+   - [ ] `height`, `width`
+   - [ ] `variant` = apply background
    - [ ] ...etc
 1. Write documentation
 
