@@ -5,11 +5,15 @@
 ### Upcoming (pre-1.0.0)
 
 1. Testing completeness:
-   - [ ] Audit all variants are applied and tested
+   - [ ] Audit all variants are ~~applied and~~ tested
    - [ ] Consider Storybook or Playwright tests
 1. Storybook completeness:
    - [ ] Add stories for `Grid`
-   - [ ] Audit all variants have stories
+1. Add a few props to `Box`:
+   - [ ] `box-sizing`
+   - [ ] `overflow`
+   - [ ] `position`
+   - [ ] ...etc
 1. Write documentation
 
 ### Later (post-1.0.0)
@@ -18,9 +22,10 @@
    - [ ] `Flex.Item`, to support [child classes like `flex-1`](https://tailwindcss.com/docs/flex#basic-example)
    - [ ] `Grid.Item`
 1. Add responsive options to `Flex` and `Grid`
-1. Add more options, from Tailwind:
+1. Add more options, from Tailwind, for all components:
    - [ ] stretch
    - [ ] numeric variants
+   - [ ] box stuff
    - [ ] ...etc
 
 ### Long-term
