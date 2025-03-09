@@ -12,7 +12,7 @@ import {
 } from "@/types";
 
 const meta = {
-  title: "Components/Layout/Grid",
+  title: "Layout/Grid",
   component: Grid,
   parameters: {
     layout: "centered",

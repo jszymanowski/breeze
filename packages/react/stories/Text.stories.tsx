@@ -24,7 +24,7 @@ import OptionList from "@root/stories/templates/OptionList";
 import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
 
 const meta: Meta<typeof Text> = {
-  title: "Primitives/Text",
+  title: "Typography/Text",
   component: Text,
   parameters: {
     layout: "centered",
