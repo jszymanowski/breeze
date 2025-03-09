@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        task: [lint, test, build]
+        task: [lint, test, build, coverage]
 
     steps:
       - name: Checkout code
@@ -48,4 +48,15 @@ jobs:
             pnpm lint
           elif [ "${{ matrix.task }}" == "build" ]; then
             pnpm build
+          elif [ "${{ matrix.task }}" == "coverage" ]; then
+            pnpm coverage
           fi
+
+      - name: Upload coverage reports to Codecov
+        if: ${{ matrix.task == 'coverage' }}
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./packages/react/coverage/
+          flags: react
+          fail_ci_if_error: true
