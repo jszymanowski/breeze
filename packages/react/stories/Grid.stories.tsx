@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
 
-import { Grid } from "@/Grid";
+import { Box, Flex, Grid, Heading } from "@/main";
 
 import {
   GRID_COLS,
@@ -95,9 +95,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const GridItem = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex h-16 w-full items-center justify-center rounded-md bg-slate-200 p-4 font-medium">
-    {children}
-  </div>
+  <Box className="bg-background">
+    <Flex
+      align="center"
+      justify="center"
+      className="bg-info text-info-foreground h-16 w-16 rounded-md"
+    >
+      {children}
+    </Flex>
+  </Box>
 );
 
 export const Default: Story = {
@@ -122,32 +128,38 @@ export const ColumnVariants: Story = {
     className: "w-full max-w-4xl",
   },
   render: () => (
-    <div className="flex flex-col space-y-8">
+    <Flex direction="col" gapY="4">
       <div>
-        <h3 className="mb-2 font-medium">2 Columns</h3>
-        <Grid cols="2" gap="4">
+        <Heading level="4" weight="medium">
+          2 Columns
+        </Heading>
+        <Grid cols="2" gap="4" className="bg-muted">
           {Array.from({ length: 4 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
       <div>
-        <h3 className="mb-2 font-medium">4 Columns</h3>
-        <Grid cols="4" gap="4">
+        <Heading level="4" weight="medium">
+          4 Columns
+        </Heading>
+        <Grid cols="4" gap="4" className="bg-muted">
           {Array.from({ length: 8 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
       <div>
-        <h3 className="mb-2 font-medium">6 Columns</h3>
-        <Grid cols="6" gap="4">
+        <Heading level="4" weight="medium">
+          6 Columns
+        </Heading>
+        <Grid cols="6" gap="4" className="bg-muted">
           {Array.from({ length: 12 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
-    </div>
+    </Flex>
   ),
 };
 
@@ -157,32 +169,38 @@ export const GapVariants: Story = {
     className: "w-full max-w-3xl",
   },
   render: () => (
-    <div className="flex flex-col space-y-8">
+    <Flex direction="col" gapY="4">
       <div>
-        <h3 className="mb-2 font-medium">Small Gap (2)</h3>
-        <Grid cols="3" gap="2">
+        <Heading level="4" weight="medium">
+          Small Gap (2)
+        </Heading>
+        <Grid cols="3" gap="2" className="bg-muted">
           {Array.from({ length: 6 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
       <div>
-        <h3 className="mb-2 font-medium">Medium Gap (4)</h3>
-        <Grid cols="3" gap="4">
+        <Heading level="4" weight="medium">
+          Medium Gap (4)
+        </Heading>
+        <Grid cols="3" gap="4" className="bg-muted">
           {Array.from({ length: 6 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
       <div>
-        <h3 className="mb-2 font-medium">Large Gap (8)</h3>
-        <Grid cols="3" gap="8">
+        <Heading level="4" weight="medium">
+          Large Gap (8)
+        </Heading>
+        <Grid cols="3" gap="8" className="bg-muted">
           {Array.from({ length: 6 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
-    </div>
+    </Flex>
   ),
 };
 
@@ -192,34 +210,47 @@ export const DirectionalGaps: Story = {
     className: "w-full max-w-3xl",
   },
   render: () => (
-    <div className="flex flex-col space-y-8">
+    <Flex direction="col" gapY="4">
       <div>
-        <h3 className="mb-2 font-medium">Horizontal Gap Only (gapX="6")</h3>
-        <Grid cols="3" gapX="6" gapY="0">
+        <Heading level="4" weight="medium" leading="none">
+          Horizontal Gap Only
+        </Heading>
+        <Heading level="6" weight="medium" variant="muted">
+          (gapX="6")
+        </Heading>
+        <Grid cols="3" gapX="6" gapY="0" className="bg-muted">
           {Array.from({ length: 6 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
       <div>
-        <h3 className="mb-2 font-medium">Vertical Gap Only (gapY="6")</h3>
-        <Grid cols="3" gapY="6" gapX="0">
+        <Heading level="4" weight="medium" leading="none">
+          Vertical Gap Only
+        </Heading>
+        <Heading level="6" weight="medium" variant="muted">
+          (gapY="6")
+        </Heading>
+        <Grid cols="3" gapY="6" gapX="0" className="bg-muted">
           {Array.from({ length: 6 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
       <div>
-        <h3 className="mb-2 font-medium">
-          Different Gaps (gapX="2", gapY="8")
-        </h3>
-        <Grid cols="3" gapX="2" gapY="8">
+        <Heading level="4" weight="medium" leading="none">
+          Different Gaps
+        </Heading>
+        <Heading level="6" weight="medium" variant="muted">
+          (gapX="2", gapY="8")
+        </Heading>
+        <Grid cols="3" gapX="2" gapY="8" className="bg-muted">
           {Array.from({ length: 6 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
-    </div>
+    </Flex>
   ),
 };
 
@@ -228,32 +259,38 @@ export const FlowVariants: Story = {
     className: "w-full max-w-3xl h-96",
   },
   render: () => (
-    <div className="flex flex-col space-y-12">
+    <Flex direction="col" gapY="4">
       <div>
-        <h3 className="mb-2 font-medium">Row Flow (default)</h3>
-        <Grid cols="3" rows="3" gap="4" flow="row">
+        <Heading level="4" weight="medium">
+          Row Flow (default)
+        </Heading>
+        <Grid cols="3" rows="3" gap="4" flow="row" className="bg-muted">
           {Array.from({ length: 7 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
       <div>
-        <h3 className="mb-2 font-medium">Column Flow</h3>
-        <Grid cols="3" rows="3" gap="4" flow="col">
+        <Heading level="4" weight="medium">
+          Column Flow
+        </Heading>
+        <Grid cols="3" rows="3" gap="4" flow="col" className="bg-muted">
           {Array.from({ length: 7 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
       <div>
-        <h3 className="mb-2 font-medium">Dense Flow</h3>
-        <Grid cols="3" rows="3" gap="4" flow="dense">
+        <Heading level="4" weight="medium">
+          Dense Flow
+        </Heading>
+        <Grid cols="3" rows="3" gap="4" flow="dense" className="bg-muted">
           {Array.from({ length: 7 }).map((_, i) => (
             <GridItem key={i}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
-    </div>
+    </Flex>
   ),
 };
 
@@ -262,67 +299,21 @@ export const CustomElement: Story = {
     cols: "3",
     gap: "4",
     as: "section",
-    className: "w-full max-w-3xl",
+    className: "w-full max-w-3xl bg-muted",
   },
   render: (args) => (
-    <Grid {...args}>
-      {Array.from({ length: 6 }).map((_, i) => (
-        <GridItem key={i}>Item {i + 1}</GridItem>
-      ))}
-    </Grid>
-  ),
-};
-
-export const ResponsiveGrid: Story = {
-  args: {
-    gap: "4",
-    className:
-      "w-full max-w-4xl grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
-  },
-  render: (args) => (
-    <Grid {...args}>
-      {Array.from({ length: 8 }).map((_, i) => (
-        <GridItem key={i}>Item {i + 1}</GridItem>
-      ))}
-    </Grid>
-  ),
-};
-
-export const DashboardLayout: Story = {
-  args: {
-    gap: "4",
-    className: "w-full max-w-5xl h-[600px] grid-cols-4 grid-rows-4",
-  },
-  render: (args) => (
-    <Grid {...args}>
-      <div className="col-span-4 flex items-center justify-between rounded-lg bg-slate-800 p-4 text-white">
-        <div className="text-xl font-bold">Dashboard</div>
-        <div className="flex space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-600"></div>
-          <div className="h-8 w-8 rounded-full bg-slate-600"></div>
-        </div>
-      </div>
-
-      <div className="col-span-3 row-span-2 rounded-lg bg-slate-100 p-4">
-        <div className="mb-2 font-semibold">Main Content Area</div>
-        <div className="h-full rounded-md bg-white p-2 shadow-sm"></div>
-      </div>
-
-      <div className="row-span-2 rounded-lg bg-slate-200 p-4">
-        <div className="mb-2 font-semibold">Sidebar</div>
-        <div className="flex flex-col space-y-2">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="rounded bg-white p-2 shadow-sm">
-              Menu Item {i + 1}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="rounded-lg bg-blue-100 p-4">Widget 1</div>
-      <div className="rounded-lg bg-green-100 p-4">Widget 2</div>
-      <div className="rounded-lg bg-yellow-100 p-4">Widget 3</div>
-      <div className="rounded-lg bg-purple-100 p-4">Widget 4</div>
-    </Grid>
+    <>
+      <Heading level="4" weight="medium" className="mb-2">
+        As a{" "}
+        <span className="bg-muted font-mono">
+          {"<"}section{">"}
+        </span>
+      </Heading>
+      <Grid {...args}>
+        {Array.from({ length: 6 }).map((_, i) => (
+          <GridItem key={i}>Item {i + 1}</GridItem>
+        ))}
+      </Grid>
+    </>
   ),
 };

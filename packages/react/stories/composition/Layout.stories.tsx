@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Box, Heading, Text, Flex } from "@/main";
+import { Box, Grid, Heading, Text, Flex } from "@/main";
 
 const meta: Meta = {
   title: "Composition/Layout",
@@ -114,5 +114,44 @@ export const Contact: Story = {
         </Flex>
       </Flex>
     </Flex>
+  ),
+};
+
+export const DashboardLayout: Story = {
+  args: {
+    gap: "4",
+    className: "w-full max-w-5xl h-[600px] grid-cols-4 grid-rows-4",
+  },
+  render: (args) => (
+    <Grid {...args}>
+      <div className="col-span-4 flex items-center justify-between rounded-lg bg-slate-800 p-4 text-white">
+        <div className="text-xl font-bold">Dashboard</div>
+        <div className="flex space-x-2">
+          <div className="h-8 w-8 rounded-full bg-slate-600"></div>
+          <div className="h-8 w-8 rounded-full bg-slate-600"></div>
+        </div>
+      </div>
+
+      <div className="col-span-3 row-span-2 rounded-lg bg-slate-100 p-4">
+        <div className="mb-2 font-semibold">Main Content Area</div>
+        <div className="h-full rounded-md bg-white p-2 shadow-sm"></div>
+      </div>
+
+      <div className="row-span-2 rounded-lg bg-slate-200 p-4">
+        <div className="mb-2 font-semibold">Sidebar</div>
+        <div className="flex flex-col space-y-2">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="rounded bg-white p-2 shadow-sm">
+              Menu Item {i + 1}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="rounded-lg bg-blue-100 p-4">Widget 1</div>
+      <div className="rounded-lg bg-green-100 p-4">Widget 2</div>
+      <div className="rounded-lg bg-yellow-100 p-4">Widget 3</div>
+      <div className="rounded-lg bg-purple-100 p-4">Widget 4</div>
+    </Grid>
   ),
 };
