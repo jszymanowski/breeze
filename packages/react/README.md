@@ -6,6 +6,9 @@ _Primitive React components, built with Tailwind CSS_
 
 **Resources**
 
+- [Github repo](https://github.com/jszymanowski/breeze)
+- Distribution
+  - [npm registry](https://www.npmjs.com/package/@jszymanowski/breeze-react)
 - Building blocks
   - [TailwindCSS](https://tailwindcss.com/docs)
   - [shadcn-ui](https://ui.shadcn.com/docs/)
@@ -15,8 +18,6 @@ _Primitive React components, built with Tailwind CSS_
 - Documentation via Storybook
   - [Github Pages](https://jszymanowski.github.io/breeze/) - docs only
   - [Chromatic](https://67ccefd8fafa91b1c6c38501-dubbfpsqzi.chromatic.com/) - full suite of stories
-- Distribution
-  - [npm registry](https://www.npmjs.com/package/@jszymanowski/breeze-react)
 - Development
   - [Chromatic builds](https://www.chromatic.com/builds?appId=67ccefd8fafa91b1c6c38501)
   - [CodeCov](https://app.codecov.io/gh/jszymanowski/breeze)
