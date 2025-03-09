@@ -49,6 +49,7 @@ export default defineConfig({
     coverage: {
       include: ["lib/**/*"],
       exclude: ["lib/types/*"],
+      reporter: ["text", "json", "html", "lcov"], // lcov is needed for Codecov
     },
   },
 } as ViteUserConfig);
