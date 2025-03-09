@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Box, Flex, Grid, Heading } from "@/main";
+import { Box, Flex, Grid, Heading, Text } from "@/main";
 import {
   FLEX_DIRECTIONS,
   FLEX_ALIGNS,
@@ -57,10 +57,31 @@ export default meta;
 type Story = StoryObj<typeof Flex>;
 
 const FlexItem = ({ children }: { children: React.ReactNode }) => (
-  <Box as="span" className="bg-muted text-muted-foreground rounded-md p-0.5">
+  <Box
+    as="span"
+    className="bg-info text-info-foreground rounded-md px-1 py-0.5"
+  >
     {children}
   </Box>
 );
+
+export const Default: Story = {
+  args: {
+    children: (
+      <>
+        <FlexItem>
+          <Text variant="info">Item 1</Text>
+        </FlexItem>
+        <FlexItem>
+          <Text variant="info">Item 2</Text>
+        </FlexItem>
+        <FlexItem>
+          <Text variant="info">Item 3</Text>
+        </FlexItem>
+      </>
+    ),
+  },
+};
 
 export const Directions: Story = {
   render: () => (
