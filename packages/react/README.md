@@ -2,6 +2,8 @@
 
 _Primitive React components, built with Tailwind CSS_
 
+[![codecov](https://codecov.io/gh/jszymanowski/breeze/branch/main/graph/badge.svg)](https://codecov.io/gh/jszymanowski/breeze)
+
 **Resources**
 
 - [Changelog](CHANGELOG.md)
