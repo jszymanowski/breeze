@@ -4,6 +4,7 @@
 
 ### Upcoming (pre-1.0.0)
 
+1. Reconsider defaults
 1. Testing completeness:
    - [ ] Audit all variants are ~~applied and~~ tested
    - [ ] Consider Storybook or Playwright tests
