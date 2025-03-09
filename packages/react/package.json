@@ -22,7 +22,6 @@
   "type": "module",
   "scripts": {
     "build": "tsc -b && vite build",
-    "build:storybook": "storybook build",
     "chromatic": "chromatic --exit-zero-on-changes",
     "coverage": "vitest run --coverage",
     "dev": "vite",
@@ -31,6 +30,8 @@
     "prepublishOnly": "pnpm build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
+    "storybook:docs": "storybook dev --docs",
     "test": "vitest",
     "test:watch": "vitest --watch"
   },

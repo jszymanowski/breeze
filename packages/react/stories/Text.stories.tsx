@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { asOptionalValue, summarizeValues } from "@stories/utils";
 
-import { Flex, Grid, Text } from "@/main";
+import { Box, Flex, Grid, Text } from "@/main";
 import {
   FONT_FAMILIES,
   FONT_WEIGHTS,
@@ -28,36 +29,83 @@ const meta: Meta<typeof Text> = {
   },
   tags: ["autodocs"],
   argTypes: {
-    family: {
-      control: "select",
-      options: FONT_FAMILIES,
-    },
     size: {
       control: "select",
-      options: FONT_SIZES,
+      options: asOptionalValue(FONT_SIZES),
+      description: "Controls font size",
+      table: {
+        type: { summary: summarizeValues(FONT_SIZES, true) },
+      },
+    },
+    family: {
+      control: "select",
+      options: asOptionalValue(FONT_FAMILIES),
+      description: "Controls the font family",
+      table: {
+        type: { summary: summarizeValues(FONT_FAMILIES, true) },
+      },
     },
     weight: {
       control: "select",
-      options: FONT_WEIGHTS,
+      options: asOptionalValue(FONT_WEIGHTS),
+      description: "Controls font weight",
+      nullable: true,
+      table: {
+        type: { summary: summarizeValues(FONT_WEIGHTS, true) },
+      },
     },
     variant: {
       control: "select",
-      options: TYPOGRAPHY_VARIANTS,
+      options: asOptionalValue(TYPOGRAPHY_VARIANTS),
+      description: "Controls font color, according to the theme",
+      table: {
+        type: { summary: summarizeValues(TYPOGRAPHY_VARIANTS, true) },
+      },
     },
     align: {
       control: "select",
-      options: TEXT_ALIGNS,
+      options: asOptionalValue(TEXT_ALIGNS),
+      description: "Controls text alignment",
+      table: {
+        type: { summary: summarizeValues(TEXT_ALIGNS, true) },
+      },
     },
     leading: {
       control: "select",
-      options: TEXT_LEADINGS,
+      options: asOptionalValue(TEXT_LEADINGS),
+      description: "Controls the leading, or line height, of text",
+      table: {
+        type: { summary: summarizeValues(TEXT_LEADINGS, true) },
+      },
     },
     truncate: {
+      description:
+        "If true, prevents text from wrapping by truncating overflowing text with an ellipsis (…) if needed",
       control: "boolean",
+    },
+    numeric: {
+      description: "If true, use tabular numbers for even spacing",
+    },
+    className: {
+      control: "text",
+      description: "Comma-separated CSS class names",
+      table: {
+        type: { summary: "string" },
+      },
     },
     as: {
       control: "select",
-      options: TYPOGRAPHY_ELEMENTS,
+      options: asOptionalValue(TYPOGRAPHY_ELEMENTS),
+      description: "Specific HTML element to use",
+      table: {
+        type: { summary: summarizeValues(TYPOGRAPHY_ELEMENTS, true) },
+      },
+    },
+    children: {
+      description: "Content (text) to render",
+      table: {
+        type: { summary: "string | React.ReactNode" },
+      },
     },
   },
 };
@@ -85,6 +133,31 @@ export const Default: Story = {
   args: {
     children: "This is a Text component",
   },
+  decorators: [
+    (Story) => (
+      <Box className="min-w-[400px]">
+        <Story />
+      </Box>
+    ),
+  ],
+};
+export const WithSampleProps: Story = {
+  args: {
+    size: "lg",
+    family: "serif",
+    weight: "normal",
+    tracking: "tighter",
+    variant: "muted",
+    numeric: false,
+    children: "This is a Text component",
+  },
+  decorators: [
+    (Story) => (
+      <Box className="min-w-[400px]">
+        <Story />
+      </Box>
+    ),
+  ],
 };
 
 export const Families: Story = {

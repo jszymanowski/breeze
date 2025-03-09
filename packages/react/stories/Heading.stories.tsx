@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { asOptionalValue, summarizeValues } from "@stories/utils";
 
-import { Heading, Flex, Text } from "@/main";
+import { Box, Heading, Flex, Text } from "@/main";
 import {
   HEADING_LEVELS,
   FONT_FAMILIES,
@@ -30,31 +31,78 @@ const meta: Meta<typeof Heading> = {
   argTypes: {
     level: {
       control: "select",
-      options: HEADING_LEVELS,
-    },
-    family: {
-      control: "select",
-      options: FONT_FAMILIES,
+      options: asOptionalValue(HEADING_LEVELS),
+      description:
+        "Controls heading level to use, translating to usage of an `<hX>` HTML element",
+      table: {
+        type: { summary: summarizeValues(HEADING_LEVELS, true) },
+      },
     },
     size: {
       control: "select",
-      options: FONT_SIZES,
+      options: asOptionalValue(FONT_SIZES),
+      description:
+        "Controls font size on a more granular basis (this will override `level`)",
+      table: {
+        type: { summary: summarizeValues(FONT_SIZES, true) },
+      },
+    },
+    family: {
+      control: "select",
+      options: asOptionalValue(FONT_FAMILIES),
+      description: "Controls the font family",
+      table: {
+        type: { summary: summarizeValues(FONT_FAMILIES, true) },
+      },
     },
     weight: {
       control: "select",
-      options: FONT_WEIGHTS,
+      options: asOptionalValue(FONT_WEIGHTS),
+      description: "Controls font weight",
+      nullable: true,
+      table: {
+        type: { summary: summarizeValues(FONT_WEIGHTS, true) },
+      },
     },
     variant: {
       control: "select",
-      options: TYPOGRAPHY_VARIANTS,
+      options: asOptionalValue(TYPOGRAPHY_VARIANTS),
+      description: "Controls font color, according to the theme",
+      table: {
+        type: { summary: summarizeValues(TYPOGRAPHY_VARIANTS, true) },
+      },
     },
     align: {
       control: "select",
-      options: TEXT_ALIGNS,
+      options: asOptionalValue(TEXT_ALIGNS),
+      description: "Controls text alignment",
+      table: {
+        type: { summary: summarizeValues(TEXT_ALIGNS, true) },
+      },
     },
     tracking: {
       control: "select",
-      options: TEXT_TRACKINGS,
+      options: asOptionalValue(TEXT_TRACKINGS),
+      description: "Controls text tracking (a.k.a. letter spacing)",
+      table: {
+        type: { summary: summarizeValues(TEXT_TRACKINGS, true) },
+      },
+    },
+    numeric: {
+      description: "If true, use tabular numbers for even spacing",
+    },
+    className: {
+      control: "text",
+      description: "Comma-separated CSS class names",
+      table: {
+        type: { summary: "string" },
+      },
+    },
+    children: {
+      description: "Content (text) to render",
+      table: {
+        type: { summary: "string | React.ReactNode" },
+      },
     },
   },
 };
@@ -76,6 +124,32 @@ export const Default: Story = {
   args: {
     children: "This is a Heading component",
   },
+  decorators: [
+    (Story) => (
+      <Box className="min-w-[400px]">
+        <Story />
+      </Box>
+    ),
+  ],
+};
+
+export const WithSampleProps: Story = {
+  args: {
+    level: "3",
+    family: "serif",
+    weight: "normal",
+    tracking: "tighter",
+    variant: "muted",
+    numeric: false,
+    children: "This is a Heading component",
+  },
+  decorators: [
+    (Story) => (
+      <Box className="min-w-[400px]">
+        <Story />
+      </Box>
+    ),
+  ],
 };
 
 export const HeadingLevels: Story = {

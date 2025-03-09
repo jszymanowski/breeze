@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Grid, Heading } from "@/main";
+import { summarizeValues } from "@stories/utils";
 
 import { LAYOUT_ELEMENTS } from "@/types";
 
@@ -11,10 +12,25 @@ const meta: Meta<typeof Box> = {
   },
   tags: ["autodocs"],
   argTypes: {
-    className: { control: "text" },
     as: {
       control: "select",
       options: LAYOUT_ELEMENTS,
+      description: "Specific HTML element to use",
+      table: {
+        type: { summary: summarizeValues(LAYOUT_ELEMENTS, true) },
+      },
+    },
+    className: {
+      description: "Comma-separated CSS class names",
+      table: {
+        type: { summary: "string" },
+      },
+    },
+    children: {
+      control: { disable: true },
+      table: {
+        type: { summary: "React.ReactNode" },
+      },
     },
   },
 };
@@ -24,8 +40,17 @@ type Story = StoryObj<typeof Box>;
 
 export const Default: Story = {
   args: {
+    as: "div",
+    className: "border-1 border-dashed border-gray-200",
     children: "This is a Box component",
   },
+  decorators: [
+    (Story) => (
+      <Box className="h-[300px] w-[300px]">
+        <Story />
+      </Box>
+    ),
+  ],
 };
 
 export const StyleExamples: Story = {

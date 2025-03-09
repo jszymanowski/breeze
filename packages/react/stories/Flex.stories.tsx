@@ -1,9 +1,11 @@
+import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { asOptionalValue, summarizeValues } from "@stories/utils";
 
-import { Box, Flex, Grid, Heading } from "@/main";
+import { Box, Flex, Grid, Heading, Text } from "@/main";
 import {
-  FLEX_DIRECTIONS,
   FLEX_ALIGNS,
+  FLEX_DIRECTIONS,
   FLEX_JUSTIFIES,
   LAYOUT_ELEMENTS,
   GAPS,
@@ -20,35 +22,81 @@ const meta: Meta<typeof Flex> = {
   argTypes: {
     direction: {
       control: "select",
-      options: FLEX_DIRECTIONS,
-    },
-    align: {
-      control: "select",
-      options: FLEX_ALIGNS,
+      options: asOptionalValue(FLEX_DIRECTIONS),
+      description: "Controls the direction of flex items",
+      table: {
+        type: { summary: summarizeValues(FLEX_DIRECTIONS, true) },
+      },
     },
     justify: {
       control: "select",
-      options: FLEX_JUSTIFIES,
+      options: asOptionalValue(FLEX_JUSTIFIES),
+      description:
+        "Controls how flex and grid items are positioned along a container's main axis",
+      table: {
+        type: { summary: summarizeValues(FLEX_JUSTIFIES, true) },
+      },
+    },
+    align: {
+      control: "select",
+      options: asOptionalValue(FLEX_ALIGNS),
+      description:
+        "Controls how flex and grid items are positioned along a container's cross axis",
+      table: {
+        type: { summary: summarizeValues(FLEX_ALIGNS, true) },
+      },
     },
     wrap: {
       control: "select",
-      options: FLEX_WRAPS,
+      options: asOptionalValue(FLEX_WRAPS),
+      description: "Controls how flex items wrap",
+      table: {
+        type: { summary: summarizeValues(FLEX_WRAPS, true) },
+      },
     },
     gap: {
       control: "select",
-      options: GAPS,
+      options: asOptionalValue(GAPS),
+      description: "Controls gutters between flex items (X+Y axes)",
+      table: {
+        type: { summary: summarizeValues(GAPS, true) },
+      },
     },
     gapX: {
       control: "select",
-      options: GAPS,
+      options: asOptionalValue(GAPS),
+      description: "Controls gutters between flex items (X-axis only)",
+      table: {
+        type: { summary: summarizeValues(GAPS, true) },
+      },
     },
     gapY: {
       control: "select",
-      options: GAPS,
+      options: asOptionalValue(GAPS),
+      description: "Controls gutters between flex items (Y-axis only)",
+      table: {
+        type: { summary: summarizeValues(GAPS, true) },
+      },
     },
     as: {
       control: "select",
-      options: LAYOUT_ELEMENTS,
+      options: asOptionalValue(LAYOUT_ELEMENTS),
+      description: "Specific HTML element to use as the basis for flex",
+      table: {
+        type: { summary: summarizeValues(LAYOUT_ELEMENTS, true) },
+      },
+    },
+    className: {
+      description: "Comma-separated CSS class names",
+      table: {
+        type: { summary: "string" },
+      },
+    },
+    children: {
+      control: { disable: true },
+      table: {
+        type: { summary: "React.ReactNode" },
+      },
     },
   },
 };
@@ -57,10 +105,45 @@ export default meta;
 type Story = StoryObj<typeof Flex>;
 
 const FlexItem = ({ children }: { children: React.ReactNode }) => (
-  <Box as="span" className="bg-muted text-muted-foreground rounded-md p-0.5">
+  <Box
+    as="span"
+    className="bg-info text-info-foreground rounded-md px-1 py-0.5"
+  >
     {children}
   </Box>
 );
+
+export const Default: Story = {
+  args: {
+    direction: "row",
+    justify: "center",
+    align: "center",
+    wrap: "wrap",
+    gap: "2",
+    as: "div",
+    className: "w-full h-full border-1 border-dashed border-gray-200",
+    children: (
+      <Fragment>
+        <FlexItem>
+          <Text variant="info">Item 1</Text>
+        </FlexItem>
+        <FlexItem>
+          <Text variant="info">Item 2</Text>
+        </FlexItem>
+        <FlexItem>
+          <Text variant="info">Item 3</Text>
+        </FlexItem>
+      </Fragment>
+    ),
+  },
+  decorators: [
+    (Story) => (
+      <Box className="h-[300px] w-[300px]">
+        <Story />
+      </Box>
+    ),
+  ],
+};
 
 export const Directions: Story = {
   render: () => (
@@ -117,7 +200,6 @@ export const Alignments: Story = {
   ),
 };
 
-// Justify variations
 export const Justifications: Story = {
   render: () => (
     <>
