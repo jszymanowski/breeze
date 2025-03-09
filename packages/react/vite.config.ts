@@ -48,6 +48,7 @@ export default defineConfig({
     include: ["tests/**/*.test.ts*"],
     coverage: {
       include: ["lib/**/*"],
+      exclude: ["lib/types/*"],
     },
   },
 } as ViteUserConfig);
