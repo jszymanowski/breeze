@@ -1,12 +1,12 @@
 import React from "react";
 
-import { Gap } from "@/types";
+import { Gap, GridCols, GridRows } from "@/types";
 import { cn } from "@/utils";
 
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: React.ElementType;
-  cols?: "1" | "2" | "3" | "4" | "5" | "6" | "8" | "10" | "12" | "none";
-  rows?: "1" | "2" | "3" | "4" | "5" | "6" | "8" | "10" | "12" | "none";
+  cols?: GridCols;
+  rows?: GridRows;
   flow?: "row" | "col" | "dense" | "row-dense" | "col-dense";
   gap?: Gap;
   gapX?: Gap;
@@ -39,8 +39,11 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
             "grid-cols-4": cols === "4",
             "grid-cols-5": cols === "5",
             "grid-cols-6": cols === "6",
+            "grid-cols-7": cols === "7",
             "grid-cols-8": cols === "8",
+            "grid-cols-9": cols === "9",
             "grid-cols-10": cols === "10",
+            "grid-cols-11": cols === "11",
             "grid-cols-12": cols === "12",
             "grid-cols-none": cols === "none",
           },
@@ -51,9 +54,24 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
             "grid-rows-4": rows === "4",
             "grid-rows-5": rows === "5",
             "grid-rows-6": rows === "6",
+            "grid-rows-7": rows === "7",
             "grid-rows-8": rows === "8",
+            "grid-rows-9": rows === "9",
             "grid-rows-10": rows === "10",
+            "grid-rows-11": rows === "11",
             "grid-rows-12": rows === "12",
+            "grid-rows-13": rows === "13",
+            "grid-rows-14": rows === "14",
+            "grid-rows-15": rows === "15",
+            "grid-rows-16": rows === "16",
+            "grid-rows-17": rows === "17",
+            "grid-rows-18": rows === "18",
+            "grid-rows-19": rows === "19",
+            "grid-rows-20": rows === "20",
+            "grid-rows-21": rows === "21",
+            "grid-rows-22": rows === "22",
+            "grid-rows-23": rows === "23",
+            "grid-rows-24": rows === "24",
             "grid-rows-none": rows === "none",
           },
           // Gap
