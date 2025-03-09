@@ -6,7 +6,6 @@
 
 1. Testing completeness:
    - [ ] Audit all variants are applied and tested
-   - [ ] Do something automated with test coverage. What do people do?
    - [ ] Consider Storybook or Playwright tests
 1. Storybook completeness:
    - [ ] Add stories for `Grid`
