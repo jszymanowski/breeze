@@ -54,7 +54,7 @@ const Text = React.forwardRef(
           {
             "text-xs": size === "xs",
             "text-sm": size === "sm",
-            "text-base": size === "base",
+            "text-base": size === "base" || size === "md",
             "text-lg": size === "lg",
             "text-xl": size === "xl",
             "text-2xl": size === "2xl",
