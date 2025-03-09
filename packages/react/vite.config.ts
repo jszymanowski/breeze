@@ -13,7 +13,7 @@ export default defineConfig({
     dts({
       include: ["lib/**/*"],
       insertTypesEntry: true,
-      rollupTypes: false,
+      rollupTypes: true,
     }),
     libInjectCss(),
     tailwindcss(),
