@@ -8,6 +8,7 @@ import {
   TextAlign,
   FontSize,
   TypographyElement,
+  TextTracking,
 } from "@/types";
 import { cn } from "@/utils";
 
@@ -17,6 +18,7 @@ interface TextBaseProps {
   variant?: TypographyVariant;
   align?: TextAlign;
   leading?: TextLeading;
+  tracking?: TextTracking;
   family?: FontFamily;
   truncate?: boolean;
   numeric?: boolean;
@@ -38,6 +40,7 @@ const Text = React.forwardRef(
       variant = "default",
       align,
       leading = "normal",
+      tracking = "normal",
       family = "display",
       truncate = false,
       numeric = false,
@@ -50,7 +53,7 @@ const Text = React.forwardRef(
     return (
       <Component
         className={cn(
-          // Size scales
+          // Font sizes
           {
             "text-xs": size === "xs",
             "text-sm": size === "sm",
@@ -81,9 +84,10 @@ const Text = React.forwardRef(
           // Text colors
           {
             "text-foreground": variant === "default",
-            "text-primary-foreground": variant === "primary",
             "text-muted-foreground": variant === "muted",
             "text-accent-foreground": variant === "accent",
+            "text-primary-foreground": variant === "primary",
+            "text-secondary-foreground": variant === "secondary",
             "text-info-foreground": variant === "info",
             "text-warning-foreground": variant === "warning",
             "text-destructive-foreground": variant === "destructive",
@@ -95,8 +99,10 @@ const Text = React.forwardRef(
             "text-center": align === "center",
             "text-right": align === "right",
             "text-justify": align === "justify",
+            "text-start": align === "start",
+            "text-end": align === "end",
           },
-          // Line height
+          // Leading (line height)
           {
             "leading-none": leading === "none",
             "leading-tight": leading === "tight",
@@ -104,6 +110,15 @@ const Text = React.forwardRef(
             "leading-normal": leading === "normal",
             "leading-relaxed": leading === "relaxed",
             "leading-loose": leading === "loose",
+          },
+          // Tracking (letter spacing)
+          {
+            "tracking-tighter": tracking === "tighter",
+            "tracking-tight": tracking === "tight",
+            "tracking-normal": tracking === "normal",
+            "tracking-wide": tracking === "wide",
+            "tracking-wider": tracking === "wider",
+            "tracking-widest": tracking === "widest",
           },
           // Font family
           {

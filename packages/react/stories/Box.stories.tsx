@@ -41,7 +41,7 @@ type Story = StoryObj<typeof Box>;
 export const Default: Story = {
   args: {
     as: "div",
-    className: "border-1 border-dashed border-gray-200",
+    className: "border-1 border-dashed border-gray-300",
     children: "This is a Box component",
   },
   decorators: [
@@ -56,10 +56,10 @@ export const Default: Story = {
 export const StyleExamples: Story = {
   render: () => (
     <Grid cols="2" gap="4" className="m-4">
-      <Box className="text-foreground border-1 border-dashed border-gray-200 p-4">
+      <Box className="text-foreground border-1 border-dashed border-gray-300 p-4">
         padding
       </Box>
-      <Box className="text-foreground border-1 border-dashed border-gray-200 p-4">
+      <Box className="text-foreground border-1 border-dashed border-gray-300 p-4">
         centered
       </Box>
       <Box className="bg-muted text-muted-foreground rounded-md p-4">
@@ -163,7 +163,7 @@ export const AlternateElements: Story = {
         <Box
           key={i}
           as={as}
-          className="text-foreground rounded-md border-1 border-gray-200 p-4 text-center"
+          className="text-foreground rounded-md border-1 border-gray-300 p-4 text-center"
         >
           {"<"}
           {as}

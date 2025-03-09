@@ -10,6 +10,7 @@ import {
   FontFamily,
   TextAlign,
   TextTracking,
+  TextLeading,
 } from "@/types";
 
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -18,9 +19,12 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   weight?: FontWeight;
   variant?: TypographyVariant;
   align?: TextAlign;
+  leading?: TextLeading;
   tracking?: TextTracking;
   family?: FontFamily;
+  truncate?: boolean;
   numeric?: boolean;
+  className?: string;
 }
 
 const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
@@ -32,8 +36,10 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       weight = "bold",
       variant = "default",
       align,
+      leading = "normal",
       tracking = "normal",
       family = "display",
+      truncate = false,
       numeric = false,
       ...props
     },
@@ -89,9 +95,9 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
           {
             "text-foreground": variant === "default",
             "text-muted-foreground": variant === "muted",
+            "text-accent-foreground": variant === "accent",
             "text-primary-foreground": variant === "primary",
             "text-secondary-foreground": variant === "secondary",
-            "text-accent-foreground": variant === "accent",
             "text-info-foreground": variant === "info",
             "text-success-foreground": variant === "success",
             "text-warning-foreground": variant === "warning",
@@ -103,8 +109,19 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
             "text-center": align === "center",
             "text-right": align === "right",
             "text-justify": align === "justify",
+            "text-start": align === "start",
+            "text-end": align === "end",
           },
-          // Letter spacing
+          // Leading (line height)
+          {
+            "leading-none": leading === "none",
+            "leading-tight": leading === "tight",
+            "leading-snug": leading === "snug",
+            "leading-normal": leading === "normal",
+            "leading-relaxed": leading === "relaxed",
+            "leading-loose": leading === "loose",
+          },
+          // Tracking (letter spacing)
           {
             "tracking-tighter": tracking === "tighter",
             "tracking-tight": tracking === "tight",
@@ -113,7 +130,6 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
             "tracking-wider": tracking === "wider",
             "tracking-widest": tracking === "widest",
           },
-          "scroll-m-20", // Add some scroll margin for better anchor navigation
           // Font family
           {
             "font-display": family === "display",
@@ -121,8 +137,12 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
             "font-serif": family === "serif",
             "font-mono": family === "mono",
           },
+          // Truncation
+          truncate && "truncate",
           // Tabular numerals
           numeric && "tabular-nums",
+          // Add some scroll margin for better anchor navigation
+          "scroll-m-20",
           className
         )}
         ref={ref}

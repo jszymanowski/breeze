@@ -34,12 +34,14 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       <Component
         className={cn(
           "flex",
+          // Flex direction
           {
             "flex-row": direction === "row",
             "flex-row-reverse": direction === "row-reverse",
             "flex-col": direction === "col",
             "flex-col-reverse": direction === "col-reverse",
           },
+          // Align items
           {
             "items-start": align === "start",
             "items-center": align === "center",
@@ -47,6 +49,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
             "items-stretch": align === "stretch",
             "items-baseline": align === "baseline",
           },
+          // Justify content
           {
             "justify-start": justify === "start",
             "justify-center": justify === "center",
@@ -54,12 +57,17 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
             "justify-between": justify === "between",
             "justify-around": justify === "around",
             "justify-evenly": justify === "evenly",
+            "justify-stretch": justify === "stretch",
+            "justify-baseline": justify === "baseline",
+            "justify-normal": justify === "normal",
           },
+          // Wrap content
           {
             "flex-wrap": wrap === "wrap",
             "flex-wrap-reverse": wrap === "wrap-reverse",
             "flex-nowrap": wrap === "nowrap",
           },
+          // Gap
           {
             "gap-0": gap === "0",
             "gap-1": gap === "1",
@@ -68,9 +76,15 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
             "gap-4": gap === "4",
             "gap-5": gap === "5",
             "gap-6": gap === "6",
+            "gap-7": gap === "7",
             "gap-8": gap === "8",
+            "gap-9": gap === "9",
             "gap-10": gap === "10",
+            "gap-11": gap === "11",
             "gap-12": gap === "12",
+            "gap-13": gap === "13",
+            "gap-14": gap === "14",
+            "gap-15": gap === "15",
             "gap-16": gap === "16",
           },
           {
@@ -81,9 +95,15 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
             "gap-x-4": gapX === "4",
             "gap-x-5": gapX === "5",
             "gap-x-6": gapX === "6",
+            "gap-x-7": gapX === "7",
             "gap-x-8": gapX === "8",
+            "gap-x-9": gapX === "9",
             "gap-x-10": gapX === "10",
+            "gap-x-11": gapX === "11",
             "gap-x-12": gapX === "12",
+            "gap-x-13": gapX === "13",
+            "gap-x-14": gapX === "14",
+            "gap-x-15": gapX === "15",
             "gap-x-16": gapX === "16",
           },
           {
@@ -94,9 +114,15 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
             "gap-y-4": gapY === "4",
             "gap-y-5": gapY === "5",
             "gap-y-6": gapY === "6",
+            "gap-y-7": gapY === "7",
             "gap-y-8": gapY === "8",
+            "gap-y-9": gapY === "9",
             "gap-y-10": gapY === "10",
+            "gap-y-11": gapY === "11",
             "gap-y-12": gapY === "12",
+            "gap-y-13": gapY === "13",
+            "gap-y-14": gapY === "14",
+            "gap-y-15": gapY === "15",
             "gap-y-16": gapY === "16",
           },
           className

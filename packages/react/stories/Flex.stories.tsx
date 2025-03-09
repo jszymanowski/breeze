@@ -121,7 +121,7 @@ export const Default: Story = {
     wrap: "wrap",
     gap: "2",
     as: "div",
-    className: "w-full h-full border-1 border-dashed border-gray-200",
+    className: "w-full h-full border-1 border-dashed border-gray-300",
     children: (
       <Fragment>
         <FlexItem>
@@ -172,7 +172,7 @@ export const Alignments: Story = {
             direction="row"
             align={align}
             gap="1"
-            className="border-muted h-24 w-full min-w-[200px] rounded-md border p-2"
+            className="h-24 w-full min-w-[200px] rounded-md border-1 border-dashed border-gray-300 p-2"
           >
             <FlexItem>{align} 1</FlexItem>
             <FlexItem>{align} 2</FlexItem>
@@ -189,7 +189,7 @@ export const Alignments: Story = {
             direction="col"
             align={align}
             gap="1"
-            className="border-muted h-24 w-full min-w-[200px] rounded-md border p-2"
+            className="h-24 w-full min-w-[200px] rounded-md border-1 border-dashed border-gray-300 p-2"
           >
             <FlexItem>{align} 1</FlexItem>
             <FlexItem>{align} 2</FlexItem>
@@ -213,7 +213,7 @@ export const Justifications: Story = {
             direction="row"
             justify={justify}
             gap="1"
-            className="border-muted w-full min-w-[200px] rounded-md border p-2"
+            className="w-full min-w-[200px] rounded-md border-1 border-dashed border-gray-300 p-2"
           >
             <FlexItem>{justify} 1</FlexItem>
             <FlexItem>{justify} 2</FlexItem>
@@ -230,7 +230,7 @@ export const Justifications: Story = {
             direction="col"
             justify={justify}
             gap="1"
-            className="border-muted h-24 w-full min-w-[200px] rounded-md border p-2"
+            className="h-24 w-full min-w-[200px] rounded-md border-1 border-dashed border-gray-300 p-2"
           >
             <FlexItem>{justify} 1</FlexItem>
             <FlexItem>{justify} 2</FlexItem>
@@ -267,7 +267,7 @@ export const Wrapping: Story = {
             direction="row"
             wrap={wrap}
             gap="2"
-            className="bg-background w-full overflow-x-auto rounded-md border p-2"
+            className="bg-background w-full overflow-x-auto rounded-md border-1 border-dashed border-gray-300 p-2"
           >
             {Array.from({ length: 10 }).map((_, i) => (
               <Box
