@@ -1,7 +1,7 @@
 name: "Chromatic"
 
 on:
-  pull_request:
+  push:
     branches:
       - main
     paths:
@@ -11,8 +11,6 @@ jobs:
   chromatic:
     name: Run Chromatic
     runs-on: self-hosted
-
-    if: ${{ !contains(github.event.pull_request.title, '[WIP]') && !contains(github.event.pull_request.title, '[wip]') && !contains(github.event.pull_request.title, '[Wip]') && !contains(github.event.pull_request.title, '[DRAFT]') && !contains(github.event.pull_request.title, '[draft]') && !contains(github.event.pull_request.title, '[Draft]') }}
 
     defaults:
       run:
