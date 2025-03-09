@@ -22,7 +22,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -b && vite build",
-    "build-storybook": "storybook build",
+    "build:storybook": "storybook build",
     "chromatic": "chromatic --exit-zero-on-changes",
     "coverage": "vitest run --coverage",
     "dev": "vite",
