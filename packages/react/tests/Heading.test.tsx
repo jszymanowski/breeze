@@ -9,13 +9,10 @@ describe("Heading", () => {
     render(<Heading>Hello world</Heading>);
     const element = screen.getByText("Hello world");
 
-    expect(element.tagName).toBe("H2"); // Default level is 2
-    expect(element).toHaveClass("text-3xl"); // Default size for h2
-    expect(element).toHaveClass("font-bold"); // Default weight
-    expect(element).toHaveClass("text-foreground"); // Default variant
-    expect(element).toHaveClass("tracking-normal"); // Default tracking
-    expect(element).toHaveClass("font-display"); // Default family
-    expect(element).toHaveClass("scroll-m-20"); // Should have scroll margin
+    expect(element.tagName).toBe("H2");
+    expect(element.className).toBe(
+      "text-3xl font-bold text-foreground tracking-normal font-display scroll-m-20"
+    );
   });
 
   it("renders headings with different levels", () => {

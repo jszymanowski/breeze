@@ -10,11 +10,9 @@ describe("Text", () => {
     const element = screen.getByText("Hello world");
 
     expect(element.tagName).toBe("P");
-    expect(element).toHaveClass("text-base");
-    expect(element).toHaveClass("font-normal");
-    expect(element).toHaveClass("text-foreground"); // Default variant
-    expect(element).toHaveClass("leading-normal");
-    expect(element).toHaveClass("font-display");
+    expect(element.className).toBe(
+      "text-base font-normal text-foreground tracking-normal font-display"
+    );
   });
 
   it("renders with custom element type", () => {
