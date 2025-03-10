@@ -36,7 +36,10 @@
     },
     {
       "groupName": "semantic-release-dependencies",
-      "matchPackageNames": ["/^semantic-release/"]
+      "matchPackageNames": [
+        "/^semantic-release/",
+        "conventional-changelog-conventionalcommits"
+      ]
     },
     {
       "enabled": false,
