@@ -1,4 +1,4 @@
-name: CI (Test suite)
+name: CI (test suite)
 
 on:
   pull_request:

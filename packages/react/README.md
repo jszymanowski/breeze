@@ -22,8 +22,9 @@ _Primitive React components, built with Tailwind CSS_
   - [Chromatic builds](https://www.chromatic.com/builds?appId=67ccefd8fafa91b1c6c38501)
   - [CodeCov](https://app.codecov.io/gh/jszymanowski/breeze)
   - [Renovate](https://developer.mend.io/github/jszymanowski/breeze)
-- [Changelog](CHANGELOG.md)
-- [Roadmap](ROADMAP.md)
+- Other documentation, documents
+  - [Changelog](./docs/CHANGELOG.md)
+  - [Roadmap](./docs/ROADMAP.md)
 
 ---
 
