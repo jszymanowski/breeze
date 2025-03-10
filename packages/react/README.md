@@ -49,16 +49,26 @@ Example `index.css`:
 
 ### Publishing
 
-Automatic:
+Releases are automated using [semantic-release](https://semantic-release.gitbook.io/semantic-release). When a PR is merged to main, semantic-release will analyize recent commits to determine if and how a release should be structured.
 
-```bash
-pnpm version patch -m "Release %s"
-git push && git push --tags
-```
+Releases can be performed manually, by either:
 
-Manual:
+1. Triggering the Semantic Release action in Github.
+1. Manually, from the command line:
 
-```bash
-git tag react@0.4.1
-git push origin react@0.4.1
-```
+   ```bash
+   export GITHUB_TOKEN=your_github_token
+   export NPM_TOKEN=your_npm_token
+
+   git checkout main
+
+   npx semantic-release --dry-run # confirm what release type will occur
+
+   npx semantic-release # perform the actual release
+   ```
+
+   The default configuration ([`release.config.mjs`](./release.config.mjs)) may be overrode with command-line parameters:
+
+   ```bash
+   npx semantic-release --branches some-other-branch
+   ```
