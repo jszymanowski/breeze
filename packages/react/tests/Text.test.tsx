@@ -2,7 +2,15 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
 import { Text } from "@/main";
-import { TypographyVariant } from "@/types/typography";
+import {
+  FONT_FAMILIES,
+  FONT_WEIGHTS,
+  FONT_SIZES,
+  TYPOGRAPHY_VARIANTS,
+  TEXT_ALIGNS,
+  TEXT_LEADINGS,
+  TEXT_TRACKINGS,
+} from "@/types";
 
 describe("Text", () => {
   it("renders with default props", () => {
@@ -33,31 +41,19 @@ describe("Text", () => {
   });
 
   it("applies the correct text size classes", () => {
-    const sizes = ["xs", "sm", "base", "lg", "xl"] as const;
-
-    sizes.forEach((size) => {
+    FONT_SIZES.forEach((size) => {
       const { rerender } = render(<Text size={size}>Text {size}</Text>);
       const element = screen.getByText(`Text ${size}`);
+      const expectedCssClass = size === "md" ? "text-base" : `text-${size}`;
       expect(element.className).toBe(
-        `text-${size} font-normal text-foreground tracking-normal font-display`
+        `${expectedCssClass} font-normal text-foreground tracking-normal font-display`
       );
       rerender(<></>);
     });
   });
 
   it("applies the correct font weight classes", () => {
-    const weights = [
-      "thin",
-      "extralight",
-      "light",
-      "normal",
-      "medium",
-      "semibold",
-      "bold",
-      "black",
-    ] as const;
-
-    weights.forEach((weight) => {
+    FONT_WEIGHTS.forEach((weight) => {
       const { rerender } = render(<Text weight={weight}>Weight {weight}</Text>);
       const element = screen.getByText(`Weight ${weight}`);
       expect(element.className).toBe(
@@ -68,16 +64,12 @@ describe("Text", () => {
   });
 
   it("applies the correct variant classes", () => {
-    const variants = {
-      default: "text-foreground",
-      muted: "text-muted-foreground",
-      accent: "text-accent-foreground",
-      destructive: "text-destructive-foreground",
-      info: "text-info-foreground",
-      success: "text-success-foreground",
-    } as Record<TypographyVariant, string>;
+    TYPOGRAPHY_VARIANTS.forEach((variant) => {
+      const className =
+        variant === "default"
+          ? "text-foreground"
+          : `text-${variant}-foreground`;
 
-    Object.entries(variants).forEach(([variant, className]) => {
       const { rerender } = render(
         <Text variant={variant}>Variant {variant}</Text>
       );
@@ -92,9 +84,7 @@ describe("Text", () => {
   });
 
   it("applies the correct text alignment classes", () => {
-    const alignments = ["left", "center", "right", "justify"] as const;
-
-    alignments.forEach((align) => {
+    TEXT_ALIGNS.forEach((align) => {
       const { rerender } = render(<Text align={align}>Align {align}</Text>);
       const element = screen.getByText(`Align ${align}`);
       expect(element.className).toBe(
@@ -104,17 +94,21 @@ describe("Text", () => {
     });
   });
 
-  it("applies the correct line height classes", () => {
-    const leadingOptions = [
-      "none",
-      "tight",
-      "snug",
-      "normal",
-      "relaxed",
-      "loose",
-    ] as const;
+  it("applies the correct tracking classes", () => {
+    TEXT_TRACKINGS.forEach((tracking) => {
+      const { rerender } = render(
+        <Text tracking={tracking}>Tracking {tracking}</Text>
+      );
+      const element = screen.getByText(`Tracking ${tracking}`);
+      expect(element.className).toBe(
+        `text-base font-normal text-foreground tracking-${tracking} font-display`
+      );
+      rerender(<></>);
+    });
+  });
 
-    leadingOptions.forEach((leading) => {
+  it("applies the correct line height classes", () => {
+    TEXT_LEADINGS.forEach((leading) => {
       const { rerender } = render(
         <Text leading={leading}>Leading {leading}</Text>
       );
@@ -127,9 +121,7 @@ describe("Text", () => {
   });
 
   it("applies the correct font family classes", () => {
-    const families = ["display", "sans", "serif", "mono"] as const;
-
-    families.forEach((family) => {
+    FONT_FAMILIES.forEach((family) => {
       const { rerender } = render(<Text family={family}>Family {family}</Text>);
       const element = screen.getByText(`Family ${family}`);
       expect(element.className).toBe(
