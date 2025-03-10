@@ -44,6 +44,7 @@ describe("Text", () => {
     FONT_SIZES.forEach((size) => {
       const { rerender } = render(<Text size={size}>Text {size}</Text>);
       const element = screen.getByText(`Text ${size}`);
+
       const expectedCssClass = size === "md" ? "text-base" : `text-${size}`;
       expect(element.className).toBe(
         `${expectedCssClass} font-normal text-foreground tracking-normal font-display`
@@ -65,18 +66,18 @@ describe("Text", () => {
 
   it("applies the correct variant classes", () => {
     TYPOGRAPHY_VARIANTS.forEach((variant) => {
-      const className =
-        variant === "default"
-          ? "text-foreground"
-          : `text-${variant}-foreground`;
-
       const { rerender } = render(
         <Text variant={variant}>Variant {variant}</Text>
       );
       const element = screen.getByText(`Variant ${variant}`);
 
+      const expectedCssClass =
+        variant === "default"
+          ? "text-foreground"
+          : `text-${variant}-foreground`;
+
       expect(element.className).toBe(
-        `text-base font-normal ${className} tracking-normal font-display`
+        `text-base font-normal ${expectedCssClass} tracking-normal font-display`
       );
 
       rerender(<></>);
@@ -94,7 +95,7 @@ describe("Text", () => {
     });
   });
 
-  it("applies the correct tracking classes", () => {
+  it("applies the correct letter spacing classes", () => {
     TEXT_TRACKINGS.forEach((tracking) => {
       const { rerender } = render(
         <Text tracking={tracking}>Tracking {tracking}</Text>

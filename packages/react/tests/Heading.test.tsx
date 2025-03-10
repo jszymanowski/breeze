@@ -2,7 +2,18 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
 import { Heading } from "@/main";
-import { FontWeight, TypographyVariant } from "@/types";
+import {
+  HEADING_LEVELS,
+  FONT_FAMILIES,
+  FONT_WEIGHTS,
+  FONT_SIZES,
+  TYPOGRAPHY_VARIANTS,
+  TEXT_ALIGNS,
+  TEXT_LEADINGS,
+  TEXT_TRACKINGS,
+  FontWeight,
+  TypographyVariant,
+} from "@/types";
 
 describe("Heading", () => {
   it("renders with default props", () => {
@@ -16,19 +27,6 @@ describe("Heading", () => {
   });
 
   it("renders headings with different levels", () => {
-    const levels = ["1", "2", "3", "4", "5", "6"] as const;
-
-    levels.forEach((level) => {
-      const { rerender } = render(
-        <Heading level={level}>Heading {level}</Heading>
-      );
-      const element = screen.getByText(`Heading ${level}`);
-      expect(element.tagName).toBe(`H${level}`);
-      rerender(<></>);
-    });
-  });
-
-  it("applies default size based on level when size is not specified", () => {
     const levelSizeMap = {
       "1": "text-4xl",
       "2": "text-3xl",
@@ -38,55 +36,38 @@ describe("Heading", () => {
       "6": "text-base",
     };
 
-    Object.entries(levelSizeMap).forEach(([level, expectedClass]) => {
+    HEADING_LEVELS.forEach((level) => {
       const { rerender } = render(
-        <Heading level={level as "1" | "2" | "3" | "4" | "5" | "6"}>
-          Heading {level}
-        </Heading>
+        <Heading level={level}>Heading {level}</Heading>
       );
       const element = screen.getByText(`Heading ${level}`);
+      expect(element.tagName).toBe(`H${level}`);
       expect(element.className).toBe(
-        `${expectedClass} font-bold text-foreground tracking-normal font-display scroll-m-20`
+        `${levelSizeMap[level]} font-bold text-foreground tracking-normal font-display scroll-m-20`
       );
       rerender(<></>);
     });
   });
 
   it("applies explicitly specified size regardless of level", () => {
-    const sizes = [
-      "xs",
-      "sm",
-      "base",
-      "lg",
-      "xl",
-      "2xl",
-      "3xl",
-      "4xl",
-      "5xl",
-    ] as const;
-
-    sizes.forEach((size) => {
+    FONT_SIZES.forEach((size) => {
       const { rerender } = render(
-        <Heading size={size}>Heading {size}</Heading>
+        <Heading level="3" size={size}>
+          Heading {size}
+        </Heading>
       );
       const element = screen.getByText(`Heading ${size}`);
+
+      const expectedCssClass = size === "md" ? "text-base" : `text-${size}`;
       expect(element.className).toBe(
-        `text-${size} font-bold text-foreground tracking-normal font-display scroll-m-20`
+        `${expectedCssClass} font-bold text-foreground tracking-normal font-display scroll-m-20`
       );
       rerender(<></>);
     });
   });
 
   it("applies the correct font weight classes", () => {
-    const weights = [
-      "normal",
-      "medium",
-      "semibold",
-      "bold",
-      "extrabold",
-    ] as const;
-
-    weights.forEach((weight) => {
+    FONT_WEIGHTS.forEach((weight) => {
       const { rerender } = render(
         <Heading weight={weight as FontWeight}>Weight {weight}</Heading>
       );
@@ -99,33 +80,28 @@ describe("Heading", () => {
   });
 
   it("applies the correct variant classes", () => {
-    const variants = {
-      default: "text-foreground",
-      muted: "text-muted-foreground",
-      primary: "text-primary-foreground",
-      accent: "text-accent-foreground",
-      info: "text-info-foreground",
-      destructive: "text-destructive-foreground",
-    } as const;
-
-    Object.entries(variants).forEach(([variant, className]) => {
+    TYPOGRAPHY_VARIANTS.forEach((variant) => {
       const { rerender } = render(
         <Heading variant={variant as TypographyVariant}>
           Variant {variant}
         </Heading>
       );
       const element = screen.getByText(`Variant ${variant}`);
+
+      const expectedCssClass =
+        variant === "default"
+          ? "text-foreground"
+          : `text-${variant}-foreground`;
+
       expect(element.className).toBe(
-        `text-3xl font-bold ${className} tracking-normal font-display scroll-m-20`
+        `text-3xl font-bold ${expectedCssClass} tracking-normal font-display scroll-m-20`
       );
       rerender(<></>);
     });
   });
 
   it("applies the correct text alignment classes", () => {
-    const alignments = ["left", "center", "right"] as const;
-
-    alignments.forEach((align) => {
+    TEXT_ALIGNS.forEach((align) => {
       const { rerender } = render(
         <Heading align={align}>Align {align}</Heading>
       );
@@ -138,16 +114,7 @@ describe("Heading", () => {
   });
 
   it("applies the correct letter spacing classes", () => {
-    const trackingOptions = [
-      "tighter",
-      "tight",
-      "normal",
-      "wide",
-      "wider",
-      "widest",
-    ] as const;
-
-    trackingOptions.forEach((tracking) => {
+    TEXT_TRACKINGS.forEach((tracking) => {
       const { rerender } = render(
         <Heading tracking={tracking}>Tracking {tracking}</Heading>
       );
@@ -159,10 +126,21 @@ describe("Heading", () => {
     });
   });
 
-  it("applies the correct font family classes", () => {
-    const families = ["display", "sans", "serif", "mono"] as const;
+  it("applies the correct line height classes", () => {
+    TEXT_LEADINGS.forEach((leading) => {
+      const { rerender } = render(
+        <Heading leading={leading}>Leading {leading}</Heading>
+      );
+      const element = screen.getByText(`Leading ${leading}`);
+      expect(element.className).toBe(
+        `text-3xl font-bold text-foreground leading-${leading} tracking-normal font-display scroll-m-20`
+      );
+      rerender(<></>);
+    });
+  });
 
-    families.forEach((family) => {
+  it("applies the correct font family classes", () => {
+    FONT_FAMILIES.forEach((family) => {
       const { rerender } = render(
         <Heading family={family}>Family {family}</Heading>
       );
