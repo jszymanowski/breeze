@@ -2,31 +2,19 @@ name: "Lint pull request"
 
 on:
   pull_request:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - reopened
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - reopened
-
-permissions:
-  pull-requests: read
+    types: [opened, edited, synchronize, reopened]
 
 jobs:
   main:
     name: Validate PR title
     runs-on: ubuntu-latest
-    timeout-minutes: 1
+    timeout-minutes: 2
 
     if: ${{ !contains(github.event.pull_request.title, '[WIP]') && !contains(github.event.pull_request.title, '[wip]') && !contains(github.event.pull_request.title, '[Wip]') && !contains(github.event.pull_request.title, '[DRAFT]') && !contains(github.event.pull_request.title, '[draft]') && !contains(github.event.pull_request.title, '[Draft]') }}
 
     steps:
-      - uses: amannn/action-semantic-pull-request@v5
+      - name: Validate PR Title
+        uses: amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
