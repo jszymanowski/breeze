@@ -19,6 +19,7 @@ import {
   FontFamily,
   TextAlign,
 } from "@/types";
+import Code from "@stories/templates/Code";
 
 import OptionList from "@root/stories/templates/OptionList";
 import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
@@ -251,7 +252,10 @@ export const Leading: Story = {
       options={[undefined, ...TEXT_LEADINGS] as unknown as TextLeading[]}
       gapY="0"
       renderRowTitle={(option) => (
-        <Text>{option === undefined ? "<no value>" : option}</Text>
+        <>
+          {option === undefined && <Text>{"<no value"}</Text>}
+          <Code>{option}</Code>
+        </>
       )}
       renderOption={(leading: TextLeading) => (
         <>
@@ -285,7 +289,7 @@ export const Truncation: Story = {
       <OptionList<boolean>
         options={[true, false]}
         renderRowTitle={(option) => (
-          <Text>{option ? "Truncated" : "Not truncated"}</Text>
+          <Text align="right">{option ? "Truncated" : "Not truncated"}</Text>
         )}
         renderOption={(truncated) => (
           <Heading truncate={truncated}>{sampleLongHeading}</Heading>
