@@ -24,12 +24,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          # Use the Conventional Commits standard
+          validateSingleCommit: true
+          validateSingleCommitMatchesPrTitle: true
           types: |
-            feature
+            feat
             fix
             docs
             style
             refactor
+            perf
             test
             build
             ci
@@ -39,4 +43,9 @@ jobs:
           requireScope: false
           subjectPattern: ^[A-Z].+$
           subjectPatternError: |
-            The subject must begin with a capital letter
+            Your PR title must follow the format: <type>(<optional-scope>): <subject>
+            Examples:
+              feat: Add new feature
+              feat!: Redeisgn the whole project
+              fix(auth): Fix login issue
+              docs: Update README

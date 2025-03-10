@@ -1,6 +1,4 @@
-# Breeze React
-
-## Changelog
+# Breeze React - changes
 
 ### 0.6.0
 
