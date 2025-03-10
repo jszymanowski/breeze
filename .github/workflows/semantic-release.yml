@@ -1,0 +1,21 @@
+name: Semantic Release
+
+on:
+  pull_request:
+    branches:
+      - main
+  # push:
+  #   tags:
+  #     - "react@*"
+  #   paths:
+  #     - "packages/react/**"
+
+jobs:
+  verify-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Dry run semantic-release
+        run: npx semantic-release --dry-run
