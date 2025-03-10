@@ -19,8 +19,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # Use the Conventional Commits standard
-          validateSingleCommit: true
-          validateSingleCommitMatchesPrTitle: true
           types: |
             feat
             fix
