@@ -17,15 +17,22 @@
   ],
   "lockFileMaintenance": {
     "enabled": true,
-    "recreateClosed": false,
-    "schedule": ["before 5am on tuesday"]
+    "recreateWhen": "auto",
+    "schedule": ["before 5am on tuesday"],
+    "automerge": true
   },
-  "rangeStrategy": "bump",
   "packageRules": [
     {
-      "matchPackageNames": ["typescript"],
-      "matchUpdateTypes": ["major", "minor"],
-      "minimumReleaseAge": "3 days"
+      "matchDepTypes": ["devDependencies"],
+      "matchPackageNames": [
+        "@babel/*",
+        "*eslint*",
+        "prettier",
+        "@types/*",
+        "typescript*",
+        "vitest"
+      ],
+      "automerge": true
     },
     {
       "enabled": false,
