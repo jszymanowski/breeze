@@ -30,7 +30,7 @@ describe("Box", () => {
       </Box>
     );
     const element = screen.getByTestId("box-element");
-    expect(element).toHaveClass("custom-class");
+    expect(element.className).toBe("custom-class");
   });
 
   it("can render as different HTML elements", () => {
@@ -112,9 +112,7 @@ describe("Box", () => {
     );
 
     const element = screen.getByTestId("box-element");
-    expect(element).toHaveClass("class1");
-    expect(element).toHaveClass("class2");
-    expect(element).toHaveClass("class3");
+    expect(element.className).toBe("class1 class2 class3");
   });
 
   it("can be styled with inline styles", () => {
