@@ -1,6 +1,6 @@
 {
   "automerge": false,
-  "commitMessagePrefix": "chore: {{#if isMajor}}🚨 {{else}}⬆️ {{/if}}",
+  "commitMessagePrefix": "chore(dependencies): {{#if isMajor}}🚨 {{else}}⬆️ {{/if}}",
   "commitMessageAction": "Update",
   "commitMessageTopic": "{{{depName}}}",
   "commitMessageExtra": "from {{currentValue}} to {{newValue}}",
