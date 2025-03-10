@@ -1,14 +1,11 @@
 name: Semantic Release
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-  # push:
-  #   tags:
-  #     - "react@*"
-  #   paths:
-  #     - "packages/react/**"
+    paths:
+      - "packages/react/**"
 
 permissions:
   contents: read # for checkout
@@ -46,6 +43,3 @@ jobs:
 
       - name: Dry run semantic-release
         run: npx semantic-release --dry-run
-
-      - name: Release
-        run: npx semantic-release
