@@ -248,8 +248,11 @@ export const Variants: Story = {
 export const Leading: Story = {
   render: () => (
     <OptionList<TextLeading>
-      options={TEXT_LEADINGS as unknown as TextLeading[]}
+      options={[undefined, ...TEXT_LEADINGS] as unknown as TextLeading[]}
       gapY="0"
+      renderRowTitle={(option) => (
+        <Text>{option === undefined ? "<no value>" : option}</Text>
+      )}
       renderOption={(leading: TextLeading) => (
         <>
           <Heading leading={leading}>{sampleHeading}</Heading>

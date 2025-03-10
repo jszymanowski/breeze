@@ -36,7 +36,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       weight = "bold",
       variant = "default",
       align,
-      leading = "normal",
+      leading, // No default: Tailwind applies a default from text size classes
       tracking = "normal",
       family = "display",
       truncate = false,

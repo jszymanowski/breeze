@@ -257,7 +257,10 @@ export const Alignments: Story = {
 export const Leading: Story = {
   render: () => (
     <OptionList<TextLeading>
-      options={TEXT_LEADINGS as unknown as TextLeading[]}
+      options={[undefined, ...TEXT_LEADINGS] as unknown as TextLeading[]}
+      renderRowTitle={(option) => (
+        <Text>{option === undefined ? "<no value>" : option}</Text>
+      )}
       renderOption={(leading: TextLeading) => (
         <Text leading={leading} size="sm">
           {sampleLongText[1]}
