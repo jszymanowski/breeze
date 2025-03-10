@@ -19,6 +19,7 @@ import {
   TextLeading,
   TextAlign,
 } from "@/types";
+import Code from "@stories/templates/Code";
 
 import OptionList from "@root/stories/templates/OptionList";
 import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
@@ -259,7 +260,10 @@ export const Leading: Story = {
     <OptionList<TextLeading>
       options={[undefined, ...TEXT_LEADINGS] as unknown as TextLeading[]}
       renderRowTitle={(option) => (
-        <Text>{option === undefined ? "<no value>" : option}</Text>
+        <>
+          {option === undefined && <Text>{"<no value"}</Text>}
+          <Code>{option}</Code>
+        </>
       )}
       renderOption={(leading: TextLeading) => (
         <Text leading={leading} size="sm">
