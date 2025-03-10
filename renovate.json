@@ -35,6 +35,10 @@
       "automerge": true
     },
     {
+      "groupName": "semantic-release-dependencies",
+      "matchPackageNames": ["/^semantic-release/"]
+    },
+    {
       "enabled": false,
       "matchDepTypes": ["peerDependencies"]
     }
