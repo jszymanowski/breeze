@@ -45,7 +45,9 @@ describe("Heading", () => {
         </Heading>
       );
       const element = screen.getByText(`Heading ${level}`);
-      expect(element).toHaveClass(expectedClass);
+      expect(element.className).toBe(
+        `${expectedClass} font-bold text-foreground tracking-normal font-display scroll-m-20`
+      );
       rerender(<></>);
     });
   });
@@ -68,7 +70,9 @@ describe("Heading", () => {
         <Heading size={size}>Heading {size}</Heading>
       );
       const element = screen.getByText(`Heading ${size}`);
-      expect(element).toHaveClass(`text-${size}`);
+      expect(element.className).toBe(
+        `text-${size} font-bold text-foreground tracking-normal font-display scroll-m-20`
+      );
       rerender(<></>);
     });
   });
@@ -87,7 +91,9 @@ describe("Heading", () => {
         <Heading weight={weight as FontWeight}>Weight {weight}</Heading>
       );
       const element = screen.getByText(`Weight ${weight}`);
-      expect(element).toHaveClass(`font-${weight}`);
+      expect(element.className).toBe(
+        `text-3xl font-${weight} text-foreground tracking-normal font-display scroll-m-20`
+      );
       rerender(<></>);
     });
   });
@@ -109,7 +115,9 @@ describe("Heading", () => {
         </Heading>
       );
       const element = screen.getByText(`Variant ${variant}`);
-      expect(element).toHaveClass(className);
+      expect(element.className).toBe(
+        `text-3xl font-bold ${className} tracking-normal font-display scroll-m-20`
+      );
       rerender(<></>);
     });
   });
@@ -122,7 +130,9 @@ describe("Heading", () => {
         <Heading align={align}>Align {align}</Heading>
       );
       const element = screen.getByText(`Align ${align}`);
-      expect(element).toHaveClass(`text-${align}`);
+      expect(element.className).toBe(
+        `text-3xl font-bold text-foreground text-${align} tracking-normal font-display scroll-m-20`
+      );
       rerender(<></>);
     });
   });
@@ -142,7 +152,9 @@ describe("Heading", () => {
         <Heading tracking={tracking}>Tracking {tracking}</Heading>
       );
       const element = screen.getByText(`Tracking ${tracking}`);
-      expect(element).toHaveClass(`tracking-${tracking}`);
+      expect(element.className).toBe(
+        `text-3xl font-bold text-foreground tracking-${tracking} font-display scroll-m-20`
+      );
       rerender(<></>);
     });
   });
@@ -155,7 +167,9 @@ describe("Heading", () => {
         <Heading family={family}>Family {family}</Heading>
       );
       const element = screen.getByText(`Family ${family}`);
-      expect(element).toHaveClass(`font-${family}`);
+      expect(element.className).toBe(
+        `text-3xl font-bold text-foreground tracking-normal font-${family} scroll-m-20`
+      );
       rerender(<></>);
     });
   });
@@ -163,7 +177,9 @@ describe("Heading", () => {
   it("applies tabular-nums class when numeric is true", () => {
     render(<Heading numeric>123456</Heading>);
     const element = screen.getByText("123456");
-    expect(element).toHaveClass("tabular-nums");
+    expect(element.className).toBe(
+      "text-3xl font-bold text-foreground tracking-normal font-display tabular-nums scroll-m-20"
+    );
   });
 
   it("does not apply tabular-nums class when numeric is false", () => {
@@ -180,8 +196,9 @@ describe("Heading", () => {
   it("combines custom className with generated classes", () => {
     render(<Heading className="custom-class">With custom class</Heading>);
     const element = screen.getByText("With custom class");
-    expect(element).toHaveClass("custom-class");
-    expect(element).toHaveClass("text-3xl"); // Still has default classes for h2
+    expect(element.className).toBe(
+      "text-3xl font-bold text-foreground tracking-normal font-display scroll-m-20 custom-class"
+    );
   });
 
   it("forwards ref correctly", () => {
@@ -195,7 +212,9 @@ describe("Heading", () => {
   it("should always add scroll-m-20 class for better anchor navigation", () => {
     render(<Heading>Heading with scroll margin</Heading>);
     const element = screen.getByText("Heading with scroll margin");
-    expect(element).toHaveClass("scroll-m-20");
+    expect(element.className).toBe(
+      "text-3xl font-bold text-foreground tracking-normal font-display scroll-m-20"
+    );
   });
 
   it("applies different combinations of props correctly", () => {
@@ -217,12 +236,8 @@ describe("Heading", () => {
     const element = screen.getByText("Combined props");
 
     expect(element.tagName).toBe("H1");
-    expect(element).toHaveClass("text-5xl");
-    expect(element).toHaveClass("font-extrabold");
-    expect(element).toHaveClass("text-accent-foreground");
-    expect(element).toHaveClass("text-center");
-    expect(element).toHaveClass("tracking-wide");
-    expect(element).toHaveClass("font-serif");
-    expect(element).toHaveClass("tabular-nums");
+    expect(element.className).toBe(
+      "text-5xl font-extrabold text-accent-foreground text-center tracking-wide font-serif tabular-nums scroll-m-20"
+    );
   });
 });

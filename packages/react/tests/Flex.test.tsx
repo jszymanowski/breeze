@@ -11,7 +11,7 @@ describe("Flex", () => {
     const element = screen.getByTestId("flex-element");
 
     expect(element.tagName).toBe("DIV");
-    expect(element).toHaveClass("flex");
+    expect(element.className).toBe("flex");
   });
 
   it("renders with custom element type", () => {
@@ -22,7 +22,7 @@ describe("Flex", () => {
     );
     const element = screen.getByTestId("flex-element");
     expect(element.tagName).toBe("SECTION");
-    expect(element).toHaveClass("flex");
+    expect(element.className).toBe("flex");
   });
 
   it("applies the correct flex direction classes", () => {
@@ -40,7 +40,7 @@ describe("Flex", () => {
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
-      expect(element).toHaveClass(`flex flex-${direction}`);
+      expect(element.className).toBe(`flex flex-${direction}`);
       rerender(<></>);
     });
   });
@@ -61,7 +61,7 @@ describe("Flex", () => {
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
-      expect(element).toHaveClass(`items-${align}`);
+      expect(element.className).toBe(`flex items-${align}`);
       rerender(<></>);
     });
   });
@@ -83,7 +83,7 @@ describe("Flex", () => {
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
-      expect(element).toHaveClass(`justify-${justify}`);
+      expect(element.className).toBe(`flex justify-${justify}`);
       rerender(<></>);
     });
   });
@@ -98,7 +98,7 @@ describe("Flex", () => {
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
-      expect(element).toHaveClass(`flex-${wrap}`);
+      expect(element.className).toBe(`flex flex-${wrap}`);
       rerender(<></>);
     });
   });
@@ -125,7 +125,7 @@ describe("Flex", () => {
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
-      expect(element).toHaveClass(`gap-${gap}`);
+      expect(element.className).toBe(`flex gap-${gap}`);
       rerender(<></>);
     });
   });
@@ -152,7 +152,7 @@ describe("Flex", () => {
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
-      expect(element).toHaveClass(`gap-x-${gapX}`);
+      expect(element.className).toBe(`flex gap-x-${gapX}`);
       rerender(<></>);
     });
   });
@@ -179,7 +179,7 @@ describe("Flex", () => {
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
-      expect(element).toHaveClass(`gap-y-${gapY}`);
+      expect(element.className).toBe(`flex gap-y-${gapY}`);
       rerender(<></>);
     });
   });
@@ -192,9 +192,7 @@ describe("Flex", () => {
     );
 
     const element = screen.getByTestId("flex-element");
-    expect(element).toHaveClass("gap-2");
-    expect(element).toHaveClass("gap-x-4");
-    expect(element).toHaveClass("gap-y-8");
+    expect(element.className).toBe("flex gap-2 gap-x-4 gap-y-8");
   });
 
   it("passes additional props to the element", () => {
@@ -214,8 +212,7 @@ describe("Flex", () => {
       </Flex>
     );
     const element = screen.getByTestId("flex-element");
-    expect(element).toHaveClass("custom-class");
-    expect(element).toHaveClass("flex");
+    expect(element.className).toBe("flex custom-class");
   });
 
   it("forwards ref correctly", () => {
@@ -246,12 +243,9 @@ describe("Flex", () => {
 
     const element = screen.getByTestId("flex-element");
 
-    expect(element).toHaveClass("flex");
-    expect(element).toHaveClass("flex-col");
-    expect(element).toHaveClass("items-center");
-    expect(element).toHaveClass("justify-between");
-    expect(element).toHaveClass("flex-wrap");
-    expect(element).toHaveClass("gap-4");
+    expect(element.className).toBe(
+      "flex flex-col items-center justify-between flex-wrap gap-4"
+    );
   });
 
   it("renders children correctly", () => {

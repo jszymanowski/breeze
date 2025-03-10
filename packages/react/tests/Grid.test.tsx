@@ -10,7 +10,7 @@ describe("Grid", () => {
     const element = screen.getByTestId("grid-element");
 
     expect(element.tagName).toBe("DIV");
-    expect(element).toHaveClass("grid");
+    expect(element.className).toBe("grid");
   });
 
   it("renders with custom element type", () => {
@@ -21,7 +21,7 @@ describe("Grid", () => {
     );
     const element = screen.getByTestId("grid-element");
     expect(element.tagName).toBe("SECTION");
-    expect(element).toHaveClass("grid");
+    expect(element.className).toBe("grid");
   });
 
   it("applies the correct grid columns classes", () => {
@@ -45,7 +45,7 @@ describe("Grid", () => {
         </Grid>
       );
       const element = screen.getByTestId("grid-element");
-      expect(element).toHaveClass(`grid-cols-${cols}`);
+      expect(element.className).toBe(`grid grid-cols-${cols}`);
       rerender(<></>);
     });
   });
@@ -71,7 +71,7 @@ describe("Grid", () => {
         </Grid>
       );
       const element = screen.getByTestId("grid-element");
-      expect(element).toHaveClass(`grid-rows-${rows}`);
+      expect(element.className).toBe(`grid grid-rows-${rows}`);
       rerender(<></>);
     });
   });
@@ -92,7 +92,7 @@ describe("Grid", () => {
         </Grid>
       );
       const element = screen.getByTestId("grid-element");
-      expect(element).toHaveClass(`grid-flow-${flow}`);
+      expect(element.className).toBe(`grid grid-flow-${flow}`);
       rerender(<></>);
     });
   });
@@ -119,7 +119,7 @@ describe("Grid", () => {
         </Grid>
       );
       const element = screen.getByTestId("grid-element");
-      expect(element).toHaveClass(`gap-${gap}`);
+      expect(element.className).toBe(`grid gap-${gap}`);
       rerender(<></>);
     });
   });
@@ -146,7 +146,7 @@ describe("Grid", () => {
         </Grid>
       );
       const element = screen.getByTestId("grid-element");
-      expect(element).toHaveClass(`gap-x-${gapX}`);
+      expect(element.className).toBe(`grid gap-x-${gapX}`);
       rerender(<></>);
     });
   });
@@ -173,7 +173,7 @@ describe("Grid", () => {
         </Grid>
       );
       const element = screen.getByTestId("grid-element");
-      expect(element).toHaveClass(`gap-y-${gapY}`);
+      expect(element.className).toBe(`grid gap-y-${gapY}`);
       rerender(<></>);
     });
   });
@@ -186,9 +186,7 @@ describe("Grid", () => {
     );
 
     const element = screen.getByTestId("grid-element");
-    expect(element).toHaveClass("gap-2");
-    expect(element).toHaveClass("gap-x-4");
-    expect(element).toHaveClass("gap-y-8");
+    expect(element.className).toBe("grid gap-2 gap-x-4 gap-y-8");
   });
 
   it("passes additional props to the element", () => {
@@ -208,8 +206,7 @@ describe("Grid", () => {
       </Grid>
     );
     const element = screen.getByTestId("grid-element");
-    expect(element).toHaveClass("custom-class");
-    expect(element).toHaveClass("grid");
+    expect(element.className).toBe("grid custom-class");
   });
 
   it("forwards ref correctly", () => {
@@ -250,11 +247,9 @@ describe("Grid", () => {
 
     const element = screen.getByTestId("grid-element");
 
-    expect(element).toHaveClass("grid");
-    expect(element).toHaveClass("grid-cols-3");
-    expect(element).toHaveClass("grid-rows-2");
-    expect(element).toHaveClass("grid-flow-row-dense");
-    expect(element).toHaveClass("gap-4");
+    expect(element.className).toBe(
+      "grid grid-cols-3 grid-rows-2 gap-4 grid-flow-row-dense"
+    );
   });
 
   it("creates a responsive grid layout", () => {
@@ -272,9 +267,8 @@ describe("Grid", () => {
     );
 
     const element = screen.getByTestId("grid-element");
-    expect(element).toHaveClass("grid-cols-12");
-    expect(element).toHaveClass("md:grid-cols-6");
-    expect(element).toHaveClass("lg:grid-cols-4");
-    expect(element).toHaveClass("gap-4");
+    expect(element.className).toBe(
+      "grid grid-cols-12 gap-4 md:grid-cols-6 lg:grid-cols-4"
+    );
   });
 });

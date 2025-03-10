@@ -38,7 +38,9 @@ describe("Text", () => {
     sizes.forEach((size) => {
       const { rerender } = render(<Text size={size}>Text {size}</Text>);
       const element = screen.getByText(`Text ${size}`);
-      expect(element).toHaveClass(`text-${size}`);
+      expect(element.className).toBe(
+        `text-${size} font-normal text-foreground tracking-normal font-display`
+      );
       rerender(<></>);
     });
   });
@@ -58,7 +60,9 @@ describe("Text", () => {
     weights.forEach((weight) => {
       const { rerender } = render(<Text weight={weight}>Weight {weight}</Text>);
       const element = screen.getByText(`Weight ${weight}`);
-      expect(element).toHaveClass(`font-${weight}`);
+      expect(element.className).toBe(
+        `text-base font-${weight} text-foreground tracking-normal font-display`
+      );
       rerender(<></>);
     });
   });
@@ -79,7 +83,9 @@ describe("Text", () => {
       );
       const element = screen.getByText(`Variant ${variant}`);
 
-      expect(element).toHaveClass(className);
+      expect(element.className).toBe(
+        `text-base font-normal ${className} tracking-normal font-display`
+      );
 
       rerender(<></>);
     });
@@ -91,7 +97,9 @@ describe("Text", () => {
     alignments.forEach((align) => {
       const { rerender } = render(<Text align={align}>Align {align}</Text>);
       const element = screen.getByText(`Align ${align}`);
-      expect(element).toHaveClass(`text-${align}`);
+      expect(element.className).toBe(
+        `text-base font-normal text-foreground text-${align} tracking-normal font-display`
+      );
       rerender(<></>);
     });
   });
@@ -111,7 +119,9 @@ describe("Text", () => {
         <Text leading={leading}>Leading {leading}</Text>
       );
       const element = screen.getByText(`Leading ${leading}`);
-      expect(element).toHaveClass(`leading-${leading}`);
+      expect(element.className).toBe(
+        `text-base font-normal text-foreground leading-${leading} tracking-normal font-display`
+      );
       rerender(<></>);
     });
   });
@@ -122,7 +132,9 @@ describe("Text", () => {
     families.forEach((family) => {
       const { rerender } = render(<Text family={family}>Family {family}</Text>);
       const element = screen.getByText(`Family ${family}`);
-      expect(element).toHaveClass(`font-${family}`);
+      expect(element.className).toBe(
+        `text-base font-normal text-foreground tracking-normal font-${family}`
+      );
       rerender(<></>);
     });
   });
@@ -130,7 +142,9 @@ describe("Text", () => {
   it("applies truncate class when truncate is true", () => {
     render(<Text truncate>Truncated text</Text>);
     const element = screen.getByText("Truncated text");
-    expect(element).toHaveClass("truncate");
+    expect(element.className).toBe(
+      "text-base font-normal text-foreground tracking-normal font-display truncate"
+    );
   });
 
   it("does not apply truncate class when truncate is false", () => {
@@ -142,7 +156,9 @@ describe("Text", () => {
   it("applies tabular-nums class when numeric is true", () => {
     render(<Text numeric>123456</Text>);
     const element = screen.getByText("123456");
-    expect(element).toHaveClass("tabular-nums");
+    expect(element.className).toBe(
+      "text-base font-normal text-foreground tracking-normal font-display tabular-nums"
+    );
   });
 
   it("does not apply tabular-nums class when numeric is false", () => {
@@ -159,8 +175,9 @@ describe("Text", () => {
   it("combines custom className with generated classes", () => {
     render(<Text className="custom-class">With custom class</Text>);
     const element = screen.getByText("With custom class");
-    expect(element).toHaveClass("custom-class");
-    expect(element).toHaveClass("text-base"); // Still has default classes
+    expect(element.className).toBe(
+      "text-base font-normal text-foreground tracking-normal font-display custom-class"
+    );
   });
 
   it("forwards ref correctly", () => {
