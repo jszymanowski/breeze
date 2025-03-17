@@ -45,8 +45,8 @@ jobs:
           workingDir: ./packages/react
           buildScriptName: "storybook:build"
           exitOnceUploaded: true
-          # For PRs: Only check for changes without publishing or auto-accepting
-          onlyChanged: ${{ github.event_name == 'pull_request' }}
-          storybookBuildDir: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && './storybook-static' || '' }}
+          onlyChanged: true
           # For main branch: Auto-accept changes and publish
-          autoAcceptChanges: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+          autoAcceptChanges: "main"
+          # For PRs: Only check for changes without publishing or auto-accepting
+          storybookBuildDir: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && './storybook-static' || '' }}
