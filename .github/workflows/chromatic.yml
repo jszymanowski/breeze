@@ -49,4 +49,4 @@ jobs:
           # For main branch: Auto-accept changes and publish
           autoAcceptChanges: "main"
           # For PRs: Only check for changes without publishing or auto-accepting
-          storybookBuildDir: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && './storybook-static' || '' }}
+          storybookBuildDir: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && './packages/react/storybook-static' || '' }}
