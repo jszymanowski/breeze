@@ -49,7 +49,7 @@ Example `index.css`:
 
 ### Publishing
 
-Releases are automated using [semantic-release](https://semantic-release.gitbook.io/semantic-release). When a PR is merged to main, semantic-release will analyize recent commits to determine if and how a release should be structured.
+Releases are automated using [Release Please](https://github.com/googleapis/release-please). When a PR is merged to main, semantic-release will analyize recent commits to determine if and how a release should be structured.
 
 Releases can be performed manually, by either:
 
