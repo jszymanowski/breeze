@@ -23,7 +23,7 @@ _Primitive React components, built with Tailwind CSS_
   - [CodeCov](https://app.codecov.io/gh/jszymanowski/breeze)
   - [Renovate](https://developer.mend.io/github/jszymanowski/breeze)
 - Other documentation, documents
-  - [Changelog](./docs/CHANGELOG.md)
+  - [Changelog](./CHANGELOG.md)
   - [Roadmap](./docs/ROADMAP.md)
 
 ---
@@ -54,7 +54,7 @@ Releases are automated using [Release Please](https://github.com/googleapis/rele
 1. When a PR is merged to main, Release Please will analyze recent commits to determine if and how a release should be structured.
 1. A PR with necessary changes to make a release will be opened. This will include:
    - version bump
-   - [changelog](./docs/CHANGELOG.md) updates
+   - [changelog](./CHANGELOG.md) updates
 1. Once merged, the release will be completed but not published. Release Please will:
    - create a Git tag (like v1.2.3) corresponding to the released version
    - create a GitHub Release with the changelog as release notes
