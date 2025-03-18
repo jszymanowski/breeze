@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
     paths:
       - "packages/react/**"
 
@@ -41,3 +44,9 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: ./packages/react
           buildScriptName: "storybook:build"
+          exitOnceUploaded: true
+          onlyChanged: true
+          # For main branch: Auto-accept changes and publish
+          autoAcceptChanges: "main"
+          # For PRs: Only check for changes without publishing or auto-accepting
+          storybookBuildDir: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && './storybook-static' || '' }}
