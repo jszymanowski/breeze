@@ -6,6 +6,8 @@ on:
       - "react@*"
     paths:
       - "packages/react/**"
+  release:
+    types: [created, published]
 
 jobs:
   build-and-publish:
