@@ -47,28 +47,16 @@ Example `index.css`:
 
 ---
 
-### Publishing
+### Releases & Publishing
 
-Releases are automated using [Release Please](https://github.com/googleapis/release-please). When a PR is merged to main, semantic-release will analyize recent commits to determine if and how a release should be structured.
+Releases are automated using [Release Please](https://github.com/googleapis/release-please):
 
-Releases can be performed manually, by either:
-
-1. Triggering the Semantic Release action in Github.
-1. Manually, from the command line:
-
-   ```bash
-   export GITHUB_TOKEN=your_github_token
-   export NPM_TOKEN=your_npm_token
-
-   git checkout main
-
-   npx semantic-release --dry-run # confirm what release type will occur
-
-   npx semantic-release # perform the actual release
-   ```
-
-   The default configuration ([`release.config.mjs`](./release.config.mjs)) may be overrode with command-line parameters:
-
-   ```bash
-   npx semantic-release --branches some-other-branch
-   ```
+1. When a PR is merged to main, Release Please will analyize recent commits to determine if and how a release should be structured.
+1. A PR with necessary changes to make a release will be opened. This will include:
+   - version bump
+   - [changelog](./docs/CHANGELOG.md) updates
+1. Once merged, the release will be completed but not published. ARelease Please will:
+   - Create a Git tag (like v1.2.3) corresponding to the released version
+   - Create a GitHub Release with the changelog as release notes
+1. The [`publish` Github Action](../../.github/workflows/publish.yml) will detect the new tag and publish the release.
+1. The new version will be available from the [NPM registry](https://www.npmjs.com/package/@jszymanowski/breeze-react)
