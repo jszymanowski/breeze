@@ -33,13 +33,6 @@
       "automerge": true
     },
     {
-      "groupName": "semantic-release-dependencies",
-      "matchPackageNames": [
-        "/^semantic-release/",
-        "conventional-changelog-conventionalcommits"
-      ]
-    },
-    {
       "enabled": false,
       "matchDepTypes": ["peerDependencies"]
     }
