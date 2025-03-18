@@ -9,7 +9,7 @@ on:
     types: [opened, synchronize, reopened, edited]
 
 jobs:
-  react-ci:
+  test-suite:
     runs-on: ubuntu-latest
     timeout-minutes: 2
 
