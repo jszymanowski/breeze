@@ -4,14 +4,16 @@
 
 ### Upcoming (pre-1.0.0)
 
-1. Reconsider defaults
 1. Add a few props to `Box`:
    - [x] `box-sizing`
-   - [ ] `overflow`
+   - [x] `overflow`
    - [x] `position`
    - [x] `height`, `width`
+   - [ ] `display`
+   - [ ] numeric sizes
+   - [ ] `rounded`
    - [ ] `variant` = apply background
-   - [ ] ...etc
+1. Reconsider defaults
 1. Write documentation
 
 ### Later (post-1.0.0)
