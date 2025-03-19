@@ -10,7 +10,7 @@
    - [x] `position`
    - [x] `height`, `width`
    - [ ] `display`
-   - [ ] numeric sizes
+   - [x] numeric sizes
    - [ ] `rounded`
    - [ ] `variant` = apply background
 1. Reconsider defaults
