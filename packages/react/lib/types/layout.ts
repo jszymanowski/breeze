@@ -86,6 +86,7 @@ export const OVERFLOWS = [
 ] as const;
 export type Overflow = (typeof OVERFLOWS)[number];
 
+// TODO: true shorthand
 export const ROUNDED_SIZES = [
   "none",
   "xs",
