@@ -8,7 +8,7 @@
 1. Add a few props to `Box`:
    - [x] `box-sizing`
    - [ ] `overflow`
-   - [ ] `position`
+   - [x] `position`
    - [x] `height`, `width`
    - [ ] `variant` = apply background
    - [ ] ...etc

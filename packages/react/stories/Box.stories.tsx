@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Flex, Grid, Heading, Text } from "@/main";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
+import { sampleText, sampleLongText } from "@stories/support/sampleText";
 
 import {
   BOX_SIZINGS,
   HEIGHTS,
   LAYOUT_ELEMENTS,
+  OVERFLOWS,
   POSITIONS,
   SIZES,
   WIDTHS,
@@ -67,6 +69,33 @@ const meta: Meta<typeof Box> = {
       description: "Control how an element is positioned in the document",
       table: {
         type: { summary: summarizeValues(POSITIONS, true) },
+      },
+    },
+    overflow: {
+      control: "select",
+      options: asOptionalValue(OVERFLOWS),
+      description:
+        "Control how an element handles content that is too large for the container (X & Y axis)",
+      table: {
+        type: { summary: summarizeValues(OVERFLOWS, true) },
+      },
+    },
+    overflowX: {
+      control: "select",
+      options: asOptionalValue(OVERFLOWS),
+      description:
+        "Control how an element handles content that is too large for the container (X-axis only)",
+      table: {
+        type: { summary: summarizeValues(OVERFLOWS, true) },
+      },
+    },
+    overflowY: {
+      control: "select",
+      options: asOptionalValue(OVERFLOWS),
+      description:
+        "Control how an element handles content that is too large for the container (Y-axis only)",
+      table: {
+        type: { summary: summarizeValues(OVERFLOWS, true) },
       },
     },
     className: {
@@ -231,6 +260,66 @@ export const Position: Story = {
         </Box>
       </Box>
     </Box>
+  ),
+};
+
+export const Overflow: Story = {
+  render: () => (
+    <Grid cols="2" gap="4" className="m-4">
+      {OVERFLOWS.map((overflow) => (
+        <Box
+          key={`box-overflow-${overflow}`}
+          overflow={overflow}
+          width="xs"
+          className="h-[96px] border-1 border-dashed border-gray-300 p-2"
+        >
+          <Text size="sm">
+            <span className="font-mono bg-muted">{overflow}</span>{" "}
+            {sampleLongText}
+          </Text>
+        </Box>
+      ))}
+    </Grid>
+  ),
+};
+
+export const OverflowX: Story = {
+  render: () => (
+    <Grid cols="2" gap="4" className="m-4">
+      {OVERFLOWS.map((overflow) => (
+        <Box
+          key={`box-overflow-x-${overflow}`}
+          overflowX={overflow}
+          width="xs"
+          className="h-[96px] border-1 border-dashed border-gray-300 p-2"
+        >
+          <Text size="sm">
+            <span className="font-mono bg-muted">{overflow}</span>{" "}
+            {sampleLongText}
+          </Text>
+        </Box>
+      ))}
+    </Grid>
+  ),
+};
+
+export const OverflowY: Story = {
+  render: () => (
+    <Grid cols="2" gap="4" className="m-4">
+      {OVERFLOWS.map((overflow) => (
+        <Box
+          key={`box-overflow-y-${overflow}`}
+          overflowY={overflow}
+          width="xs"
+          className="h-[96px] border-1 border-dashed border-gray-300 p-2"
+        >
+          <Text size="sm">
+            <span className="font-mono bg-muted">{overflow}</span>{" "}
+            {sampleLongText}
+          </Text>
+        </Box>
+      ))}
+    </Grid>
   ),
 };
 

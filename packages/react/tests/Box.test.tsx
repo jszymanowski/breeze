@@ -133,6 +133,43 @@ describe("Box", () => {
     }
   });
 
+  it("applies the correct overflow classes", () => {
+    const overflows = ["auto", "hidden", "clip", "visible", "scroll"] as const;
+
+    for (const overflow of overflows) {
+      const { rerender } = render(
+        <Box overflow={overflow} data-testid="box-element">
+          Overflow {overflow}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(`overflow-${overflow}`);
+      rerender(<div />);
+    }
+
+    for (const overflow of overflows) {
+      const { rerender } = render(
+        <Box overflowX={overflow} data-testid="box-element">
+          OverflowX {overflow}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(`overflow-x-${overflow}`);
+      rerender(<div />);
+    }
+
+    for (const overflow of overflows) {
+      const { rerender } = render(
+        <Box overflowY={overflow} data-testid="box-element">
+          OverflowY {overflow}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(`overflow-y-${overflow}`);
+      rerender(<div />);
+    }
+  });
+
   it("applies custom className", () => {
     render(
       <Box className="custom-class" data-testid="box-element">

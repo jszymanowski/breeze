@@ -37,6 +37,15 @@ export const POSITIONS = [
 ] as const;
 export type Position = (typeof POSITIONS)[number];
 
+export const OVERFLOWS = [
+  "auto",
+  "scroll",
+  "hidden",
+  "clip",
+  "visible",
+] as const;
+export type Overflow = (typeof OVERFLOWS)[number];
+
 export const FLEX_DIRECTIONS = [
   "row",
   "col",

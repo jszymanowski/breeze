@@ -1,6 +1,13 @@
 import React from "react";
 
-import type { BoxSizing, Height, Position, Size, Width } from "@/types";
+import type {
+  BoxSizing,
+  Height,
+  Overflow,
+  Position,
+  Size,
+  Width,
+} from "@/types";
 import { cn } from "@/utils";
 
 export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -10,6 +17,9 @@ export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   height?: Height;
   sizing?: BoxSizing;
   position?: Position;
+  overflow?: Overflow;
+  overflowX?: Overflow;
+  overflowY?: Overflow;
 }
 
 const Box = React.forwardRef<HTMLDivElement, BoxProps>(
@@ -22,6 +32,9 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
       height,
       sizing,
       position,
+      overflow,
+      overflowX,
+      overflowY,
       ...props
     },
     ref,
@@ -83,6 +96,30 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
             absolute: position === "absolute",
             relative: position === "relative",
             sticky: position === "sticky",
+          },
+          // Overflow
+          {
+            "overflow-auto": overflow === "auto",
+            "overflow-hidden": overflow === "hidden",
+            "overflow-clip": overflow === "clip",
+            "overflow-visible": overflow === "visible",
+            "overflow-scroll": overflow === "scroll",
+          },
+          // Overflow X
+          {
+            "overflow-x-auto": overflowX === "auto",
+            "overflow-x-hidden": overflowX === "hidden",
+            "overflow-x-clip": overflowX === "clip",
+            "overflow-x-visible": overflowX === "visible",
+            "overflow-x-scroll": overflowX === "scroll",
+          },
+          // Overflow Y
+          {
+            "overflow-y-auto": overflowY === "auto",
+            "overflow-y-hidden": overflowY === "hidden",
+            "overflow-y-clip": overflowY === "clip",
+            "overflow-y-visible": overflowY === "visible",
+            "overflow-y-scroll": overflowY === "scroll",
           },
           className,
         )}
