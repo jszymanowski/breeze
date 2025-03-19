@@ -72,8 +72,8 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
           },
           // Grow
           {
-            "grow-0": grow === "0",
-            "grow-1": grow === "1",
+            "grow-0": grow === "0" || grow === false,
+            "grow-1": grow === "1" || grow === true,
             "grow-2": grow === "2",
             "grow-3": grow === "3",
             "grow-4": grow === "4",

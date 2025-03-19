@@ -245,7 +245,9 @@ export const Justifications: Story = {
 
 const FLEX_GROW_EXAMPLES: [FlexGrow, FlexGrow][] = [
   [null, "0"],
+  [null, false],
   [null, "1"],
+  [null, true],
   ["1", "1"],
   ["1", "2"],
   ["1", "4"],
@@ -266,14 +268,14 @@ export const Grows: Story = {
               grow={grow1}
               className="rounded-md border-1 border-dashed border-gray-300 p-2"
             >
-              {grow1 ? `Grow ${grow1}` : "Fixed"}
+              {grow1 === undefined || null ? "Fixed" : `Grow ${grow1}`}
             </Flex>
             <Flex
               direction="row"
               grow={grow2}
               className="rounded-md border-1 border-dashed border-gray-300 p-2"
             >
-              {grow2 ? `Grow ${grow2}` : "Fixed"}
+              {grow2 === undefined || null ? "Fixed" : `Grow ${grow2}`}
             </Flex>
           </Flex>
         ))}

@@ -32,7 +32,6 @@ export const FLEX_WRAPS = ["nowrap", "wrap", "wrap-reverse"] as const;
 export type FlexWrap = (typeof FLEX_WRAPS)[number];
 
 export const FLEX_GROWS = [
-  null,
   "0",
   "1",
   "2",
@@ -47,7 +46,7 @@ export const FLEX_GROWS = [
   "11",
   "12",
 ] as const;
-export type FlexGrow = (typeof FLEX_GROWS)[number];
+export type FlexGrow = (typeof FLEX_GROWS)[number] | boolean | null;
 
 export const GRID_COLS = [
   "1",
