@@ -1,8 +1,8 @@
 {
-  "branches": {
-    "main": {
-      "releaseType": "node",
-      "tagPrefix": "react@"
+  "packages": {
+    "packages/react": {
+      "release-type": "node",
+      "package-name": "react"
     }
   }
 }
