@@ -97,6 +97,8 @@ export const ROUNDED_SIZES = [
   "2xl",
   "3xl",
   "full",
+  true,
+  false,
 ] as const;
 export type RoundedSize = (typeof ROUNDED_SIZES)[number];
 

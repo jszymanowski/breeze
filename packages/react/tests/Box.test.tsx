@@ -198,29 +198,51 @@ describe("Box", () => {
     }
   });
 
-  it("applies the correct rounded corner classes", () => {
-    const roundedSizes = [
-      "none",
-      "xs",
-      "sm",
-      "md",
-      "lg",
-      "xl",
-      "2xl",
-      "3xl",
-      "full",
-    ] as const;
+  describe("rounded corners", () => {
+    it("applies the correct rounded corner classes", () => {
+      const roundedSizes = [
+        "none",
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+        "2xl",
+        "3xl",
+        "full",
+      ] as const;
 
-    for (const roundedSize of roundedSizes) {
-      const { rerender } = render(
-        <Box rounded={roundedSize} data-testid="box-element">
-          Rounded size {roundedSize}
+      for (const roundedSize of roundedSizes) {
+        const { rerender } = render(
+          <Box rounded={roundedSize} data-testid="box-element">
+            Rounded size {roundedSize}
+          </Box>,
+        );
+        const element = screen.getByTestId("box-element");
+        expect(element.className).toBe(`rounded-${roundedSize}`);
+        rerender(<div />);
+      }
+    });
+
+    it("applies default rounding with a true value", () => {
+      render(
+        <Box rounded data-testid="box-element">
+          Default rounded size
         </Box>,
       );
       const element = screen.getByTestId("box-element");
-      expect(element.className).toBe(`rounded-${roundedSize}`);
-      rerender(<div />);
-    }
+      expect(element.className).toBe("rounded");
+    });
+
+    it("does not rounding with a false value", () => {
+      render(
+        <Box rounded={false} data-testid="box-element">
+          No rounded corners
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe("");
+    });
   });
 
   it("applies custom className", () => {

@@ -213,6 +213,7 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
           },
           // Rounded
           {
+            rounded: rounded === true,
             "rounded-none": rounded === "none",
             "rounded-xs": rounded === "xs",
             "rounded-sm": rounded === "sm",

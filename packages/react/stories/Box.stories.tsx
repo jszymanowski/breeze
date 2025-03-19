@@ -382,7 +382,7 @@ export const RoundedCorners: Story = {
               align="center"
               className="bg-background/20 px-2"
             >
-              {roundedSize}
+              {roundedSize.toString()}
             </Text>
           </Flex>
         </Box>
