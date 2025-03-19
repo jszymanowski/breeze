@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Flex, Grid, Heading, Text } from "@/main";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
-import { sampleText, sampleLongText } from "@stories/support/sampleText";
+import { sampleLongWord, sampleLongText } from "@stories/support/sampleText";
 
 import {
   BOX_SIZINGS,
@@ -290,12 +290,13 @@ export const OverflowX: Story = {
         <Box
           key={`box-overflow-x-${overflow}`}
           overflowX={overflow}
+          overflowY="clip"
           width="xs"
-          className="h-[96px] border-1 border-dashed border-gray-300 p-2"
+          className="h-[56px] border-1 border-dashed border-gray-300 p-2"
         >
-          <Text size="sm">
+          <Text size="sm" className="whitespace-nowrap">
             <span className="font-mono bg-muted">{overflow}</span>{" "}
-            {sampleLongText}
+            {sampleLongWord}
           </Text>
         </Box>
       ))}

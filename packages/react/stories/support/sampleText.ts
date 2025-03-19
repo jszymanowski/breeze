@@ -14,3 +14,6 @@ export const sampleParagraphText = [
     thing you could get was those big yellow ones.",
 ];
 export const sampleLongText = sampleParagraphText[0];
+
+export const sampleLongWord =
+  "Simpsoncalifragilisticexpiala(annoyed-grunt)cious";
