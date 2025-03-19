@@ -1,6 +1,13 @@
 import React from "react";
 
-import { FlexDirection, Gap, FlexAlign, FlexJustify, FlexWrap } from "@/types";
+import {
+  FlexDirection,
+  Gap,
+  FlexAlign,
+  FlexJustify,
+  FlexGrow,
+  FlexWrap,
+} from "@/types";
 import { cn } from "@/utils";
 
 export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -8,6 +15,7 @@ export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: FlexDirection;
   align?: FlexAlign;
   justify?: FlexJustify;
+  grow?: FlexGrow;
   wrap?: FlexWrap;
   gap?: Gap;
   gapX?: Gap;
@@ -22,6 +30,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       direction,
       align,
       justify,
+      grow,
       wrap,
       gap,
       gapX,
@@ -60,6 +69,22 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
             "justify-stretch": justify === "stretch",
             "justify-baseline": justify === "baseline",
             "justify-normal": justify === "normal",
+          },
+          // Grow
+          {
+            "grow-0": grow === "0" || grow === false,
+            "grow-1": grow === "1" || grow === true,
+            "grow-2": grow === "2",
+            "grow-3": grow === "3",
+            "grow-4": grow === "4",
+            "grow-5": grow === "5",
+            "grow-6": grow === "6",
+            "grow-7": grow === "7",
+            "grow-8": grow === "8",
+            "grow-9": grow === "9",
+            "grow-10": grow === "10",
+            "grow-11": grow === "11",
+            "grow-12": grow === "12",
           },
           // Wrap content
           {
