@@ -9,7 +9,7 @@
    - [x] `overflow`
    - [x] `position`
    - [x] `height`, `width`
-   - [ ] `display`
+   - [x] `display`
    - [x] numeric sizes
    - [ ] `rounded`
    - [ ] `variant` = apply background
