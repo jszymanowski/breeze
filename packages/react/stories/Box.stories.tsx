@@ -124,7 +124,7 @@ export const Width: Story = {
     <Grid cols="1" gap="2" className="m-4 w-[600px]">
       {WIDTH_EXAMPLES.map((width) => (
         <Box
-          key={`box-height-${width}`}
+          key={`box-width-${width}`}
           className="border-1 border-dashed border-gray-300 p-1"
         >
           <Box width={width} className="bg-muted border-1 border-gray-300">
