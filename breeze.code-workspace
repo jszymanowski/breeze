@@ -7,14 +7,16 @@
     {
       "name": "breeze-react",
       "path": "packages/react"
-    },
+    }
   ],
   "settings": {
     "npm.packageManager": "pnpm",
     "files.exclude": {
       "**/dist": true,
       "**/coverage": true,
-      "**/node_modules": true
+      "**/node_modules": true,
+      "**/storybook-static": true,
+      "build-storybook.log": true
     },
     "[javascript]": {
       "editor.defaultFormatter": "biomejs.biome",
@@ -59,6 +61,6 @@
     }
   },
   "extensions": {
-    "recommendations": ["biomejs.biome", "eamodio.gitlens"]
+    "recommendations": ["biomejs.biome"]
   }
 }
