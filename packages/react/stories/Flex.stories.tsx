@@ -7,9 +7,11 @@ import {
   FLEX_ALIGNS,
   FLEX_DIRECTIONS,
   FLEX_JUSTIFIES,
-  LAYOUT_ELEMENTS,
-  GAPS,
   FLEX_WRAPS,
+  FLEX_GROWS,
+  GAPS,
+  LAYOUT_ELEMENTS,
+  FlexGrow,
 } from "@/types";
 
 const meta: Meta<typeof Flex> = {
@@ -237,6 +239,45 @@ export const Justifications: Story = {
           </Flex>
         ))}
       </Grid>
+    </>
+  ),
+};
+
+const FLEX_GROW_EXAMPLES: [FlexGrow, FlexGrow][] = [
+  [null, "0"],
+  [null, "1"],
+  ["1", "1"],
+  ["1", "2"],
+  ["1", "4"],
+  ["12", "1"],
+];
+
+export const Grows: Story = {
+  render: () => (
+    <>
+      <Heading level="4" family="mono" weight="medium" className="mb-2">
+        flex-grow
+      </Heading>
+      <Flex direction="col" gap="4" className="min-w-[600px]">
+        {FLEX_GROW_EXAMPLES.map(([grow1, grow2]) => (
+          <Flex gap="4" key={`grow-${grow1}-${grow2}`}>
+            <Flex
+              direction="row"
+              grow={grow1}
+              className="rounded-md border-1 border-dashed border-gray-300 p-2"
+            >
+              {grow1 ? `Grow ${grow1}` : "Fixed"}
+            </Flex>
+            <Flex
+              direction="row"
+              grow={grow2}
+              className="rounded-md border-1 border-dashed border-gray-300 p-2"
+            >
+              {grow2 ? `Grow ${grow2}` : "Fixed"}
+            </Flex>
+          </Flex>
+        ))}
+      </Flex>
     </>
   ),
 };
