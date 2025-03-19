@@ -116,7 +116,7 @@ export const Default: Story = {
   render: (args) => (
     <Grid {...args}>
       {Array.from({ length: 9 }).map((_, i) => (
-        <GridItem key={i}>Item {i + 1}</GridItem>
+        <GridItem key={`grid-item-${i}`}>Item {i + 1}</GridItem>
       ))}
     </Grid>
   ),
@@ -135,7 +135,7 @@ export const ColumnVariants: Story = {
         </Heading>
         <Grid cols="2" gap="4" className="bg-muted">
           {Array.from({ length: 4 }).map((_, i) => (
-            <GridItem key={i}>Item {i + 1}</GridItem>
+            <GridItem key={`grid-item-${i}`}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
@@ -145,7 +145,7 @@ export const ColumnVariants: Story = {
         </Heading>
         <Grid cols="4" gap="4" className="bg-muted">
           {Array.from({ length: 8 }).map((_, i) => (
-            <GridItem key={i}>Item {i + 1}</GridItem>
+            <GridItem key={`grid-item-${i}`}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
@@ -155,7 +155,7 @@ export const ColumnVariants: Story = {
         </Heading>
         <Grid cols="6" gap="4" className="bg-muted">
           {Array.from({ length: 12 }).map((_, i) => (
-            <GridItem key={i}>Item {i + 1}</GridItem>
+            <GridItem key={`grid-item-${i}`}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
@@ -176,7 +176,7 @@ export const GapVariants: Story = {
         </Heading>
         <Grid cols="3" gap="2" className="bg-muted">
           {Array.from({ length: 6 }).map((_, i) => (
-            <GridItem key={i}>Item {i + 1}</GridItem>
+            <GridItem key={`grid-item-${i}`}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
@@ -186,7 +186,7 @@ export const GapVariants: Story = {
         </Heading>
         <Grid cols="3" gap="4" className="bg-muted">
           {Array.from({ length: 6 }).map((_, i) => (
-            <GridItem key={i}>Item {i + 1}</GridItem>
+            <GridItem key={`grid-item-${i}`}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
@@ -196,7 +196,7 @@ export const GapVariants: Story = {
         </Heading>
         <Grid cols="3" gap="8" className="bg-muted">
           {Array.from({ length: 6 }).map((_, i) => (
-            <GridItem key={i}>Item {i + 1}</GridItem>
+            <GridItem key={`grid-item-${i}`}>Item {i + 1}</GridItem>
           ))}
         </Grid>
       </div>
