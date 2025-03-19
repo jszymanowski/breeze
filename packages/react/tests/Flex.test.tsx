@@ -34,13 +34,14 @@ describe("Flex", () => {
     ] as FlexDirection[];
 
     for (const direction of directions) {
-      render(
+      const { rerender } = render(
         <Flex direction={direction} data-testid="flex-element">
           Direction {direction}
         </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex flex-${direction}`);
+      rerender(<div />);
     }
   });
 
@@ -54,13 +55,14 @@ describe("Flex", () => {
     ] as const;
 
     for (const align of alignments) {
-      render(
+      const { rerender } = render(
         <Flex align={align} data-testid="flex-element">
           Align {align}
         </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex items-${align}`);
+      rerender(<div />);
     }
   });
 
@@ -75,13 +77,14 @@ describe("Flex", () => {
     ] as const;
 
     for (const justify of justifyOptions) {
-      render(
+      const { rerender } = render(
         <Flex justify={justify} data-testid="flex-element">
           Justify {justify}
         </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex justify-${justify}`);
+      rerender(<div />);
     }
   });
 
@@ -89,13 +92,14 @@ describe("Flex", () => {
     const wrapOptions = ["nowrap", "wrap", "wrap-reverse"] as const;
 
     for (const wrap of wrapOptions) {
-      render(
+      const { rerender } = render(
         <Flex wrap={wrap} data-testid="flex-element">
           Wrap {wrap}
         </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex flex-${wrap}`);
+      rerender(<div />);
     }
   });
 
@@ -115,13 +119,14 @@ describe("Flex", () => {
     ] as const;
 
     for (const gap of gapOptions) {
-      render(
+      const { rerender } = render(
         <Flex gap={gap} data-testid="flex-element">
           Gap {gap}
         </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex gap-${gap}`);
+      rerender(<div />);
     }
   });
 
@@ -141,13 +146,14 @@ describe("Flex", () => {
     ] as const;
 
     for (const gapX of gapXOptions) {
-      render(
+      const { rerender } = render(
         <Flex gapX={gapX} data-testid="flex-element">
           GapX {gapX}
         </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex gap-x-${gapX}`);
+      rerender(<div />);
     }
   });
 
@@ -167,13 +173,14 @@ describe("Flex", () => {
     ] as const;
 
     for (const gapY of gapYOptions) {
-      render(
+      const { rerender } = render(
         <Flex gapY={gapY} data-testid="flex-element">
           GapY {gapY}
         </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex gap-y-${gapY}`);
+      rerender(<div />);
     }
   });
 

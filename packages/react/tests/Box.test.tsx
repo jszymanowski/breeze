@@ -44,13 +44,14 @@ describe("Box", () => {
     ] as const;
 
     for (const elementType of elements) {
-      render(
+      const { rerender } = render(
         <Box as={elementType} data-testid="box-element">
           {elementType} box
         </Box>,
       );
       const element = screen.getByTestId("box-element");
       expect(element.tagName).toBe(elementType.toUpperCase());
+      rerender(<div />);
     }
   });
 

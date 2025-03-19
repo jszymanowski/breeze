@@ -39,13 +39,14 @@ describe("Grid", () => {
     ] as const;
 
     for (const cols of columnOptions) {
-      render(
+      const { rerender } = render(
         <Grid cols={cols} data-testid="grid-element">
           Columns {cols}
         </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid grid-cols-${cols}`);
+      rerender(<div />);
     }
   });
 
@@ -64,13 +65,14 @@ describe("Grid", () => {
     ] as const;
 
     for (const rows of rowOptions) {
-      render(
+      const { rerender } = render(
         <Grid rows={rows} data-testid="grid-element">
           Rows {rows}
         </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid grid-rows-${rows}`);
+      rerender(<div />);
     }
   });
 
@@ -84,13 +86,14 @@ describe("Grid", () => {
     ] as const;
 
     for (const flow of flowOptions) {
-      render(
+      const { rerender } = render(
         <Grid flow={flow} data-testid="grid-element">
           Flow {flow}
         </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid grid-flow-${flow}`);
+      rerender(<div />);
     }
   });
 
@@ -110,13 +113,14 @@ describe("Grid", () => {
     ] as const;
 
     for (const gap of gapOptions) {
-      render(
+      const { rerender } = render(
         <Grid gap={gap} data-testid="grid-element">
           Gap {gap}
         </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid gap-${gap}`);
+      rerender(<div />);
     }
   });
 
@@ -136,13 +140,14 @@ describe("Grid", () => {
     ] as const;
 
     for (const gapX of gapXOptions) {
-      render(
+      const { rerender } = render(
         <Grid gapX={gapX} data-testid="grid-element">
           GapX {gapX}
         </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid gap-x-${gapX}`);
+      rerender(<div />);
     }
   });
 
@@ -162,13 +167,14 @@ describe("Grid", () => {
     ] as const;
 
     for (const gapY of gapYOptions) {
-      render(
+      const { rerender } = render(
         <Grid gapY={gapY} data-testid="grid-element">
           GapY {gapY}
         </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid gap-y-${gapY}`);
+      rerender(<div />);
     }
   });
 
