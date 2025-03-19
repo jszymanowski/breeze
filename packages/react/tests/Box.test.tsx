@@ -198,6 +198,31 @@ describe("Box", () => {
     }
   });
 
+  it("applies the correct rounded corner classes", () => {
+    const roundedSizes = [
+      "none",
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl",
+      "3xl",
+      "full",
+    ] as const;
+
+    for (const roundedSize of roundedSizes) {
+      const { rerender } = render(
+        <Box rounded={roundedSize} data-testid="box-element">
+          Rounded size {roundedSize}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(`rounded-${roundedSize}`);
+      rerender(<div />);
+    }
+  });
+
   it("applies custom className", () => {
     render(
       <Box className="custom-class" data-testid="box-element">

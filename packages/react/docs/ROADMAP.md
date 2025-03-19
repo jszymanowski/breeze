@@ -13,6 +13,7 @@
    - [x] numeric sizes
    - [ ] `rounded`
    - [ ] `variant` = apply background
+1. Test every variant -- maybe just consume the constants in tests?
 1. Reconsider defaults
 1. Write documentation
 
