@@ -13,7 +13,8 @@ export const sampleParagraphText = [
     time. You couldn't get white onions, because of the war. The only \
     thing you could get was those big yellow ones.",
 ];
-export const sampleLongText = sampleParagraphText[0];
+export const sampleLongText = sampleParagraphText[1];
+export const sampleSentences = sampleLongText.split(".");
 
 export const sampleLongWord =
   "Simpsoncalifragilisticexpiala(annoyed-grunt)cious";
