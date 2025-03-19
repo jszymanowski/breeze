@@ -17,7 +17,7 @@ describe("Grid", () => {
     render(
       <Grid as="section" data-testid="grid-element">
         Content
-      </Grid>
+      </Grid>,
     );
     const element = screen.getByTestId("grid-element");
     expect(element.tagName).toBe("SECTION");
@@ -38,16 +38,16 @@ describe("Grid", () => {
       "none",
     ] as const;
 
-    columnOptions.forEach((cols) => {
+    for (const cols of columnOptions) {
       const { rerender } = render(
         <Grid cols={cols} data-testid="grid-element">
           Columns {cols}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid grid-cols-${cols}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("applies the correct grid rows classes", () => {
@@ -64,16 +64,16 @@ describe("Grid", () => {
       "none",
     ] as const;
 
-    rowOptions.forEach((rows) => {
+    for (const rows of rowOptions) {
       const { rerender } = render(
         <Grid rows={rows} data-testid="grid-element">
           Rows {rows}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid grid-rows-${rows}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("applies the correct grid flow classes", () => {
@@ -85,16 +85,16 @@ describe("Grid", () => {
       "col-dense",
     ] as const;
 
-    flowOptions.forEach((flow) => {
+    for (const flow of flowOptions) {
       const { rerender } = render(
         <Grid flow={flow} data-testid="grid-element">
           Flow {flow}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid grid-flow-${flow}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("applies the correct gap classes", () => {
@@ -112,16 +112,16 @@ describe("Grid", () => {
       "16",
     ] as const;
 
-    gapOptions.forEach((gap) => {
+    for (const gap of gapOptions) {
       const { rerender } = render(
         <Grid gap={gap} data-testid="grid-element">
           Gap {gap}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid gap-${gap}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("applies the correct horizontal gap classes", () => {
@@ -139,16 +139,16 @@ describe("Grid", () => {
       "16",
     ] as const;
 
-    gapXOptions.forEach((gapX) => {
+    for (const gapX of gapXOptions) {
       const { rerender } = render(
         <Grid gapX={gapX} data-testid="grid-element">
           GapX {gapX}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid gap-x-${gapX}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("applies the correct vertical gap classes", () => {
@@ -166,23 +166,23 @@ describe("Grid", () => {
       "16",
     ] as const;
 
-    gapYOptions.forEach((gapY) => {
+    for (const gapY of gapYOptions) {
       const { rerender } = render(
         <Grid gapY={gapY} data-testid="grid-element">
           GapY {gapY}
-        </Grid>
+        </Grid>,
       );
       const element = screen.getByTestId("grid-element");
       expect(element.className).toBe(`grid gap-y-${gapY}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("combines gap, gapX, and gapY correctly", () => {
     render(
       <Grid gap="2" gapX="4" gapY="8" data-testid="grid-element">
         Mixed gaps
-      </Grid>
+      </Grid>,
     );
 
     const element = screen.getByTestId("grid-element");
@@ -193,7 +193,7 @@ describe("Grid", () => {
     render(
       <Grid data-testid="grid-component" aria-label="grid container">
         Test grid
-      </Grid>
+      </Grid>,
     );
     const element = screen.getByTestId("grid-component");
     expect(element).toHaveAttribute("aria-label", "grid container");
@@ -203,7 +203,7 @@ describe("Grid", () => {
     render(
       <Grid className="custom-class" data-testid="grid-element">
         With custom class
-      </Grid>
+      </Grid>,
     );
     const element = screen.getByTestId("grid-element");
     expect(element.className).toBe("grid custom-class");
@@ -214,7 +214,7 @@ describe("Grid", () => {
     render(
       <Grid ref={ref} data-testid="grid-element">
         Ref test
-      </Grid>
+      </Grid>,
     );
 
     expect(ref.current).not.toBeNull();
@@ -225,7 +225,7 @@ describe("Grid", () => {
     render(
       <Grid>
         <div data-testid="child-element">Child content</div>
-      </Grid>
+      </Grid>,
     );
 
     expect(screen.getByTestId("child-element")).toBeInTheDocument();
@@ -242,13 +242,13 @@ describe("Grid", () => {
         data-testid="grid-element"
       >
         Combined grid properties
-      </Grid>
+      </Grid>,
     );
 
     const element = screen.getByTestId("grid-element");
 
     expect(element.className).toBe(
-      "grid grid-cols-3 grid-rows-2 gap-4 grid-flow-row-dense"
+      "grid grid-cols-3 grid-rows-2 gap-4 grid-flow-row-dense",
     );
   });
 
@@ -263,12 +263,12 @@ describe("Grid", () => {
         data-testid="grid-element"
       >
         Responsive grid
-      </Grid>
+      </Grid>,
     );
 
     const element = screen.getByTestId("grid-element");
     expect(element.className).toBe(
-      "grid grid-cols-12 gap-4 md:grid-cols-6 lg:grid-cols-4"
+      "grid grid-cols-12 gap-4 md:grid-cols-6 lg:grid-cols-4",
     );
   });
 });

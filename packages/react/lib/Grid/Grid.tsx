@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Gap, GridCols, GridRows, GridFlow } from "@/types";
+import type { Gap, GridCols, GridRows, GridFlow } from "@/types";
 import { cn } from "@/utils";
 
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -26,7 +26,7 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
       flow,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <Component
@@ -139,13 +139,13 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
             "grid-flow-row-dense": flow === "row-dense",
             "grid-flow-col-dense": flow === "col-dense",
           },
-          className
+          className,
         )}
         ref={ref}
         {...props}
       />
     );
-  }
+  },
 );
 Grid.displayName = "Grid";
 

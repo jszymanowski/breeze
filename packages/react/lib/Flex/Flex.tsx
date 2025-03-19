@@ -1,6 +1,6 @@
 import React from "react";
 
-import {
+import type {
   FlexDirection,
   Gap,
   FlexAlign,
@@ -37,7 +37,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       gapY,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <Component
@@ -150,13 +150,13 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
             "gap-y-15": gapY === "15",
             "gap-y-16": gapY === "16",
           },
-          className
+          className,
         )}
         ref={ref}
         {...props}
       />
     );
-  }
+  },
 );
 Flex.displayName = "Flex";
 

@@ -3,7 +3,7 @@ import { describe, it, expect } from "vitest";
 import "@testing-library/jest-dom";
 
 import { Flex } from "@/main";
-import { FlexDirection } from "@/types/layout";
+import type { FlexDirection } from "@/types/layout";
 
 describe("Flex", () => {
   it("renders with default props", () => {
@@ -18,7 +18,7 @@ describe("Flex", () => {
     render(
       <Flex as="section" data-testid="flex-element">
         Content
-      </Flex>
+      </Flex>,
     );
     const element = screen.getByTestId("flex-element");
     expect(element.tagName).toBe("SECTION");
@@ -33,16 +33,16 @@ describe("Flex", () => {
       "col-reverse",
     ] as FlexDirection[];
 
-    directions.forEach((direction) => {
+    for (const direction of directions) {
       const { rerender } = render(
         <Flex direction={direction} data-testid="flex-element">
           Direction {direction}
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex flex-${direction}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("applies the correct alignment classes", () => {
@@ -54,16 +54,16 @@ describe("Flex", () => {
       "baseline",
     ] as const;
 
-    alignments.forEach((align) => {
+    for (const align of alignments) {
       const { rerender } = render(
         <Flex align={align} data-testid="flex-element">
           Align {align}
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex items-${align}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("applies the correct justify content classes", () => {
@@ -76,16 +76,16 @@ describe("Flex", () => {
       "evenly",
     ] as const;
 
-    justifyOptions.forEach((justify) => {
+    for (const justify of justifyOptions) {
       const { rerender } = render(
         <Flex justify={justify} data-testid="flex-element">
           Justify {justify}
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex justify-${justify}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   describe("grow", () => {
@@ -103,52 +103,52 @@ describe("Flex", () => {
         "12",
       ] as const;
 
-      growOptions.forEach((grow) => {
+      for (const grow of growOptions) {
         const { rerender } = render(
           <Flex grow={grow} data-testid="flex-element">
             Grow {grow}
-          </Flex>
+          </Flex>,
         );
         const element = screen.getByTestId("flex-element");
         expect(element.className).toBe(`flex grow-${grow}`);
-        rerender(<></>);
-      });
+        rerender(<div />);
+      }
     });
 
     it("aliases true as grow-1", () => {
       render(
         <Flex grow data-testid="flex-element">
           Grow true
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
-      expect(element.className).toBe(`flex grow-1`);
+      expect(element.className).toBe("flex grow-1");
     });
 
     it("aliases false as grow-0", () => {
       render(
         <Flex grow={false} data-testid="flex-element">
           Grow false
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
-      expect(element.className).toBe(`flex grow-0`);
+      expect(element.className).toBe("flex grow-0");
     });
   });
 
   it("applies the correct flex wrap classes", () => {
     const wrapOptions = ["nowrap", "wrap", "wrap-reverse"] as const;
 
-    wrapOptions.forEach((wrap) => {
+    for (const wrap of wrapOptions) {
       const { rerender } = render(
         <Flex wrap={wrap} data-testid="flex-element">
           Wrap {wrap}
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex flex-${wrap}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("applies the correct gap classes", () => {
@@ -166,16 +166,16 @@ describe("Flex", () => {
       "16",
     ] as const;
 
-    gapOptions.forEach((gap) => {
+    for (const gap of gapOptions) {
       const { rerender } = render(
         <Flex gap={gap} data-testid="flex-element">
           Gap {gap}
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex gap-${gap}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("applies the correct horizontal gap classes", () => {
@@ -193,16 +193,16 @@ describe("Flex", () => {
       "16",
     ] as const;
 
-    gapXOptions.forEach((gapX) => {
+    for (const gapX of gapXOptions) {
       const { rerender } = render(
         <Flex gapX={gapX} data-testid="flex-element">
           GapX {gapX}
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex gap-x-${gapX}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("applies the correct vertical gap classes", () => {
@@ -220,23 +220,23 @@ describe("Flex", () => {
       "16",
     ] as const;
 
-    gapYOptions.forEach((gapY) => {
+    for (const gapY of gapYOptions) {
       const { rerender } = render(
         <Flex gapY={gapY} data-testid="flex-element">
           GapY {gapY}
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex gap-y-${gapY}`);
-      rerender(<></>);
-    });
+      rerender(<div />);
+    }
   });
 
   it("combines gap, gapX, and gapY correctly", () => {
     render(
       <Flex gap="2" gapX="4" gapY="8" data-testid="flex-element">
         Mixed gaps
-      </Flex>
+      </Flex>,
     );
 
     const element = screen.getByTestId("flex-element");
@@ -247,7 +247,7 @@ describe("Flex", () => {
     render(
       <Flex data-testid="flex-component" aria-label="flex container">
         Test flex
-      </Flex>
+      </Flex>,
     );
     const element = screen.getByTestId("flex-component");
     expect(element).toHaveAttribute("aria-label", "flex container");
@@ -257,7 +257,7 @@ describe("Flex", () => {
     render(
       <Flex className="custom-class" data-testid="flex-element">
         With custom class
-      </Flex>
+      </Flex>,
     );
     const element = screen.getByTestId("flex-element");
     expect(element.className).toBe("flex custom-class");
@@ -268,7 +268,7 @@ describe("Flex", () => {
     render(
       <Flex ref={ref} data-testid="flex-element">
         Ref test
-      </Flex>
+      </Flex>,
     );
 
     expect(ref.current).not.toBeNull();
@@ -286,13 +286,13 @@ describe("Flex", () => {
         data-testid="flex-element"
       >
         Combined props
-      </Flex>
+      </Flex>,
     );
 
     const element = screen.getByTestId("flex-element");
 
     expect(element.className).toBe(
-      "flex flex-col items-center justify-between flex-wrap gap-4"
+      "flex flex-col items-center justify-between flex-wrap gap-4",
     );
   });
 
@@ -300,7 +300,7 @@ describe("Flex", () => {
     render(
       <Flex>
         <div data-testid="child-element">Child content</div>
-      </Flex>
+      </Flex>,
     );
 
     expect(screen.getByTestId("child-element")).toBeInTheDocument();

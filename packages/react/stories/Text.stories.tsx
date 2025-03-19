@@ -11,13 +11,13 @@ import {
   TEXT_LEADINGS,
   TEXT_TRACKINGS,
   TYPOGRAPHY_ELEMENTS,
-  TypographyVariant,
-  FontWeight,
-  FontSize,
-  FontFamily,
-  TextTracking,
-  TextLeading,
-  TextAlign,
+  type TypographyVariant,
+  type FontWeight,
+  type FontSize,
+  type FontFamily,
+  type TextTracking,
+  type TextLeading,
+  type TextAlign,
 } from "@/types";
 import Code from "@stories/templates/Code";
 

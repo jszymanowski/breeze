@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Flex, Grid, HeadingProps } from "@/main";
+import { Flex, Grid, type HeadingProps } from "@/main";
 import type { Gap } from "@/types";
 
 import Code from "@stories/templates/Code";

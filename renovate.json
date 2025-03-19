@@ -7,7 +7,6 @@
     "group:recommended",
     "group:monorepos",
     "npm:unpublishSafe",
-    "packages:eslint",
     "packages:jsUnitTest",
     "packages:linters",
     "packages:react",
@@ -22,14 +21,7 @@
   "packageRules": [
     {
       "matchDepTypes": ["devDependencies"],
-      "matchPackageNames": [
-        "@babel/*",
-        "*eslint*",
-        "prettier",
-        "@types/*",
-        "typescript*",
-        "vitest"
-      ],
+      "matchPackageNames": ["@babel/*", "@types/*", "typescript*", "vitest"],
       "automerge": true
     },
     {

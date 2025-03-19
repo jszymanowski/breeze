@@ -1,6 +1,6 @@
 import React from "react";
 
-import {
+import type {
   FontFamily,
   FontWeight,
   TextLeading,
@@ -46,7 +46,7 @@ const Text = React.forwardRef(
       numeric = false,
       ...props
     }: TextProps<E>,
-    ref: React.Ref<Element>
+    ref: React.Ref<Element>,
   ) => {
     const Component = as || "p";
 
@@ -131,13 +131,13 @@ const Text = React.forwardRef(
           truncate && "truncate",
           // Tabular numerals
           numeric && "tabular-nums",
-          className
+          className,
         )}
         ref={ref}
         {...props}
       />
     );
-  }
+  },
 );
 Text.displayName = "Text";
 

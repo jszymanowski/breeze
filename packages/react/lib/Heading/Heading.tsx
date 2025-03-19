@@ -2,7 +2,7 @@ import React from "react";
 
 import { cn } from "@/utils";
 
-import {
+import type {
   HeadingSize,
   FontSize,
   TypographyVariant,
@@ -43,7 +43,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       numeric = false,
       ...props
     },
-    ref
+    ref,
   ) => {
     // Map level to component
     const Component = `h${level}` as React.ElementType;
@@ -143,13 +143,13 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
           numeric && "tabular-nums",
           // Add some scroll margin for better anchor navigation
           "scroll-m-20",
-          className
+          className,
         )}
         ref={ref}
         {...props}
       />
     );
-  }
+  },
 );
 Heading.displayName = "Heading";
 

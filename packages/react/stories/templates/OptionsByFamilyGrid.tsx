@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 
-import { Grid, Box, Text, HeadingProps, Flex } from "@/main";
-import { FONT_FAMILIES, FontFamily } from "@/types";
+import { Grid, Box, Text, type HeadingProps, Flex } from "@/main";
+import { FONT_FAMILIES, type FontFamily } from "@/types";
 
 import Code from "@stories/templates/Code";
 
