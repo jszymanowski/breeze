@@ -1,12 +1,4 @@
-export const SIZES = [
-  "auto",
-  "full",
-  "screen",
-  "min",
-  "max",
-  "fit",
-  "px",
-] as const;
+export const SIZES = ["auto", "full", "min", "max", "fit", "px"] as const;
 export type Size = (typeof SIZES)[number];
 
 export const WIDTHS = [
@@ -25,11 +17,12 @@ export const WIDTHS = [
     "5xl",
     "6xl",
     "7xl",
+    "screen",
   ],
 ] as const;
 export type Width = (typeof WIDTHS)[number];
 
-export const HEIGHTS = [...SIZES] as const;
+export const HEIGHTS = [...SIZES, "screen"] as const;
 export type Height = (typeof HEIGHTS)[number];
 
 export const BOX_SIZINGS = ["content", "border"] as const;

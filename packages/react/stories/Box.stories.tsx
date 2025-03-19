@@ -3,7 +3,7 @@ import { Box, Flex, Grid, Heading } from "@/main";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
 
 import { BOX_SIZINGS, HEIGHTS, LAYOUT_ELEMENTS, SIZES, WIDTHS } from "@/types";
-import type { Size as BoxSize } from "@/types";
+import type { Width as WidthType, Height as HeightType } from "@/types";
 
 const meta: Meta<typeof Box> = {
   title: "Layout/Box",
@@ -103,6 +103,64 @@ export const Size: Story = {
     </Grid>
   ),
 };
+
+const WIDTH_EXAMPLES: WidthType[] = [
+  "auto",
+  "px",
+  "min",
+  "max",
+  "fit",
+  "3xs",
+  "2xs",
+  "xs",
+  "sm",
+  "md",
+  "lg",
+  "xl",
+  "full",
+];
+export const Width: Story = {
+  render: () => (
+    <Grid cols="1" gap="2" className="m-4 w-[600px]">
+      {WIDTH_EXAMPLES.map((width) => (
+        <Box
+          key={`box-height-${width}`}
+          className="border-1 border-dashed border-gray-300 p-1"
+        >
+          <Box width={width} className="bg-muted border-1 border-gray-300">
+            {width}
+          </Box>
+        </Box>
+      ))}
+    </Grid>
+  ),
+};
+
+const HEIGHT_EXAMPLES: HeightType[] = [
+  "auto",
+  "full",
+  "min",
+  "max",
+  "fit",
+  "px",
+];
+export const Height: Story = {
+  render: () => (
+    <Grid cols="6" gap="2" className="m-4">
+      {HEIGHT_EXAMPLES.map((height) => (
+        <Box
+          key={`box-height-${height}`}
+          className="w-[48px] h-[300px] border-1 border-dashed border-gray-300 p-1"
+        >
+          <Box height={height} className="bg-muted border-1 border-gray-300">
+            {height}
+          </Box>
+        </Box>
+      ))}
+    </Grid>
+  ),
+};
+
 export const BoxSizing: Story = {
   render: () => (
     <Flex align="center" gap="4" className="m-4">

@@ -28,7 +28,6 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
           {
             "size-auto": size === "auto",
             "size-full": size === "full",
-            "size-screen": size === "screen",
             "size-min": size === "min",
             "size-max": size === "max",
             "size-fit": size === "fit",
