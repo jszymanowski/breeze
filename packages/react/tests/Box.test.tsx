@@ -3,6 +3,7 @@ import { describe, it, expect } from "vitest";
 import "@testing-library/jest-dom";
 
 import { Box } from "@/main";
+import { BOX_SIZINGS } from "@/types";
 
 describe("Box", () => {
   it("renders with default props", () => {
@@ -21,6 +22,21 @@ describe("Box", () => {
     );
     const element = screen.getByTestId("box-element");
     expect(element.tagName).toBe("SECTION");
+  });
+
+  it("applies the correct flex direction classes", () => {
+    const boxSizings = ["content", "border"] as const;
+
+    for (const sizing of boxSizings) {
+      const { rerender } = render(
+        <Box sizing={sizing} data-testid="box-element">
+          Sizing {sizing}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(`box-${sizing}`);
+      rerender(<div />);
+    }
   });
 
   it("applies custom className", () => {

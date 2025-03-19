@@ -5,10 +5,6 @@
 ### Upcoming (pre-1.0.0)
 
 1. Reconsider defaults
-1. Testing completeness:
-   - [ ] Audit all variants are ~~applied and~~ tested
-   - [ ] Consider Storybook or Playwright tests
-1. Add `inherit` option for certain things, such as color?
 1. Add a few props to `Box`:
    - [ ] `box-sizing`
    - [ ] `overflow`

@@ -1,3 +1,6 @@
+export const BOX_SIZINGS = ["content", "border"] as const;
+export type BoxSizing = (typeof BOX_SIZINGS)[number];
+
 export const FLEX_DIRECTIONS = [
   "row",
   "col",

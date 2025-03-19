@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Grid, Heading } from "@/main";
-import { summarizeValues } from "@stories/utils";
+import { Box, Flex, Grid, Heading } from "@/main";
+import { asOptionalValue, summarizeValues } from "@stories/utils";
 
-import { LAYOUT_ELEMENTS } from "@/types";
+import { BOX_SIZINGS, LAYOUT_ELEMENTS } from "@/types";
 
 const meta: Meta<typeof Box> = {
   title: "Layout/Box",
@@ -18,6 +18,15 @@ const meta: Meta<typeof Box> = {
       description: "Specific HTML element to use",
       table: {
         type: { summary: summarizeValues(LAYOUT_ELEMENTS, true) },
+      },
+    },
+    sizing: {
+      control: "select",
+      options: asOptionalValue(BOX_SIZINGS),
+      description:
+        "Control how the browser should calculate an element's total size",
+      table: {
+        type: { summary: summarizeValues(BOX_SIZINGS, true) },
       },
     },
     className: {
@@ -51,6 +60,28 @@ export const Default: Story = {
       </Box>
     ),
   ],
+};
+
+export const BoxSizing: Story = {
+  render: () => (
+    <Flex align="center" gap="4" className="m-4">
+      {BOX_SIZINGS.map((sizing) => (
+        <Box
+          key={`box-sizing-${sizing}`}
+          sizing={sizing}
+          className="size-[128px] border-4 border-dashed border-gray-300 p-4"
+        >
+          <Flex
+            align="center"
+            justify="center"
+            className="bg-muted w-full h-full"
+          >
+            {sizing}
+          </Flex>
+        </Box>
+      ))}
+    </Flex>
+  ),
 };
 
 export const StyleExamples: Story = {
