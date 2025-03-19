@@ -75,12 +75,12 @@ type Story = StoryObj<typeof Box>;
 export const Default: Story = {
   args: {
     as: "div",
-    className: "border-1 border-dashed border-gray-300",
+    className: "bg-muted border-1 border-gray-300",
     children: "This is a Box component",
   },
   decorators: [
     (Story) => (
-      <Box className="h-[300px] w-[300px]">
+      <Box className="h-[400px] w-[600px] border-1 border-dashed border-gray-300 p-1">
         <Story />
       </Box>
     ),
