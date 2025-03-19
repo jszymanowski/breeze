@@ -24,7 +24,21 @@ describe("Box", () => {
   });
 
   it("applies the correct size classes", () => {
-    const sizes = ["auto", "full", "min", "max", "fit", "px"] as const;
+    const sizes = [
+      "0",
+      "1",
+      "6",
+      "12",
+      "24",
+      "48",
+      "96",
+      "auto",
+      "full",
+      "min",
+      "max",
+      "fit",
+      "px",
+    ] as const;
 
     for (const size of sizes) {
       const { rerender } = render(
@@ -40,6 +54,13 @@ describe("Box", () => {
 
   it("applies the correct width classes", () => {
     const widths = [
+      "0",
+      "1",
+      "6",
+      "12",
+      "24",
+      "48",
+      "96",
       "3xs",
       "2xs",
       "xs",
@@ -76,6 +97,13 @@ describe("Box", () => {
 
   it("applies the correct height classes", () => {
     const heights = [
+      "0",
+      "1",
+      "6",
+      "12",
+      "24",
+      "48",
+      "96",
       "auto",
       "full",
       "screen",

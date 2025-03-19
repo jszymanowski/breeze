@@ -131,10 +131,30 @@ export const Default: Story = {
   ],
 };
 
+const SIZE_EXAMPLES: WidthType[] = [
+  "auto",
+  "1",
+  "6",
+  "12",
+  "20",
+  "28",
+  "px",
+  "min",
+  "max",
+  "fit",
+  "3xs",
+  "2xs",
+  "xs",
+  "sm",
+  "md",
+  "lg",
+  "xl",
+  "full",
+];
 export const Size: Story = {
   render: () => (
     <Grid cols="3" gap="4" className="m-4">
-      {SIZES.map((size) => (
+      {SIZE_EXAMPLES.map((size) => (
         <Box
           key={`box-size-${size}`}
           className="size-[128px] border-1 border-dashed border-gray-300 p-2"
@@ -150,6 +170,13 @@ export const Size: Story = {
 
 const WIDTH_EXAMPLES: WidthType[] = [
   "auto",
+  "1",
+  "6",
+  "12",
+  "24",
+  "36",
+  "48",
+  "96",
   "px",
   "min",
   "max",
@@ -181,6 +208,12 @@ export const Width: Story = {
 };
 
 const HEIGHT_EXAMPLES: HeightType[] = [
+  "1",
+  "6",
+  "12",
+  "24",
+  "36",
+  "48",
   "auto",
   "full",
   "min",
