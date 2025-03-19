@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
 
-import { Box, Flex, Grid, Heading, Text } from "@/main";
+import { Box, Flex, Grid, Heading, Text, FlexProps } from "@/main";
 import {
   FLEX_ALIGNS,
   FLEX_DIRECTIONS,
@@ -46,6 +46,14 @@ const meta: Meta<typeof Flex> = {
         "Controls how flex and grid items are positioned along a container's cross axis",
       table: {
         type: { summary: summarizeValues(FLEX_ALIGNS, true) },
+      },
+    },
+    grow: {
+      control: "select",
+      options: asOptionalValue(FLEX_GROWS),
+      description: "Controls how flex items grow",
+      table: {
+        type: { summary: summarizeValues(FLEX_GROWS, true) },
       },
     },
     wrap: {
@@ -115,6 +123,15 @@ const FlexItem = ({ children }: { children: React.ReactNode }) => (
   </Box>
 );
 
+const FlexItemAsFlex = ({ children, className = "", ...rest }: FlexProps) => (
+  <Flex
+    className={`bg-info text-info-foreground rounded-md px-1 py-0.5 ${className}`}
+    {...rest}
+  >
+    {children}
+  </Flex>
+);
+
 export const Default: Story = {
   args: {
     direction: "row",
@@ -147,7 +164,7 @@ export const Default: Story = {
   ],
 };
 
-export const Directions: Story = {
+export const Direction: Story = {
   render: () => (
     <Grid cols="1" gap="4">
       {FLEX_DIRECTIONS.map((direction, i) => (
@@ -161,7 +178,7 @@ export const Directions: Story = {
   ),
 };
 
-export const Alignments: Story = {
+export const Alignment: Story = {
   render: () => (
     <>
       <Heading level="4" family="mono" weight="medium" className="mb-2">
@@ -202,7 +219,7 @@ export const Alignments: Story = {
   ),
 };
 
-export const Justifications: Story = {
+export const Justification: Story = {
   render: () => (
     <>
       <Heading level="4" family="mono" weight="medium" className="mb-2">
@@ -249,34 +266,35 @@ const FLEX_GROW_EXAMPLES: [FlexGrow, FlexGrow][] = [
   [null, "1"],
   [null, true],
   ["1", "1"],
-  ["1", "2"],
   ["1", "4"],
+  ["2", "1"],
+  ["3", "9"],
   ["12", "1"],
 ];
 
-export const Grows: Story = {
+export const Grow: Story = {
   render: () => (
     <>
       <Heading level="4" family="mono" weight="medium" className="mb-2">
         flex-grow
       </Heading>
-      <Flex direction="col" gap="4" className="min-w-[600px]">
+      <Flex direction="col" gap="2" className="min-w-[600px]">
         {FLEX_GROW_EXAMPLES.map(([grow1, grow2]) => (
-          <Flex gap="4" key={`grow-${grow1}-${grow2}`}>
-            <Flex
-              direction="row"
+          <Flex gap="2" key={`grow-${grow1}-${grow2}`}>
+            <FlexItemAsFlex
               grow={grow1}
-              className="rounded-md border-1 border-dashed border-gray-300 p-2"
+              justify="center"
+              className="min-w-[40px]"
             >
-              {grow1 === undefined || null ? "Fixed" : `Grow ${grow1}`}
-            </Flex>
-            <Flex
-              direction="row"
+              {grow1 === undefined || grow1 === null ? "<>" : grow1.toString()}
+            </FlexItemAsFlex>
+            <FlexItemAsFlex
               grow={grow2}
-              className="rounded-md border-1 border-dashed border-gray-300 p-2"
+              justify="center"
+              className="min-w-[40px]"
             >
-              {grow2 === undefined || null ? "Fixed" : `Grow ${grow2}`}
-            </Flex>
+              {grow2 === undefined || grow2 === null ? "<>" : grow2.toString()}
+            </FlexItemAsFlex>
           </Flex>
         ))}
       </Flex>
