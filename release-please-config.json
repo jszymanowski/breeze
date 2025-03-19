@@ -3,7 +3,8 @@
     "packages/react": {
       "release-type": "node",
       "package-name": "@jszymanowski/breeze-react",
-      "component": "react"
+      "component": "react",
+      "tagSeparator": "@"
     }
   },
   "include-component-in-tag": true
