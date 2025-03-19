@@ -88,6 +88,54 @@ describe("Flex", () => {
     }
   });
 
+  describe("grow", () => {
+    it("applies the correct grow classes", () => {
+      const growOptions = [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "8",
+        "10",
+        "12",
+      ] as const;
+
+      growOptions.forEach((grow) => {
+        const { rerender } = render(
+          <Flex grow={grow} data-testid="flex-element">
+            Grow {grow}
+          </Flex>
+        );
+        const element = screen.getByTestId("flex-element");
+        expect(element.className).toBe(`flex grow-${grow}`);
+        rerender(<></>);
+      });
+    });
+
+    it("aliases true as grow-1", () => {
+      render(
+        <Flex grow data-testid="flex-element">
+          Grow true
+        </Flex>
+      );
+      const element = screen.getByTestId("flex-element");
+      expect(element.className).toBe(`flex grow-1`);
+    });
+
+    it("aliases false as grow-0", () => {
+      render(
+        <Flex grow={false} data-testid="flex-element">
+          Grow false
+        </Flex>
+      );
+      const element = screen.getByTestId("flex-element");
+      expect(element.className).toBe(`flex grow-0`);
+    });
+  });
+
   it("applies the correct flex wrap classes", () => {
     const wrapOptions = ["nowrap", "wrap", "wrap-reverse"] as const;
 
