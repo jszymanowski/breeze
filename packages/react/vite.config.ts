@@ -1,6 +1,6 @@
 import { resolve } from "path";
 
-import { defineConfig, ViteUserConfig } from "vitest/config";
+import { defineConfig, type ViteUserConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";

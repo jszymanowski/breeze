@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react"
 
-import { Box, Grid, Heading, Text, Flex } from "@/main";
+import { Box, Grid, Heading, Text, Flex } from "@/main"
 
 const meta: Meta = {
   title: "Composition/Layout",
   parameters: {
     layout: "fullscreen",
   },
-};
+}
 
-export default meta;
-type Story = StoryObj;
+export default meta
+type Story = StoryObj
 
 export const Card: Story = {
   render: () => (
@@ -31,14 +31,17 @@ export const Card: Story = {
           <Text>Each Box can have its own styling and purpose.</Text>
         </Box>
         <Box className="border-muted mt-4 flex justify-end border-t pt-4">
-          <button className="bg-primary text-primary-foreground rounded-md px-4 py-2">
+          <button
+            className="bg-primary text-primary-foreground rounded-md px-4 py-2"
+            type="button"
+          >
             Action
           </button>
         </Box>
       </Box>
     </Flex>
   ),
-};
+}
 
 export const Contact: Story = {
   render: () => (
@@ -67,8 +70,9 @@ export const Contact: Story = {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
+              <title>Some circle</title>
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
             </svg>
           </Box>
         </Flex>
@@ -105,17 +109,23 @@ export const Contact: Story = {
         </Flex>
 
         <Flex direction="row" gap="4" justify="end" className="w-full">
-          <button className="bg-secondary text-secondary-foreground rounded-md px-4 py-2">
+          <button
+            className="bg-secondary text-secondary-foreground rounded-md px-4 py-2"
+            type="button"
+          >
             Cancel
           </button>
-          <button className="bg-primary text-primary-foreground rounded-md px-4 py-2">
+          <button
+            className="bg-primary text-primary-foreground rounded-md px-4 py-2"
+            type="button"
+          >
             Edit Profile
           </button>
         </Flex>
       </Flex>
     </Flex>
   ),
-};
+}
 
 export const GridLayout: Story = {
   args: {
@@ -193,4 +203,4 @@ export const GridLayout: Story = {
       </Box>
     </Grid>
   ),
-};
+}

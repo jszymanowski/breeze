@@ -2,7 +2,7 @@ import React from "react";
 
 import { cn } from "@/utils";
 
-import {
+import type {
   HeadingSize,
   FontSize,
   TypographyVariant,

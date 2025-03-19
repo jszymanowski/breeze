@@ -3,7 +3,7 @@ import { describe, it, expect } from "vitest";
 import "@testing-library/jest-dom";
 
 import { Flex } from "@/main";
-import { FlexDirection } from "@/types/layout";
+import type { FlexDirection } from "@/types/layout";
 
 describe("Flex", () => {
   it("renders with default props", () => {
@@ -33,16 +33,16 @@ describe("Flex", () => {
       "col-reverse",
     ] as FlexDirection[];
 
-    directions.forEach((direction) => {
-      const { rerender } = render(
+    for(const direction of directions) {
+      render(
         <Flex direction={direction} data-testid="flex-element">
           Direction {direction}
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex flex-${direction}`);
-      rerender(<></>);
-    });
+      
+    };
   });
 
   it("applies the correct alignment classes", () => {
@@ -54,16 +54,16 @@ describe("Flex", () => {
       "baseline",
     ] as const;
 
-    alignments.forEach((align) => {
-      const { rerender } = render(
+    for(const align of alignments) {
+      render(
         <Flex align={align} data-testid="flex-element">
           Align {align}
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex items-${align}`);
-      rerender(<></>);
-    });
+      
+    };
   });
 
   it("applies the correct justify content classes", () => {
@@ -76,31 +76,31 @@ describe("Flex", () => {
       "evenly",
     ] as const;
 
-    justifyOptions.forEach((justify) => {
-      const { rerender } = render(
+    for(const justify of justifyOptions) {
+      render(
         <Flex justify={justify} data-testid="flex-element">
           Justify {justify}
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex justify-${justify}`);
-      rerender(<></>);
-    });
+      
+    };
   });
 
   it("applies the correct flex wrap classes", () => {
     const wrapOptions = ["nowrap", "wrap", "wrap-reverse"] as const;
 
-    wrapOptions.forEach((wrap) => {
-      const { rerender } = render(
+    for(const wrap of wrapOptions) {
+      render(
         <Flex wrap={wrap} data-testid="flex-element">
           Wrap {wrap}
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex flex-${wrap}`);
-      rerender(<></>);
-    });
+      
+    };
   });
 
   it("applies the correct gap classes", () => {
@@ -118,16 +118,16 @@ describe("Flex", () => {
       "16",
     ] as const;
 
-    gapOptions.forEach((gap) => {
-      const { rerender } = render(
+    for(const gap of gapOptions) {
+      render(
         <Flex gap={gap} data-testid="flex-element">
           Gap {gap}
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex gap-${gap}`);
-      rerender(<></>);
-    });
+      
+    };
   });
 
   it("applies the correct horizontal gap classes", () => {
@@ -145,16 +145,16 @@ describe("Flex", () => {
       "16",
     ] as const;
 
-    gapXOptions.forEach((gapX) => {
-      const { rerender } = render(
+    for(const gapX of gapXOptions) {
+      render(
         <Flex gapX={gapX} data-testid="flex-element">
           GapX {gapX}
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex gap-x-${gapX}`);
-      rerender(<></>);
-    });
+      
+    };
   });
 
   it("applies the correct vertical gap classes", () => {
@@ -172,16 +172,16 @@ describe("Flex", () => {
       "16",
     ] as const;
 
-    gapYOptions.forEach((gapY) => {
-      const { rerender } = render(
+    for(const gapY of gapYOptions) {
+      render(
         <Flex gapY={gapY} data-testid="flex-element">
           GapY {gapY}
         </Flex>
       );
       const element = screen.getByTestId("flex-element");
       expect(element.className).toBe(`flex gap-y-${gapY}`);
-      rerender(<></>);
-    });
+      
+    };
   });
 
   it("combines gap, gapX, and gapY correctly", () => {
