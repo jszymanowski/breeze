@@ -5,7 +5,7 @@
       "path": "."
     },
     {
-      "name": "breeze-react",
+      "name": "react",
       "path": "packages/react"
     }
   ],
