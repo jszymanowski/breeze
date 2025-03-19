@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Box, Grid, Heading, Text, Flex } from "@/main"
+import { Box, Grid, Heading, Text, Flex } from "@/main";
 
 const meta: Meta = {
   title: "Composition/Layout",
   parameters: {
     layout: "fullscreen",
   },
-}
+};
 
-export default meta
-type Story = StoryObj
+export default meta;
+type Story = StoryObj;
 
 export const Card: Story = {
   render: () => (
@@ -41,7 +41,7 @@ export const Card: Story = {
       </Box>
     </Flex>
   ),
-}
+};
 
 export const Contact: Story = {
   render: () => (
@@ -125,7 +125,7 @@ export const Contact: Story = {
       </Flex>
     </Flex>
   ),
-}
+};
 
 export const GridLayout: Story = {
   args: {
@@ -203,4 +203,4 @@ export const GridLayout: Story = {
       </Box>
     </Grid>
   ),
-}
+};

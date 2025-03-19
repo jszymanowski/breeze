@@ -1,18 +1,18 @@
-import { Fragment } from "react"
+import { Fragment } from "react";
 
-import { Grid, Box, Text, type HeadingProps, Flex } from "@/main"
-import type { FONT_FAMILIES, FontFamily } from "@/types"
+import { Grid, Box, Text, type HeadingProps, Flex } from "@/main";
+import type { FONT_FAMILIES, FontFamily } from "@/types";
 
-import Code from "@stories/templates/Code"
+import Code from "@stories/templates/Code";
 
-type ValueOf<T> = T[keyof T]
-type OptionTypes = ValueOf<HeadingProps>
+type ValueOf<T> = T[keyof T];
+type OptionTypes = ValueOf<HeadingProps>;
 
 interface Props<T extends OptionTypes> {
-  options: T[]
-  propKey: keyof HeadingProps
-  renderOption: (family: FontFamily, option: T) => React.ReactNode
-  children?: React.ReactElement | string
+  options: T[];
+  propKey: keyof HeadingProps;
+  renderOption: (family: FontFamily, option: T) => React.ReactNode;
+  children?: React.ReactElement | string;
 }
 
 export default function OptionsByFamilyGrid<T extends OptionTypes>({
@@ -51,5 +51,5 @@ export default function OptionsByFamilyGrid<T extends OptionTypes>({
         ))}
       </Grid>
     </>
-  )
+  );
 }

@@ -1,6 +1,12 @@
 import React from "react";
 
-import type { FlexDirection, Gap, FlexAlign, FlexJustify, FlexWrap } from "@/types";
+import type {
+  FlexDirection,
+  Gap,
+  FlexAlign,
+  FlexJustify,
+  FlexWrap,
+} from "@/types";
 import { cn } from "@/utils";
 
 export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -28,7 +34,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       gapY,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <Component
@@ -125,13 +131,13 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
             "gap-y-15": gapY === "15",
             "gap-y-16": gapY === "16",
           },
-          className
+          className,
         )}
         ref={ref}
         {...props}
       />
     );
-  }
+  },
 );
 Flex.displayName = "Flex";
 

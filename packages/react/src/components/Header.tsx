@@ -1,4 +1,4 @@
-import { Heading, Flex, Box, Text } from "@/main"
+import { Heading, Flex, Box, Text } from "@/main";
 
 const Header = () => (
   <Box as="header" className="border-b">
@@ -48,6 +48,6 @@ const Header = () => (
       </Flex>
     </Flex>
   </Box>
-)
+);
 
-export { Header }
+export { Header };
