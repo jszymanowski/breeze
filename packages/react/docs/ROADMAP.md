@@ -6,10 +6,10 @@
 
 1. Reconsider defaults
 1. Add a few props to `Box`:
-   - [ ] `box-sizing`
+   - [x] `box-sizing`
    - [ ] `overflow`
    - [ ] `position`
-   - [ ] `height`, `width`
+   - [x] `height`, `width`
    - [ ] `variant` = apply background
    - [ ] ...etc
 1. Write documentation

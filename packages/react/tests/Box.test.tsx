@@ -24,7 +24,30 @@ describe("Box", () => {
     expect(element.tagName).toBe("SECTION");
   });
 
-  it("applies the correct flex direction classes", () => {
+  it("applies the correct size classes", () => {
+    const sizes = [
+      "auto",
+      "full",
+      "screen",
+      "min",
+      "max",
+      "fit",
+      "px",
+    ] as const;
+
+    for (const size of sizes) {
+      const { rerender } = render(
+        <Box size={size} data-testid="box-element">
+          Size {size}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(`size-${size}`);
+      rerender(<div />);
+    }
+  });
+
+  it("applies the correct box sizing classes", () => {
     const boxSizings = ["content", "border"] as const;
 
     for (const sizing of boxSizings) {

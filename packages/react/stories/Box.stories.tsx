@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Flex, Grid, Heading } from "@/main";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
 
-import { BOX_SIZINGS, LAYOUT_ELEMENTS } from "@/types";
+import { BOX_SIZINGS, HEIGHTS, LAYOUT_ELEMENTS, SIZES, WIDTHS } from "@/types";
+import type { Size as BoxSize } from "@/types";
 
 const meta: Meta<typeof Box> = {
   title: "Layout/Box",
@@ -18,6 +19,30 @@ const meta: Meta<typeof Box> = {
       description: "Specific HTML element to use",
       table: {
         type: { summary: summarizeValues(LAYOUT_ELEMENTS, true) },
+      },
+    },
+    size: {
+      control: "select",
+      options: asOptionalValue(SIZES),
+      description: "Controls the width and height of an element",
+      table: {
+        type: { summary: summarizeValues(SIZES, true) },
+      },
+    },
+    width: {
+      control: "select",
+      options: asOptionalValue(WIDTHS),
+      description: "Controls the width of an element",
+      table: {
+        type: { summary: summarizeValues(WIDTHS, true) },
+      },
+    },
+    height: {
+      control: "select",
+      options: asOptionalValue(HEIGHTS),
+      description: "Controls the height of an element",
+      table: {
+        type: { summary: summarizeValues(HEIGHTS, true) },
       },
     },
     sizing: {
@@ -62,6 +87,22 @@ export const Default: Story = {
   ],
 };
 
+export const Size: Story = {
+  render: () => (
+    <Grid cols="3" gap="4" className="m-4">
+      {SIZES.map((size) => (
+        <Box
+          key={`box-size-${size}`}
+          className="size-[128px] border-1 border-dashed border-gray-300 p-2"
+        >
+          <Box size={size} className="bg-muted border-1  border-gray-300">
+            {size}
+          </Box>
+        </Box>
+      ))}
+    </Grid>
+  ),
+};
 export const BoxSizing: Story = {
   render: () => (
     <Flex align="center" gap="4" className="m-4">
