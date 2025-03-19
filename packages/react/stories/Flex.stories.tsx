@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
 
-import { Box, Flex, Grid, Heading, Text, FlexProps } from "@/main";
+import { Box, Flex, Grid, Heading, Text, type FlexProps } from "@/main";
 import {
   FLEX_ALIGNS,
   FLEX_DIRECTIONS,
@@ -11,7 +11,7 @@ import {
   FLEX_GROWS,
   GAPS,
   LAYOUT_ELEMENTS,
-  FlexGrow,
+  type FlexGrow,
 } from "@/types";
 
 const meta: Meta<typeof Flex> = {

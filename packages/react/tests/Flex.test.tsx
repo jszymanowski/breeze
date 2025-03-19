@@ -103,36 +103,36 @@ describe("Flex", () => {
         "12",
       ] as const;
 
-      growOptions.forEach((grow) => {
+      for (const grow of growOptions) {
         const { rerender } = render(
           <Flex grow={grow} data-testid="flex-element">
             Grow {grow}
-          </Flex>
+          </Flex>,
         );
         const element = screen.getByTestId("flex-element");
         expect(element.className).toBe(`flex grow-${grow}`);
-        rerender(<></>);
-      });
+        rerender(<div />);
+      }
     });
 
     it("aliases true as grow-1", () => {
       render(
         <Flex grow data-testid="flex-element">
           Grow true
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
-      expect(element.className).toBe(`flex grow-1`);
+      expect(element.className).toBe("flex grow-1");
     });
 
     it("aliases false as grow-0", () => {
       render(
         <Flex grow={false} data-testid="flex-element">
           Grow false
-        </Flex>
+        </Flex>,
       );
       const element = screen.getByTestId("flex-element");
-      expect(element.className).toBe(`flex grow-0`);
+      expect(element.className).toBe("flex grow-0");
     });
   });
 
