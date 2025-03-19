@@ -1,4 +1,5 @@
 const NUMERIC_SIZES = [
+  "0",
   "1",
   "2",
   "3",
