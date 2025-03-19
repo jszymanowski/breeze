@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Grid, Heading } from "@/main";
-import { summarizeValues } from "@stories/utils";
+import { Box, Flex, Grid, Heading } from "@/main";
+import { asOptionalValue, summarizeValues } from "@stories/utils";
 
-import { LAYOUT_ELEMENTS } from "@/types";
+import { BOX_SIZINGS, HEIGHTS, LAYOUT_ELEMENTS, SIZES, WIDTHS } from "@/types";
+import type { Width as WidthType, Height as HeightType } from "@/types";
 
 const meta: Meta<typeof Box> = {
   title: "Layout/Box",
@@ -18,6 +19,39 @@ const meta: Meta<typeof Box> = {
       description: "Specific HTML element to use",
       table: {
         type: { summary: summarizeValues(LAYOUT_ELEMENTS, true) },
+      },
+    },
+    size: {
+      control: "select",
+      options: asOptionalValue(SIZES),
+      description: "Controls the width and height of an element",
+      table: {
+        type: { summary: summarizeValues(SIZES, true) },
+      },
+    },
+    width: {
+      control: "select",
+      options: asOptionalValue(WIDTHS),
+      description: "Controls the width of an element",
+      table: {
+        type: { summary: summarizeValues(WIDTHS, true) },
+      },
+    },
+    height: {
+      control: "select",
+      options: asOptionalValue(HEIGHTS),
+      description: "Controls the height of an element",
+      table: {
+        type: { summary: summarizeValues(HEIGHTS, true) },
+      },
+    },
+    sizing: {
+      control: "select",
+      options: asOptionalValue(BOX_SIZINGS),
+      description:
+        "Control how the browser should calculate an element's total size",
+      table: {
+        type: { summary: summarizeValues(BOX_SIZINGS, true) },
       },
     },
     className: {
@@ -41,16 +75,112 @@ type Story = StoryObj<typeof Box>;
 export const Default: Story = {
   args: {
     as: "div",
-    className: "border-1 border-dashed border-gray-300",
+    className: "bg-muted border-1 border-gray-300",
     children: "This is a Box component",
   },
   decorators: [
     (Story) => (
-      <Box className="h-[300px] w-[300px]">
+      <Box className="h-[400px] w-[600px] border-1 border-dashed border-gray-300 p-1">
         <Story />
       </Box>
     ),
   ],
+};
+
+export const Size: Story = {
+  render: () => (
+    <Grid cols="3" gap="4" className="m-4">
+      {SIZES.map((size) => (
+        <Box
+          key={`box-size-${size}`}
+          className="size-[128px] border-1 border-dashed border-gray-300 p-2"
+        >
+          <Box size={size} className="bg-muted border-1  border-gray-300">
+            {size}
+          </Box>
+        </Box>
+      ))}
+    </Grid>
+  ),
+};
+
+const WIDTH_EXAMPLES: WidthType[] = [
+  "auto",
+  "px",
+  "min",
+  "max",
+  "fit",
+  "3xs",
+  "2xs",
+  "xs",
+  "sm",
+  "md",
+  "lg",
+  "xl",
+  "full",
+];
+export const Width: Story = {
+  render: () => (
+    <Grid cols="1" gap="2" className="m-4 w-[600px]">
+      {WIDTH_EXAMPLES.map((width) => (
+        <Box
+          key={`box-width-${width}`}
+          className="border-1 border-dashed border-gray-300 p-1"
+        >
+          <Box width={width} className="bg-muted border-1 border-gray-300">
+            {width}
+          </Box>
+        </Box>
+      ))}
+    </Grid>
+  ),
+};
+
+const HEIGHT_EXAMPLES: HeightType[] = [
+  "auto",
+  "full",
+  "min",
+  "max",
+  "fit",
+  "px",
+];
+export const Height: Story = {
+  render: () => (
+    <Grid cols="6" gap="2" className="m-4">
+      {HEIGHT_EXAMPLES.map((height) => (
+        <Box
+          key={`box-height-${height}`}
+          className="w-[48px] h-[300px] border-1 border-dashed border-gray-300 p-1"
+        >
+          <Box height={height} className="bg-muted border-1 border-gray-300">
+            {height}
+          </Box>
+        </Box>
+      ))}
+    </Grid>
+  ),
+};
+
+export const BoxSizing: Story = {
+  render: () => (
+    <Flex align="center" gap="4" className="m-4">
+      {BOX_SIZINGS.map((sizing) => (
+        <Box
+          key={`box-sizing-${sizing}`}
+          sizing={sizing}
+          className="size-[128px] border-4 border-dashed border-gray-300 p-4"
+        >
+          <Flex
+            align="center"
+            justify="center"
+            className="bg-muted w-full h-full"
+          >
+            {sizing}
+          </Flex>
+        </Box>
+      ))}
+    </Flex>
+  ),
 };
 
 export const StyleExamples: Story = {

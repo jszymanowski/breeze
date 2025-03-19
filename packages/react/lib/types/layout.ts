@@ -1,3 +1,33 @@
+export const SIZES = ["auto", "full", "min", "max", "fit", "px"] as const;
+export type Size = (typeof SIZES)[number];
+
+export const WIDTHS = [
+  ...SIZES,
+  ...[
+    "3xs",
+    "2xs",
+    "xs",
+    "sm",
+    "md",
+    "lg",
+    "xl",
+    "2xl",
+    "3xl",
+    "4xl",
+    "5xl",
+    "6xl",
+    "7xl",
+    "screen",
+  ],
+] as const;
+export type Width = (typeof WIDTHS)[number];
+
+export const HEIGHTS = [...SIZES, "screen"] as const;
+export type Height = (typeof HEIGHTS)[number];
+
+export const BOX_SIZINGS = ["content", "border"] as const;
+export type BoxSizing = (typeof BOX_SIZINGS)[number];
+
 export const FLEX_DIRECTIONS = [
   "row",
   "col",

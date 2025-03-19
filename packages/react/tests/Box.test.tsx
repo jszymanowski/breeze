@@ -23,6 +23,95 @@ describe("Box", () => {
     expect(element.tagName).toBe("SECTION");
   });
 
+  it("applies the correct size classes", () => {
+    const sizes = ["auto", "full", "min", "max", "fit", "px"] as const;
+
+    for (const size of sizes) {
+      const { rerender } = render(
+        <Box size={size} data-testid="box-element">
+          Size {size}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(`size-${size}`);
+      rerender(<div />);
+    }
+  });
+
+  it("applies the correct width classes", () => {
+    const widths = [
+      "3xs",
+      "2xs",
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl",
+      "3xl",
+      "4xl",
+      "5xl",
+      "6xl",
+      "7xl",
+      "auto",
+      "full",
+      "screen",
+      "min",
+      "max",
+      "fit",
+      "px",
+    ] as const;
+
+    for (const width of widths) {
+      const { rerender } = render(
+        <Box width={width} data-testid="box-element">
+          Width {width}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(`w-${width}`);
+      rerender(<div />);
+    }
+  });
+
+  it("applies the correct height classes", () => {
+    const heights = [
+      "auto",
+      "full",
+      "screen",
+      "min",
+      "max",
+      "fit",
+      "px",
+    ] as const;
+
+    for (const height of heights) {
+      const { rerender } = render(
+        <Box height={height} data-testid="box-element">
+          Height {height}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(`h-${height}`);
+      rerender(<div />);
+    }
+  });
+
+  it("applies the correct box sizing classes", () => {
+    const boxSizings = ["content", "border"] as const;
+
+    for (const sizing of boxSizings) {
+      const { rerender } = render(
+        <Box sizing={sizing} data-testid="box-element">
+          Sizing {sizing}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(`box-${sizing}`);
+      rerender(<div />);
+    }
+  });
+
   it("applies custom className", () => {
     render(
       <Box className="custom-class" data-testid="box-element">
