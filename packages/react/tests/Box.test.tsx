@@ -112,6 +112,27 @@ describe("Box", () => {
     }
   });
 
+  it("applies the correct position classes", () => {
+    const positions = [
+      "static",
+      "fixed",
+      "absolute",
+      "relative",
+      "sticky",
+    ] as const;
+
+    for (const position of positions) {
+      const { rerender } = render(
+        <Box position={position} data-testid="box-element">
+          Position {position}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(position);
+      rerender(<div />);
+    }
+  });
+
   it("applies custom className", () => {
     render(
       <Box className="custom-class" data-testid="box-element">

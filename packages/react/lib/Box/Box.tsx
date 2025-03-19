@@ -1,6 +1,6 @@
 import React from "react";
 
-import type { BoxSizing, Height, Size, Width } from "@/types";
+import type { BoxSizing, Height, Position, Size, Width } from "@/types";
 import { cn } from "@/utils";
 
 export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -9,21 +9,26 @@ export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   width?: Width;
   height?: Height;
   sizing?: BoxSizing;
+  position?: Position;
 }
 
 const Box = React.forwardRef<HTMLDivElement, BoxProps>(
   (
-    { className, as: Component = "div", size, width, height, sizing, ...props },
+    {
+      className,
+      as: Component = "div",
+      size,
+      width,
+      height,
+      sizing,
+      position,
+      ...props
+    },
     ref,
   ) => {
     return (
       <Component
         className={cn(
-          // Box sizing
-          {
-            "box-border": sizing === "border",
-            "box-content": sizing === "content",
-          },
           // Size
           {
             "size-auto": size === "auto",
@@ -65,6 +70,19 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
             "h-max": height === "max",
             "h-fit": height === "fit",
             "h-px": height === "px",
+          },
+          // Box sizing
+          {
+            "box-border": sizing === "border",
+            "box-content": sizing === "content",
+          },
+          // Position
+          {
+            static: position === "static",
+            fixed: position === "fixed",
+            absolute: position === "absolute",
+            relative: position === "relative",
+            sticky: position === "sticky",
           },
           className,
         )}
