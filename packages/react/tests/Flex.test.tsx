@@ -73,9 +73,7 @@ describe("Flex", () => {
 
   describe("grow", () => {
     it("applies the correct grow classes", () => {
-      const STRING_FLEX_GROWS = FLEX_GROWS.filter(
-        (grow) => typeof grow === "string",
-      );
+      const STRING_FLEX_GROWS = FLEX_GROWS.filter((grow) => typeof grow === "string");
 
       for (const grow of STRING_FLEX_GROWS) {
         const { rerender } = render(
@@ -217,9 +215,7 @@ describe("Flex", () => {
 
     const element = screen.getByTestId("flex-element");
 
-    expect(element.className).toBe(
-      "flex flex-col items-center justify-between flex-wrap gap-4",
-    );
+    expect(element.className).toBe("flex flex-col items-center justify-between flex-wrap gap-4");
   });
 
   it("renders children correctly", () => {

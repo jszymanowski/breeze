@@ -32,7 +32,7 @@ export default function OptionList<T extends OptionTypes>({
             direction="col"
             gap="4"
             gapY={gapY}
-            className="col-start-2 -col-end-1 rounded border-1 border-dotted border-gray-300 p-1"
+            className="-col-end-1 col-start-2 rounded border-1 border-gray-300 border-dotted p-1"
           >
             {renderOption(option)}
           </Flex>

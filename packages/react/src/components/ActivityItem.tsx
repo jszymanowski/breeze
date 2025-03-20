@@ -12,14 +12,9 @@ interface Props {
 }
 
 const ActivityItem = ({ icon, title, time, badge }: Props) => (
-  <Flex
-    direction="row"
-    align="center"
-    justify="between"
-    className="border-b p-4 last:border-b-0"
-  >
+  <Flex direction="row" align="center" justify="between" className="border-b p-4 last:border-b-0">
     <Flex direction="row" align="center" gap="3">
-      <Box className="bg-muted flex h-8 w-8 items-center justify-center rounded-full">
+      <Box className="flex h-8 w-8 items-center justify-center rounded-full bg-muted">
         <Text size="sm">{icon}</Text>
       </Box>
       <Box>

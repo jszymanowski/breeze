@@ -74,11 +74,7 @@ describe("Heading", () => {
 
   it("applies the correct variant classes", () => {
     for (const variant of TYPOGRAPHY_VARIANTS) {
-      render(
-        <Heading variant={variant as TypographyVariant}>
-          Variant {variant}
-        </Heading>,
-      );
+      render(<Heading variant={variant as TypographyVariant}>Variant {variant}</Heading>);
       const element = screen.getByText(`Variant ${variant}`);
 
       let expectedCssClass = "";

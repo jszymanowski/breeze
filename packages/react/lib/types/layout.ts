@@ -35,15 +35,7 @@ const NUMERIC_SIZES = [
   "96",
 ];
 
-export const SIZES = [
-  ...NUMERIC_SIZES,
-  "auto",
-  "full",
-  "min",
-  "max",
-  "fit",
-  "px",
-] as const;
+export const SIZES = [...NUMERIC_SIZES, "auto", "full", "min", "max", "fit", "px"] as const;
 export type Size = (typeof SIZES)[number];
 
 export const WIDTHS = [
@@ -100,22 +92,10 @@ export type Display = (typeof DISPLAYS)[number];
 export const BOX_SIZINGS = ["content", "border"] as const;
 export type BoxSizing = (typeof BOX_SIZINGS)[number];
 
-export const POSITIONS = [
-  "static",
-  "fixed",
-  "absolute",
-  "relative",
-  "sticky",
-] as const;
+export const POSITIONS = ["static", "fixed", "absolute", "relative", "sticky"] as const;
 export type Position = (typeof POSITIONS)[number];
 
-export const OVERFLOWS = [
-  "auto",
-  "scroll",
-  "hidden",
-  "clip",
-  "visible",
-] as const;
+export const OVERFLOWS = ["auto", "scroll", "hidden", "clip", "visible"] as const;
 export type Overflow = (typeof OVERFLOWS)[number];
 
 // TODO: true shorthand
@@ -134,21 +114,10 @@ export const ROUNDED_SIZES = [
 ] as const;
 export type RoundedSize = (typeof ROUNDED_SIZES)[number];
 
-export const FLEX_DIRECTIONS = [
-  "row",
-  "col",
-  "row-reverse",
-  "col-reverse",
-] as const;
+export const FLEX_DIRECTIONS = ["row", "col", "row-reverse", "col-reverse"] as const;
 export type FlexDirection = (typeof FLEX_DIRECTIONS)[number];
 
-export const FLEX_ALIGNS = [
-  "start",
-  "center",
-  "end",
-  "stretch",
-  "baseline",
-] as const;
+export const FLEX_ALIGNS = ["start", "center", "end", "stretch", "baseline"] as const;
 export type FlexAlign = (typeof FLEX_ALIGNS)[number];
 
 export const FLEX_JUSTIFIES = [
@@ -233,13 +202,7 @@ export const GRID_ROWS = [
 ] as const;
 export type GridRows = (typeof GRID_ROWS)[number];
 
-export const GRID_FLOWS = [
-  "row",
-  "col",
-  "dense",
-  "row-dense",
-  "col-dense",
-] as const;
+export const GRID_FLOWS = ["row", "col", "dense", "row-dense", "col-dense"] as const;
 export type GridFlow = (typeof GRID_FLOWS)[number];
 
 export const GAPS = [

@@ -2,7 +2,7 @@ import { Heading, Flex, Box, Text, Grid } from "@/main";
 import { ActivityItem, Button, Card, Header, Footer } from "@src/components";
 
 const Demo = () => (
-  <Flex direction="col" className="bg-background min-h-screen">
+  <Flex direction="col" className="min-h-screen bg-background">
     <Header />
     <Box className="flex-1">
       <Flex direction="row" className="container mx-auto">
@@ -110,11 +110,7 @@ const Demo = () => (
                       time="Yesterday"
                       badge={{ text: "Completed", variant: "default" }}
                     />
-                    <ActivityItem
-                      icon="A3"
-                      title="New comment on post"
-                      time="2 days ago"
-                    />
+                    <ActivityItem icon="A3" title="New comment on post" time="2 days ago" />
                     <ActivityItem
                       icon="A4"
                       title="Subscription renewed"

@@ -14,20 +14,7 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Grid = React.forwardRef<HTMLDivElement, GridProps>(
-  (
-    {
-      className,
-      as: Component = "div",
-      cols,
-      rows,
-      gap,
-      gapX,
-      gapY,
-      flow,
-      ...props
-    },
-    ref,
-  ) => {
+  ({ className, as: Component = "div", cols, rows, gap, gapX, gapY, flow, ...props }, ref) => {
     return (
       <Component
         className={cn(

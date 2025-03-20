@@ -20,34 +20,33 @@ export const Marketing: Story = {
           Build your next project with our primitives
         </Heading>
         <Text size="lg" variant="muted" leading="relaxed">
-          A collection of essential UI components designed for modern web
-          applications, built with Tailwind CSS and following shadcn/ui
-          patterns.
+          A collection of essential UI components designed for modern web applications, built with
+          Tailwind CSS and following shadcn/ui patterns.
         </Text>
       </Box>
 
-      <Box className="bg-card space-y-4 rounded-lg p-6 shadow-md">
+      <Box className="space-y-4 rounded-lg bg-card p-6 shadow-md">
         <Heading level="2" variant="accent" size="xl">
           Product Features
         </Heading>
 
         <Flex direction="col" gap="2">
           <Flex direction="row" gap="2" align="center">
-            <Box className="bg-primary/10 text-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
               ✓
             </Box>
             <Text>Fully accessible components</Text>
           </Flex>
 
           <Flex direction="row" gap="2" align="center">
-            <Box className="bg-primary/10 text-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
               ✓
             </Box>
             <Text>Built with Tailwind CSS</Text>
           </Flex>
 
           <Flex direction="row" gap="2" align="center">
-            <Box className="bg-primary/10 text-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
               ✓
             </Box>
             <Text>Follows shadcn/ui patterns</Text>
@@ -55,19 +54,13 @@ export const Marketing: Story = {
         </Flex>
       </Box>
 
-      <Box className="bg-muted rounded-lg p-8">
-        <Heading
-          level="3"
-          align="center"
-          size="2xl"
-          tracking="tight"
-          className="mb-6"
-        >
+      <Box className="rounded-lg bg-muted p-8">
+        <Heading level="3" align="center" size="2xl" tracking="tight" className="mb-6">
           Pricing Plans
         </Heading>
 
         <Flex direction="row" gap="6" wrap="wrap">
-          <Box className="bg-card min-w-64 flex-1 rounded-lg p-6 shadow-sm">
+          <Box className="min-w-64 flex-1 rounded-lg bg-card p-6 shadow-sm">
             <Heading level="4" size="lg">
               Basic
             </Heading>
@@ -77,16 +70,11 @@ export const Marketing: Story = {
             <Text variant="muted">Perfect for small projects</Text>
           </Box>
 
-          <Box className="bg-primary min-w-64 flex-1 rounded-lg p-6 shadow-md">
+          <Box className="min-w-64 flex-1 rounded-lg bg-primary p-6 shadow-md">
             <Heading variant="primary" level="4" size="lg">
               Pro
             </Heading>
-            <Heading
-              variant="primary"
-              level="3"
-              size="3xl"
-              className="mt-2 mb-4"
-            >
+            <Heading variant="primary" level="3" size="3xl" className="mt-2 mb-4">
               $29/mo
             </Heading>
             <Text variant="primary">For growing businesses</Text>
@@ -115,9 +103,8 @@ export const Documentation: Story = {
         </Heading>
 
         <Text leading="relaxed">
-          Welcome to our comprehensive guide. This document will walk you
-          through all the features and capabilities of our platform, helping you
-          get the most out of your experience.
+          Welcome to our comprehensive guide. This document will walk you through all the features
+          and capabilities of our platform, helping you get the most out of your experience.
         </Text>
 
         <Box className="space-y-4">
@@ -126,8 +113,8 @@ export const Documentation: Story = {
           </Heading>
 
           <Text>
-            Installing our product is straightforward. Follow these simple steps
-            to get up and running in no time.
+            Installing our product is straightforward. Follow these simple steps to get up and
+            running in no time.
           </Text>
 
           <Box className="ml-4 space-y-2">
@@ -135,17 +122,14 @@ export const Documentation: Story = {
               Prerequisites
             </Heading>
             <Text>
-              Before you begin, ensure you have the following tools installed on
-              your system.
+              Before you begin, ensure you have the following tools installed on your system.
             </Text>
 
             <Heading level="5" size="base">
               System Requirements
             </Heading>
             <ul>
-              <Text as="li">
-                Operating System: Windows 10+, macOS 10.15+, or Linux
-              </Text>
+              <Text as="li">Operating System: Windows 10+, macOS 10.15+, or Linux</Text>
               <Text as="li">Memory: 4GB RAM minimum, 8GB recommended</Text>
               <Text as="li">Storage: 1GB of available space</Text>
             </ul>
@@ -175,56 +159,44 @@ export const LandingPage: Story = {
           align="center"
           className="mx-auto max-w-2xl"
         >
-          Our platform helps teams streamline processes and boost productivity
-          with intelligent automation.
+          Our platform helps teams streamline processes and boost productivity with intelligent
+          automation.
         </Text>
       </Box>
 
       <Box className="space-y-6">
-        <Heading
-          level="2"
-          size="4xl"
-          weight="bold"
-          tracking="tight"
-          align="center"
-        >
+        <Heading level="2" size="4xl" weight="bold" tracking="tight" align="center">
           Designed for the modern workforce
         </Heading>
         <Flex direction="row" gap="6" wrap="wrap" justify="center">
-          <Box className="max-w-80 min-w-64 flex-1 space-y-2 text-center">
+          <Box className="min-w-64 max-w-80 flex-1 space-y-2 text-center">
             <Heading level="3" size="xl">
               Intuitive Interface
             </Heading>
-            <Text variant="muted">
-              User-friendly design that requires minimal training
-            </Text>
+            <Text variant="muted">User-friendly design that requires minimal training</Text>
           </Box>
-          <Box className="max-w-80 min-w-64 flex-1 space-y-2 text-center">
+          <Box className="min-w-64 max-w-80 flex-1 space-y-2 text-center">
             <Heading level="3" size="xl">
               Powerful Integrations
             </Heading>
-            <Text variant="muted">
-              Connects seamlessly with your existing tools
-            </Text>
+            <Text variant="muted">Connects seamlessly with your existing tools</Text>
           </Box>
-          <Box className="max-w-80 min-w-64 flex-1 space-y-2 text-center">
+          <Box className="min-w-64 max-w-80 flex-1 space-y-2 text-center">
             <Heading level="3" size="xl">
               Advanced Analytics
             </Heading>
-            <Text variant="muted">
-              Gain valuable insights from comprehensive reporting
-            </Text>
+            <Text variant="muted">Gain valuable insights from comprehensive reporting</Text>
           </Box>
         </Flex>
       </Box>
 
-      <Box className="bg-muted space-y-6 rounded-lg p-8">
+      <Box className="space-y-6 rounded-lg bg-muted p-8">
         <Heading level="2" size="3xl" weight="bold" align="center">
           Join thousands of satisfied customers
         </Heading>
         <Text size="lg" align="center" className="mx-auto max-w-2xl">
-          "This platform has revolutionized how our team works. We've seen a 40%
-          increase in productivity since implementation."
+          "This platform has revolutionized how our team works. We've seen a 40% increase in
+          productivity since implementation."
         </Text>
         <Text weight="medium" align="center">
           — Sarah Johnson, CTO at TechCorp
@@ -255,9 +227,8 @@ export const Blog: Story = {
       </Box>
 
       <Text size="lg" leading="relaxed">
-        The web development landscape continues to evolve at a rapid pace. New
-        frameworks, tools, and methodologies emerge regularly, reshaping how
-        developers approach building for the web.
+        The web development landscape continues to evolve at a rapid pace. New frameworks, tools,
+        and methodologies emerge regularly, reshaping how developers approach building for the web.
       </Text>
 
       <Box className="space-y-4">
@@ -265,10 +236,9 @@ export const Blog: Story = {
           The Rise of Component-Based Architecture
         </Heading>
         <Text leading="relaxed">
-          Component-based architecture has transformed how developers structure
-          applications. By breaking interfaces down into reusable, independent
-          pieces, teams can work more efficiently and maintain consistency
-          across large projects.
+          Component-based architecture has transformed how developers structure applications. By
+          breaking interfaces down into reusable, independent pieces, teams can work more
+          efficiently and maintain consistency across large projects.
         </Text>
 
         <Box className="mt-4 space-y-2">
@@ -276,9 +246,9 @@ export const Blog: Story = {
             Benefits of Primitive Components
           </Heading>
           <Text leading="relaxed">
-            Primitive components form the foundation of scalable design systems.
-            These low-level building blocks provide flexibility while ensuring
-            consistency throughout an application.
+            Primitive components form the foundation of scalable design systems. These low-level
+            building blocks provide flexibility while ensuring consistency throughout an
+            application.
           </Text>
         </Box>
       </Box>
@@ -288,10 +258,9 @@ export const Blog: Story = {
           Looking Ahead
         </Heading>
         <Text leading="relaxed">
-          As we look to the future, several trends are shaping the next
-          generation of web development. From AI-assisted coding to enhanced
-          accessibility standards, the industry continues to evolve in exciting
-          ways.
+          As we look to the future, several trends are shaping the next generation of web
+          development. From AI-assisted coding to enhanced accessibility standards, the industry
+          continues to evolve in exciting ways.
         </Text>
       </Box>
     </Box>
@@ -301,7 +270,7 @@ export const Blog: Story = {
 export const Announcement: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Box className="bg-card max-w-3xl rounded-lg p-6 shadow-sm">
+      <Box className="max-w-3xl rounded-lg bg-card p-6 shadow-sm">
         <Text size="lg" weight="semibold" variant="default" className="mb-2">
           Product Announcement
         </Text>
@@ -311,9 +280,9 @@ export const Announcement: Story = {
         </Text>
 
         <Text leading="relaxed" className="mb-4">
-          We're excited to announce our new product line that will revolutionize
-          how you interact with our services. The new features include improved
-          performance, better user experience, and more customization options.
+          We're excited to announce our new product line that will revolutionize how you interact
+          with our services. The new features include improved performance, better user experience,
+          and more customization options.
         </Text>
 
         <Text size="sm" variant="accent" weight="medium">
@@ -327,14 +296,13 @@ export const Announcement: Story = {
 export const Notice: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Box className="bg-destructive/10 max-w-3xl rounded-lg p-6">
+      <Box className="max-w-3xl rounded-lg bg-destructive/10 p-6">
         <Text weight="semibold" variant="destructive" className="mb-2">
           Important Notice
         </Text>
 
         <Text variant="destructive" size="sm">
-          Your subscription will expire in 3 days. Please renew to avoid service
-          interruption.
+          Your subscription will expire in 3 days. Please renew to avoid service interruption.
         </Text>
       </Box>
     </Flex>
@@ -344,14 +312,14 @@ export const Notice: Story = {
 export const Testimonial: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Box className="bg-muted max-w-3xl rounded-lg p-6">
+      <Box className="max-w-3xl rounded-lg bg-muted p-6">
         <Text align="center" weight="bold" className="mb-4">
           Testimonials
         </Text>
 
         <Text align="center" size="sm" leading="relaxed" className="italic">
-          "This product has completely transformed our workflow. The time saved
-          has allowed our team to focus on what really matters — innovation."
+          "This product has completely transformed our workflow. The time saved has allowed our team
+          to focus on what really matters — innovation."
         </Text>
 
         <Text align="center" size="xs" variant="muted" className="mt-2">
