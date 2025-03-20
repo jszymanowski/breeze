@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Flex, Grid, Heading, Text } from "@/main";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
-import { sampleLongWord, sampleLongText } from "@stories/support/sampleText";
+import {
+  sampleLongWord,
+  sampleLongText,
+  sampleSentences,
+} from "@stories/support/sampleText";
 
 import {
   BOX_SIZINGS,
@@ -11,8 +15,13 @@ import {
   POSITIONS,
   SIZES,
   WIDTHS,
+  DISPLAYS,
 } from "@/types";
-import type { Width as WidthType, Height as HeightType } from "@/types";
+import type {
+  Width as WidthType,
+  Height as HeightType,
+  Display as DisplayType,
+} from "@/types";
 
 const meta: Meta<typeof Box> = {
   title: "Layout/Box",
@@ -61,6 +70,14 @@ const meta: Meta<typeof Box> = {
         "Control how the browser should calculate an element's total size",
       table: {
         type: { summary: summarizeValues(BOX_SIZINGS, true) },
+      },
+    },
+    display: {
+      control: "select",
+      options: asOptionalValue(DISPLAYS),
+      description: "Control the display box type of an element",
+      table: {
+        type: { summary: summarizeValues(DISPLAYS, true) },
       },
     },
     position: {
@@ -235,6 +252,34 @@ export const Height: Story = {
         </Box>
       ))}
     </Grid>
+  ),
+};
+
+const DISPLAY_EXAMPLES: DisplayType[] = [
+  "inline",
+  "inline-block",
+  "block",
+  "hidden",
+];
+
+export const Display: Story = {
+  render: () => (
+    <Flex direction="col" gap="4" className="max-w-[600px]">
+      {DISPLAY_EXAMPLES.map((display) => (
+        <Box
+          key={`box-display-${display}`}
+          className="border-1 border-dashed border-gray-300 p-1"
+        >
+          <Text>
+            {sampleSentences.slice(0, 2).join(".")}.{" "}
+            <Box display={display} className="font-mono bg-foreground/10">
+              This is display: {display}.
+            </Box>{" "}
+            {sampleSentences.slice(2).join(".")}
+          </Text>
+        </Box>
+      ))}
+    </Flex>
   ),
 };
 

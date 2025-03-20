@@ -125,6 +125,45 @@ describe("Box", () => {
     }
   });
 
+  it("applies the correct box display classes", () => {
+    const displays = [
+      "block",
+      "flex",
+      "grid",
+      "inline",
+      "inline-block",
+      "inline-flex",
+      "inline-grid",
+      "inline-table",
+      "list-item",
+      "flow-root",
+      "contents",
+      "table",
+      "table-header-group",
+      "table-footer-group",
+      "table-column-group",
+      "table-column",
+      "table-row-group",
+      "table-row",
+      "table-cell",
+      "table-caption",
+      "hidden",
+      "sr-only",
+      "not-sr-only",
+    ] as const;
+
+    for (const display of displays) {
+      const { rerender } = render(
+        <Box display={display} data-testid="box-element">
+          Display {display}
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe(display);
+      rerender(<div />);
+    }
+  });
+
   it("applies the correct box sizing classes", () => {
     const boxSizings = ["content", "border"] as const;
 

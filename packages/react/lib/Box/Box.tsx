@@ -2,6 +2,7 @@ import React from "react";
 
 import type {
   BoxSizing,
+  Display,
   Height,
   Overflow,
   Position,
@@ -15,6 +16,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: Size;
   width?: Width;
   height?: Height;
+  display?: Display;
   sizing?: BoxSizing;
   position?: Position;
   overflow?: Overflow;
@@ -30,6 +32,7 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
       size,
       width,
       height,
+      display,
       sizing,
       position,
       overflow,
@@ -170,6 +173,32 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
             "h-max": height === "max",
             "h-fit": height === "fit",
             "h-px": height === "px",
+          },
+          // Display
+          {
+            block: display === "block",
+            flex: display === "flex",
+            grid: display === "grid",
+            inline: display === "inline",
+            "inline-block": display === "inline-block",
+            "inline-flex": display === "inline-flex",
+            "inline-grid": display === "inline-grid",
+            "inline-table": display === "inline-table",
+            "list-item": display === "list-item",
+            "flow-root": display === "flow-root",
+            contents: display === "contents",
+            table: display === "table",
+            "table-header-group": display === "table-header-group",
+            "table-footer-group": display === "table-footer-group",
+            "table-column-group": display === "table-column-group",
+            "table-column": display === "table-column",
+            "table-row-group": display === "table-row-group",
+            "table-row": display === "table-row",
+            "table-cell": display === "table-cell",
+            "table-caption": display === "table-caption",
+            hidden: display === "hidden",
+            "sr-only": display === "sr-only",
+            "not-sr-only": display === "not-sr-only",
           },
           // Box sizing
           {

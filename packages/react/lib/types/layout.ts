@@ -65,6 +65,33 @@ export type Width = (typeof WIDTHS)[number];
 export const HEIGHTS = [...SIZES, "screen"] as const;
 export type Height = (typeof HEIGHTS)[number];
 
+export const DISPLAYS = [
+  "block",
+  "flex",
+  "grid",
+  "inline",
+  "inline-block",
+  "inline-flex",
+  "inline-grid",
+  "inline-table",
+  "list-item",
+  "flow-root",
+  "contents",
+  "table",
+  "table-header-group",
+  "table-footer-group",
+  "table-column-group",
+  "table-column",
+  "table-row-group",
+  "table-row",
+  "table-cell",
+  "table-caption",
+  "hidden",
+  "sr-only",
+  "not-sr-only",
+] as const;
+export type Display = (typeof DISPLAYS)[number];
+
 export const BOX_SIZINGS = ["content", "border"] as const;
 export type BoxSizing = (typeof BOX_SIZINGS)[number];
 
