@@ -33,11 +33,11 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       className,
       level = "2",
       size,
-      weight = "bold",
+      weight,
       variant = "default",
       align,
       leading, // No default: Tailwind applies a default from text size classes
-      tracking = "normal",
+      tracking,
       family = "display",
       truncate = false,
       numeric = false,
@@ -141,8 +141,6 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
           truncate && "truncate",
           // Tabular numerals
           numeric && "tabular-nums",
-          // Add some scroll margin for better anchor navigation
-          "scroll-m-20",
           className,
         )}
         ref={ref}
