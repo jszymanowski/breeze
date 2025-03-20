@@ -44,11 +44,6 @@
       "quoteStyle": "double"
     }
   },
-  "json": {
-    "parser": {
-      "allowComments": true
-    }
-  },
   "css": {
     "formatter": {
       "enabled": true
