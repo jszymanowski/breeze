@@ -23,6 +23,44 @@ describe("Box", () => {
     expect(element.tagName).toBe("SECTION");
   });
 
+  describe("variants", () => {
+    it("applies the correct variant classes", () => {
+      const variants = [
+        "primary",
+        "secondary",
+        "muted",
+        "accent",
+        "info",
+        "success",
+        "warning",
+        "destructive",
+      ] as const;
+
+      for (const variant of variants) {
+        const { rerender } = render(
+          <Box variant={variant} data-testid="box-element">
+            Variant {variant}
+          </Box>,
+        );
+        const element = screen.getByTestId("box-element");
+        expect(element.className).toBe(
+          `bg-${variant} text-${variant}-foreground`,
+        );
+        rerender(<div />);
+      }
+    });
+
+    it("does not apply classes with default variant", () => {
+      render(
+        <Box variant={"default"} data-testid="box-element">
+          Default variant
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe("");
+    });
+  });
+
   it("applies the correct size classes", () => {
     const sizes = [
       "0",
