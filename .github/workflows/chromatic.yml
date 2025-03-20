@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
     paths:
       - "packages/react/**"
 
@@ -44,7 +41,3 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: ./packages/react
           buildScriptName: "storybook:build"
-          exitOnceUploaded: true
-          onlyChanged: true
-          dryRun: ${{ github.event_name == 'pull_request' }}
-          autoAcceptChanges: "main"
