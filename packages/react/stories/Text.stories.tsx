@@ -218,11 +218,25 @@ export const Variants: Story = {
     <OptionsByFamilyGrid<TypographyVariant>
       options={TYPOGRAPHY_VARIANTS as unknown as TypographyVariant[]}
       propKey="variant"
-      renderOption={(family, option) => (
-        <Text family={family} variant={option}>
-          {sampleText}
-        </Text>
-      )}
+      renderOption={(family, option) => {
+        if (option === "inherit") {
+          return (
+            <Box className="text-violet-400">
+              <Text family={family} variant={option}>
+                {sampleText}
+              </Text>{" "}
+              <Text variant="muted" size="xs" className="italic">
+                (container text color = violet-400)
+              </Text>
+            </Box>
+          );
+        }
+        return (
+          <Text family={family} variant={option}>
+            {sampleText}
+          </Text>
+        );
+      }}
     />
   ),
 };
