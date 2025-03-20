@@ -92,7 +92,7 @@ const GridItem = ({ children }: { children: React.ReactNode }) => (
     <Flex
       align="center"
       justify="center"
-      className="bg-info text-info-foreground h-16 w-16 rounded-md"
+      className="h-16 w-16 rounded-md bg-info text-info-foreground"
     >
       {children}
     </Flex>

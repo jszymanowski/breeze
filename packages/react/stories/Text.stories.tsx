@@ -307,7 +307,7 @@ export const PolymorphicText: Story = {
             key={e}
             as={element}
             align="center"
-            className="border-accent rounded border-1 border-dotted"
+            className="rounded border-1 border-accent border-dotted"
           >
             {"<"}
             {element}

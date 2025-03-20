@@ -15,7 +15,7 @@ const Badge = ({ variant = "default", children }: Props) => {
 
   return (
     <Box
-      className={`inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold ${variantClasses[variant]} `}
+      className={`inline-flex items-center rounded-md px-2.5 py-0.5 font-semibold text-xs ${variantClasses[variant]} `}
     >
       {children}
     </Box>

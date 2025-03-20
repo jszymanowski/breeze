@@ -25,28 +25,28 @@ export const Marketing: Story = {
         </Text>
       </Box>
 
-      <Box className="bg-card space-y-4 rounded-lg p-6 shadow-md">
+      <Box className="space-y-4 rounded-lg bg-card p-6 shadow-md">
         <Heading level="2" variant="accent" size="xl">
           Product Features
         </Heading>
 
         <Flex direction="col" gap="2">
           <Flex direction="row" gap="2" align="center">
-            <Box className="bg-primary/10 text-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
               ✓
             </Box>
             <Text>Fully accessible components</Text>
           </Flex>
 
           <Flex direction="row" gap="2" align="center">
-            <Box className="bg-primary/10 text-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
               ✓
             </Box>
             <Text>Built with Tailwind CSS</Text>
           </Flex>
 
           <Flex direction="row" gap="2" align="center">
-            <Box className="bg-primary/10 text-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
               ✓
             </Box>
             <Text>Follows shadcn/ui patterns</Text>
@@ -54,13 +54,13 @@ export const Marketing: Story = {
         </Flex>
       </Box>
 
-      <Box className="bg-muted rounded-lg p-8">
+      <Box className="rounded-lg bg-muted p-8">
         <Heading level="3" align="center" size="2xl" tracking="tight" className="mb-6">
           Pricing Plans
         </Heading>
 
         <Flex direction="row" gap="6" wrap="wrap">
-          <Box className="bg-card min-w-64 flex-1 rounded-lg p-6 shadow-sm">
+          <Box className="min-w-64 flex-1 rounded-lg bg-card p-6 shadow-sm">
             <Heading level="4" size="lg">
               Basic
             </Heading>
@@ -70,7 +70,7 @@ export const Marketing: Story = {
             <Text variant="muted">Perfect for small projects</Text>
           </Box>
 
-          <Box className="bg-primary min-w-64 flex-1 rounded-lg p-6 shadow-md">
+          <Box className="min-w-64 flex-1 rounded-lg bg-primary p-6 shadow-md">
             <Heading variant="primary" level="4" size="lg">
               Pro
             </Heading>
@@ -169,19 +169,19 @@ export const LandingPage: Story = {
           Designed for the modern workforce
         </Heading>
         <Flex direction="row" gap="6" wrap="wrap" justify="center">
-          <Box className="max-w-80 min-w-64 flex-1 space-y-2 text-center">
+          <Box className="min-w-64 max-w-80 flex-1 space-y-2 text-center">
             <Heading level="3" size="xl">
               Intuitive Interface
             </Heading>
             <Text variant="muted">User-friendly design that requires minimal training</Text>
           </Box>
-          <Box className="max-w-80 min-w-64 flex-1 space-y-2 text-center">
+          <Box className="min-w-64 max-w-80 flex-1 space-y-2 text-center">
             <Heading level="3" size="xl">
               Powerful Integrations
             </Heading>
             <Text variant="muted">Connects seamlessly with your existing tools</Text>
           </Box>
-          <Box className="max-w-80 min-w-64 flex-1 space-y-2 text-center">
+          <Box className="min-w-64 max-w-80 flex-1 space-y-2 text-center">
             <Heading level="3" size="xl">
               Advanced Analytics
             </Heading>
@@ -190,7 +190,7 @@ export const LandingPage: Story = {
         </Flex>
       </Box>
 
-      <Box className="bg-muted space-y-6 rounded-lg p-8">
+      <Box className="space-y-6 rounded-lg bg-muted p-8">
         <Heading level="2" size="3xl" weight="bold" align="center">
           Join thousands of satisfied customers
         </Heading>
@@ -270,7 +270,7 @@ export const Blog: Story = {
 export const Announcement: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Box className="bg-card max-w-3xl rounded-lg p-6 shadow-sm">
+      <Box className="max-w-3xl rounded-lg bg-card p-6 shadow-sm">
         <Text size="lg" weight="semibold" variant="default" className="mb-2">
           Product Announcement
         </Text>
@@ -296,7 +296,7 @@ export const Announcement: Story = {
 export const Notice: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Box className="bg-destructive/10 max-w-3xl rounded-lg p-6">
+      <Box className="max-w-3xl rounded-lg bg-destructive/10 p-6">
         <Text weight="semibold" variant="destructive" className="mb-2">
           Important Notice
         </Text>
@@ -312,7 +312,7 @@ export const Notice: Story = {
 export const Testimonial: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Box className="bg-muted max-w-3xl rounded-lg p-6">
+      <Box className="max-w-3xl rounded-lg bg-muted p-6">
         <Text align="center" weight="bold" className="mb-4">
           Testimonials
         </Text>

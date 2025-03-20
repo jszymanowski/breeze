@@ -16,8 +16,8 @@ type Story = StoryObj;
 export const Card: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Box className="bg-card rounded-lg p-6 shadow-md">
-        <Box className="border-muted mb-4 border-b pb-4">
+      <Box className="rounded-lg bg-card p-6 shadow-md">
+        <Box className="mb-4 border-muted border-b pb-4">
           <Heading level="2">Card Title</Heading>
           <Text variant="muted">Card subtitle with additional information</Text>
         </Box>
@@ -31,8 +31,8 @@ export const Card: Story = {
           </Text>
           <Text>Each Box can have its own styling and purpose.</Text>
         </Box>
-        <Box className="border-muted mt-4 flex justify-end border-t pt-4">
-          <button className="bg-primary text-primary-foreground rounded-md px-4 py-2" type="button">
+        <Box className="mt-4 flex justify-end border-muted border-t pt-4">
+          <button className="rounded-md bg-primary px-4 py-2 text-primary-foreground" type="button">
             Action
           </button>
         </Box>
@@ -44,10 +44,10 @@ export const Card: Story = {
 export const Contact: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Flex direction="col" gap="6" className="bg-card w-full max-w-lg rounded-lg p-6 shadow-md">
+      <Flex direction="col" gap="6" className="w-full max-w-lg rounded-lg bg-card p-6 shadow-md">
         <Flex direction="row" align="center" justify="between" className="w-full">
           <Heading level="4">User Profile</Heading>
-          <Box className="bg-primary/10 text-primary rounded-full p-2">
+          <Box className="rounded-full bg-primary/10 p-2 text-primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -66,10 +66,10 @@ export const Contact: Story = {
           </Box>
         </Flex>
 
-        <Box className="bg-border h-px w-full" />
+        <Box className="h-px w-full bg-border" />
 
         <Flex direction="row" gap="4" className="w-full">
-          <Box className="bg-primary/20 flex h-16 w-16 items-center justify-center rounded-full">
+          <Box className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
             <Heading family="sans">JD</Heading>
           </Box>
 
@@ -99,12 +99,12 @@ export const Contact: Story = {
 
         <Flex direction="row" gap="4" justify="end" className="w-full">
           <button
-            className="bg-secondary text-secondary-foreground rounded-md px-4 py-2"
+            className="rounded-md bg-secondary px-4 py-2 text-secondary-foreground"
             type="button"
           >
             Cancel
           </button>
-          <button className="bg-primary text-primary-foreground rounded-md px-4 py-2" type="button">
+          <button className="rounded-md bg-primary px-4 py-2 text-primary-foreground" type="button">
             Edit Profile
           </button>
         </Flex>
@@ -122,51 +122,51 @@ export const GridLayout: Story = {
   },
   render: (args) => (
     <Grid {...args}>
-      <Flex align="center" justify="between" className="bg-primary col-span-4 rounded-lg p-4">
+      <Flex align="center" justify="between" className="col-span-4 rounded-lg bg-primary p-4">
         <Heading level="2" variant="primary">
           Dashboard
         </Heading>
         <Flex className="space-x-2">
-          <Box className="bg-info h-8 w-8 rounded-full" />
-          <Box className="bg-success h-8 w-8 rounded-full" />
-          <Box className="bg-warning h-8 w-8 rounded-full" />
-          <Box className="bg-destructive h-8 w-8 rounded-full" />
+          <Box className="h-8 w-8 rounded-full bg-info" />
+          <Box className="h-8 w-8 rounded-full bg-success" />
+          <Box className="h-8 w-8 rounded-full bg-warning" />
+          <Box className="h-8 w-8 rounded-full bg-destructive" />
         </Flex>
       </Flex>
 
-      <Box className="bg-muted col-span-3 row-span-2 rounded-lg p-4">
+      <Box className="col-span-3 row-span-2 rounded-lg bg-muted p-4">
         <Heading level="4" weight="semibold" className="mb-2">
           Main Content Area
         </Heading>
-        <Box className="bg-background rounded-md p-2 shadow-sm">
+        <Box className="rounded-md bg-background p-2 shadow-sm">
           <Text className="mb-2">{sampleParagraphText[0]}</Text>
           <Text>{sampleParagraphText[1]}</Text>
         </Box>
       </Box>
 
-      <Box className="bg-muted row-span-2 rounded-lg p-4">
+      <Box className="row-span-2 rounded-lg bg-muted p-4">
         <Heading level="4" weight="semibold" className="mb-2">
           Sidebar
         </Heading>
         <Flex direction="col" gapY="2">
           {Array.from({ length: 4 }).map((_, i) => (
-            <Box key={i} className="bg-background rounded p-2 shadow-sm">
+            <Box key={i} className="rounded bg-background p-2 shadow-sm">
               <Text>Menu Item {i + 1}</Text>
             </Box>
           ))}
         </Flex>
       </Box>
 
-      <Box className="bg-muted rounded-lg p-4">
+      <Box className="rounded-lg bg-muted p-4">
         <Text>Widget 1</Text>
       </Box>
-      <Box className="bg-muted rounded-lg p-4">
+      <Box className="rounded-lg bg-muted p-4">
         <Text>Widget 2</Text>
       </Box>
-      <Box className="bg-muted rounded-lg p-4">
+      <Box className="rounded-lg bg-muted p-4">
         <Text>Widget 3</Text>
       </Box>
-      <Box className="bg-muted rounded-lg p-4">
+      <Box className="rounded-lg bg-muted p-4">
         <Text>Widget 4</Text>
       </Box>
     </Grid>
