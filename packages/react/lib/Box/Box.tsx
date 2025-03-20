@@ -9,11 +9,13 @@ import type {
   RoundedSize,
   Size,
   Width,
+  LayoutVariant,
 } from "@/types";
 import { cn } from "@/utils";
 
 export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: React.ElementType;
+  variant?: LayoutVariant;
   size?: Size;
   width?: Width;
   height?: Height;
@@ -31,6 +33,7 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
     {
       className,
       as: Component = "div",
+      variant,
       size,
       width,
       height,
@@ -48,6 +51,18 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
     return (
       <Component
         className={cn(
+          // Variant
+          {
+            "bg-primary text-primary-foreground": variant === "primary",
+            "bg-secondary text-secondary-foreground": variant === "secondary",
+            "bg-muted text-muted-foreground": variant === "muted",
+            "bg-accent text-accent-foreground": variant === "accent",
+            "bg-info text-info-foreground": variant === "info",
+            "bg-success text-success-foreground": variant === "success",
+            "bg-warning text-warning-foreground": variant === "warning",
+            "bg-destructive text-destructive-foreground":
+              variant === "destructive",
+          },
           // Size
           {
             "size-0": size === "0",

@@ -19,6 +19,7 @@
    - [ ] `Box` examples => Composition, merge with attribute stories, or remove
    - [ ] Use defined attributes in Composition examples
 1. Reconsider defaults
+   - [ ] `Text`: should default apply a color?  Or should an `inherit` option be added?
 1. Write documentation
 
 ### Later (post-1.0.0)

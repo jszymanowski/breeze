@@ -83,7 +83,7 @@ const Text = React.forwardRef(
           },
           // Text colors
           {
-            "text-foreground": variant === "default",
+            "text-foreground": variant === "default", // TODO: should this be inherited?
             "text-muted-foreground": variant === "muted",
             "text-accent-foreground": variant === "accent",
             "text-primary-foreground": variant === "primary",
