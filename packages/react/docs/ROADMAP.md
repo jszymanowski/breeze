@@ -11,7 +11,7 @@
    - [x] `height`, `width`
    - [ ] `display`
    - [x] numeric sizes
-   - [ ] `rounded`
+   - [x] `rounded`
    - [ ] `variant` = apply background
 1. Test every variant -- maybe just consume the constants in tests?
 1. Clean up stories:
