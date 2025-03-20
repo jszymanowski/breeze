@@ -4,15 +4,6 @@
 
 ### Upcoming (pre-1.0.0)
 
-1. Add a few props to `Box`:
-   - [x] `box-sizing`
-   - [x] `overflow`
-   - [x] `position`
-   - [x] `height`, `width`
-   - [x] `display`
-   - [x] numeric sizes
-   - [x] `rounded`
-   - [ ] `variant` = apply background
 1. Test every variant -- maybe just consume the constants in tests?
 1. Clean up stories:
    - [ ] Refactor example displays, e.g. background color + border, particularly in `Box` stories
