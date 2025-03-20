@@ -13,6 +13,7 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/) specificatio
 ### Patch version `_._.N` 
 - `fix:` A bug fix
 - `perf:` Performance improvements
+- `tweak:` Minor change with no obivous end-user changes
 - `revert:` Revert a previous commit
 
 ### Minor version `_.N.0` 
