@@ -1,13 +1,6 @@
-name: Publish (npm registry)
+name: Publish (manual)
 
-on:
-  push:
-    tags:
-      - "react@*"
-    paths:
-      - "packages/react/**"
-  release:
-    types: [created, published]
+on: workflow_dispatch
 
 jobs:
   build-and-publish:
