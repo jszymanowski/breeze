@@ -141,6 +141,8 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
           truncate && "truncate",
           // Tabular numerals
           numeric && "tabular-nums",
+          // Add some scroll margin for better anchor navigation
+          "scroll-m-20",
           className,
         )}
         ref={ref}
