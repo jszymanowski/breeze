@@ -4,7 +4,6 @@
 
 ### Upcoming (pre-1.0.0)
 
-1. Test every variant -- maybe just consume the constants in tests?
 1. Clean up stories:
    - [ ] Refactor example displays, e.g. background color + border, particularly in `Box` stories
    - [ ] `Box` examples => Composition, merge with attribute stories, or remove
