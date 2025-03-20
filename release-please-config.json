@@ -4,7 +4,7 @@
       "release-type": "node",
       "package-name": "@jszymanowski/breeze-react",
       "component": "react",
-      "tagSeparator": "@",
+      "tag-separator": "@",
       "include-component-in-tag": true,
       "changelog-sections": [
         { "type": "feat", "section": "Features" },
