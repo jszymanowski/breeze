@@ -1,3 +1,8 @@
+import { COLOR_VARIANTS } from "@/types";
+
+export const LAYOUT_VARIANTS = ["default", ...COLOR_VARIANTS] as const;
+export type LayoutVariant = (typeof LAYOUT_VARIANTS)[number];
+
 const NUMERIC_SIZES = [
   "0",
   "1",

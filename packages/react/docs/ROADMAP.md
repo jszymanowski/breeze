@@ -4,20 +4,13 @@
 
 ### Upcoming (pre-1.0.0)
 
-1. Add a few props to `Box`:
-   - [x] `box-sizing`
-   - [x] `overflow`
-   - [x] `position`
-   - [x] `height`, `width`
-   - [x] `display`
-   - [x] numeric sizes
-   - [x] `rounded`
-   - [ ] `variant` = apply background
 1. Clean up stories:
    - [ ] Refactor example displays, e.g. background color + border, particularly in `Box` stories
    - [ ] `Box` examples => Composition, merge with attribute stories, or remove
    - [ ] Use defined attributes in Composition examples
 1. Reconsider defaults
+   - [ ] `Text`: should default apply a color?  Or should an `inherit` option be added?
+         - probably add `inherit`, as dark mode without a default text color essentially breaks (black text on dark background)
 1. Write documentation
 
 ### Later (post-1.0.0)

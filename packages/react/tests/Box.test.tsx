@@ -13,6 +13,7 @@ import {
   OVERFLOWS,
   ROUNDED_SIZES,
   LAYOUT_ELEMENTS,
+  LAYOUT_VARIANTS,
 } from "@/types";
 
 describe("Box", () => {
@@ -32,6 +33,37 @@ describe("Box", () => {
     );
     const element = screen.getByTestId("box-element");
     expect(element.tagName).toBe("SECTION");
+  });
+
+  describe("variants", () => {
+    it("applies the correct variant classes", () => {
+      const NON_DEFAULT_VARIANTS = LAYOUT_VARIANTS.filter(
+        (variant) => variant !== "default",
+      );
+
+      for (const variant of NON_DEFAULT_VARIANTS) {
+        const { rerender } = render(
+          <Box variant={variant} data-testid="box-element">
+            Variant {variant}
+          </Box>,
+        );
+        const element = screen.getByTestId("box-element");
+        expect(element.className).toBe(
+          `bg-${variant} text-${variant}-foreground`,
+        );
+        rerender(<div />);
+      }
+    });
+
+    it("does not apply classes with default variant", () => {
+      render(
+        <Box variant={"default"} data-testid="box-element">
+          Default variant
+        </Box>,
+      );
+      const element = screen.getByTestId("box-element");
+      expect(element.className).toBe("");
+    });
   });
 
   it("applies the correct size classes", () => {

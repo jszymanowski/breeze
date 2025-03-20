@@ -1,4 +1,4 @@
-import { COLOR_VARIANTS } from "./color";
+import { COLOR_VARIANTS } from "@/types";
 
 export const HEADING_LEVELS = ["1", "2", "3", "4", "5", "6"] as const;
 export type HeadingSize = (typeof HEADING_LEVELS)[number];

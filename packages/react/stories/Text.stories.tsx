@@ -37,6 +37,14 @@ const meta: Meta<typeof Text> = {
   },
   tags: ["autodocs"],
   argTypes: {
+    variant: {
+      control: "select",
+      options: asOptionalValue(TYPOGRAPHY_VARIANTS),
+      description: "Controls text color, according to the theme",
+      table: {
+        type: { summary: summarizeValues(TYPOGRAPHY_VARIANTS, true) },
+      },
+    },
     size: {
       control: "select",
       options: asOptionalValue(FONT_SIZES),
@@ -60,14 +68,6 @@ const meta: Meta<typeof Text> = {
       nullable: true,
       table: {
         type: { summary: summarizeValues(FONT_WEIGHTS, true) },
-      },
-    },
-    variant: {
-      control: "select",
-      options: asOptionalValue(TYPOGRAPHY_VARIANTS),
-      description: "Controls font color, according to the theme",
-      table: {
-        type: { summary: summarizeValues(TYPOGRAPHY_VARIANTS, true) },
       },
     },
     align: {
