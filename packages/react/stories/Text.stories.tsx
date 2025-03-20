@@ -219,23 +219,22 @@ export const Variants: Story = {
       options={TYPOGRAPHY_VARIANTS as unknown as TypographyVariant[]}
       propKey="variant"
       renderOption={(family, option) => {
+        const Component = () => (
+          <Text family={family} variant={option}>
+            {sampleText}
+          </Text>
+        );
         if (option === "inherit") {
           return (
             <Box className="text-violet-400">
-              <Text family={family} variant={option}>
-                {sampleText}
-              </Text>{" "}
+              <Component />{" "}
               <Text variant="muted" size="xs" className="italic">
                 (container text color = violet-400)
               </Text>
             </Box>
           );
         }
-        return (
-          <Text family={family} variant={option}>
-            {sampleText}
-          </Text>
-        );
+        return <Component />;
       }}
     />
   ),
