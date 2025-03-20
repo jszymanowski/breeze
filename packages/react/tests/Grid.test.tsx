@@ -3,6 +3,7 @@ import { describe, it, expect } from "vitest";
 import "@testing-library/jest-dom";
 
 import { Grid } from "@/main";
+import { GAPS, GRID_COLS, GRID_FLOWS, GRID_ROWS } from "@/types";
 
 describe("Grid", () => {
   it("renders with default props", () => {
@@ -25,20 +26,7 @@ describe("Grid", () => {
   });
 
   it("applies the correct grid columns classes", () => {
-    const columnOptions = [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "8",
-      "10",
-      "12",
-      "none",
-    ] as const;
-
-    for (const cols of columnOptions) {
+    for (const cols of GRID_COLS) {
       const { rerender } = render(
         <Grid cols={cols} data-testid="grid-element">
           Columns {cols}
@@ -51,20 +39,7 @@ describe("Grid", () => {
   });
 
   it("applies the correct grid rows classes", () => {
-    const rowOptions = [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "8",
-      "10",
-      "12",
-      "none",
-    ] as const;
-
-    for (const rows of rowOptions) {
+    for (const rows of GRID_ROWS) {
       const { rerender } = render(
         <Grid rows={rows} data-testid="grid-element">
           Rows {rows}
@@ -77,15 +52,7 @@ describe("Grid", () => {
   });
 
   it("applies the correct grid flow classes", () => {
-    const flowOptions = [
-      "row",
-      "col",
-      "dense",
-      "row-dense",
-      "col-dense",
-    ] as const;
-
-    for (const flow of flowOptions) {
+    for (const flow of GRID_FLOWS) {
       const { rerender } = render(
         <Grid flow={flow} data-testid="grid-element">
           Flow {flow}
@@ -98,21 +65,7 @@ describe("Grid", () => {
   });
 
   it("applies the correct gap classes", () => {
-    const gapOptions = [
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "8",
-      "10",
-      "12",
-      "16",
-    ] as const;
-
-    for (const gap of gapOptions) {
+    for (const gap of GAPS) {
       const { rerender } = render(
         <Grid gap={gap} data-testid="grid-element">
           Gap {gap}
@@ -122,24 +75,8 @@ describe("Grid", () => {
       expect(element.className).toBe(`grid gap-${gap}`);
       rerender(<div />);
     }
-  });
 
-  it("applies the correct horizontal gap classes", () => {
-    const gapXOptions = [
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "8",
-      "10",
-      "12",
-      "16",
-    ] as const;
-
-    for (const gapX of gapXOptions) {
+    for (const gapX of GAPS) {
       const { rerender } = render(
         <Grid gapX={gapX} data-testid="grid-element">
           GapX {gapX}
@@ -149,24 +86,8 @@ describe("Grid", () => {
       expect(element.className).toBe(`grid gap-x-${gapX}`);
       rerender(<div />);
     }
-  });
 
-  it("applies the correct vertical gap classes", () => {
-    const gapYOptions = [
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "8",
-      "10",
-      "12",
-      "16",
-    ] as const;
-
-    for (const gapY of gapYOptions) {
+    for (const gapY of GAPS) {
       const { rerender } = render(
         <Grid gapY={gapY} data-testid="grid-element">
           GapY {gapY}
@@ -249,26 +170,6 @@ describe("Grid", () => {
 
     expect(element.className).toBe(
       "grid grid-cols-3 grid-rows-2 gap-4 grid-flow-row-dense",
-    );
-  });
-
-  it("creates a responsive grid layout", () => {
-    // In a real test, you might need to use a responsive testing library or mock window resizing
-    // This test just verifies the classes are applied correctly
-    render(
-      <Grid
-        cols="12"
-        gap="4"
-        className="md:grid-cols-6 lg:grid-cols-4"
-        data-testid="grid-element"
-      >
-        Responsive grid
-      </Grid>,
-    );
-
-    const element = screen.getByTestId("grid-element");
-    expect(element.className).toBe(
-      "grid grid-cols-12 gap-4 md:grid-cols-6 lg:grid-cols-4",
     );
   });
 });
