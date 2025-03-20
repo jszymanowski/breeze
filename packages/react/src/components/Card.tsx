@@ -7,11 +7,7 @@ interface Props {
 
 const Card = ({ className, children }: Props) => {
   return (
-    <Box
-      className={`bg-card text-card-foreground rounded-md border shadow-sm ${
-        className || ""
-      }`}
-    >
+    <Box className={`bg-card text-card-foreground rounded-md border shadow-sm ${className || ""}`}>
       {children}
     </Box>
   );

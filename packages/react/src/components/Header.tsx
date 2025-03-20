@@ -2,12 +2,7 @@ import { Heading, Flex, Box, Text } from "@/main";
 
 const Header = () => (
   <Box as="header" className="border-b">
-    <Flex
-      direction="row"
-      align="center"
-      justify="between"
-      className="container mx-auto h-14 px-4"
-    >
+    <Flex direction="row" align="center" justify="between" className="container mx-auto h-14 px-4">
       <Flex direction="row" align="center" gap="6">
         <Flex direction="row" align="center" gap="2">
           <Heading level="1" size="lg">

@@ -33,8 +33,7 @@ const meta: Meta<typeof Flex> = {
     justify: {
       control: "select",
       options: asOptionalValue(FLEX_JUSTIFIES),
-      description:
-        "Controls how flex and grid items are positioned along a container's main axis",
+      description: "Controls how flex and grid items are positioned along a container's main axis",
       table: {
         type: { summary: summarizeValues(FLEX_JUSTIFIES, true) },
       },
@@ -42,8 +41,7 @@ const meta: Meta<typeof Flex> = {
     align: {
       control: "select",
       options: asOptionalValue(FLEX_ALIGNS),
-      description:
-        "Controls how flex and grid items are positioned along a container's cross axis",
+      description: "Controls how flex and grid items are positioned along a container's cross axis",
       table: {
         type: { summary: summarizeValues(FLEX_ALIGNS, true) },
       },
@@ -115,19 +113,13 @@ export default meta;
 type Story = StoryObj<typeof Flex>;
 
 const FlexItem = ({ children }: { children: React.ReactNode }) => (
-  <Box
-    as="span"
-    className="bg-info text-info-foreground rounded-md px-1 py-0.5"
-  >
+  <Box as="span" className="bg-info text-info-foreground rounded-md px-1 py-0.5">
     {children}
   </Box>
 );
 
 const FlexItemAsFlex = ({ children, className = "", ...rest }: FlexProps) => (
-  <Flex
-    className={`bg-info text-info-foreground rounded-md px-1 py-0.5 ${className}`}
-    {...rest}
-  >
+  <Flex className={`bg-info text-info-foreground rounded-md px-1 py-0.5 ${className}`} {...rest}>
     {children}
   </Flex>
 );
@@ -281,18 +273,10 @@ export const Grow: Story = {
       <Flex direction="col" gap="2" className="min-w-[600px]">
         {FLEX_GROW_EXAMPLES.map(([grow1, grow2]) => (
           <Flex gap="2" key={`grow-${grow1}-${grow2}`}>
-            <FlexItemAsFlex
-              grow={grow1}
-              justify="center"
-              className="min-w-[40px]"
-            >
+            <FlexItemAsFlex grow={grow1} justify="center" className="min-w-[40px]">
               {grow1 === undefined || grow1 === null ? "<>" : grow1.toString()}
             </FlexItemAsFlex>
-            <FlexItemAsFlex
-              grow={grow2}
-              justify="center"
-              className="min-w-[40px]"
-            >
+            <FlexItemAsFlex grow={grow2} justify="center" className="min-w-[40px]">
               {grow2 === undefined || grow2 === null ? "<>" : grow2.toString()}
             </FlexItemAsFlex>
           </Flex>

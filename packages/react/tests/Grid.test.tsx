@@ -155,21 +155,13 @@ describe("Grid", () => {
 
   it("applies multiple grid properties simultaneously", () => {
     render(
-      <Grid
-        cols="3"
-        rows="2"
-        flow="row-dense"
-        gap="4"
-        data-testid="grid-element"
-      >
+      <Grid cols="3" rows="2" flow="row-dense" gap="4" data-testid="grid-element">
         Combined grid properties
       </Grid>,
     );
 
     const element = screen.getByTestId("grid-element");
 
-    expect(element.className).toBe(
-      "grid grid-cols-3 grid-rows-2 gap-4 grid-flow-row-dense",
-    );
+    expect(element.className).toBe("grid grid-cols-3 grid-rows-2 gap-4 grid-flow-row-dense");
   });
 });

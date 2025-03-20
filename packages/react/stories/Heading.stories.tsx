@@ -43,8 +43,7 @@ const meta: Meta<typeof Heading> = {
     level: {
       control: "select",
       options: asOptionalValue(HEADING_LEVELS),
-      description:
-        "Controls heading level to use, translating to usage of an `<hX>` HTML element",
+      description: "Controls heading level to use, translating to usage of an `<hX>` HTML element",
       table: {
         type: { summary: summarizeValues(HEADING_LEVELS, true) },
       },
@@ -52,8 +51,7 @@ const meta: Meta<typeof Heading> = {
     size: {
       control: "select",
       options: asOptionalValue(FONT_SIZES),
-      description:
-        "Controls font size on a more granular basis (this will override `level`)",
+      description: "Controls font size on a more granular basis (this will override `level`)",
       table: {
         type: { summary: summarizeValues(FONT_SIZES, true) },
       },
@@ -122,8 +120,7 @@ export default meta;
 type Story = StoryObj<typeof Heading>;
 
 const sampleHeading = "Old Man Yells At Cloud";
-const sampleLongHeading =
-  "Local Man Loses Pants, Life; Beaver Rescue Falls Short";
+const sampleLongHeading = "Local Man Loses Pants, Life; Beaver Rescue Falls Short";
 const sampleLongText =
   " \
   Now, to take the ferry cost a nickel, and in those days, nickels \
@@ -305,9 +302,7 @@ export const Truncation: Story = {
         renderRowTitle={(option) => (
           <Text align="right">{option ? "Truncated" : "Not truncated"}</Text>
         )}
-        renderOption={(truncated) => (
-          <Heading truncate={truncated}>{sampleLongHeading}</Heading>
-        )}
+        renderOption={(truncated) => <Heading truncate={truncated}>{sampleLongHeading}</Heading>}
       />
     </Box>
   ),

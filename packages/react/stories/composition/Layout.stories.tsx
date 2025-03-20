@@ -32,10 +32,7 @@ export const Card: Story = {
           <Text>Each Box can have its own styling and purpose.</Text>
         </Box>
         <Box className="border-muted mt-4 flex justify-end border-t pt-4">
-          <button
-            className="bg-primary text-primary-foreground rounded-md px-4 py-2"
-            type="button"
-          >
+          <button className="bg-primary text-primary-foreground rounded-md px-4 py-2" type="button">
             Action
           </button>
         </Box>
@@ -47,17 +44,8 @@ export const Card: Story = {
 export const Contact: Story = {
   render: () => (
     <Flex direction="col" align="center" justify="center" className="h-screen">
-      <Flex
-        direction="col"
-        gap="6"
-        className="bg-card w-full max-w-lg rounded-lg p-6 shadow-md"
-      >
-        <Flex
-          direction="row"
-          align="center"
-          justify="between"
-          className="w-full"
-        >
+      <Flex direction="col" gap="6" className="bg-card w-full max-w-lg rounded-lg p-6 shadow-md">
+        <Flex direction="row" align="center" justify="between" className="w-full">
           <Heading level="4">User Profile</Heading>
           <Box className="bg-primary/10 text-primary rounded-full p-2">
             <svg
@@ -116,10 +104,7 @@ export const Contact: Story = {
           >
             Cancel
           </button>
-          <button
-            className="bg-primary text-primary-foreground rounded-md px-4 py-2"
-            type="button"
-          >
+          <button className="bg-primary text-primary-foreground rounded-md px-4 py-2" type="button">
             Edit Profile
           </button>
         </Flex>
@@ -137,11 +122,7 @@ export const GridLayout: Story = {
   },
   render: (args) => (
     <Grid {...args}>
-      <Flex
-        align="center"
-        justify="between"
-        className="bg-primary col-span-4 rounded-lg p-4"
-      >
+      <Flex align="center" justify="between" className="bg-primary col-span-4 rounded-lg p-4">
         <Heading level="2" variant="primary">
           Dashboard
         </Heading>

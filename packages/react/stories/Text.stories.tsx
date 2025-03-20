@@ -20,11 +20,7 @@ import {
   type TextAlign,
 } from "@/types";
 import Code from "@stories/templates/Code";
-import {
-  sampleText,
-  sampleLongText,
-  sampleParagraphText,
-} from "@stories/support/sampleText";
+import { sampleText, sampleLongText, sampleParagraphText } from "@stories/support/sampleText";
 
 import OptionList from "@root/stories/templates/OptionList";
 import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
@@ -164,9 +160,7 @@ export const Families: Story = {
   render: () => (
     <OptionList<FontFamily>
       options={FONT_FAMILIES as unknown as FontFamily[]}
-      renderOption={(family: FontFamily) => (
-        <Text family={family}>{sampleText}</Text>
-      )}
+      renderOption={(family: FontFamily) => <Text family={family}>{sampleText}</Text>}
     />
   ),
 };
@@ -294,9 +288,7 @@ export const Truncation: Story = {
   render: () => (
     <OptionList<boolean>
       options={[true, false]}
-      renderRowTitle={(option) => (
-        <Text>{option ? "Truncated" : "Not truncated"}</Text>
-      )}
+      renderRowTitle={(option) => <Text>{option ? "Truncated" : "Not truncated"}</Text>}
       renderOption={(truncated) => (
         <Text truncate={truncated} size="sm">
           {sampleLongText}

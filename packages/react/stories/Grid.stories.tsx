@@ -3,13 +3,7 @@ import { asOptionalValue, summarizeValues } from "@stories/utils";
 
 import { Box, Flex, Grid, Heading } from "@/main";
 
-import {
-  GRID_COLS,
-  GRID_ROWS,
-  GRID_FLOWS,
-  GAPS,
-  LAYOUT_ELEMENTS,
-} from "@/types";
+import { GRID_COLS, GRID_ROWS, GRID_FLOWS, GAPS, LAYOUT_ELEMENTS } from "@/types";
 
 const meta = {
   title: "Layout/Grid",
@@ -70,8 +64,7 @@ const meta = {
     as: {
       control: "select",
       options: asOptionalValue(LAYOUT_ELEMENTS),
-      description:
-        "Specific HTML element to use as the basis for the grid container",
+      description: "Specific HTML element to use as the basis for the grid container",
       table: {
         type: { summary: summarizeValues(LAYOUT_ELEMENTS, true) },
       },

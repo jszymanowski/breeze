@@ -22,11 +22,7 @@ export default function OptionsByFamilyGrid<T extends OptionTypes>({
 }: Props<T>) {
   return (
     <>
-      <Grid
-        cols="5"
-        gapX="4"
-        className="w-full divide-y divide-dotted divide-gray-300"
-      >
+      <Grid cols="5" gapX="4" className="w-full divide-y divide-dotted divide-gray-300">
         <Box />
         {FONT_FAMILIES.map((family, f) => (
           <Fragment key={f}>

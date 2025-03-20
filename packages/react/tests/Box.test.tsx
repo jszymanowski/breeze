@@ -37,9 +37,7 @@ describe("Box", () => {
 
   describe("variants", () => {
     it("applies the correct variant classes", () => {
-      const NON_DEFAULT_VARIANTS = LAYOUT_VARIANTS.filter(
-        (variant) => variant !== "default",
-      );
+      const NON_DEFAULT_VARIANTS = LAYOUT_VARIANTS.filter((variant) => variant !== "default");
 
       for (const variant of NON_DEFAULT_VARIANTS) {
         const { rerender } = render(
@@ -48,9 +46,7 @@ describe("Box", () => {
           </Box>,
         );
         const element = screen.getByTestId("box-element");
-        expect(element.className).toBe(
-          `bg-${variant} text-${variant}-foreground`,
-        );
+        expect(element.className).toBe(`bg-${variant} text-${variant}-foreground`);
         rerender(<div />);
       }
     });
@@ -181,9 +177,7 @@ describe("Box", () => {
 
   describe("rounded corners", () => {
     it("applies the correct rounded corner classes", () => {
-      const STRING_ROUNDED_SIZES = ROUNDED_SIZES.filter(
-        (size) => typeof size === "string",
-      );
+      const STRING_ROUNDED_SIZES = ROUNDED_SIZES.filter((size) => typeof size === "string");
 
       for (const roundedSize of STRING_ROUNDED_SIZES) {
         const { rerender } = render(
@@ -243,12 +237,7 @@ describe("Box", () => {
 
   it("passes additional props to the element", () => {
     render(
-      <Box
-        as="section"
-        data-testid="box-component"
-        aria-label="box container"
-        role="region"
-      >
+      <Box as="section" data-testid="box-component" aria-label="box container" role="region">
         Test box
       </Box>,
     );

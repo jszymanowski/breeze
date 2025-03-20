@@ -110,11 +110,7 @@ const Demo = () => (
                       time="Yesterday"
                       badge={{ text: "Completed", variant: "default" }}
                     />
-                    <ActivityItem
-                      icon="A3"
-                      title="New comment on post"
-                      time="2 days ago"
-                    />
+                    <ActivityItem icon="A3" title="New comment on post" time="2 days ago" />
                     <ActivityItem
                       icon="A4"
                       title="Subscription renewed"

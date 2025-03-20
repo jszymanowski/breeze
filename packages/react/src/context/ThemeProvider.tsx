@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  type Theme,
-  ThemeProviderContext,
-} from "@src/context/ThemeProviderContext";
+import { type Theme, ThemeProviderContext } from "@src/context/ThemeProviderContext";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -26,8 +23,7 @@ export default function ThemeProvider({
     root.classList.remove("light", "dark");
 
     if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
 
