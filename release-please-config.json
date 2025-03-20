@@ -6,6 +6,7 @@
       "component": "react",
       "tag-separator": "@",
       "include-component-in-tag": true,
+      "include-v-in-tag": false,
       "changelog-sections": [
         { "type": "feat", "section": "Features" },
         { "type": "fix", "section": "Bug Fixes" },
