@@ -31,13 +31,13 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
   (
     {
       className,
+      variant = "default",
       level = "2",
       size,
-      weight = "bold",
-      variant = "default",
+      weight = "bold", // Typical default browser style for headings
       align,
       leading, // No default: Tailwind applies a default from text size classes
-      tracking = "normal",
+      tracking,
       family = "display",
       truncate = false,
       numeric = false,

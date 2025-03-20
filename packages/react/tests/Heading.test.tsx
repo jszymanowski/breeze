@@ -22,7 +22,7 @@ describe("Heading", () => {
 
     expect(element.tagName).toBe("H2");
     expect(element.className).toBe(
-      "text-3xl font-bold text-foreground tracking-normal font-display scroll-m-20",
+      "text-3xl font-bold text-foreground font-display scroll-m-20",
     );
   });
 
@@ -41,7 +41,7 @@ describe("Heading", () => {
       const element = screen.getByText(`Heading ${level}`);
       expect(element.tagName).toBe(`H${level}`);
       expect(element.className).toBe(
-        `${levelSizeMap[level]} font-bold text-foreground tracking-normal font-display scroll-m-20`,
+        `${levelSizeMap[level]} font-bold text-foreground font-display scroll-m-20`,
       );
     }
   });
@@ -57,7 +57,7 @@ describe("Heading", () => {
 
       const expectedCssClass = size === "md" ? "text-base" : `text-${size}`;
       expect(element.className).toBe(
-        `${expectedCssClass} font-bold text-foreground tracking-normal font-display scroll-m-20`,
+        `${expectedCssClass} font-bold text-foreground font-display scroll-m-20`,
       );
     }
   });
@@ -67,14 +67,18 @@ describe("Heading", () => {
       render(<Heading weight={weight as FontWeight}>Weight {weight}</Heading>);
       const element = screen.getByText(`Weight ${weight}`);
       expect(element.className).toBe(
-        `text-3xl font-${weight} text-foreground tracking-normal font-display scroll-m-20`,
+        `text-3xl font-${weight} text-foreground font-display scroll-m-20`,
       );
     }
   });
 
   it("applies the correct variant classes", () => {
     for (const variant of TYPOGRAPHY_VARIANTS) {
-      render(<Heading variant={variant as TypographyVariant}>Variant {variant}</Heading>);
+      render(
+        <Heading variant={variant as TypographyVariant}>
+          Variant {variant}
+        </Heading>,
+      );
       const element = screen.getByText(`Variant ${variant}`);
 
       let expectedCssClass = "";
@@ -87,7 +91,7 @@ describe("Heading", () => {
       }
 
       expect(element.className).toBe(
-        `text-3xl font-bold ${expectedCssClass} tracking-normal font-display scroll-m-20`,
+        `text-3xl font-bold ${expectedCssClass} font-display scroll-m-20`,
       );
     }
   });
@@ -97,7 +101,7 @@ describe("Heading", () => {
       render(<Heading align={align}>Align {align}</Heading>);
       const element = screen.getByText(`Align ${align}`);
       expect(element.className).toBe(
-        `text-3xl font-bold text-foreground text-${align} tracking-normal font-display scroll-m-20`,
+        `text-3xl font-bold text-foreground text-${align} font-display scroll-m-20`,
       );
     }
   });
@@ -117,7 +121,7 @@ describe("Heading", () => {
       render(<Heading leading={leading}>Leading {leading}</Heading>);
       const element = screen.getByText(`Leading ${leading}`);
       expect(element.className).toBe(
-        `text-3xl font-bold text-foreground leading-${leading} tracking-normal font-display scroll-m-20`,
+        `text-3xl font-bold text-foreground leading-${leading} font-display scroll-m-20`,
       );
     }
   });
@@ -127,7 +131,7 @@ describe("Heading", () => {
       render(<Heading family={family}>Family {family}</Heading>);
       const element = screen.getByText(`Family ${family}`);
       expect(element.className).toBe(
-        `text-3xl font-bold text-foreground tracking-normal font-${family} scroll-m-20`,
+        `text-3xl font-bold text-foreground font-${family} scroll-m-20`,
       );
     }
   });
@@ -136,7 +140,7 @@ describe("Heading", () => {
     render(<Heading numeric>123456</Heading>);
     const element = screen.getByText("123456");
     expect(element.className).toBe(
-      "text-3xl font-bold text-foreground tracking-normal font-display tabular-nums scroll-m-20",
+      "text-3xl font-bold text-foreground font-display tabular-nums scroll-m-20",
     );
   });
 
@@ -155,7 +159,7 @@ describe("Heading", () => {
     render(<Heading className="custom-class">With custom class</Heading>);
     const element = screen.getByText("With custom class");
     expect(element.className).toBe(
-      "text-3xl font-bold text-foreground tracking-normal font-display scroll-m-20 custom-class",
+      "text-3xl font-bold text-foreground font-display scroll-m-20 custom-class",
     );
   });
 
@@ -171,7 +175,7 @@ describe("Heading", () => {
     render(<Heading>Heading with scroll margin</Heading>);
     const element = screen.getByText("Heading with scroll margin");
     expect(element.className).toBe(
-      "text-3xl font-bold text-foreground tracking-normal font-display scroll-m-20",
+      "text-3xl font-bold text-foreground font-display scroll-m-20",
     );
   });
 
