@@ -13,6 +13,7 @@ import {
   LAYOUT_ELEMENTS,
   OVERFLOWS,
   POSITIONS,
+  ROUNDED_SIZES,
   SIZES,
   WIDTHS,
   DISPLAYS,
@@ -113,6 +114,14 @@ const meta: Meta<typeof Box> = {
         "Control how an element handles content that is too large for the container (Y-axis only)",
       table: {
         type: { summary: summarizeValues(OVERFLOWS, true) },
+      },
+    },
+    rounded: {
+      control: "select",
+      options: asOptionalValue(ROUNDED_SIZES),
+      description: "Controls the corner radius of the container",
+      table: {
+        type: { summary: summarizeValues(ROUNDED_SIZES, true) },
       },
     },
     className: {
@@ -396,6 +405,31 @@ export const OverflowY: Story = {
             <span className="font-mono bg-muted">{overflow}</span>{" "}
             {sampleLongText}
           </Text>
+        </Box>
+      ))}
+    </Grid>
+  ),
+};
+
+export const RoundedCorners: Story = {
+  render: () => (
+    <Grid cols="3" gap="4" className="m-4">
+      {ROUNDED_SIZES.map((roundedSize) => (
+        <Box
+          key={`box-rounded-${roundedSize}`}
+          rounded={roundedSize}
+          size="24"
+          className="bg-info p-2"
+        >
+          <Flex align="center" justify="center" className="w-full h-full">
+            <Text
+              family="mono"
+              align="center"
+              className="bg-background/20 px-2"
+            >
+              {roundedSize.toString()}
+            </Text>
+          </Flex>
         </Box>
       ))}
     </Grid>

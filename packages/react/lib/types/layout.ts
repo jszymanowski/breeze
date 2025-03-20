@@ -113,6 +113,22 @@ export const OVERFLOWS = [
 ] as const;
 export type Overflow = (typeof OVERFLOWS)[number];
 
+// TODO: true shorthand
+export const ROUNDED_SIZES = [
+  "none",
+  "xs",
+  "sm",
+  "md",
+  "lg",
+  "xl",
+  "2xl",
+  "3xl",
+  "full",
+  true,
+  false,
+] as const;
+export type RoundedSize = (typeof ROUNDED_SIZES)[number];
+
 export const FLEX_DIRECTIONS = [
   "row",
   "col",

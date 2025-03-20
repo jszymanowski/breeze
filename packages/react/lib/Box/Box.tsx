@@ -6,6 +6,7 @@ import type {
   Height,
   Overflow,
   Position,
+  RoundedSize,
   Size,
   Width,
 } from "@/types";
@@ -22,6 +23,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   overflow?: Overflow;
   overflowX?: Overflow;
   overflowY?: Overflow;
+  rounded?: RoundedSize;
 }
 
 const Box = React.forwardRef<HTMLDivElement, BoxProps>(
@@ -38,6 +40,7 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
       overflow,
       overflowX,
       overflowY,
+      rounded,
       ...props
     },
     ref,
@@ -236,6 +239,19 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
             "overflow-y-clip": overflowY === "clip",
             "overflow-y-visible": overflowY === "visible",
             "overflow-y-scroll": overflowY === "scroll",
+          },
+          // Rounded
+          {
+            rounded: rounded === true,
+            "rounded-none": rounded === "none",
+            "rounded-xs": rounded === "xs",
+            "rounded-sm": rounded === "sm",
+            "rounded-md": rounded === "md",
+            "rounded-lg": rounded === "lg",
+            "rounded-xl": rounded === "xl",
+            "rounded-2xl": rounded === "2xl",
+            "rounded-3xl": rounded === "3xl",
+            "rounded-full": rounded === "full",
           },
           className,
         )}
