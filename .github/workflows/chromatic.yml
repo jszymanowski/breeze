@@ -1,11 +1,6 @@
 name: "Chromatic"
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - "packages/react/**"
+on: push
 
 jobs:
   chromatic:
