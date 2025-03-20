@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box, Flex, Grid, Heading, Text } from "@/main";
+import { Box, Flex, Grid, Text } from "@/main";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
 import {
   sampleLongWord,
