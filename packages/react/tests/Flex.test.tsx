@@ -3,7 +3,14 @@ import { describe, it, expect } from "vitest";
 import "@testing-library/jest-dom";
 
 import { Flex } from "@/main";
-import type { FlexDirection } from "@/types/layout";
+import {
+  FLEX_ALIGNS,
+  FLEX_DIRECTIONS,
+  FLEX_GROWS,
+  FLEX_JUSTIFIES,
+  FLEX_WRAPS,
+  GAPS,
+} from "@/types";
 
 describe("Flex", () => {
   it("renders with default props", () => {
@@ -26,14 +33,7 @@ describe("Flex", () => {
   });
 
   it("applies the correct flex direction classes", () => {
-    const directions = [
-      "row",
-      "col",
-      "row-reverse",
-      "col-reverse",
-    ] as FlexDirection[];
-
-    for (const direction of directions) {
+    for (const direction of FLEX_DIRECTIONS) {
       const { rerender } = render(
         <Flex direction={direction} data-testid="flex-element">
           Direction {direction}
@@ -46,15 +46,7 @@ describe("Flex", () => {
   });
 
   it("applies the correct alignment classes", () => {
-    const alignments = [
-      "start",
-      "center",
-      "end",
-      "stretch",
-      "baseline",
-    ] as const;
-
-    for (const align of alignments) {
+    for (const align of FLEX_ALIGNS) {
       const { rerender } = render(
         <Flex align={align} data-testid="flex-element">
           Align {align}
@@ -67,16 +59,7 @@ describe("Flex", () => {
   });
 
   it("applies the correct justify content classes", () => {
-    const justifyOptions = [
-      "start",
-      "center",
-      "end",
-      "between",
-      "around",
-      "evenly",
-    ] as const;
-
-    for (const justify of justifyOptions) {
+    for (const justify of FLEX_JUSTIFIES) {
       const { rerender } = render(
         <Flex justify={justify} data-testid="flex-element">
           Justify {justify}
@@ -90,20 +73,11 @@ describe("Flex", () => {
 
   describe("grow", () => {
     it("applies the correct grow classes", () => {
-      const growOptions = [
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "8",
-        "10",
-        "12",
-      ] as const;
+      const STRING_FLEX_GROWS = FLEX_GROWS.filter(
+        (grow) => typeof grow === "string",
+      );
 
-      for (const grow of growOptions) {
+      for (const grow of STRING_FLEX_GROWS) {
         const { rerender } = render(
           <Flex grow={grow} data-testid="flex-element">
             Grow {grow}
@@ -137,9 +111,7 @@ describe("Flex", () => {
   });
 
   it("applies the correct flex wrap classes", () => {
-    const wrapOptions = ["nowrap", "wrap", "wrap-reverse"] as const;
-
-    for (const wrap of wrapOptions) {
+    for (const wrap of FLEX_WRAPS) {
       const { rerender } = render(
         <Flex wrap={wrap} data-testid="flex-element">
           Wrap {wrap}
@@ -152,21 +124,7 @@ describe("Flex", () => {
   });
 
   it("applies the correct gap classes", () => {
-    const gapOptions = [
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "8",
-      "10",
-      "12",
-      "16",
-    ] as const;
-
-    for (const gap of gapOptions) {
+    for (const gap of GAPS) {
       const { rerender } = render(
         <Flex gap={gap} data-testid="flex-element">
           Gap {gap}
@@ -176,24 +134,8 @@ describe("Flex", () => {
       expect(element.className).toBe(`flex gap-${gap}`);
       rerender(<div />);
     }
-  });
 
-  it("applies the correct horizontal gap classes", () => {
-    const gapXOptions = [
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "8",
-      "10",
-      "12",
-      "16",
-    ] as const;
-
-    for (const gapX of gapXOptions) {
+    for (const gapX of GAPS) {
       const { rerender } = render(
         <Flex gapX={gapX} data-testid="flex-element">
           GapX {gapX}
@@ -203,24 +145,8 @@ describe("Flex", () => {
       expect(element.className).toBe(`flex gap-x-${gapX}`);
       rerender(<div />);
     }
-  });
 
-  it("applies the correct vertical gap classes", () => {
-    const gapYOptions = [
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "8",
-      "10",
-      "12",
-      "16",
-    ] as const;
-
-    for (const gapY of gapYOptions) {
+    for (const gapY of GAPS) {
       const { rerender } = render(
         <Flex gapY={gapY} data-testid="flex-element">
           GapY {gapY}

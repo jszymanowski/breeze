@@ -149,11 +149,11 @@ describe("Box", () => {
 
   describe("rounded corners", () => {
     it("applies the correct rounded corner classes", () => {
-      const NON_BOOLEAN_ROUNDED_SIZES = ROUNDED_SIZES.filter(
-        (size) => size !== true && size !== false,
+      const STRING_ROUNDED_SIZES = ROUNDED_SIZES.filter(
+        (size) => typeof size === "string",
       );
 
-      for (const roundedSize of NON_BOOLEAN_ROUNDED_SIZES) {
+      for (const roundedSize of STRING_ROUNDED_SIZES) {
         const { rerender } = render(
           <Box rounded={roundedSize} data-testid="box-element">
             Rounded size {roundedSize}
