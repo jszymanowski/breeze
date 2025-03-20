@@ -3,6 +3,7 @@ import { describe, it, expect } from "vitest";
 import "@testing-library/jest-dom";
 
 import { Box } from "@/main";
+import { LAYOUT_VARIANTS } from "@/types";
 
 describe("Box", () => {
   it("renders with default props", () => {
@@ -25,18 +26,11 @@ describe("Box", () => {
 
   describe("variants", () => {
     it("applies the correct variant classes", () => {
-      const variants = [
-        "primary",
-        "secondary",
-        "muted",
-        "accent",
-        "info",
-        "success",
-        "warning",
-        "destructive",
-      ] as const;
+      const NON_DEFAULT_VARIANTS = LAYOUT_VARIANTS.filter(
+        (variant) => variant !== "default",
+      );
 
-      for (const variant of variants) {
+      for (const variant of NON_DEFAULT_VARIANTS) {
         const { rerender } = render(
           <Box variant={variant} data-testid="box-element">
             Variant {variant}
