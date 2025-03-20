@@ -66,10 +66,14 @@ describe("Text", () => {
       render(<Text variant={variant}>Variant {variant}</Text>);
       const element = screen.getByText(`Variant ${variant}`);
 
-      const expectedCssClass =
-        variant === "default"
-          ? "text-foreground"
-          : `text-${variant}-foreground`;
+      let expectedCssClass = "";
+      if (variant === "default") {
+        expectedCssClass = "text-foreground";
+      } else if (variant === "inherit") {
+        expectedCssClass = "text-inherit";
+      } else {
+        expectedCssClass = `text-${variant}-foreground`;
+      }
 
       expect(element.className).toBe(
         `text-base font-normal ${expectedCssClass} tracking-normal font-display`,

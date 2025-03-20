@@ -90,10 +90,10 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
             "font-bold": weight === "bold",
             "font-extrabold": weight === "extrabold",
             "font-black": weight === "black",
-          },
-          // Text colors
+          }, // Text colors (variants)
           {
             "text-foreground": variant === "default",
+            "text-inherit": variant === "inherit",
             "text-muted-foreground": variant === "muted",
             "text-accent-foreground": variant === "accent",
             "text-primary-foreground": variant === "primary",
