@@ -7,5 +7,12 @@
       "tagSeparator": "@"
     }
   },
-  "include-component-in-tag": true
+  "include-component-in-tag": true,
+  "changelog-sections": [
+    {
+      "type": "tweak",
+      "section": "Minor tweaks",
+      "hidden": false
+    }
+  ]
 }
