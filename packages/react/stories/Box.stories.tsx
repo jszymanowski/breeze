@@ -255,7 +255,12 @@ export const Height: Story = {
   ),
 };
 
-const DISPLAY_EXAMPLES: DisplayType[] = ["inline", "inline-block", "block"];
+const DISPLAY_EXAMPLES: DisplayType[] = [
+  "inline",
+  "inline-block",
+  "block",
+  "hidden",
+];
 
 export const Display: Story = {
   render: () => (
@@ -266,7 +271,7 @@ export const Display: Story = {
           className="border-1 border-dashed border-gray-300 p-1"
         >
           <Text>
-            {sampleSentences.slice(0, 2).join(".")}{" "}
+            {sampleSentences.slice(0, 2).join(".")}.{" "}
             <Box display={display} className="font-mono bg-foreground/10">
               This is display: {display}.
             </Box>{" "}
