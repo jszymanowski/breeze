@@ -35,12 +35,12 @@ const Text = React.forwardRef(
     {
       className,
       as,
-      size = "base",
-      weight = "normal",
+      size,
+      weight,
       variant = "default",
       align,
       leading, // No default: Tailwind applies a default from text size classes
-      tracking = "normal",
+      tracking,
       family = "display",
       truncate = false,
       numeric = false,
