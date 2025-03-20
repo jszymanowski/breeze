@@ -81,9 +81,10 @@ const Text = React.forwardRef(
             "font-extrabold": weight === "extrabold",
             "font-black": weight === "black",
           },
-          // Text colors
+          // Text colors (variants)
           {
-            "text-foreground": variant === "default", // TODO: should this be inherited?
+            "text-foreground": variant === "default",
+            "text-inherit": variant === "inherit",
             "text-muted-foreground": variant === "muted",
             "text-accent-foreground": variant === "accent",
             "text-primary-foreground": variant === "primary",

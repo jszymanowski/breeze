@@ -24,7 +24,11 @@ export type FontSize = (typeof FONT_SIZES)[number];
 export const FONT_FAMILIES = ["display", "serif", "sans", "mono"] as const;
 export type FontFamily = (typeof FONT_FAMILIES)[number];
 
-export const TYPOGRAPHY_VARIANTS = ["default", ...COLOR_VARIANTS] as const;
+export const TYPOGRAPHY_VARIANTS = [
+  "default",
+  "inherit",
+  ...COLOR_VARIANTS,
+] as const;
 export type TypographyVariant = (typeof TYPOGRAPHY_VARIANTS)[number];
 
 export const FONT_WEIGHTS = [

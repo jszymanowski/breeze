@@ -81,10 +81,14 @@ describe("Heading", () => {
       );
       const element = screen.getByText(`Variant ${variant}`);
 
-      const expectedCssClass =
-        variant === "default"
-          ? "text-foreground"
-          : `text-${variant}-foreground`;
+      let expectedCssClass = "";
+      if (variant === "default") {
+        expectedCssClass = "text-foreground";
+      } else if (variant === "inherit") {
+        expectedCssClass = "text-inherit";
+      } else {
+        expectedCssClass = `text-${variant}-foreground`;
+      }
 
       expect(element.className).toBe(
         `text-3xl font-bold ${expectedCssClass} tracking-normal font-display scroll-m-20`,
