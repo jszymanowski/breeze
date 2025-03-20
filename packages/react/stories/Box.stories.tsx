@@ -41,6 +41,14 @@ const meta: Meta<typeof Box> = {
         type: { summary: summarizeValues(LAYOUT_ELEMENTS, true) },
       },
     },
+    variant: {
+      control: "select",
+      options: asOptionalValue(LAYOUT_VARIANTS),
+      description: "Controls the color theme of the element",
+      table: {
+        type: { summary: summarizeValues(LAYOUT_VARIANTS, true) },
+      },
+    },
     size: {
       control: "select",
       options: asOptionalValue(SIZES),
@@ -146,7 +154,7 @@ type Story = StoryObj<typeof Box>;
 export const Default: Story = {
   args: {
     as: "div",
-    className: "bg-muted border-1 border-gray-300",
+    className: "border-1 border-gray-300",
     children: "This is a Box component",
   },
   decorators: [
