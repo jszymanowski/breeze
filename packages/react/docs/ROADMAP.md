@@ -9,8 +9,9 @@
    - [ ] `Box` examples => Composition, merge with attribute stories, or remove
    - [ ] Use defined attributes in Composition examples
 1. Reconsider defaults
-   - [ ] `Text`: should default apply a color?  Or should an `inherit` option be added?
-         - probably add `inherit`, as dark mode without a default text color essentially breaks (black text on dark background)
+   - [ ] `Text`
+   - [ ] `Heading`
+   - [x] layouts
 1. Write documentation
 
 ### Later (post-1.0.0)

@@ -166,6 +166,32 @@ export const Default: Story = {
   ],
 };
 
+export const Variants: Story = {
+  render: () => (
+    <Grid cols="3" gap="4" className="m-4">
+      {LAYOUT_VARIANTS.map((variant) => (
+        <Box
+          key={`box-variant-${variant}`}
+          variant={variant}
+          size="36"
+          className="p-2"
+        >
+          <Flex align="center" justify="center" className="w-full h-full">
+            <Text
+              variant="inherit"
+              family="mono"
+              align="center"
+              className="bg-background/10 px-2"
+            >
+              {variant}
+            </Text>
+          </Flex>
+        </Box>
+      ))}
+    </Grid>
+  ),
+};
+
 const SIZE_EXAMPLES: WidthType[] = [
   "auto",
   "1",
@@ -437,31 +463,6 @@ export const RoundedCorners: Story = {
               className="bg-background/20 px-2"
             >
               {roundedSize.toString()}
-            </Text>
-          </Flex>
-        </Box>
-      ))}
-    </Grid>
-  ),
-};
-
-export const Variants: Story = {
-  render: () => (
-    <Grid cols="3" gap="4" className="m-4">
-      {LAYOUT_VARIANTS.map((variant) => (
-        <Box
-          key={`box-variant-${variant}`}
-          variant={variant}
-          size="36"
-          className="p-2"
-        >
-          <Flex align="center" justify="center" className="w-full h-full">
-            <Text
-              family="mono"
-              align="center"
-              className="bg-background/10 px-2 text-inherit"
-            >
-              {variant}
             </Text>
           </Flex>
         </Box>
