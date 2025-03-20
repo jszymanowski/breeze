@@ -44,7 +44,7 @@ const meta: Meta<typeof Box> = {
     variant: {
       control: "select",
       options: asOptionalValue(LAYOUT_VARIANTS),
-      description: "Controls the color theme of the element",
+      description: "Controls background and text color, according to the theme",
       table: {
         type: { summary: summarizeValues(LAYOUT_VARIANTS, true) },
       },

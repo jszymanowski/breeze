@@ -32,6 +32,14 @@ const meta: Meta<typeof Heading> = {
   },
   tags: ["autodocs"],
   argTypes: {
+    variant: {
+      control: "select",
+      options: asOptionalValue(TYPOGRAPHY_VARIANTS),
+      description: "Controls text color, according to the theme",
+      table: {
+        type: { summary: summarizeValues(TYPOGRAPHY_VARIANTS, true) },
+      },
+    },
     level: {
       control: "select",
       options: asOptionalValue(HEADING_LEVELS),
@@ -65,14 +73,6 @@ const meta: Meta<typeof Heading> = {
       nullable: true,
       table: {
         type: { summary: summarizeValues(FONT_WEIGHTS, true) },
-      },
-    },
-    variant: {
-      control: "select",
-      options: asOptionalValue(TYPOGRAPHY_VARIANTS),
-      description: "Controls font color, according to the theme",
-      table: {
-        type: { summary: summarizeValues(TYPOGRAPHY_VARIANTS, true) },
       },
     },
     align: {
