@@ -1,11 +1,9 @@
-import { resolve } from "path";
-
-import { defineConfig, type ViteUserConfig } from "vitest/config";
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
-
-import tailwindcss from "@tailwindcss/vite";
+import { defineConfig, type ViteUserConfig } from "vitest/config";
 
 export default defineConfig({
   plugins: [

@@ -1,14 +1,10 @@
-export { Box } from "@/Box";
 export type { BoxProps } from "@/Box";
-
-export { Flex } from "@/Flex";
+export { Box } from "@/Box";
 export type { FlexProps } from "@/Flex";
-
-export { Grid } from "@/Grid";
+export { Flex } from "@/Flex";
 export type { GridProps } from "@/Grid";
-
-export { Heading } from "@/Heading";
+export { Grid } from "@/Grid";
 export type { HeadingProps } from "@/Heading";
-
-export { Text } from "@/Text";
+export { Heading } from "@/Heading";
 export type { TextProps } from "@/Text";
+export { Text } from "@/Text";

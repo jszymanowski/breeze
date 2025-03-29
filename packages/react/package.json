@@ -24,9 +24,10 @@
     "build": "tsc -b && vite build",
     "chromatic": "chromatic --exit-zero-on-changes",
     "dev": "vite",
-    "format": "biome format --write",
-    "lint": "biome lint",
-    "lint:fix": "biome lint --fix",
+    "format": "biome format --write .",
+    "lint": "biome check .",
+    "lint:ci": "biome ci .",
+    "lint:fix": "biome check --write --unsafe .",
     "prepublishOnly": "pnpm build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -38,7 +39,8 @@
     "test:watch": "vitest --watch"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.0.0-beta.1",
+    "@jszymanowski/biomejs-config": "0.0.1",
     "@storybook/addon-essentials": "8.6.9",
     "@storybook/addon-interactions": "8.6.9",
     "@storybook/addon-themes": "8.6.9",

@@ -1,6 +1,6 @@
 import React from "react";
 
-import type { Gap, GridCols, GridRows, GridFlow } from "@/types";
+import type { Gap, GridCols, GridFlow, GridRows } from "@/types";
 import { cn } from "@/utils";
 
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {

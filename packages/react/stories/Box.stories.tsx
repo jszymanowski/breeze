@@ -1,21 +1,20 @@
+import { sampleLongText, sampleLongWord, sampleSentences } from "@stories/support/sampleText";
+import { asOptionalValue, summarizeValues } from "@stories/utils";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Flex, Grid, Text } from "@/main";
-import { asOptionalValue, summarizeValues } from "@stories/utils";
-import { sampleLongWord, sampleLongText, sampleSentences } from "@stories/support/sampleText";
-
+import type { Display as DisplayType, Height as HeightType, Width as WidthType } from "@/types";
 import {
   BOX_SIZINGS,
+  DISPLAYS,
   HEIGHTS,
   LAYOUT_ELEMENTS,
+  LAYOUT_VARIANTS,
   OVERFLOWS,
   POSITIONS,
   ROUNDED_SIZES,
   SIZES,
   WIDTHS,
-  DISPLAYS,
-  LAYOUT_VARIANTS,
 } from "@/types";
-import type { Width as WidthType, Height as HeightType, Display as DisplayType } from "@/types";
 
 const meta: Meta<typeof Box> = {
   title: "Layout/Box",

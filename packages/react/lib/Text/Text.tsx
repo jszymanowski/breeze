@@ -2,13 +2,13 @@ import React from "react";
 
 import type {
   FontFamily,
-  FontWeight,
-  TextLeading,
-  TypographyVariant,
-  TextAlign,
   FontSize,
-  TypographyElement,
+  FontWeight,
+  TextAlign,
+  TextLeading,
   TextTracking,
+  TypographyElement,
+  TypographyVariant,
 } from "@/types";
 import { cn } from "@/utils";
 

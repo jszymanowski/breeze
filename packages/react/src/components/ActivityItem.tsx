@@ -1,5 +1,5 @@
-import { Flex, Box, Text } from "@/main";
 import { Badge } from "@src/components";
+import { Box, Flex, Text } from "@/main";
 
 interface Props {
   icon: string;

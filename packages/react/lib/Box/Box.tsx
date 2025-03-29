@@ -4,12 +4,12 @@ import type {
   BoxSizing,
   Display,
   Height,
+  LayoutVariant,
   Overflow,
   Position,
   RoundedSize,
   Size,
   Width,
-  LayoutVariant,
 } from "@/types";
 import { cn } from "@/utils";
 
