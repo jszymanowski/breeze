@@ -1,55 +1,11 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "files": {
-    "ignoreUnknown": false,
-    "ignore": ["coverage", "dist", "storybook-static"]
-  },
-  "vcs": {
-    "enabled": false,
-    "clientKind": "git",
-    "useIgnoreFile": false
-  },
+  "$schema": "https://biomejs.dev/schemas/2.0.0-beta.1/schema.json",
+  "extends": ["@jszymanowski/biomejs-config"],
   "linter": {
-    "enabled": true,
     "rules": {
-      "recommended": true,
-      "a11y": {
-        "useSemanticElements": "off"
-      },
       "suspicious": {
-        "noArrayIndexKey": "off"
-      },
-      "nursery": {
-        "useSortedClasses": {
-          "level": "error",
-          "fix": "safe",
-          "options": {
-            "attributes": ["className"],
-            "functions": ["cn"]
-          }
-        }
+        "noArrayIndexKey": "warn"
       }
-    }
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space",
-    "lineWidth": 100
-  },
-  "organizeImports": {
-    "enabled": true
-  },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "double"
-    }
-  },
-  "css": {
-    "formatter": {
-      "enabled": true
-    },
-    "linter": {
-      "enabled": true
     }
   }
 }

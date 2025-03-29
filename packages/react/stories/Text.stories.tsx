@@ -1,29 +1,27 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import OptionList from "@root/stories/templates/OptionList";
+import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
+import { sampleLongText, sampleParagraphText, sampleText } from "@stories/support/sampleText";
+import Code from "@stories/templates/Code";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
-
+import type { Meta, StoryObj } from "@storybook/react";
 import { Box, Flex, Grid, Text } from "@/main";
 import {
   FONT_FAMILIES,
-  FONT_WEIGHTS,
   FONT_SIZES,
-  TYPOGRAPHY_VARIANTS,
+  FONT_WEIGHTS,
+  type FontFamily,
+  type FontSize,
+  type FontWeight,
   TEXT_ALIGNS,
   TEXT_LEADINGS,
   TEXT_TRACKINGS,
-  TYPOGRAPHY_ELEMENTS,
-  type TypographyVariant,
-  type FontWeight,
-  type FontSize,
-  type FontFamily,
-  type TextTracking,
-  type TextLeading,
   type TextAlign,
+  type TextLeading,
+  type TextTracking,
+  TYPOGRAPHY_ELEMENTS,
+  TYPOGRAPHY_VARIANTS,
+  type TypographyVariant,
 } from "@/types";
-import Code from "@stories/templates/Code";
-import { sampleText, sampleLongText, sampleParagraphText } from "@stories/support/sampleText";
-
-import OptionList from "@root/stories/templates/OptionList";
-import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
 
 const meta: Meta<typeof Text> = {
   title: "Typography/Text",

@@ -1,4 +1,4 @@
-import { Heading, Flex, Box, Text } from "@/main";
+import { Box, Flex, Heading, Text } from "@/main";
 
 const Header = () => (
   <Box as="header" className="border-b">

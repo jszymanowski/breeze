@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Heading, Flex, Box, Text } from "@/main";
+import { Box, Flex, Heading, Text } from "@/main";
 
 const meta: Meta = {
   title: "Composition/Typography",

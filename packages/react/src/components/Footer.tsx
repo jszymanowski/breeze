@@ -1,4 +1,4 @@
-import { Flex, Box, Text } from "@/main";
+import { Box, Flex, Text } from "@/main";
 
 const Footer = () => (
   <Box as="footer" className="mt-auto border-t">

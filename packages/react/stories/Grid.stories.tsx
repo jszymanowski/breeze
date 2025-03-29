@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { Box, Flex, Grid, Heading } from "@/main";
 
-import { GRID_COLS, GRID_ROWS, GRID_FLOWS, GAPS, LAYOUT_ELEMENTS } from "@/types";
+import { GAPS, GRID_COLS, GRID_FLOWS, GRID_ROWS, LAYOUT_ELEMENTS } from "@/types";
 
 const meta = {
   title: "Layout/Grid",

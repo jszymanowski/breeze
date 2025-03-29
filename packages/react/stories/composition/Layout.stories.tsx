@@ -1,7 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-
-import { Box, Grid, Heading, Text, Flex } from "@/main";
 import { sampleParagraphText } from "@stories/support/sampleText";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Box, Flex, Grid, Heading, Text } from "@/main";
 
 const meta: Meta = {
   title: "Composition/Layout",

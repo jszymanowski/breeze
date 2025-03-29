@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { Text } from "@/main";
 import {
   FONT_FAMILIES,
-  FONT_WEIGHTS,
   FONT_SIZES,
-  TYPOGRAPHY_VARIANTS,
+  FONT_WEIGHTS,
   TEXT_ALIGNS,
   TEXT_LEADINGS,
   TEXT_TRACKINGS,
+  TYPOGRAPHY_VARIANTS,
 } from "@/types";
 
 describe("Text", () => {
@@ -43,9 +43,7 @@ describe("Text", () => {
       const element = screen.getByText(`Text ${size}`);
 
       const expectedCssClass = size === "md" ? "text-base" : `text-${size}`;
-      expect(element.className).toBe(
-        `${expectedCssClass} text-foreground font-display`,
-      );
+      expect(element.className).toBe(`${expectedCssClass} text-foreground font-display`);
     }
   });
 
@@ -53,9 +51,7 @@ describe("Text", () => {
     for (const weight of FONT_WEIGHTS) {
       render(<Text weight={weight}>Weight {weight}</Text>);
       const element = screen.getByText(`Weight ${weight}`);
-      expect(element.className).toBe(
-        `font-${weight} text-foreground font-display`,
-      );
+      expect(element.className).toBe(`font-${weight} text-foreground font-display`);
     }
   });
 
@@ -81,9 +77,7 @@ describe("Text", () => {
     for (const align of TEXT_ALIGNS) {
       render(<Text align={align}>Align {align}</Text>);
       const element = screen.getByText(`Align ${align}`);
-      expect(element.className).toBe(
-        `text-foreground text-${align} font-display`,
-      );
+      expect(element.className).toBe(`text-foreground text-${align} font-display`);
     }
   });
 
@@ -91,9 +85,7 @@ describe("Text", () => {
     for (const tracking of TEXT_TRACKINGS) {
       render(<Text tracking={tracking}>Tracking {tracking}</Text>);
       const element = screen.getByText(`Tracking ${tracking}`);
-      expect(element.className).toBe(
-        `text-foreground tracking-${tracking} font-display`,
-      );
+      expect(element.className).toBe(`text-foreground tracking-${tracking} font-display`);
     }
   });
 
@@ -101,9 +93,7 @@ describe("Text", () => {
     for (const leading of TEXT_LEADINGS) {
       render(<Text leading={leading}>Leading {leading}</Text>);
       const element = screen.getByText(`Leading ${leading}`);
-      expect(element.className).toBe(
-        `text-foreground leading-${leading} font-display`,
-      );
+      expect(element.className).toBe(`text-foreground leading-${leading} font-display`);
     }
   });
 

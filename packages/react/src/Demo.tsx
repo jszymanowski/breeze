@@ -1,5 +1,5 @@
-import { Heading, Flex, Box, Text, Grid } from "@/main";
-import { ActivityItem, Button, Card, Header, Footer } from "@src/components";
+import { ActivityItem, Button, Card, Footer, Header } from "@src/components";
+import { Box, Flex, Grid, Heading, Text } from "@/main";
 
 const Demo = () => (
   <Flex direction="col" className="min-h-screen bg-background">

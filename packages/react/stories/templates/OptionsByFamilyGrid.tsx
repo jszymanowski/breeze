@@ -1,9 +1,7 @@
-import { Fragment } from "react";
-
-import { Grid, Box, Text, type HeadingProps, Flex } from "@/main";
-import { FONT_FAMILIES, type FontFamily } from "@/types";
-
 import Code from "@stories/templates/Code";
+import { Fragment } from "react";
+import { Box, Flex, Grid, type HeadingProps, Text } from "@/main";
+import { FONT_FAMILIES, type FontFamily } from "@/types";
 
 type ValueOf<T> = T[keyof T];
 type OptionTypes = ValueOf<HeadingProps>;

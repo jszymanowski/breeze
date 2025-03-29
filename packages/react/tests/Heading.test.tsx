@@ -1,17 +1,17 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { Heading } from "@/main";
 import {
-  HEADING_LEVELS,
   FONT_FAMILIES,
-  FONT_WEIGHTS,
   FONT_SIZES,
-  TYPOGRAPHY_VARIANTS,
+  FONT_WEIGHTS,
+  type FontWeight,
+  HEADING_LEVELS,
   TEXT_ALIGNS,
   TEXT_LEADINGS,
   TEXT_TRACKINGS,
-  type FontWeight,
+  TYPOGRAPHY_VARIANTS,
   type TypographyVariant,
 } from "@/types";
 
@@ -21,9 +21,7 @@ describe("Heading", () => {
     const element = screen.getByText("Hello world");
 
     expect(element.tagName).toBe("H2");
-    expect(element.className).toBe(
-      "text-3xl font-bold text-foreground font-display scroll-m-20",
-    );
+    expect(element.className).toBe("text-3xl font-bold text-foreground font-display scroll-m-20");
   });
 
   it("renders headings with different levels", () => {
@@ -74,11 +72,7 @@ describe("Heading", () => {
 
   it("applies the correct variant classes", () => {
     for (const variant of TYPOGRAPHY_VARIANTS) {
-      render(
-        <Heading variant={variant as TypographyVariant}>
-          Variant {variant}
-        </Heading>,
-      );
+      render(<Heading variant={variant as TypographyVariant}>Variant {variant}</Heading>);
       const element = screen.getByText(`Variant ${variant}`);
 
       let expectedCssClass = "";
@@ -174,9 +168,7 @@ describe("Heading", () => {
   it("should always add scroll-m-20 class for better anchor navigation", () => {
     render(<Heading>Heading with scroll margin</Heading>);
     const element = screen.getByText("Heading with scroll margin");
-    expect(element.className).toBe(
-      "text-3xl font-bold text-foreground font-display scroll-m-20",
-    );
+    expect(element.className).toBe("text-3xl font-bold text-foreground font-display scroll-m-20");
   });
 
   it("applies different combinations of props correctly", () => {

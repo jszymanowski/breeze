@@ -1,28 +1,26 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import OptionList from "@root/stories/templates/OptionList";
+import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
+import Code from "@stories/templates/Code";
 import { asOptionalValue, summarizeValues } from "@stories/utils";
-
-import { Box, Heading, Flex, Text } from "@/main";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Box, Flex, Heading, Text } from "@/main";
 import {
-  HEADING_LEVELS,
   FONT_FAMILIES,
   FONT_SIZES,
   FONT_WEIGHTS,
-  TYPOGRAPHY_VARIANTS,
+  type FontFamily,
+  type FontSize,
+  type FontWeight,
+  HEADING_LEVELS,
   TEXT_ALIGNS,
   TEXT_LEADINGS,
   TEXT_TRACKINGS,
-  type TypographyVariant,
-  type FontWeight,
-  type FontSize,
-  type TextTracking,
-  type TextLeading,
-  type FontFamily,
   type TextAlign,
+  type TextLeading,
+  type TextTracking,
+  TYPOGRAPHY_VARIANTS,
+  type TypographyVariant,
 } from "@/types";
-import Code from "@stories/templates/Code";
-
-import OptionList from "@root/stories/templates/OptionList";
-import OptionsByFamilyGrid from "@root/stories/templates/OptionsByFamilyGrid";
 
 const meta: Meta<typeof Heading> = {
   title: "Typography/Heading",

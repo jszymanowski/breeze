@@ -1,17 +1,15 @@
 import React from "react";
-
-import { cn } from "@/utils";
-
 import type {
-  HeadingSize,
-  FontSize,
-  TypographyVariant,
-  FontWeight,
   FontFamily,
+  FontSize,
+  FontWeight,
+  HeadingSize,
   TextAlign,
-  TextTracking,
   TextLeading,
+  TextTracking,
+  TypographyVariant,
 } from "@/types";
+import { cn } from "@/utils";
 
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   level?: HeadingSize;

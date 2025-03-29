@@ -1,19 +1,19 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import "@testing-library/jest-dom";
 
 import { Box } from "@/main";
 import {
-  SIZES,
-  HEIGHTS,
-  DISPLAYS,
-  WIDTHS,
   BOX_SIZINGS,
-  POSITIONS,
-  OVERFLOWS,
-  ROUNDED_SIZES,
+  DISPLAYS,
+  HEIGHTS,
   LAYOUT_ELEMENTS,
   LAYOUT_VARIANTS,
+  OVERFLOWS,
+  POSITIONS,
+  ROUNDED_SIZES,
+  SIZES,
+  WIDTHS,
 } from "@/types";
 
 describe("Box", () => {
@@ -237,6 +237,7 @@ describe("Box", () => {
 
   it("passes additional props to the element", () => {
     render(
+      // biome-ignore lint/a11y/useSemanticElements: Testing custom elements, up to the user to ensure accessibility
       <Box as="section" data-testid="box-component" aria-label="box container" role="region">
         Test box
       </Box>,
