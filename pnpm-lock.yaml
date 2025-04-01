@@ -18,8 +18,8 @@ importers:
         specifier: 2.0.0-beta.1
         version: 2.0.0-beta.1
       '@jszymanowski/biomejs-config':
-        specifier: 0.0.1
-        version: 0.0.1
+        specifier: 1.0.0
+        version: 1.0.0
       '@storybook/addon-essentials':
         specifier: 8.6.11
         version: 8.6.11(@types/react@19.0.12)(storybook@8.6.11)
@@ -580,8 +580,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@jszymanowski/biomejs-config@0.0.1':
-    resolution: {integrity: sha512-SoQHupry5+3WGh6H4kQZPw5uxzuoN77rZZDfiH8pcYKmhFQYMG4DiVZMno/9kfI0NV+oEN/jNe7X3Af+yiNj+g==}
+  '@jszymanowski/biomejs-config@1.0.0':
+    resolution: {integrity: sha512-rKHv9LVllwTtgfUbO4UvvvDD/JDp4DyUPvOuqrzNIp0k9x39oZRbs7AOXDC9dvooxRcZlnI6WKTim6rhs8AoFQ==}
 
   '@mdx-js/react@3.1.0':
     resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
@@ -2952,7 +2952,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@jszymanowski/biomejs-config@0.0.1': {}
+  '@jszymanowski/biomejs-config@1.0.0': {}
 
   '@mdx-js/react@3.1.0(@types/react@19.0.12)(react@19.0.0)':
     dependencies:
