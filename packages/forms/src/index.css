@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @source "../node_modules/@jszymanowski/breeze-react/dist";
 
-
 /* Colors are based around shadcn color schemes: https://ui.shadcn.com/colors */
 
 @layer base {
