@@ -86,7 +86,16 @@ export const ReadOnly: Story = {
   args: {
     ...defaultProps,
     label: "Read-only input:",
-    value: "This is read-only content",
+    value: 47,
     readOnly: true,
+  },
+};
+
+export const WithMinMax: Story = {
+  args: {
+    ...defaultProps,
+    label: "Enter a value between 1 and 100:",
+    min: 1,
+    max: 100,
   },
 };
