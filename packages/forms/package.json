@@ -1,0 +1,86 @@
+{
+  "name": "@jszymanowski/breeze-forms",
+  "version": "0.0.1",
+  "author": "John Szymanowski",
+  "license": "MIT",
+  "description": "React form components, built with Tailwind CSS and ShadCN",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "private": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jszymanowski/breeze.git"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b && vite build",
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "dev": "vite",
+    "format": "biome format --write .",
+    "lint": "biome check .",
+    "lint:ci": "biome ci .",
+    "lint:fix": "biome check --write --unsafe .",
+    "prepublishOnly": "pnpm build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
+    "storybook:build:docs": "storybook build --docs",
+    "storybook:docs": "storybook dev --docs",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest --watch"
+  },
+  "dependencies": {
+    "@jszymanowski/breeze-react": "^0.7.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.0-beta.1",
+    "@jszymanowski/biomejs-config": "1.0.0",
+    "@storybook/addon-essentials": "8.6.11",
+    "@storybook/addon-interactions": "8.6.11",
+    "@storybook/addon-themes": "8.6.11",
+    "@storybook/builder-vite": "8.6.11",
+    "@storybook/react": "8.6.11",
+    "@storybook/react-vite": "8.6.11",
+    "@storybook/test": "8.6.11",
+    "@tailwindcss/vite": "4.0.17",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.2.0",
+    "@types/node": "22.13.14",
+    "@types/react": "19.0.12",
+    "@types/react-dom": "19.0.4",
+    "@vitejs/plugin-react": "4.3.4",
+    "@vitest/browser": "3.0.9",
+    "@vitest/coverage-v8": "3.0.9",
+    "chromatic": "11.27.0",
+    "clsx": "2.1.1",
+    "conventional-changelog-conventionalcommits": "8.0.0",
+    "globals": "16.0.0",
+    "jsdom": "26.0.0",
+    "path": "0.12.7",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "storybook": "8.6.11",
+    "tailwind-merge": "3.0.2",
+    "tailwindcss": "4.0.17",
+    "typescript": "5.8.2",
+    "vite": "6.2.4",
+    "vite-plugin-dts": "4.5.3",
+    "vite-plugin-lib-inject-css": "2.2.1",
+    "vitest": "3.0.9"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "packageManager": "pnpm@10.7.0"
+}
