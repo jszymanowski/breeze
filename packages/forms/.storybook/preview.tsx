@@ -3,13 +3,14 @@ import type { Preview } from "@storybook/react";
 import React from "react";
 
 import ThemeProvider from "../src/context/ThemeProvider";
+import { THEMES } from "../src/context/ThemeProviderContext";
 
 import "@src/index.css";
 
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <ThemeProvider defaultTheme="light" storageKey="breeze-react-storybook-theme">
+      <ThemeProvider defaultTheme={THEMES.LIGHT} storageKey="breeze-react-storybook-theme">
         <div className="bg-background p-1 outline-2 outline-gray-200">
           <Story />
         </div>
@@ -17,12 +18,12 @@ const preview: Preview = {
     ),
     withThemeByClassName({
       themes: {
-        light: "",
-        dark: "dark",
-        slateLight: "slate-light",
-        slateDark: "slate-dark",
+        [THEMES.LIGHT]: "",
+        [THEMES.DARK]: THEMES.DARK,
+        [THEMES.SLATE_LIGHT]: THEMES.SLATE_LIGHT,
+        [THEMES.SLATE_DARK]: THEMES.SLATE_DARK,
       },
-      defaultTheme: "light",
+      defaultTheme: THEMES.LIGHT,
       parentSelector: "html",
     }),
   ],
