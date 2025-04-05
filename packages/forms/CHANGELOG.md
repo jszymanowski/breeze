@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/jszymanowski/breeze/compare/forms@0.3.0...forms@0.4.0) (2025-04-05)
+
+
+### Features
+
+* Add buttons ([#179](https://github.com/jszymanowski/breeze/issues/179)) ([a002d0c](https://github.com/jszymanowski/breeze/commit/a002d0cd079c822909d21ab6063b17b8ed71b92c))
+
 ## [0.3.0](https://github.com/jszymanowski/breeze/compare/forms@0.2.1...forms@0.3.0) (2025-04-05)
 
 
