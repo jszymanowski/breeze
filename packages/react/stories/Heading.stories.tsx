@@ -95,6 +95,11 @@ const meta: Meta<typeof Heading> = {
         type: { summary: summarizeValues(TEXT_TRACKINGS, true) },
       },
     },
+    asForeground: {
+      description:
+        "Use foreground (lighter) variant for accent colors (info, warning, success, destructive).  No effect on other variants.",
+      control: "boolean",
+    },
     numeric: {
       description: "If true, use tabular numbers for even spacing",
     },
@@ -235,6 +240,34 @@ export const Variants: Story = {
       renderOption={(family, option) => {
         const Component = () => (
           <Heading level="4" align="center" family={family} variant={option}>
+            {sampleHeading}
+          </Heading>
+        );
+
+        if (option === "inherit") {
+          return (
+            <Box className="text-violet-400">
+              <Component />{" "}
+              <Text variant="muted" size="xs" className="italic">
+                (container text color = violet-400)
+              </Text>
+            </Box>
+          );
+        }
+        return <Component />;
+      }}
+    />
+  ),
+};
+
+export const VariantsAsForeground: Story = {
+  render: () => (
+    <OptionsByFamilyGrid<TypographyVariant>
+      options={TYPOGRAPHY_VARIANTS as unknown as TypographyVariant[]}
+      propKey="variant"
+      renderOption={(family, option) => {
+        const Component = () => (
+          <Heading level="4" align="center" family={family} variant={option} asForeground>
             {sampleHeading}
           </Heading>
         );
