@@ -1,10 +1,10 @@
 {
   "release-type": "node-workspace",
   "packages": {
-    "packages/react": {
+    "packages/primitives": {
       "release-type": "node",
-      "package-name": "@jszymanowski/breeze-react",
-      "component": "react"
+      "package-name": "@jszymanowski/breeze-primitives",
+      "component": "primitives"
     },
     "packages/forms": {
       "release-type": "node",

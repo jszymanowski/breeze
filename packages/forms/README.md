@@ -8,7 +8,7 @@ _React form components, built with Tailwind CSS and ShadCN_
 
 - [Github repo](https://github.com/jszymanowski/breeze)
 - Distribution
-  - [npm registry](https://www.npmjs.com/package/@jszymanowski/breeze-react)
+  - [npm registry](https://www.npmjs.com/package/@jszymanowski/breeze-primitives)
 - Building blocks
   - [TailwindCSS](https://tailwindcss.com/docs)
   - [shadcn-ui](https://ui.shadcn.com/docs/)
@@ -38,7 +38,7 @@ Example `index.css`:
 
 ```css
 @import "tailwindcss";
-@source "../node_modules/@jszymanowski/breeze-react/dist";
+@source "../node_modules/@jszymanowski/breeze-primitives/dist";
 
 @layer base {
   /* your usual CSS definitions */
@@ -59,4 +59,4 @@ Releases are automated using [Release Please](https://github.com/googleapis/rele
    - create a Git tag (like v1.2.3) corresponding to the released version
    - create a GitHub Release with the changelog as release notes
 1. The [`publish` Github Action](../../.github/workflows/publish.yml) will detect the new tag and publish the release.
-1. The new version will be available from the [NPM registry](https://www.npmjs.com/package/@jszymanowski/breeze-react)
+1. The new version will be available from the [NPM registry](https://www.npmjs.com/package/@jszymanowski/breeze-primitives)

@@ -10,7 +10,7 @@ import "../src/index.css";
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <ThemeProvider defaultTheme={THEMES.LIGHT} storageKey="breeze-react-storybook-theme">
+      <ThemeProvider defaultTheme={THEMES.LIGHT} storageKey="breeze-primitives-storybook-theme">
         <div className="w-full min-w-[800px] bg-background p-1 outline-2 outline-gray-200 ">
           <Story />
         </div>

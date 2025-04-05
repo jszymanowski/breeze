@@ -1,4 +1,4 @@
-# Breeze React
+# Breeze Primitives
 
 ## Roadmap
 

@@ -1,4 +1,4 @@
-# Breeze React
+# Breeze Primitives
 
 _Primitive React components, built with Tailwind CSS_
 

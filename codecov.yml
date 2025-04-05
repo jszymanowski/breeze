@@ -2,11 +2,11 @@ coverage:
   status:
     project:
       default: false # disable the default project status
-      react:
+      primitives:
         flags:
-          - react
+          - primitives
         paths:
-          - packages/react/
+          - packages/primitives/
       forms:
         flags:
           - forms
@@ -14,9 +14,9 @@ coverage:
           - packages/forms/
 
 flags:
-  react:
+  primitives:
     paths:
-      - packages/react/
+      - packages/primitives/
   forms:
     paths:
       - packages/forms/
