@@ -1,6 +1,6 @@
 import { Flex } from "@jszymanowski/breeze-react";
-import { Button, type ButtonProps } from "@/main";
 import type React from "react";
+import { Button, type ButtonProps } from "@/main";
 
 export interface ButtonGroupProps {
   children: React.ReactNode;

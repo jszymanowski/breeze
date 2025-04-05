@@ -1,4 +1,4 @@
-export type { ButtonProps, ButtonGroupProps } from "./Button";
+export type { ButtonGroupProps, ButtonProps } from "./Button";
 export { Button, ButtonGroup, DeleteButton, SaveButton } from "./Button";
 export type { LabelProps } from "./Label";
 export { Label } from "./Label";
