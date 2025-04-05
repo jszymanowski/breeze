@@ -9,7 +9,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./packages/react
+        working-directory: ./packages/primitives
 
     steps:
       - name: Checkout code

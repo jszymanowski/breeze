@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "packages/react/**"
+      - "packages/primitives/**"
 
 permissions:
   contents: read
@@ -19,7 +19,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./packages/react
+        working-directory: ./packages/primitives
 
     steps:
       - name: Checkout code
@@ -42,7 +42,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./packages/react/storybook-static
+          path: ./packages/primitives/storybook-static
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4

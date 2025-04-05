@@ -5,8 +5,12 @@
       "path": "."
     },
     {
-      "name": "react",
-      "path": "packages/react"
+      "name": "primitives",
+      "path": "packages/primitives"
+    }
+    {
+      "name": "forms",
+      "path": "packages/forms"
     }
   ],
   "settings": {
@@ -50,7 +54,6 @@
       "editor.defaultFormatter": "biomejs.biome",
       "editor.formatOnSave": true
     },
-    "prettier.enable": false,
     "terminal.integrated.env.linux": {
       "NODE_ENV": "development",
       "ENV": "development"

@@ -9,7 +9,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./packages/react
+        working-directory: ./packages/primitives
 
     steps:
       - name: Checkout code
@@ -31,7 +31,7 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: ./packages/react
+          workingDir: ./packages/primitives
           buildScriptName: "storybook:build"
 
   chromatic-forms:

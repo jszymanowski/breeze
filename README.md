@@ -1,8 +1,10 @@
 # Breeze
 
-_Primitive components, built with Tailwind CSS_
+_React components, built with Tailwind CSS_
 
-### [Breeze React](packages/react/README.md)
+### [Breeze Primitives](packages/primitives/README.md)
+
+### [Breeze Forms](packages/forms/README.md)
 
 [![codecov](https://codecov.io/gh/jszymanowski/breeze/branch/main/graph/badge.svg)](https://codecov.io/gh/jszymanowski/breeze)
 
