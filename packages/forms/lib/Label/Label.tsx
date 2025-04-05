@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import { Label as CnLabel } from "@/components/ui/label";
+import { Label as BaseLabel } from "@/components/ui/label";
 
 import { cn } from "@/utils";
 
@@ -11,13 +11,13 @@ export interface LabelProps extends ComponentProps<"label"> {
 }
 
 const Label = ({ htmlFor, value, children, className = "", ...props }: LabelProps) => (
-  <CnLabel
+  <BaseLabel
     className={cn("font-display font-normal text-base text-foreground", className)}
     htmlFor={htmlFor}
     {...props}
   >
     {value || children}
-  </CnLabel>
+  </BaseLabel>
 );
 
 export { Label };

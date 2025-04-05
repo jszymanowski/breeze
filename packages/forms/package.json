@@ -41,6 +41,7 @@
   "dependencies": {
     "@jszymanowski/breeze-react": "^0.7.0",
     "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.487.0",
     "tw-animate-css": "^1.2.5"
