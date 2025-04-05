@@ -8,7 +8,6 @@ export default function Code({ children }: TextProps) {
       align="right"
       variant="accent"
       className="h-min w-min rounded bg-accent px-2"
-      asForeground
     >
       {children}
     </Text>
