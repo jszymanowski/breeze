@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/jszymanowski/breeze/compare/forms@0.2.0...forms@0.2.1) (2025-04-05)
+
+
+### Minor tweaks
+
+* Add min width to storybook ([#174](https://github.com/jszymanowski/breeze/issues/174)) ([a83bd68](https://github.com/jszymanowski/breeze/commit/a83bd68ca2bfb55634a02849551b7f7ec4197e26))
+
 ## [0.2.0](https://github.com/jszymanowski/breeze/compare/forms@0.1.0...forms@0.2.0) (2025-04-05)
 
 
