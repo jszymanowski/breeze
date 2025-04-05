@@ -1,5 +1,5 @@
 import { Flex, Text } from "@jszymanowski/breeze-react";
-import { Textarea as CnTextarea } from "@/components/ui/textarea";
+import { Textarea as BaseTextarea } from "@/components/ui/textarea";
 import { Label } from "@/main";
 
 export interface TextareaProps extends React.ComponentProps<"textarea"> {
@@ -14,7 +14,7 @@ export function Textarea({ label, name, note, placeholder, className, ...props }
   return (
     <Flex direction="col" gap="2" className="w-full">
       {label && <Label htmlFor={name}>{label}</Label>}
-      <CnTextarea
+      <BaseTextarea
         placeholder={placeholder}
         id={name}
         name={name}

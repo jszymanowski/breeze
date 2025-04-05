@@ -1,5 +1,5 @@
 import type React from "react";
-import { Button as CnButton } from "@root/components/ui/button";
+import { Button as BaseButton } from "@root/components/ui/button";
 
 import { Flex } from "@jszymanowski/breeze-react";
 
@@ -53,7 +53,7 @@ export const Button = ({
   asChild = false,
   ...rest
 }: ButtonProps) => {
-  const getCnVariant = () => {
+  const getBaseVariant = () => {
     if (variant === "primary") {
       return "default";
     } else if (variant === "subtle") {
@@ -63,7 +63,7 @@ export const Button = ({
     }
   };
 
-  const getCnSize = () => {
+  const getBaseSize = () => {
     if (size === "md") {
       return "default";
     } else {
@@ -72,11 +72,11 @@ export const Button = ({
   };
 
   return (
-    <CnButton
-      variant={getCnVariant()}
+    <BaseButton
+      variant={getBaseVariant()}
       onClick={onClick}
       disabled={disabled}
-      size={getCnSize()}
+      size={getBaseSize()}
       className={className}
       type={type}
       asChild={asChild}
@@ -90,7 +90,7 @@ export const Button = ({
       ) : (
         icon || children
       )}
-    </CnButton>
+    </BaseButton>
   );
 }
 
