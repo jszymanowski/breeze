@@ -15,24 +15,30 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
+      releases_created: ${{ steps.release.outputs.releases_created }}
+      paths_released: ${{ steps.release.outputs.paths_released }}
       
     steps:
       - uses: googleapis/release-please-action@v4
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-
+          monorepo-tags: true
+          config-file: .github/release-please-config.json
+          manifest-file: .release-please-manifest.json
             
   publish:
     needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
+    if: ${{ needs.release-please.outputs.releases_created }}
     runs-on: ubuntu-latest
     
+    strategy:
+      matrix:
+        package: ${{ fromJSON(needs.release-please.outputs.paths_released) }}
+
     defaults:
       run:
-        working-directory: ./packages/react
+        working-directory: ./${{ matrix.package }}
 
     steps:
       - name: Checkout code
@@ -41,11 +47,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "22.x"
+          node-version: 22.14.0
           registry-url: "https://registry.npmjs.org"
+          cache: 'pnpm'
+          cache-dependency-path: './${{ matrix.package }}/pnpm-lock.yaml'
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.7.0
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
