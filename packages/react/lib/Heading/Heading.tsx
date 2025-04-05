@@ -20,6 +20,9 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   leading?: TextLeading;
   tracking?: TextTracking;
   family?: FontFamily;
+  /**
+   * When true, apply *-foreground color classes for variants instead of regular color classes.
+   */
   asForeground?: boolean;
   truncate?: boolean;
   numeric?: boolean;
