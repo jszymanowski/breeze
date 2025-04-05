@@ -89,6 +89,11 @@ const meta: Meta<typeof Text> = {
         type: { summary: summarizeValues(TEXT_TRACKINGS, true) },
       },
     },
+    asForeground: {
+      description:
+        "Use foreground (lighter) variant for accent colors (info, warning, success, destructive).  No effect on other variants.",
+      control: "boolean",
+    },
     truncate: {
       description:
         "If true, prevents text from wrapping by truncating overflowing text with an ellipsis (…) if needed",

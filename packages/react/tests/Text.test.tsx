@@ -55,22 +55,43 @@ describe("Text", () => {
     }
   });
 
-  it("applies the correct variant classes", () => {
-    for (const variant of TYPOGRAPHY_VARIANTS) {
-      render(<Text variant={variant}>Variant {variant}</Text>);
-      const element = screen.getByText(`Variant ${variant}`);
+  describe("variant", () => { 
+    it("applies the correct variant classes", () => {
+      for (const variant of TYPOGRAPHY_VARIANTS) {
+        render(<Text variant={variant}>Variant {variant}</Text>);
+        const element = screen.getByText(`Variant ${variant}`);
 
-      let expectedCssClass = "";
-      if (variant === "default") {
-        expectedCssClass = "text-foreground";
-      } else if (variant === "inherit") {
-        expectedCssClass = "text-inherit";
-      } else {
-        expectedCssClass = `text-${variant}-foreground`;
+        let expectedCssClass = "";
+        if (variant === "default") {
+          expectedCssClass = "text-foreground";
+        } else if (variant === "inherit") {
+          expectedCssClass = "text-inherit";
+        } else if (variant === "primary" || variant === "secondary" || variant === "muted" || variant === "accent") {
+          expectedCssClass = `text-${variant}-foreground`;
+        } else {
+          expectedCssClass = `text-${variant}`;
+        }
+
+        expect(element.className).toBe(`${expectedCssClass} font-display`);
       }
+    });
+    
+    describe("asForeground", () => {
+      it("applies the correct foreground class when asForeground is true", () => {
+        render(<Text asForeground>Sample text</Text>);
+        expect(screen.getByText("Sample text").className).toBe("text-foreground font-display");
+      });
 
-      expect(element.className).toBe(`${expectedCssClass} font-display`);
-    }
+      it("with accent color, does not apply the foreground class when asForeground is false", () => {
+        render(<Text variant="info" asForeground={false}>Sample text</Text>);
+        expect(screen.getByText("Sample text").className).toBe("text-info font-display");
+      });
+
+      it("with accent color, applies the foreground class when asForeground is false", () => {
+        render(<Text variant="info" asForeground>Sample text</Text>);
+        expect(screen.getByText("Sample text").className).toBe("text-info-foreground font-display");
+      });
+    });
   });
 
   it("applies the correct text alignment classes", () => {
