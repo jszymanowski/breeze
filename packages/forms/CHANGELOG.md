@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/jszymanowski/breeze/compare/forms@0.4.0...forms@0.4.1) (2025-04-05)
+
+
+### Bug Fixes
+
+* Export ButtonGroup ([#182](https://github.com/jszymanowski/breeze/issues/182)) ([121cb11](https://github.com/jszymanowski/breeze/commit/121cb11d1ddb7b0b2e7dc034e9a2656a4089cea9))
+
 ## [0.4.0](https://github.com/jszymanowski/breeze/compare/forms@0.3.0...forms@0.4.0) (2025-04-05)
 
 
