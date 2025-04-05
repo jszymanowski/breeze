@@ -2,7 +2,7 @@ import { asOptionalValue, summarizeValues } from "@stories/utils";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Fragment } from "react";
 
-import { Box, Flex, type FlexProps, Grid, Heading, Text } from "@/main";
+import { Box, Flex, type FlexProps, Grid, Heading } from "@/main";
 import {
   FLEX_ALIGNS,
   FLEX_DIRECTIONS,
