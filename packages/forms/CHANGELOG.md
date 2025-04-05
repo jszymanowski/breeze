@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/jszymanowski/breeze/compare/forms@0.2.1...forms@0.3.0) (2025-04-05)
+
+
+### Features
+
+* Add Textarea component ([#173](https://github.com/jszymanowski/breeze/issues/173)) ([9640731](https://github.com/jszymanowski/breeze/commit/96407315800f11f822fce4edaccf05c8bf095eba))
+
 ## [0.2.1](https://github.com/jszymanowski/breeze/compare/forms@0.2.0...forms@0.2.1) (2025-04-05)
 
 
