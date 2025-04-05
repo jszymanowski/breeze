@@ -21,3 +21,23 @@ export const Default: Story = {
     </ButtonGroup>
   ),
 };
+
+export const AsOutline: Story = {
+  render: () => (
+    <ButtonGroup>
+      <ButtonGroup.Button variant="outline">Button 1</ButtonGroup.Button>
+      <ButtonGroup.Button variant="outline">Button 2</ButtonGroup.Button>
+      <ButtonGroup.Button variant="outline">Button 3</ButtonGroup.Button>
+    </ButtonGroup>
+  ),
+};
+
+export const MixedStyles: Story = {
+  render: () => (
+    <ButtonGroup>
+      <ButtonGroup.Button variant="outline">Button 1</ButtonGroup.Button>
+      <ButtonGroup.Button variant="outline">Button 2</ButtonGroup.Button>
+      <ButtonGroup.Button variant="primary">Button 3</ButtonGroup.Button>
+    </ButtonGroup>
+  ),
+};
