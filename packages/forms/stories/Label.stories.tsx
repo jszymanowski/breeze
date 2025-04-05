@@ -1,8 +1,10 @@
 import { Box, Text } from "@jszymanowski/breeze-react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof Text> = {
-  title: "Typography/Text",
+import { Label } from "@/main";
+
+const meta: Meta<typeof Label> = {
+  title: "Label",
   component: Text,
   parameters: {
     layout: "centered",
@@ -15,7 +17,7 @@ type Story = StoryObj<typeof Text>;
 
 export const Default: Story = {
   args: {
-    children: "This is Storybook",
+    children: "Some thing",
   },
   decorators: [
     (Story) => (

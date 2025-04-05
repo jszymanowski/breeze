@@ -39,7 +39,8 @@
     "test:watch": "vitest --watch"
   },
   "dependencies": {
-    "@jszymanowski/breeze-react": "^0.7.0"
+    "@jszymanowski/breeze-react": "^0.7.0",
+    "@radix-ui/react-label": "^2.1.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.0-beta.1",
