@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/jszymanowski/breeze/compare/react@0.7.0...react@0.8.0) (2025-04-05)
+
+
+### Features
+
+* Use rich (dark) colors for typography variants, by default ([#185](https://github.com/jszymanowski/breeze/issues/185)) ([bb94808](https://github.com/jszymanowski/breeze/commit/bb94808f4068510aedcec54ee9b8b4ff79ed8696))
+
 ## [0.7.0](https://github.com/jszymanowski/breeze/compare/react-v0.6.0...react@0.7.0) (2025-03-20)
 
 
