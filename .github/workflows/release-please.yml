@@ -17,7 +17,7 @@ jobs:
     outputs:
       releases_created: ${{ steps.release.outputs.releases_created }}
       paths_released: ${{ steps.release.outputs.paths_released }}
-      
+
     steps:
       - uses: googleapis/release-please-action@v4
         id: release
@@ -25,12 +25,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           config-file: .github/release-please-config.json
           manifest-file: .release-please-manifest.json
-            
+
   publish:
     needs: release-please
     if: ${{ needs.release-please.outputs.releases_created }}
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         package: ${{ fromJSON(needs.release-please.outputs.paths_released) }}
@@ -48,8 +48,8 @@ jobs:
         with:
           node-version: 22.14.0
           registry-url: "https://registry.npmjs.org"
-          cache: 'pnpm'
-          cache-dependency-path: './${{ matrix.package }}/pnpm-lock.yaml'
+          cache: "pnpm"
+          cache-dependency-path: "./${{ matrix.package }}/pnpm-lock.yaml"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
