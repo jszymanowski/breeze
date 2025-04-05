@@ -15,7 +15,7 @@ importers:
   packages/forms:
     dependencies:
       '@jszymanowski/breeze-react':
-        specifier: 0.7.0
+        specifier: ^0.7.0
         version: 0.7.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@4.0.17)
     devDependencies:
       '@biomejs/biome':
