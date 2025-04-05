@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - "packages/**"
-    types: [opened, synchronize, reopened, edited]
 
 jobs:
   detect-changes:
