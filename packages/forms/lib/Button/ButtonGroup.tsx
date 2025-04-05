@@ -1,4 +1,4 @@
-import { Flex } from "@jszymanowski/breeze-react";
+import { Flex } from "@jszymanowski/breeze-primitives";
 import type React from "react";
 import { Button, type ButtonProps } from "./Button";
 

@@ -39,7 +39,7 @@
     "test:watch": "vitest --watch"
   },
   "dependencies": {
-    "@jszymanowski/breeze-react": "^0.7.0",
+    "@jszymanowski/breeze-primitives": "^0.9.0",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "^0.7.1",

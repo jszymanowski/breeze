@@ -1,4 +1,4 @@
-import { Flex, Text } from "@jszymanowski/breeze-react";
+import { Flex, Text } from "@jszymanowski/breeze-primitives";
 import { Textarea as BaseTextarea } from "@/components/ui/textarea";
 import { Label } from "@/main";
 

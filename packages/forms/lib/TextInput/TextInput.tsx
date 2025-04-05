@@ -1,4 +1,4 @@
-import { Flex, Text } from "@jszymanowski/breeze-react";
+import { Flex, Text } from "@jszymanowski/breeze-primitives";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/main";
 
