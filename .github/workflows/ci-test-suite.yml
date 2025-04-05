@@ -5,23 +5,43 @@ on:
     branches:
       - main
     paths:
-      - "packages/react/**"
+      - "packages/**"
     types: [opened, synchronize, reopened, edited]
 
 jobs:
-  test-suite:
+  detect-changes:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    outputs:
+      packages: ${{ steps.filter.outputs.changes }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    if: ${{ !contains(github.event.pull_request.title, '[WIP]') && !contains(github.event.pull_request.title, '[wip]') && !contains(github.event.pull_request.title, '[Wip]') && !contains(github.event.pull_request.title, '[DRAFT]') && !contains(github.event.pull_request.title, '[draft]') && !contains(github.event.pull_request.title, '[Draft]') }}
+      - name: Detect file changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            react:
+              - 'packages/react/**'
+            forms:
+              - 'packages/forms/**'
+
+  test-suite:
+    needs: detect-changes
+    strategy:
+      matrix:
+        package: ${{ fromJSON(needs.detect-changes.outputs.packages) }}
+        task: [audit, lint, test, build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    # Skip if no packages were changed
+    if: ${{ needs.detect-changes.outputs.packages != '[]' }}
 
     defaults:
       run:
-        working-directory: ./packages/react
-
-    strategy:
-      matrix:
-        task: [audit, lint, test, build]
+        working-directory: ./packages/${{ matrix.package }}
 
     steps:
       - name: Checkout code
@@ -31,9 +51,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22.14.0
+          cache: "pnpm"
+          cache-dependency-path: "./packages/${{ matrix.package }}/pnpm-lock.yaml"
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.7.0
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
