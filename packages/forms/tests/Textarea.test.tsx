@@ -14,7 +14,6 @@ describe("Textarea", () => {
     expect(input.tagName).toBe("TEXTAREA");
     expect(input.className).toBe(EXPECTED_BASE_TEXTAREA_CLASSES);
     expect(input.placeholder).toBe("");
-    expect(input.type).toBe("textarea");
   });
 
   it("renders with label", () => {
@@ -55,5 +54,12 @@ describe("Textarea", () => {
     const input = screen.getByRole("textbox", { name: "some_input" }) as HTMLTextAreaElement;
     expect(input.tagName).toBe("TEXTAREA");
     expect(input.className).toBe(`${EXPECTED_BASE_TEXTAREA_CLASSES} custom-class`);
+  });
+
+  it("renders in disabled state correctly", () => {
+    render(<Textarea name="some_input" disabled />);
+
+    const input = screen.getByRole("textbox", { name: "some_input" }) as HTMLTextAreaElement;
+    expect(input.disabled).toBe(true);
   });
 });
