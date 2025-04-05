@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.0](https://github.com/jszymanowski/breeze/compare/forms@0.4.1...forms@0.5.0) (2025-04-05)
+
+
+### Features
+
+* **forms:** Update to breeze-primitives package ([#191](https://github.com/jszymanowski/breeze/issues/191)) ([ce4e09f](https://github.com/jszymanowski/breeze/commit/ce4e09fdb284d61edd1566856582ba490a0a2c2e))
+* Rename Breeze React as Breeze Primitives ([#187](https://github.com/jszymanowski/breeze/issues/187)) ([9170f01](https://github.com/jszymanowski/breeze/commit/9170f0152a59abcbaff7cdcfcd6c2970aaa0856b))
+
 ## [0.4.1](https://github.com/jszymanowski/breeze/compare/forms@0.4.0...forms@0.4.1) (2025-04-05)
 
 
