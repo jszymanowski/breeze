@@ -2,8 +2,17 @@ import { Flex } from "@jszymanowski/breeze-react";
 import { Button as BaseButton } from "@root/components/ui/button";
 import type React from "react";
 
+export type BaseButtonVariant =
+  | "default"
+  | "secondary"
+  | "destructive"
+  | "outline"
+  | "ghost"
+  | "link";
+export type BaseButtonSize = "default" | "sm" | "lg" | "icon";
+
 interface ButtonGroupProps {
-  children: React.ReactNode[];
+  children: React.ReactNode;
   className?: string;
 }
 
@@ -52,7 +61,7 @@ export const Button = ({
   asChild = false,
   ...rest
 }: ButtonProps) => {
-  const getBaseVariant = () => {
+  const getBaseVariant = (): BaseButtonVariant => {
     if (variant === "primary") {
       return "default";
     } else if (variant === "subtle") {
@@ -62,15 +71,15 @@ export const Button = ({
     }
   };
 
-  const getBaseSize = () => {
+  const getBaseSize = (): BaseButtonSize => {
     if (size === "md") {
       return "default";
     }
-    
+
     if (size === "xs") {
       return "sm";
     }
-    
+
     return size;
   };
 

@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 const defaultProps = {
   disabled: false,
   handleDelete: () => {
-    alert("You sure, bro?");
+    alert("Are you sure you want to save?");
   },
 };
 

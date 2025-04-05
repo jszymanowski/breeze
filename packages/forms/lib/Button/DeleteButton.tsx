@@ -3,11 +3,11 @@ import { Trash2 } from "lucide-react";
 import { Button, type ButtonProps } from "@/main";
 
 interface Props extends ButtonProps {
-  disabled: boolean;
+  disabled?: boolean;
   handleDelete: () => void;
 }
 
-export const DeleteButton = ({ disabled, handleDelete, ...rest }: Props) => {
+export const DeleteButton = ({ disabled = false, handleDelete, ...rest }: Props) => {
   return (
     <Button
       variant="outline"
