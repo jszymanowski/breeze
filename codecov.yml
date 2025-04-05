@@ -1,0 +1,22 @@
+coverage:
+  status:
+    project:
+      default: false  # disable the default project status
+      react:
+        flags: 
+          - react
+        paths: 
+          - packages/react/
+      forms:
+        flags: 
+          - forms
+        paths: 
+          - packages/forms/
+
+flags:
+  react:
+    paths:
+      - packages/react/
+  forms:
+    paths:
+      - packages/forms/
