@@ -1,4 +1,5 @@
 {
+  "release-type": "node-workspace",
   "packages": {
     "packages/react": {
       "release-type": "node",
