@@ -55,22 +55,53 @@ describe("Text", () => {
     }
   });
 
-  it("applies the correct variant classes", () => {
-    for (const variant of TYPOGRAPHY_VARIANTS) {
-      render(<Text variant={variant}>Variant {variant}</Text>);
-      const element = screen.getByText(`Variant ${variant}`);
+  describe("variant", () => {
+    it("applies the correct variant classes", () => {
+      for (const variant of TYPOGRAPHY_VARIANTS) {
+        render(<Text variant={variant}>Variant {variant}</Text>);
+        const element = screen.getByText(`Variant ${variant}`);
 
-      let expectedCssClass = "";
-      if (variant === "default") {
-        expectedCssClass = "text-foreground";
-      } else if (variant === "inherit") {
-        expectedCssClass = "text-inherit";
-      } else {
-        expectedCssClass = `text-${variant}-foreground`;
+        let expectedCssClass = "";
+        if (variant === "default") {
+          expectedCssClass = "text-foreground";
+        } else if (variant === "inherit") {
+          expectedCssClass = "text-inherit";
+        } else if (
+          variant === "primary" ||
+          variant === "secondary" ||
+          variant === "muted" ||
+          variant === "accent"
+        ) {
+          expectedCssClass = `text-${variant}-foreground`;
+        } else {
+          expectedCssClass = `text-${variant}`;
+        }
+
+        expect(element.className).toBe(`${expectedCssClass} font-display`);
       }
+    });
 
-      expect(element.className).toBe(`${expectedCssClass} font-display`);
-    }
+    it("applies the correct variant classes for foreground variants", () => {
+      for (const variant of TYPOGRAPHY_VARIANTS) {
+        render(
+          <Text variant={variant} asForeground>
+            Variant {variant}
+          </Text>,
+        );
+        const element = screen.getByText(`Variant ${variant}`);
+
+        let expectedCssClass = "";
+        if (variant === "default") {
+          expectedCssClass = "text-foreground";
+        } else if (variant === "inherit") {
+          expectedCssClass = "text-inherit";
+        } else {
+          expectedCssClass = `text-${variant}-foreground`;
+        }
+
+        expect(element.className).toBe(`${expectedCssClass} font-display`);
+      }
+    });
   });
 
   it("applies the correct text alignment classes", () => {

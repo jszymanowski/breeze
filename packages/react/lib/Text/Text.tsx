@@ -20,6 +20,10 @@ interface TextBaseProps {
   leading?: TextLeading;
   tracking?: TextTracking;
   family?: FontFamily;
+  /**
+   * When true, apply *-foreground color classes for variants instead of regular color classes.
+   */
+  asForeground?: boolean;
   truncate?: boolean;
   numeric?: boolean;
   className?: string;
@@ -42,6 +46,7 @@ const Text = React.forwardRef(
       leading, // No default: Tailwind applies a default from text size classes
       tracking,
       family = "display",
+      asForeground = false,
       truncate = false,
       numeric = false,
       ...props
@@ -87,12 +92,19 @@ const Text = React.forwardRef(
             "text-inherit": variant === "inherit",
             "text-muted-foreground": variant === "muted",
             "text-accent-foreground": variant === "accent",
+            // Action colors
             "text-primary-foreground": variant === "primary",
             "text-secondary-foreground": variant === "secondary",
-            "text-info-foreground": variant === "info",
-            "text-warning-foreground": variant === "warning",
-            "text-destructive-foreground": variant === "destructive",
-            "text-success-foreground": variant === "success",
+            // Accent colors (rich color variants)
+            "text-info": !asForeground && variant === "info",
+            "text-warning": !asForeground && variant === "warning",
+            "text-destructive": !asForeground && variant === "destructive",
+            "text-success": !asForeground && variant === "success",
+            // Accent colors (foreground variants)
+            "text-info-foreground": asForeground && variant === "info",
+            "text-warning-foreground": asForeground && variant === "warning",
+            "text-destructive-foreground": asForeground && variant === "destructive",
+            "text-success-foreground": asForeground && variant === "success",
           },
           // Text alignment
           {

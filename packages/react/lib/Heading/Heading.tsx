@@ -20,6 +20,10 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   leading?: TextLeading;
   tracking?: TextTracking;
   family?: FontFamily;
+  /**
+   * When true, apply *-foreground color classes for variants instead of regular color classes.
+   */
+  asForeground?: boolean;
   truncate?: boolean;
   numeric?: boolean;
   className?: string;
@@ -37,6 +41,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       leading, // No default: Tailwind applies a default from text size classes
       tracking,
       family = "display",
+      asForeground = false,
       truncate = false,
       numeric = false,
       ...props
@@ -88,18 +93,26 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
             "font-bold": weight === "bold",
             "font-extrabold": weight === "extrabold",
             "font-black": weight === "black",
-          }, // Text colors (variants)
+          },
+          // Text colors (variants)
           {
             "text-foreground": variant === "default",
             "text-inherit": variant === "inherit",
             "text-muted-foreground": variant === "muted",
             "text-accent-foreground": variant === "accent",
+            // Action colors
             "text-primary-foreground": variant === "primary",
             "text-secondary-foreground": variant === "secondary",
-            "text-info-foreground": variant === "info",
-            "text-success-foreground": variant === "success",
-            "text-warning-foreground": variant === "warning",
-            "text-destructive-foreground": variant === "destructive",
+            // Accent colors (rich color variants)
+            "text-info": !asForeground && variant === "info",
+            "text-warning": !asForeground && variant === "warning",
+            "text-destructive": !asForeground && variant === "destructive",
+            "text-success": !asForeground && variant === "success",
+            // Accent colors (foreground variants)
+            "text-info-foreground": asForeground && variant === "info",
+            "text-warning-foreground": asForeground && variant === "warning",
+            "text-destructive-foreground": asForeground && variant === "destructive",
+            "text-success-foreground": asForeground && variant === "success",
           },
           // Text alignment
           {

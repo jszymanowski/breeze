@@ -2,7 +2,7 @@ import { asOptionalValue, summarizeValues } from "@stories/utils";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Fragment } from "react";
 
-import { Box, Flex, type FlexProps, Grid, Heading, Text } from "@/main";
+import { Box, Flex, type FlexProps, Grid, Heading } from "@/main";
 import {
   FLEX_ALIGNS,
   FLEX_DIRECTIONS,
@@ -135,15 +135,9 @@ export const Default: Story = {
     className: "w-full h-full border-1 border-dashed border-gray-300",
     children: (
       <Fragment>
-        <FlexItem>
-          <Text variant="info">Item 1</Text>
-        </FlexItem>
-        <FlexItem>
-          <Text variant="info">Item 2</Text>
-        </FlexItem>
-        <FlexItem>
-          <Text variant="info">Item 3</Text>
-        </FlexItem>
+        <FlexItem>Item 1</FlexItem>
+        <FlexItem>Item 2</FlexItem>
+        <FlexItem>Item 3</FlexItem>
       </Fragment>
     ),
   },

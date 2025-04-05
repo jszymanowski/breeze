@@ -4,6 +4,7 @@
 
 ### Upcoming (pre-1.0.0)
 
+1. Decide on a path forward for `accent` -- deprecate?
 1. Clean up stories:
    - [ ] Refactor example structure, e.g. background color + border, particularly in `Box` stories
    - [ ] `Box` examples => Composition, merge with attribute stories, or remove
