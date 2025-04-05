@@ -12,7 +12,6 @@ interface Props extends ComponentProps<"label"> {
 const Label = ({ value, children, className = "", ...props }: Props) => (
   <CnLabel
     className={cn("font-display font-normal text-base text-foreground", className)}
-    data-testid="form-label"
     {...props}
   >
     {value || children}
