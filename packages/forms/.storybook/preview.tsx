@@ -11,7 +11,7 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <ThemeProvider defaultTheme={THEMES.LIGHT} storageKey="breeze-react-storybook-theme">
-        <div className="bg-background p-1 outline-2 outline-gray-200">
+        <div className="w-full min-w-[800px] bg-background p-1 outline-2 outline-gray-200 ">
           <Story />
         </div>
       </ThemeProvider>
