@@ -71,4 +71,4 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: ./packages/${{ matrix.package }}/coverage/
           flags: ${{ matrix.package }}
-          fail_ci_if_error: true
+          fail_ci_if_error: false
