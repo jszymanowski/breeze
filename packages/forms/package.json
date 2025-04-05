@@ -1,6 +1,6 @@
 {
   "name": "@jszymanowski/breeze-forms",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "author": "John Szymanowski",
   "license": "MIT",
   "description": "React form components, built with Tailwind CSS and ShadCN",
