@@ -35,7 +35,7 @@ const TextInput = ({
         type={type}
         placeholder={placeholder}
         className={className}
-        aria-label={name}
+        aria-label={label || name}
         {...props}
       />
       {note && (
