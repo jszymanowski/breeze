@@ -72,3 +72,21 @@ export const WithCustomStep: Story = {
     step: "10",
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    ...defaultProps,
+    label: "Disabled input:",
+    placeholder: "This input is disabled",
+    disabled: true,
+  },
+};
+
+export const ReadOnly: Story = {
+  args: {
+    ...defaultProps,
+    label: "Read-only input:",
+    value: "This is read-only content",
+    readOnly: true,
+  },
+};
