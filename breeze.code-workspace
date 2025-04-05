@@ -7,7 +7,7 @@
     {
       "name": "primitives",
       "path": "packages/primitives"
-    }
+    },
     {
       "name": "forms",
       "path": "packages/forms"
