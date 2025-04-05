@@ -4,7 +4,7 @@ import { Armchair as SampleIcon } from "lucide-react";
 import { Button } from "@/main";
 
 const meta: Meta<typeof Button> = {
-  title: "Button",
+  title: "Buttons/Default",
   component: Button,
   tags: ["autodocs"],
 } satisfies Meta<typeof Button>;
