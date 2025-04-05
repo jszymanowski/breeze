@@ -1,5 +1,5 @@
 import { THEMES, type Theme, ThemeProviderContext } from "@src/context/ThemeProviderContext";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -46,12 +46,21 @@ export default function ThemeProvider({
     };
   }, [theme]);
 
-  const value = {
-    theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
+  const setThemeCallback = useCallback(
+    (theme: Theme) => {
+      try {
+        localStorage.setItem(storageKey, theme);
+      } catch (error) {
+        console.warn("Unable to access localStorage:", error);
+      }
       setTheme(theme);
     },
+    [storageKey],
+  );
+
+  const value = {
+    theme,
+    setTheme: setThemeCallback,
   };
 
   return (

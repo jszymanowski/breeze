@@ -5,7 +5,7 @@ import React from "react";
 import ThemeProvider from "../src/context/ThemeProvider";
 import { THEMES } from "../src/context/ThemeProviderContext";
 
-import "@src/index.css";
+import "../src/index.css";
 
 const preview: Preview = {
   decorators: [
