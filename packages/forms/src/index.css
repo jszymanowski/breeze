@@ -36,6 +36,14 @@
 
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
+
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+
+    * {
+      @apply border-border outline-ring/50;
+    } 
   }
 
   .dark {
@@ -53,6 +61,10 @@
 
     --card: oklch(0.145 0 0);
     --card-foreground: oklch(0.985 0 0);
+
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
   }
 
   .slate-light {
