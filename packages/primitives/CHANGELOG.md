@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.9.0](https://github.com/jszymanowski/breeze/compare/primitives@0.8.0...primitives@0.9.0) (2025-04-05)
+
+
+### Features
+
+* Rename Breeze React as Breeze Primitives ([#187](https://github.com/jszymanowski/breeze/issues/187)) ([9170f01](https://github.com/jszymanowski/breeze/commit/9170f0152a59abcbaff7cdcfcd6c2970aaa0856b))
+
+
+### Bug Fixes
+
+* Update package.json to reflect new package name ([#190](https://github.com/jszymanowski/breeze/issues/190)) ([ccba431](https://github.com/jszymanowski/breeze/commit/ccba431db94c942a273fd6c1a03d9d22c6d44fd3))
+
 ## [0.8.0](https://github.com/jszymanowski/breeze/compare/react@0.7.0...react@0.8.0) (2025-04-05)
 
 
