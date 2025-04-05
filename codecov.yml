@@ -6,7 +6,7 @@ coverage:
         flags:
           - primitives
         paths:
-          - packages/reprimitivesact/
+          - packages/primitives/
       forms:
         flags:
           - forms
