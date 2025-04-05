@@ -68,7 +68,6 @@ export const Disabled: Story = {
   },
 };
 
-
 export const WithCustomSubmittingIcon: Story = {
   args: {
     ...defaultProps,

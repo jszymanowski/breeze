@@ -1,7 +1,6 @@
-import type React from "react";
-import { Button as BaseButton } from "@root/components/ui/button";
-
 import { Flex } from "@jszymanowski/breeze-react";
+import { Button as BaseButton } from "@root/components/ui/button";
+import type React from "react";
 
 interface ButtonGroupProps {
   children: React.ReactNode[];
@@ -66,9 +65,13 @@ export const Button = ({
   const getBaseSize = () => {
     if (size === "md") {
       return "default";
-    } else {
-      return size;
     }
+    
+    if (size === "xs") {
+      return "sm";
+    }
+    
+    return size;
   };
 
   return (
@@ -92,6 +95,6 @@ export const Button = ({
       )}
     </BaseButton>
   );
-}
+};
 
 export { ButtonGroup };

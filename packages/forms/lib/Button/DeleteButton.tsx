@@ -1,6 +1,6 @@
 import { Trash2 } from "lucide-react";
 
-import  { Button,type ButtonProps } from "@/main";
+import { Button, type ButtonProps } from "@/main";
 
 interface Props extends ButtonProps {
   disabled: boolean;

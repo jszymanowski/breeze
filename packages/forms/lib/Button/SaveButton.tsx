@@ -1,12 +1,11 @@
 import { Loader, Save } from "lucide-react";
-import React from "react";
-
 import { Button, type ButtonProps } from "@/main";
+import type { LucideIcon } from "@/types";
 
 interface Props extends ButtonProps {
   submitting: boolean;
   disabled: boolean;
-  submittingIcon?: React.ComponentType<any>;
+  submittingIcon?: LucideIcon;
 }
 
 const SaveButton = ({ submitting, disabled, submittingIcon, ...rest }: Props) => {
