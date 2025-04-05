@@ -1,5 +1,5 @@
 import type React from "react";
-import { Button as CnButton } from "@/components/ui/button";
+import { Button as CnButton } from "@root/components/ui/button";
 
 import { Flex } from "@jszymanowski/breeze-react";
 
