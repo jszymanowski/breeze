@@ -11,23 +11,6 @@ export type BaseButtonVariant =
   | "link";
 export type BaseButtonSize = "default" | "sm" | "lg" | "icon";
 
-interface ButtonGroupProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-const ButtonGroup = ({ children, className = "" }: ButtonGroupProps) => (
-  <Flex className={className}>{children}</Flex>
-);
-
-ButtonGroup.Button = ({ children, ...props }: ButtonProps) => {
-  return (
-    <Button className="not-first:-ml-1 not-last:rounded-r-none not-first:rounded-l-none" {...props}>
-      {children}
-    </Button>
-  );
-};
-
 export interface ButtonProps extends React.ComponentProps<"button"> {
   children?: React.ReactNode;
   onClick?: () => void;
@@ -105,5 +88,3 @@ export const Button = ({
     </BaseButton>
   );
 };
-
-export { ButtonGroup };
