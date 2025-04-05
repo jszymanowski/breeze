@@ -14,9 +14,9 @@ importers:
 
   packages/forms:
     dependencies:
-      '@jszymanowski/breeze-react':
-        specifier: ^0.7.0
-        version: 0.7.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.1)
+      '@jszymanowski/breeze-primitives':
+        specifier: ^0.9.0
+        version: 0.9.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.1)
       '@radix-ui/react-label':
         specifier: ^2.1.0
         version: 2.1.2(@types/react-dom@19.1.1(@types/react@19.1.0))(@types/react@19.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -707,8 +707,8 @@ packages:
   '@jszymanowski/biomejs-config@1.0.0':
     resolution: {integrity: sha512-rKHv9LVllwTtgfUbO4UvvvDD/JDp4DyUPvOuqrzNIp0k9x39oZRbs7AOXDC9dvooxRcZlnI6WKTim6rhs8AoFQ==}
 
-  '@jszymanowski/breeze-react@0.7.0':
-    resolution: {integrity: sha512-IBHmq6FijWX2pDHIYTUF/gNAMv0r2yz1ZsgMymBakWoQpAagZeqH7w1v07Z/92Mtn1mikuBWn6ezr88pO4ssCw==}
+  '@jszymanowski/breeze-primitives@0.9.0':
+    resolution: {integrity: sha512-kQmfGVx3S8N1qnKY/KeQ75V/PnkohzRnOpysnp3jq3FAEQn2/tYG4tw5gR1JCfKA6XxrsnGZt4Sova5rmw3drg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -3144,7 +3144,7 @@ snapshots:
 
   '@jszymanowski/biomejs-config@1.0.0': {}
 
-  '@jszymanowski/breeze-react@0.7.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.1)':
+  '@jszymanowski/breeze-primitives@0.9.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.1)':
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)

@@ -1,4 +1,4 @@
-import { Box, Text } from "@jszymanowski/breeze-react";
+import { Box, Text } from "@jszymanowski/breeze-primitives";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Label } from "@/main";

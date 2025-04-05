@@ -1,4 +1,4 @@
-import { Flex } from "@jszymanowski/breeze-react";
+import { Flex } from "@jszymanowski/breeze-primitives";
 import { Button as BaseButton } from "@root/components/ui/button";
 import type React from "react";
 

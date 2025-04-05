@@ -10,7 +10,7 @@ type ThemeProviderProps = {
 export default function ThemeProvider({
   children,
   defaultTheme = "light",
-  storageKey = "breeze-react-theme",
+  storageKey = "breeze-primitives-theme",
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
