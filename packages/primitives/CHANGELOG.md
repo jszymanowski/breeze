@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/jszymanowski/breeze/compare/primitives@0.9.0...primitives@0.10.0) (2025-04-09)
+
+
+### Features
+
+* **forms:** Update to breeze-primitives package ([#191](https://github.com/jszymanowski/breeze/issues/191)) ([ce4e09f](https://github.com/jszymanowski/breeze/commit/ce4e09fdb284d61edd1566856582ba490a0a2c2e))
+
 ## [0.9.0](https://github.com/jszymanowski/breeze/compare/primitives@0.8.0...primitives@0.9.0) (2025-04-05)
 
 
