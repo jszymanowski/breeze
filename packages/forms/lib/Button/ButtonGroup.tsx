@@ -1,9 +1,7 @@
 import { Flex } from "@jszymanowski/breeze-primitives";
 import type React from "react";
-
-import { Button, type ButtonProps } from "./Button";
-
 import { cn } from "@/utils";
+import { Button, type ButtonProps } from "./Button";
 
 export interface ButtonGroupProps {
   children: React.ReactNode;
@@ -16,7 +14,10 @@ export const ButtonGroup = ({ children, className = "" }: ButtonGroupProps) => (
 
 ButtonGroup.Button = ({ children, className, ...props }: ButtonProps) => {
   return (
-    <Button className={cn("not-first:-ml-1 not-last:rounded-r-none not-first:rounded-l-none", className)} {...props}>
+    <Button
+      className={cn("not-first:-ml-1 not-last:rounded-r-none not-first:rounded-l-none", className)}
+      {...props}
+    >
       {children}
     </Button>
   );
