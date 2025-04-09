@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/jszymanowski/breeze/compare/forms@0.5.0...forms@0.6.0) (2025-04-09)
+
+
+### Features
+
+* Support adding classNames to ButtonGroup.Button ([#201](https://github.com/jszymanowski/breeze/issues/201)) ([cd9353f](https://github.com/jszymanowski/breeze/commit/cd9353f8e398a1649776d7c67fa79be7c83be364))
+
 ## [0.5.0](https://github.com/jszymanowski/breeze/compare/forms@0.4.1...forms@0.5.0) (2025-04-05)
 
 
