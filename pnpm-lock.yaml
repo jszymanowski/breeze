@@ -37,8 +37,8 @@ importers:
         specifier: 2.0.0-beta.1
         version: 2.0.0-beta.1
       '@jszymanowski/biomejs-config':
-        specifier: 1.0.0
-        version: 1.0.0
+        specifier: 1.1.0
+        version: 1.1.0
       '@storybook/addon-essentials':
         specifier: 8.6.12
         version: 8.6.12(@types/react@19.1.0)(storybook@8.6.12)
@@ -142,8 +142,8 @@ importers:
         specifier: 2.0.0-beta.1
         version: 2.0.0-beta.1
       '@jszymanowski/biomejs-config':
-        specifier: 1.0.0
-        version: 1.0.0
+        specifier: 1.1.0
+        version: 1.1.0
       '@storybook/addon-essentials':
         specifier: 8.6.12
         version: 8.6.12(@types/react@19.1.0)(storybook@8.6.12)
@@ -664,8 +664,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@jszymanowski/biomejs-config@1.0.0':
-    resolution: {integrity: sha512-rKHv9LVllwTtgfUbO4UvvvDD/JDp4DyUPvOuqrzNIp0k9x39oZRbs7AOXDC9dvooxRcZlnI6WKTim6rhs8AoFQ==}
+  '@jszymanowski/biomejs-config@1.1.0':
+    resolution: {integrity: sha512-kHIYPm3pfxJMaOqwUvI6I4UpuW+z9f8mcfOf/X9274lchmEmxeMXc6GQ2me4lTp24xVuy5/IlsXN4++sBTDTww==}
 
   '@jszymanowski/breeze-primitives@0.9.0':
     resolution: {integrity: sha512-kQmfGVx3S8N1qnKY/KeQ75V/PnkohzRnOpysnp3jq3FAEQn2/tYG4tw5gR1JCfKA6XxrsnGZt4Sova5rmw3drg==}
@@ -2925,7 +2925,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@jszymanowski/biomejs-config@1.0.0': {}
+  '@jszymanowski/biomejs-config@1.1.0': {}
 
   '@jszymanowski/breeze-primitives@0.9.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.3)':
     dependencies:

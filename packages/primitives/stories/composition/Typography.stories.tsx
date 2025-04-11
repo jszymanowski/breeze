@@ -20,8 +20,8 @@ export const Marketing: Story = {
           Build your next project with our primitives
         </Heading>
         <Text size="lg" variant="muted" leading="relaxed">
-          A collection of essential UI components designed for modern web applications, built with
-          Tailwind CSS and following shadcn/ui patterns.
+          A collection of essential UI components designed for modern web applications, built with Tailwind CSS and
+          following shadcn/ui patterns.
         </Text>
       </Box>
 
@@ -32,23 +32,17 @@ export const Marketing: Story = {
 
         <Flex direction="col" gap="2">
           <Flex direction="row" gap="2" align="center">
-            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
-              ✓
-            </Box>
+            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">✓</Box>
             <Text>Fully accessible components</Text>
           </Flex>
 
           <Flex direction="row" gap="2" align="center">
-            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
-              ✓
-            </Box>
+            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">✓</Box>
             <Text>Built with Tailwind CSS</Text>
           </Flex>
 
           <Flex direction="row" gap="2" align="center">
-            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
-              ✓
-            </Box>
+            <Box className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">✓</Box>
             <Text>Follows shadcn/ui patterns</Text>
           </Flex>
         </Flex>
@@ -103,8 +97,8 @@ export const Documentation: Story = {
         </Heading>
 
         <Text leading="relaxed">
-          Welcome to our comprehensive guide. This document will walk you through all the features
-          and capabilities of our platform, helping you get the most out of your experience.
+          Welcome to our comprehensive guide. This document will walk you through all the features and capabilities of
+          our platform, helping you get the most out of your experience.
         </Text>
 
         <Box className="space-y-4">
@@ -113,17 +107,14 @@ export const Documentation: Story = {
           </Heading>
 
           <Text>
-            Installing our product is straightforward. Follow these simple steps to get up and
-            running in no time.
+            Installing our product is straightforward. Follow these simple steps to get up and running in no time.
           </Text>
 
           <Box className="ml-4 space-y-2">
             <Heading level="4" size="lg">
               Prerequisites
             </Heading>
-            <Text>
-              Before you begin, ensure you have the following tools installed on your system.
-            </Text>
+            <Text>Before you begin, ensure you have the following tools installed on your system.</Text>
 
             <Heading level="5" size="base">
               System Requirements
@@ -152,15 +143,8 @@ export const LandingPage: Story = {
         <Heading level="1" size="5xl" weight="extrabold" tracking="tight">
           Transform your workflow with AI
         </Heading>
-        <Text
-          size="xl"
-          variant="muted"
-          leading="relaxed"
-          align="center"
-          className="mx-auto max-w-2xl"
-        >
-          Our platform helps teams streamline processes and boost productivity with intelligent
-          automation.
+        <Text size="xl" variant="muted" leading="relaxed" align="center" className="mx-auto max-w-2xl">
+          Our platform helps teams streamline processes and boost productivity with intelligent automation.
         </Text>
       </Box>
 
@@ -195,8 +179,8 @@ export const LandingPage: Story = {
           Join thousands of satisfied customers
         </Heading>
         <Text size="lg" align="center" className="mx-auto max-w-2xl">
-          "This platform has revolutionized how our team works. We've seen a 40% increase in
-          productivity since implementation."
+          "This platform has revolutionized how our team works. We've seen a 40% increase in productivity since
+          implementation."
         </Text>
         <Text weight="medium" align="center">
           — Sarah Johnson, CTO at TechCorp
@@ -227,8 +211,8 @@ export const Blog: Story = {
       </Box>
 
       <Text size="lg" leading="relaxed">
-        The web development landscape continues to evolve at a rapid pace. New frameworks, tools,
-        and methodologies emerge regularly, reshaping how developers approach building for the web.
+        The web development landscape continues to evolve at a rapid pace. New frameworks, tools, and methodologies
+        emerge regularly, reshaping how developers approach building for the web.
       </Text>
 
       <Box className="space-y-4">
@@ -236,9 +220,9 @@ export const Blog: Story = {
           The Rise of Component-Based Architecture
         </Heading>
         <Text leading="relaxed">
-          Component-based architecture has transformed how developers structure applications. By
-          breaking interfaces down into reusable, independent pieces, teams can work more
-          efficiently and maintain consistency across large projects.
+          Component-based architecture has transformed how developers structure applications. By breaking interfaces
+          down into reusable, independent pieces, teams can work more efficiently and maintain consistency across large
+          projects.
         </Text>
 
         <Box className="mt-4 space-y-2">
@@ -246,9 +230,8 @@ export const Blog: Story = {
             Benefits of Primitive Components
           </Heading>
           <Text leading="relaxed">
-            Primitive components form the foundation of scalable design systems. These low-level
-            building blocks provide flexibility while ensuring consistency throughout an
-            application.
+            Primitive components form the foundation of scalable design systems. These low-level building blocks provide
+            flexibility while ensuring consistency throughout an application.
           </Text>
         </Box>
       </Box>
@@ -258,9 +241,8 @@ export const Blog: Story = {
           Looking Ahead
         </Heading>
         <Text leading="relaxed">
-          As we look to the future, several trends are shaping the next generation of web
-          development. From AI-assisted coding to enhanced accessibility standards, the industry
-          continues to evolve in exciting ways.
+          As we look to the future, several trends are shaping the next generation of web development. From AI-assisted
+          coding to enhanced accessibility standards, the industry continues to evolve in exciting ways.
         </Text>
       </Box>
     </Box>
@@ -280,9 +262,8 @@ export const Announcement: Story = {
         </Text>
 
         <Text leading="relaxed" className="mb-4">
-          We're excited to announce our new product line that will revolutionize how you interact
-          with our services. The new features include improved performance, better user experience,
-          and more customization options.
+          We're excited to announce our new product line that will revolutionize how you interact with our services. The
+          new features include improved performance, better user experience, and more customization options.
         </Text>
 
         <Text size="sm" variant="accent" weight="medium">
@@ -318,8 +299,8 @@ export const Testimonial: Story = {
         </Text>
 
         <Text align="center" size="sm" leading="relaxed" className="italic">
-          "This product has completely transformed our workflow. The time saved has allowed our team
-          to focus on what really matters — innovation."
+          "This product has completely transformed our workflow. The time saved has allowed our team to focus on what
+          really matters — innovation."
         </Text>
 
         <Text align="center" size="xs" variant="muted" className="mt-2">

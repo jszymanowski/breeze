@@ -13,11 +13,7 @@ interface Props<T extends OptionTypes> {
   children?: React.ReactElement | string;
 }
 
-export default function OptionsByFamilyGrid<T extends OptionTypes>({
-  options,
-  renderOption,
-  propKey,
-}: Props<T>) {
+export default function OptionsByFamilyGrid<T extends OptionTypes>({ options, renderOption, propKey }: Props<T>) {
   return (
     <>
       <Grid cols="5" gapX="4" className="w-full divide-y divide-dotted divide-gray-300">

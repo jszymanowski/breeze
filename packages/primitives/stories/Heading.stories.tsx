@@ -330,9 +330,7 @@ export const Truncation: Story = {
     <Box className="max-w-[600px]">
       <OptionList<boolean>
         options={[true, false]}
-        renderRowTitle={(option) => (
-          <Text align="right">{option ? "Truncated" : "Not truncated"}</Text>
-        )}
+        renderRowTitle={(option) => <Text align="right">{option ? "Truncated" : "Not truncated"}</Text>}
         renderOption={(truncated) => <Heading truncate={truncated}>{sampleLongHeading}</Heading>}
       />
     </Box>

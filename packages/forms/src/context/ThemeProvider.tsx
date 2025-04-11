@@ -30,9 +30,7 @@ export default function ThemeProvider({
     if (theme === "system") {
       let systemTheme: Theme = THEMES.LIGHT;
       try {
-        systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? THEMES.DARK
-          : THEMES.LIGHT;
+        systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? THEMES.DARK : THEMES.LIGHT;
       } catch (error) {
         console.warn("Error checking system theme preference:", error);
       }

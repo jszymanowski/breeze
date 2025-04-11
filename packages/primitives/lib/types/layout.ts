@@ -40,22 +40,7 @@ export type Size = (typeof SIZES)[number];
 
 export const WIDTHS = [
   ...SIZES,
-  ...[
-    "3xs",
-    "2xs",
-    "xs",
-    "sm",
-    "md",
-    "lg",
-    "xl",
-    "2xl",
-    "3xl",
-    "4xl",
-    "5xl",
-    "6xl",
-    "7xl",
-    "screen",
-  ],
+  ...["3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "screen"],
 ] as const;
 export type Width = (typeof WIDTHS)[number];
 
@@ -99,19 +84,7 @@ export const OVERFLOWS = ["auto", "scroll", "hidden", "clip", "visible"] as cons
 export type Overflow = (typeof OVERFLOWS)[number];
 
 // TODO: true shorthand
-export const ROUNDED_SIZES = [
-  "none",
-  "xs",
-  "sm",
-  "md",
-  "lg",
-  "xl",
-  "2xl",
-  "3xl",
-  "full",
-  true,
-  false,
-] as const;
+export const ROUNDED_SIZES = ["none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "full", true, false] as const;
 export type RoundedSize = (typeof ROUNDED_SIZES)[number];
 
 export const FLEX_DIRECTIONS = ["row", "col", "row-reverse", "col-reverse"] as const;
@@ -156,21 +129,7 @@ export const FLEX_GROWS = [
 ] as const;
 export type FlexGrow = (typeof FLEX_GROWS)[number];
 
-export const GRID_COLS = [
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "11",
-  "12",
-  "none",
-] as const;
+export const GRID_COLS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "none"] as const;
 export type GridCols = (typeof GRID_COLS)[number];
 
 export const GRID_ROWS = [
