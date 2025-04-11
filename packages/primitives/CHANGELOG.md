@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.9.1](https://github.com/jszymanowski/breeze/compare/primitives@0.9.0...primitives@0.10.0) (2025-04-11)
+## [0.9.1](https://github.com/jszymanowski/breeze/compare/primitives@0.9.0...primitives@0.9.1) (2025-04-11)
 
 ### Minor tweaks
 
