@@ -16,22 +16,7 @@ export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
-  (
-    {
-      className,
-      as: Component = "div",
-      direction,
-      align,
-      justify,
-      grow,
-      wrap,
-      gap,
-      gapX,
-      gapY,
-      ...props
-    },
-    ref,
-  ) => {
+  ({ className, as: Component = "div", direction, align, justify, grow, wrap, gap, gapX, gapY, ...props }, ref) => {
     return (
       <Component
         className={cn(

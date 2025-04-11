@@ -11,16 +11,5 @@ export const LAYOUT_ELEMENTS = [
 ] as const;
 export type LayoutElement = (typeof LAYOUT_ELEMENTS)[number];
 
-export const TYPOGRAPHY_ELEMENTS = [
-  "p",
-  "span",
-  "label",
-  "div",
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-] as const;
+export const TYPOGRAPHY_ELEMENTS = ["p", "span", "label", "div", "h1", "h2", "h3", "h4", "h5", "h6"] as const;
 export type TypographyElement = (typeof TYPOGRAPHY_ELEMENTS)[number];

@@ -2,13 +2,7 @@ import { Flex } from "@jszymanowski/breeze-primitives";
 import { Button as BaseButton } from "@root/components/ui/button";
 import type React from "react";
 
-export type BaseButtonVariant =
-  | "default"
-  | "secondary"
-  | "destructive"
-  | "outline"
-  | "ghost"
-  | "link";
+export type BaseButtonVariant = "default" | "secondary" | "destructive" | "outline" | "ghost" | "link";
 export type BaseButtonSize = "default" | "sm" | "lg" | "icon";
 
 export interface ButtonProps extends React.ComponentProps<"button"> {

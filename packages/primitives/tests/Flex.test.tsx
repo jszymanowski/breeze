@@ -3,14 +3,7 @@ import { describe, expect, it } from "vitest";
 import "@testing-library/jest-dom";
 
 import { Flex } from "@/main";
-import {
-  FLEX_ALIGNS,
-  FLEX_DIRECTIONS,
-  FLEX_GROWS,
-  FLEX_JUSTIFIES,
-  FLEX_WRAPS,
-  GAPS,
-} from "@/types";
+import { FLEX_ALIGNS, FLEX_DIRECTIONS, FLEX_GROWS, FLEX_JUSTIFIES, FLEX_WRAPS, GAPS } from "@/types";
 
 describe("Flex", () => {
   it("renders with default props", () => {
@@ -201,14 +194,7 @@ describe("Flex", () => {
 
   it("applies different combinations of props correctly", () => {
     render(
-      <Flex
-        direction="col"
-        align="center"
-        justify="between"
-        wrap="wrap"
-        gap="4"
-        data-testid="flex-element"
-      >
+      <Flex direction="col" align="center" justify="between" wrap="wrap" gap="4" data-testid="flex-element">
         Combined props
       </Flex>,
     );

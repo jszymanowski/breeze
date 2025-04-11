@@ -97,10 +97,7 @@ export const Contact: Story = {
         </Flex>
 
         <Flex direction="row" gap="4" justify="end" className="w-full">
-          <button
-            className="rounded-md bg-secondary px-4 py-2 text-secondary-foreground"
-            type="button"
-          >
+          <button className="rounded-md bg-secondary px-4 py-2 text-secondary-foreground" type="button">
             Cancel
           </button>
           <button className="rounded-md bg-primary px-4 py-2 text-primary-foreground" type="button">

@@ -66,12 +66,7 @@ describe("Text", () => {
           expectedCssClass = "text-foreground";
         } else if (variant === "inherit") {
           expectedCssClass = "text-inherit";
-        } else if (
-          variant === "primary" ||
-          variant === "secondary" ||
-          variant === "muted" ||
-          variant === "accent"
-        ) {
+        } else if (variant === "primary" || variant === "secondary" || variant === "muted" || variant === "accent") {
           expectedCssClass = `text-${variant}-foreground`;
         } else {
           expectedCssClass = `text-${variant}`;

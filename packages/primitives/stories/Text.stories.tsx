@@ -95,8 +95,7 @@ const meta: Meta<typeof Text> = {
       control: "boolean",
     },
     truncate: {
-      description:
-        "If true, prevents text from wrapping by truncating overflowing text with an ellipsis (…) if needed",
+      description: "If true, prevents text from wrapping by truncating overflowing text with an ellipsis (…) if needed",
       control: "boolean",
     },
     numeric: {
@@ -334,12 +333,7 @@ export const PolymorphicText: Story = {
     <Grid cols="2" gap="2" className="w-full max-w-4xl">
       {TYPOGRAPHY_ELEMENTS.map((element, e) => (
         <Flex key={e} justify="center" className="w-16 p-1">
-          <Text
-            key={e}
-            as={element}
-            align="center"
-            className="rounded border-1 border-accent border-dotted"
-          >
+          <Text key={e} as={element} align="center" className="rounded border-1 border-accent border-dotted">
             {"<"}
             {element}
             {">"}

@@ -309,10 +309,7 @@ export const Wrapping: Story = {
             className="w-full overflow-x-auto rounded-md border-1 border-gray-300 border-dashed bg-background p-2"
           >
             {Array.from({ length: 10 }).map((_, i) => (
-              <Box
-                key={i}
-                className="whitespace-nowrap rounded-md bg-muted p-4 text-muted-foreground"
-              >
+              <Box key={i} className="whitespace-nowrap rounded-md bg-muted p-4 text-muted-foreground">
                 Item {i + 1}
               </Box>
             ))}
