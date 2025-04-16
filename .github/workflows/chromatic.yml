@@ -1,22 +1,17 @@
 name: "Chromatic"
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "packages/**/CHANGELOG.md" # with a pending release
   pull_request:
     branches:
       - main
-    branches-ignore:
-      - "renovate/**"
   workflow_dispatch:
 
 jobs:
   chromatic-primitives:
     runs-on: ubuntu-latest
     timeout-minutes: 4
+    # Exclude Renovate PRs
+    if: ${{ !startsWith(github.head_ref, 'renovate/') }}
 
     defaults:
       run:
@@ -48,6 +43,8 @@ jobs:
   chromatic-forms:
     runs-on: ubuntu-latest
     timeout-minutes: 4
+    # Exclude Renovate PRs
+    if: ${{ !startsWith(github.head_ref, 'renovate/') }}
 
     defaults:
       run:
