@@ -4,14 +4,35 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "packages/**"
   workflow_dispatch:
 
 jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.filter.outputs.changes }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Detect file changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            primitives:
+              - 'packages/primitives/**'
+            forms:
+              - 'packages/forms/**'
+
   chromatic-primitives:
+    needs: detect-changes
     runs-on: ubuntu-latest
     timeout-minutes: 4
     # Exclude Renovate PRs
-    if: ${{ !startsWith(github.head_ref, 'renovate/') }}
+    if: ${{ needs.detect-changes.outputs.packages != '[]' && !startsWith(github.head_ref, 'renovate/') }}
 
     defaults:
       run:
@@ -41,10 +62,11 @@ jobs:
           buildScriptName: "storybook:build"
 
   chromatic-forms:
+    needs: detect-changes
     runs-on: ubuntu-latest
     timeout-minutes: 4
     # Exclude Renovate PRs
-    if: ${{ !startsWith(github.head_ref, 'renovate/') }}
+    if: ${{ needs.detect-changes.outputs.packages != '[]' && !startsWith(github.head_ref, 'renovate/') }}
 
     defaults:
       run:
