@@ -51,14 +51,14 @@ const Trigger = ({
   );
 };
 
-export default function SelectPicker({
+export const SelectPicker = ({
   options,
   value = "",
   placeholder = "Select a value...",
   className = "",
   onSelect = () => {},
   renderSelected = (selected) => selected.label,
-}: SelectPickerProps) {
+}: SelectPickerProps) => {
   const [open, setOpen] = useState(false);
 
   const selectedOption = useCallback(() => {
