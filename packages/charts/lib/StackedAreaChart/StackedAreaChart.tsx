@@ -1,29 +1,28 @@
-import { useMemo } from "react";
 import { Text } from "@jszymanowski/breeze-primitives";
 import ProperDate from "@jszymanowski/proper-date.js";
-
 import { AxisBottom, AxisLeft, type AxisScale } from "@visx/axis";
 import { curveMonotoneX } from "@visx/curve";
 import { localPoint } from "@visx/event";
+import { LinearGradient } from "@visx/gradient";
 import { GridColumns, GridRows } from "@visx/grid";
 import { useParentSize } from "@visx/responsive";
-import { scaleTime, scaleLinear } from "@visx/scale";
+import { scaleLinear, scaleTime } from "@visx/scale";
 import { AreaStack, LinePath } from "@visx/shape";
-import { max, min, bisector, extent } from "@visx/vendor/d3-array";
-import type { NumberValue } from "@visx/vendor/d3-scale";
 import { useTooltip, useTooltipInPortal } from "@visx/tooltip";
-import { defaultTooltipStyles } from "@/styles/charts";
+import { bisector, extent, max, min } from "@visx/vendor/d3-array";
+import type { NumberValue } from "@visx/vendor/d3-scale";
+import { useMemo } from "react";
 
 import { Crosshair } from "@/components/Crosshair";
 import { Separator } from "@/components/ui/separator";
 
 import chartStyle from "@/styles/charts";
+import { defaultTooltipStyles } from "@/styles/charts";
 import color from "@/styles/color";
 import { displayUsd } from "@/utilities";
-import type { VisxAreaStackData, VisxAreaStackDataPoint, VisxAreaStack } from "@/visx-types";
-import { LinearGradient } from "@visx/gradient";
 import { getTickValues, scaleUpNeatly } from "@/utilities";
-import type { TooltipData, DataPoint } from "./types";
+import type { VisxAreaStack, VisxAreaStackData, VisxAreaStackDataPoint } from "@/visx-types";
+import type { DataPoint, TooltipData } from "./types";
 
 export type StackedAreaChartProps = {
   margin?: { top: number; right: number; bottom: number; left: number };
@@ -299,4 +298,4 @@ export const StackedAreaChart = ({
       </div>
     </>
   );
-}
+};
