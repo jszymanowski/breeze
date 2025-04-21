@@ -12,6 +12,11 @@ coverage:
           - forms
         paths:
           - packages/forms/
+      charts:
+        flags:
+          - charts
+        paths:
+          - packages/charts/
 
 flags:
   primitives:
@@ -20,3 +25,6 @@ flags:
   forms:
     paths:
       - packages/forms/
+  charts:
+    paths:
+      - packages/charts/
