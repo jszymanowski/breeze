@@ -25,8 +25,8 @@ export interface SelectPickerOption {
 
 export interface SelectPickerProps {
   options: SelectPickerOption[];
-  value?: string;
   onSelect: (selected: string) => void;
+  value?: string;
   placeholder?: string;
   className?: string;
   renderSelected?: (selected: SelectPickerOption) => React.ReactNode;
