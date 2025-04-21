@@ -2,7 +2,7 @@ import { Text } from "@jszymanowski/breeze-primitives";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Text> = {
-  title: "Sample",
+  title: "Placeholder",
   component: Text,
   tags: ["autodocs"],
 } satisfies Meta<typeof Text>;
