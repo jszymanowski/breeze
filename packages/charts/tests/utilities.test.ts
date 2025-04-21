@@ -16,7 +16,9 @@ describe("chart utility functions", () => {
     test("with a positive and negative domain", () => {
       expect(getTickValues([-800, 1000])).toEqual([-800, 0, 1000]);
       expect(getTickValues([-800, 1000], 5)).toEqual([-800, -350, 0, 100, 550, 1000]);
-
+    });
+    
+    test("with a large mixed domain", () => {
       expect(getTickValues([-30_000, 40_000])).toEqual([-30_000, 0, 40_000]);
       expect(getTickValues([-30_000, 40_000], 5)).toEqual([-30_000, -12_500, 0, 5_000, 22500, 40_000]);
     });
@@ -32,6 +34,19 @@ describe("chart utility functions", () => {
     test("with a very small domain", () => {
       expect(getTickValues([0, 35])).toEqual([0, 20, 40]);
       expect(getTickValues([0, 35], 5)).toEqual([0, 10, 20, 30, 40]);
+    });
+
+    test("with the minimum domain", () => {
+      expect(getTickValues([0, 100], 3)).toEqual([0, 50, 100]);
+    });
+
+    test("a flat domain", () => {
+      expect(getTickValues([100, 100])).toEqual([0, 50, 100]);
+      expect(getTickValues([-100, -100])).toEqual([-100, -50, 0]);
+    });
+
+    test("throws error when numTicks is less than 3", () => {
+      expect(() => getTickValues([0, 100], 2)).toThrow("numTicks must be at least 3");
     });
   });
 });
