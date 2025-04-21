@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/jszymanowski/breeze/compare/charts@0.1.0...charts@0.2.0) (2025-04-21)
+
+
+### Features
+
+* Add AreaChart and StackedAreaChart ([#228](https://github.com/jszymanowski/breeze/issues/228)) ([f50baf9](https://github.com/jszymanowski/breeze/commit/f50baf92621b8330d09ce0e748a176e6d9b768f7))
+
 ## [0.1.0](https://github.com/jszymanowski/breeze/compare/charts@0.0.1...charts@0.1.0) (2025-04-21)
 
 
