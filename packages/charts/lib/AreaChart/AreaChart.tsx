@@ -36,8 +36,8 @@ export const AreaChart = ({
   const { parentRef, width, height } = useParentSize({ debounceTime: 150 });
 
   // accessors
-  const getX: (d: DataPoint) => number = (d) => d.x.getTime();
-  const getY: (d: DataPoint) => number = (d) => d.y;
+  const getX: (d: DataPoint) => number = useMemo(() => (d) => d.x.getTime(), []);
+  const getY: (d: DataPoint) => number = useMemo(() => (d) => d.y, []);
 
   // domain
   const yMin = data.length > 0 ? scaleUpNeatly(min(data, getY) || 0) : 0;

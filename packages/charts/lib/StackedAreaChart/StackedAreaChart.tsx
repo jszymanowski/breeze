@@ -171,7 +171,13 @@ export const StackedAreaChart = ({
   return (
     <>
       <div ref={parentRef} style={{ width: "100%", height: "100%" }}>
-        <svg ref={containerRef} width={width} height={height}>
+        <svg
+          ref={containerRef}
+          width={width}
+          height={height}
+          role="img"
+          aria-label="Stacked area chart showing data trends over time"
+        >
           <GridRows
             top={0}
             left={xRange[0]}
