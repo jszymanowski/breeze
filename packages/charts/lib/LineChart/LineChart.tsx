@@ -47,9 +47,9 @@ export type LineChartProps = {
 export const LineChart = ({
   data,
   label,
-  margin = { top: 10, right: 10, bottom: 0, left: 0 },
+  margin = { top: 10, right: 10, bottom: 10, left: 0 },
 }: LineChartProps) => {
-  const { parentRef, width, height } = useParentSize({ debounceTime: 150 });
+  const { parentRef, width: totalWidth, height: totalHeight } = useParentSize({ debounceTime: 150 });
   const {
     tooltipOpen,
     tooltipLeft,
@@ -59,12 +59,34 @@ export const LineChart = ({
     showTooltip,
   } = useTooltip<TooltipData>();
 
+  // dimensions
+  const yDimensions = useMemo(() => {
+    const { top, bottom } = margin;
+    const gap = 0;
+    const xAxisHeight = 25;
+    const chartHeight = totalHeight - top - xAxisHeight - gap - bottom;
+
+    return {
+      total: totalHeight,
+      layout: {
+        top,
+        chartHeight,
+        gap,
+        xAxisHeight,
+        bottom,
+      },
+      placement: {
+        axisTop: top + chartHeight + gap,
+        dateTooltipTop: top + chartHeight + gap,
+      },
+    };
+  }, [totalHeight, margin]);
+
   const { containerRef, TooltipInPortal } = useTooltipInPortal({
     scroll: true,
   });
 
   // constants
-  const xAxisHeight = 30;
   const yAxisWidth = 60 + margin.left;
 
   // domain
@@ -75,15 +97,15 @@ export const LineChart = ({
   ];
 
   // bounds
-  const maxWidth = Math.max(width - margin.left - margin.right, 0);
-  const maxHeight = Math.max(height - margin.top - margin.bottom, 0);
+  const maxWidth = Math.max(totalWidth - margin.left - margin.right, 0);
 
   // range
   const xRange = useMemo(() => [yAxisWidth, maxWidth], [yAxisWidth, maxWidth]);
   const yRange = useMemo(
-    () => [maxHeight - xAxisHeight - margin.top, margin.top],
-    [maxHeight, margin],
+    () => [yDimensions.layout.chartHeight + yDimensions.layout.top, yDimensions.layout.top],
+    [yDimensions],
   );
+
 
   // scales
   const xScale = scaleTime<number>({
@@ -152,8 +174,7 @@ export const LineChart = ({
       ref={parentRef}
       style={{ width: "100%", height: "100%", minHeight: 200 }}
     >
-      <svg ref={containerRef} width={width} height={height}>
-        <title>{label || "Line chart"}</title>
+      <svg ref={containerRef} width={totalWidth} height={yDimensions.total} className="bg-red-50">
         <LinePath<DataPoint>
           data={data}
           x={getXPlot}
@@ -206,18 +227,20 @@ export const LineChart = ({
             fontSize: 12,
           }}
         />
-        <AxisBottom
-          top={height - margin.bottom - xAxisHeight}
-          scale={xScale}
-          stroke={color.gray["600"]}
-          numTicks={numTicksForWidth(width)}
-          tickStroke={color.gray["600"]}
-          tickLabelProps={{
-            fill: color.gray["600"],
-            fontSize: 12,
-            textAnchor: "middle",
-          }}
-        />
+        <g style={{height: yDimensions.layout.xAxisHeight}} >
+          <AxisBottom
+            top={yDimensions.placement.axisTop}
+            scale={xScale}
+            stroke={color.gray["600"]}
+            numTicks={numTicksForWidth(totalWidth)}
+            tickStroke={color.gray["600"]}
+            tickLabelProps={{
+              fill: color.gray["600"],
+              fontSize: 12,
+              textAnchor: "middle",
+            }}
+          />
+        </g>
       </svg>
       {tooltipOpen && tooltipData && (
         <>
@@ -238,7 +261,7 @@ export const LineChart = ({
             </Text>
           </TooltipInPortal>
           <TooltipInPortal
-            top={height - margin.bottom - xAxisHeight}
+            top={yDimensions.placement.dateTooltipTop}
             left={tooltipLeft}
             className="bg-card/90"
             style={{
