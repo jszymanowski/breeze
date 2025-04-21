@@ -1,10 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import ProperDate from "@jszymanowski/proper-date.js";
-
-import { LineChart } from "@/main";
-
-import { createRandomTimeSeries } from "@stories/support/mockTimeSeries";
 import { mockExchangeRates } from "@stories/support/mockExchangeRates";
+import { createRandomTimeSeries } from "@stories/support/mockTimeSeries";
+import type { Meta, StoryObj } from "@storybook/react";
+import { LineChart } from "@/main";
 
 const meta: Meta<typeof LineChart> = {
   title: "Charts/LineChart",
@@ -22,7 +20,7 @@ export const Default: Story = {
   args: { data: mockData, label: "Some Rad Data" },
   decorators: [
     (Story) => (
-      <div style={{ width: "600px", height: "400px" }}>
+      <div style={{ height: "400px" }}>
         <Story />
       </div>
     ),
@@ -34,6 +32,17 @@ export const SmallContainer: Story = {
   decorators: [
     (Story) => (
       <div style={{ width: "300px", height: "300px" }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const MediumContainer: Story = {
+  args: { data: mockData, label: "Some Rad Data" },
+  decorators: [
+    (Story) => (
+      <div style={{ width: "600px", height: "600px" }}>
         <Story />
       </div>
     ),
@@ -55,7 +64,7 @@ export const NoLabel: Story = {
   args: { data: mockData },
   decorators: [
     (Story) => (
-      <div style={{ width: "600px", height: "400px" }}>
+      <div style={{ height: "400px" }}>
         <Story />
       </div>
     ),
@@ -66,7 +75,7 @@ export const NoData: Story = {
   args: { data: [] },
   decorators: [
     (Story) => (
-      <div style={{ width: "600px", height: "400px" }}>
+      <div style={{ height: "400px" }}>
         <Story />
       </div>
     ),
@@ -83,7 +92,7 @@ export const WithExchangeRates: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: "600px", height: "400px" }}>
+      <div style={{ height: "400px" }}>
         <Story />
       </div>
     ),

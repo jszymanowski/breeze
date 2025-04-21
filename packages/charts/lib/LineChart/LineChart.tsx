@@ -1,20 +1,17 @@
-import type React from "react";
-import { useMemo } from "react";
+import { Flex, Text } from "@jszymanowski/breeze-primitives";
 import type ProperDate from "@jszymanowski/proper-date.js";
-
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { curveMonotoneX } from "@visx/curve";
 import { localPoint } from "@visx/event";
+import { LinearGradient } from "@visx/gradient";
 import { useParentSize } from "@visx/responsive";
-import { scaleTime, scaleLinear } from "@visx/scale";
+import { scaleLinear, scaleTime } from "@visx/scale";
 import { AreaClosed, LinePath } from "@visx/shape";
 import { useTooltip, useTooltipInPortal } from "@visx/tooltip";
 import { bisector, extent, max, min } from "@visx/vendor/d3-array";
-import { LinearGradient } from "@visx/gradient";
-
+import type React from "react";
+import { useMemo } from "react";
 import Crosshair from "@/components/Crosshair";
-
-import { Box, Text } from "@jszymanowski/breeze-primitives";
 import { Separator } from "@/components/ui/separator";
 
 import chartStyle, { defaultTooltipStyles } from "@/styles/charts";
@@ -44,27 +41,16 @@ export type LineChartProps = {
   margin?: { top: number; right: number; bottom: number; left: number };
 };
 
-export const LineChart = ({
-  data,
-  label,
-  margin = { top: 10, right: 10, bottom: 10, left: 10 },
-}: LineChartProps) => {
+export const LineChart = ({ data, label, margin = { top: 10, right: 10, bottom: 10, left: 10 } }: LineChartProps) => {
   const { parentRef, width: totalWidth, height: totalHeight } = useParentSize({ debounceTime: 150 });
-  const {
-    tooltipOpen,
-    tooltipLeft,
-    tooltipTop = 0,
-    tooltipData,
-    hideTooltip,
-    showTooltip,
-  } = useTooltip<TooltipData>();
+  const { tooltipOpen, tooltipLeft, tooltipTop = 0, tooltipData, hideTooltip, showTooltip } = useTooltip<TooltipData>();
 
   // dimensions
   const xDimensions = useMemo(() => {
     const { left, right } = margin;
     const gap = 0;
     const yAxisWidth = 50;
-    const chartWidth = totalWidth - left - gap - yAxisWidth -right;
+    const chartWidth = totalWidth - left - gap - yAxisWidth - right;
 
     return {
       total: totalWidth,
@@ -80,8 +66,7 @@ export const LineChart = ({
         chartLeft: left + yAxisWidth + gap,
       },
     };
-  }, [totalHeight, margin]);
-  console.log('xDimensions', xDimensions)
+  }, [margin, totalWidth]);
 
   const yDimensions = useMemo(() => {
     const { top, bottom } = margin;
@@ -109,21 +94,19 @@ export const LineChart = ({
     scroll: true,
   });
 
-
   // domain
   const xDomain: [Date, Date] = extent(data, getX) as [Date, Date];
-  const yDomain: [number, number] = [
-    (min(data, getY) as number) * 0.975,
-    (max(data, getY) as number) * 1.025,
-  ];
+  const yDomain: [number, number] = [(min(data, getY) as number) * 0.975, (max(data, getY) as number) * 1.025];
 
   // range
-  const xRange = useMemo(() => [xDimensions.placement.chartLeft, xDimensions.layout.chartWidth + xDimensions.placement.chartLeft], [xDimensions]);
+  const xRange = useMemo(
+    () => [xDimensions.placement.chartLeft, xDimensions.layout.chartWidth + xDimensions.placement.chartLeft],
+    [xDimensions],
+  );
   const yRange = useMemo(
     () => [yDimensions.layout.chartHeight + yDimensions.layout.top, yDimensions.layout.top],
     [yDimensions],
   );
-
 
   // scales
   const xScale = scaleTime<number>({
@@ -151,10 +134,7 @@ export const LineChart = ({
     const d1 = data[index];
     let d = d0;
     if (d1 && getX(d1)) {
-      d =
-        x0.valueOf() - getX(d0).valueOf() > getX(d1).valueOf() - x0.valueOf()
-          ? d1
-          : d0;
+      d = x0.valueOf() - getX(d0).valueOf() > getX(d1).valueOf() - x0.valueOf() ? d1 : d0;
     }
     const left = x;
 
@@ -169,29 +149,20 @@ export const LineChart = ({
     });
   };
 
-  const getXPlot = useMemo(
-    () => (d: DataPoint) => xScale(getX(d)) || 0,
-    [xScale],
-  );
-  const getYPlot = useMemo(
-    () => (d: DataPoint) => yScale(getY(d)) || 0,
-    [yScale],
-  );
+  const getXPlot = useMemo(() => (d: DataPoint) => xScale(getX(d)) || 0, [xScale]);
+  const getYPlot = useMemo(() => (d: DataPoint) => yScale(getY(d)) || 0, [yScale]);
 
   // Empty data case
   if (!data || data.length === 0) {
     return (
-      <Box width="full" height="full" className="min-h-[200px]">
+      <Flex align="center" justify="center" className="h-full w-full border">
         <Text className="p-4 text-center">No data available</Text>
-      </Box>
+      </Flex>
     );
   }
 
   return (
-    <div
-      ref={parentRef}
-      style={{ width: "100%", height: "100%", minHeight: 200 }}
-    >
+    <div ref={parentRef} style={{ width: "100%", height: "100%", minHeight: 200 }}>
       <svg ref={containerRef} width={totalWidth} height={yDimensions.total}>
         <LinePath<DataPoint>
           data={data}
@@ -245,7 +216,7 @@ export const LineChart = ({
             fontSize: 12,
           }}
         />
-        <g style={{height: yDimensions.layout.xAxisHeight}} >
+        <g style={{ height: yDimensions.layout.xAxisHeight }}>
           <AxisBottom
             top={yDimensions.placement.axisTop}
             scale={xScale}
@@ -262,12 +233,7 @@ export const LineChart = ({
       </svg>
       {tooltipOpen && tooltipData && (
         <>
-          <TooltipInPortal
-            top={tooltipData.y}
-            left={tooltipLeft}
-            className="bg-card/90"
-            style={defaultTooltipStyles}
-          >
+          <TooltipInPortal top={tooltipData.y} left={tooltipLeft} className="bg-card/90" style={defaultTooltipStyles}>
             {label ? (
               <>
                 <Text weight="semibold">{label}</Text>
@@ -293,4 +259,4 @@ export const LineChart = ({
       )}
     </div>
   );
-}
+};

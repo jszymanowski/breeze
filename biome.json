@@ -7,7 +7,8 @@
         "noArrayIndexKey": "warn"
       },
       "a11y": {
-        "useSemanticElements": "warn"
+        "useSemanticElements": "warn",
+        "noSvgWithoutTitle": "warn"
       }
     }
   }

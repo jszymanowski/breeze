@@ -1,5 +1,5 @@
-import React from "react";
 import { Line } from "@visx/shape";
+import React from "react";
 
 import chartStyle from "@/styles/charts";
 import color from "@/styles/color";
@@ -26,7 +26,7 @@ const Crosshair = React.memo(function Crosshair({
   pointColor = chartStyle.colors.primary,
 }: CrosshairProps) {
   return (
-    <g aria-hidden="true">
+    <g>
       <Line
         from={{ x: left, y: yOffset }}
         to={{ x: left, y: height }}
@@ -45,15 +45,7 @@ const Crosshair = React.memo(function Crosshair({
         pointerEvents="none"
         strokeDasharray="5,3"
       />
-      <circle
-        cx={left}
-        cy={top}
-        r={6}
-        fill={pointColor}
-        stroke="white"
-        strokeWidth={2}
-        pointerEvents="none"
-      />
+      <circle cx={left} cy={top} r={6} fill={pointColor} stroke="white" strokeWidth={2} pointerEvents="none" />
     </g>
   );
 });
