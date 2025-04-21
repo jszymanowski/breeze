@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/jszymanowski/breeze/compare/forms@0.6.0...forms@0.7.0) (2025-04-21)
+
+
+### Features
+
+* Add SelectPicker ([#223](https://github.com/jszymanowski/breeze/issues/223)) ([2743103](https://github.com/jszymanowski/breeze/commit/2743103a0cd0fb463e570316a3ad22373c2ea1be))
+
 ## [0.6.0](https://github.com/jszymanowski/breeze/compare/forms@0.5.0...forms@0.6.0) (2025-04-09)
 
 
