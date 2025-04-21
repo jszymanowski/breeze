@@ -3,30 +3,41 @@ import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@/utils";
 import { Button } from "@root/components/ui/button";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@root/components/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@root/components/ui/popover";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@root/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@root/components/ui/popover";
 
-export interface Option {
+export interface SelectPickerOption {
   icon?: string;
   value: string;
   label: string;
 }
 
-interface SelectPickerProps {
-  options: Option[];
+export interface SelectPickerProps {
+  options: SelectPickerOption[];
   value?: string;
   onSelect: (selected: string) => void;
   placeholder?: string;
   className?: string;
-  renderSelected?: (selected: Option) => React.ReactNode;
+  renderSelected?: (selected: SelectPickerOption) => React.ReactNode;
 }
 
 interface TriggerProps {
-  selected?: Option;
+  selected?: SelectPickerOption;
   placeholder: string;
   className: string;
   open: boolean;
-  renderSelected?: (selected: Option) => React.ReactNode;
+  renderSelected?: (selected: SelectPickerOption) => React.ReactNode;
 }
 
 const Trigger = ({
@@ -89,9 +100,18 @@ export const SelectPicker = ({
                     onSelect(option.value);
                   }}
                 >
-                  {option.icon ? <span className="mr-2">{option.icon}</span> : ""}
+                  {option.icon ? (
+                    <span className="mr-2">{option.icon}</span>
+                  ) : (
+                    ""
+                  )}
                   {option.label}
-                  <Check className={cn("ml-auto", option.value === value ? "opacity-100" : "opacity-0")} />
+                  <Check
+                    className={cn(
+                      "ml-auto",
+                      option.value === value ? "opacity-100" : "opacity-0"
+                    )}
+                  />
                 </CommandItem>
               ))}
             </CommandGroup>
@@ -100,4 +120,4 @@ export const SelectPicker = ({
       </PopoverContent>
     </Popover>
   );
-}
+};
