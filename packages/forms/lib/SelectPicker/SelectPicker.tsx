@@ -9,7 +9,7 @@ import {
 } from "@root/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@root/components/ui/popover";
 import { Check, ChevronsUpDown } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { cn } from "@/utils";
 
 export interface SelectPickerOption {
@@ -44,12 +44,7 @@ const Trigger = ({
 }: TriggerProps) => {
   return (
     <PopoverTrigger asChild>
-      <Button
-        variant="outline"
-        role="combobox"
-        aria-expanded={open}
-        className={`w-[200px] justify-between ${className}`}
-      >
+      <Button variant="outline" role="combobox" aria-expanded={open} className={`justify-between ${className}`}>
         {renderSelected(selected || { label: placeholder, value: "" })}
         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
       </Button>
@@ -67,14 +62,12 @@ export const SelectPicker = ({
 }: SelectPickerProps) => {
   const [open, setOpen] = useState(false);
 
-  const selectedOption = useCallback(() => {
-    return options.find((option) => option.value === value);
-  }, [options, value]);
+  const selectedOption = useMemo(() => options.find((option) => option.value === value), [options, value]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <Trigger
-        selected={selectedOption()}
+        selected={selectedOption}
         placeholder={placeholder}
         open={open}
         className={`w-full ${className}`}
@@ -82,7 +75,7 @@ export const SelectPicker = ({
       />
       <PopoverContent className="w-full p-0">
         <Command value={value}>
-          <CommandInput placeholder="Search" className="h-9" />
+          <CommandInput placeholder="Search" className="h-9" aria-label="Search options" />
           <CommandList>
             <CommandEmpty>No results found</CommandEmpty>
             <CommandGroup>

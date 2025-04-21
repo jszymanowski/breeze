@@ -48,7 +48,6 @@ const options = [
   },
 ];
 const defaultProps = {
-  className: "w-[220px]",
   options,
 };
 
