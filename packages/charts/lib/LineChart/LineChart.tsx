@@ -171,7 +171,6 @@ export const LineChart = ({ data, label, margin = { top: 10, right: 10, bottom: 
           stroke={chartStyle.colors.primaryDark}
           strokeWidth={1.5}
           shapeRendering="geometricPrecision"
-          markerMid="url(#marker-circle)"
         />
         <LinearGradient
           id="area-gradient"
@@ -199,8 +198,8 @@ export const LineChart = ({ data, label, margin = { top: 10, right: 10, bottom: 
           <Crosshair
             left={tooltipLeft as number}
             top={tooltipTop}
-            width={innerWidth}
-            height={innerHeight}
+            width={xDimensions.total}
+            height={yDimensions.total}
             pointColor={chartStyle.colors.primaryDark}
           />
         )}
