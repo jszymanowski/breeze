@@ -79,7 +79,7 @@ describe("SelectPicker", () => {
     expect(trigger).toHaveTextContent("Select a value...");
 
     fireEvent.click(trigger);
-    
+
     const optionContainer = screen.getByRole("listbox");
     const options = within(optionContainer).getAllByRole("option");
     expect(options).toHaveLength(OPTIONS.length);
@@ -99,7 +99,9 @@ describe("SelectPicker", () => {
 
   it("renders with a custom renderSelected function", () => {
     const renderSelected = ({ label }: SelectPickerOption) => `The thing is ${label}`;
-    render(<SelectPicker options={OPTIONS} onSelect={onSelect} value={OPTIONS[0].value} renderSelected={renderSelected} />);
+    render(
+      <SelectPicker options={OPTIONS} onSelect={onSelect} value={OPTIONS[0].value} renderSelected={renderSelected} />,
+    );
 
     const trigger = screen.getByRole("combobox") as HTMLButtonElement;
     expect(trigger).toHaveTextContent("The thing is Earth");

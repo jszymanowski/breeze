@@ -9,7 +9,7 @@ import {
 } from "@root/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@root/components/ui/popover";
 import { Check, ChevronsUpDown } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { cn } from "@/utils";
 
 export interface SelectPickerOption {
