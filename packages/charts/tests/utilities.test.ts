@@ -1,5 +1,5 @@
-import { getTickValues } from "@/utilities";
 import { describe, expect, test } from "vitest";
+import { getTickValues } from "@/utilities";
 
 describe("chart utility functions", () => {
   describe("getTickValues", () => {
