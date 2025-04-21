@@ -11,7 +11,7 @@ import { useTooltip, useTooltipInPortal } from "@visx/tooltip";
 import { bisector, extent, max, min } from "@visx/vendor/d3-array";
 import type React from "react";
 import { useMemo } from "react";
-import Crosshair from "@/components/Crosshair";
+import { Crosshair } from "@/components/Crosshair";
 import { Separator } from "@/components/ui/separator";
 
 import chartStyle, { defaultTooltipStyles } from "@/styles/charts";

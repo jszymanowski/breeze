@@ -15,7 +15,7 @@ interface CrosshairProps {
   pointColor?: string;
 }
 
-const Crosshair = React.memo(function Crosshair({
+export const Crosshair = React.memo(function Crosshair({
   left,
   top,
   xOffset = 0,
@@ -49,5 +49,3 @@ const Crosshair = React.memo(function Crosshair({
     </g>
   );
 });
-
-export default Crosshair;

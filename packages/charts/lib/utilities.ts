@@ -41,3 +41,11 @@ export function getTickValues(domain: [number, number], numTicks = 3): number[] 
 
   return sortBy(ticks);
 }
+
+export function displayUsd(amount: number, round?: boolean): string {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: round ? 0 : 2,
+  }).format(amount);
+}
