@@ -26,6 +26,8 @@ jobs:
               - 'packages/primitives/**'
             forms:
               - 'packages/forms/**'
+            charts:
+              - 'packages/charts/**'
 
   chromatic-primitives:
     needs: detect-changes
@@ -65,6 +67,7 @@ jobs:
     needs: detect-changes
     runs-on: ubuntu-latest
     timeout-minutes: 4
+
     # Exclude Renovate PRs
     if: ${{ needs.detect-changes.outputs.packages != '[]' && !startsWith(github.head_ref, 'renovate/') }}
 

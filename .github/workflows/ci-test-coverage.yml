@@ -30,6 +30,8 @@ jobs:
               - 'packages/primitives/**'
             forms:
               - 'packages/forms/**'
+            charts:
+              - 'packages/charts/**'
 
   test-coverage:
     needs: detect-changes

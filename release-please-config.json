@@ -10,6 +10,11 @@
       "release-type": "node",
       "package-name": "@jszymanowski/breeze-forms",
       "component": "forms"
+    },
+    "packages/charts": {
+      "release-type": "node",
+      "package-name": "@jszymanowski/breeze-charts",
+      "component": "charts"
     }
   },
   "tag-separator": "@",

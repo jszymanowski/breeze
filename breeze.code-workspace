@@ -11,6 +11,10 @@
     {
       "name": "forms",
       "path": "packages/forms"
+    },
+    {
+      "name": "charts",
+      "path": "packages/charts"
     }
   ],
   "settings": {

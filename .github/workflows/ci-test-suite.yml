@@ -25,6 +25,8 @@ jobs:
               - 'packages/primitives/**'
             forms:
               - 'packages/forms/**'
+            charts:
+              - 'packages/charts/**'
 
   test-suite:
     needs: detect-changes
