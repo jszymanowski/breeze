@@ -47,7 +47,7 @@ export type LineChartProps = {
 export const LineChart = ({
   data,
   label,
-  margin = { top: 10, right: 10, bottom: 10, left: 0 },
+  margin = { top: 10, right: 10, bottom: 10, left: 10 },
 }: LineChartProps) => {
   const { parentRef, width: totalWidth, height: totalHeight } = useParentSize({ debounceTime: 150 });
   const {
@@ -60,6 +60,29 @@ export const LineChart = ({
   } = useTooltip<TooltipData>();
 
   // dimensions
+  const xDimensions = useMemo(() => {
+    const { left, right } = margin;
+    const gap = 0;
+    const yAxisWidth = 50;
+    const chartWidth = totalWidth - left - gap - yAxisWidth -right;
+
+    return {
+      total: totalWidth,
+      layout: {
+        left,
+        chartWidth,
+        gap,
+        yAxisWidth,
+        right,
+      },
+      placement: {
+        axisLeft: left + yAxisWidth,
+        chartLeft: left + yAxisWidth + gap,
+      },
+    };
+  }, [totalHeight, margin]);
+  console.log('xDimensions', xDimensions)
+
   const yDimensions = useMemo(() => {
     const { top, bottom } = margin;
     const gap = 0;
@@ -86,8 +109,6 @@ export const LineChart = ({
     scroll: true,
   });
 
-  // constants
-  const yAxisWidth = 60 + margin.left;
 
   // domain
   const xDomain: [Date, Date] = extent(data, getX) as [Date, Date];
@@ -96,11 +117,8 @@ export const LineChart = ({
     (max(data, getY) as number) * 1.025,
   ];
 
-  // bounds
-  const maxWidth = Math.max(totalWidth - margin.left - margin.right, 0);
-
   // range
-  const xRange = useMemo(() => [yAxisWidth, maxWidth], [yAxisWidth, maxWidth]);
+  const xRange = useMemo(() => [xDimensions.placement.chartLeft, xDimensions.layout.chartWidth + xDimensions.placement.chartLeft], [xDimensions]);
   const yRange = useMemo(
     () => [yDimensions.layout.chartHeight + yDimensions.layout.top, yDimensions.layout.top],
     [yDimensions],
@@ -174,7 +192,7 @@ export const LineChart = ({
       ref={parentRef}
       style={{ width: "100%", height: "100%", minHeight: 200 }}
     >
-      <svg ref={containerRef} width={totalWidth} height={yDimensions.total} className="bg-red-50">
+      <svg ref={containerRef} width={totalWidth} height={yDimensions.total}>
         <LinePath<DataPoint>
           data={data}
           x={getXPlot}
@@ -216,7 +234,7 @@ export const LineChart = ({
           />
         )}
         <AxisLeft
-          left={yAxisWidth}
+          left={xDimensions.placement.axisLeft}
           scale={yScale}
           hideZero={true}
           stroke={color.gray["600"]}
