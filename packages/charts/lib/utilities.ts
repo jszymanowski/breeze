@@ -1,4 +1,5 @@
-import { sortBy, uniq } from "lodash";
+import sortBy from "lodash/sortBy";
+import uniq from "lodash/uniq";
 
 export function scaleUpNeatly(number: number): number {
   if (number === 0) {
@@ -33,7 +34,7 @@ export function getTickValues(domain: [number, number], numTicks = 3): number[] 
 
     for (let i = 1; i < numTicks - 1; i++) {
       const newTick = minTick + tickInterval * i;
-      if (!ticks.includes(newTick)) {
+      if (!ticks.some((t) => Math.abs(t - newTick) < 1e-6)) {
         ticks.push(newTick);
       }
     }

@@ -11,7 +11,7 @@ import { AreaStack, LinePath } from "@visx/shape";
 import { useTooltip, useTooltipInPortal } from "@visx/tooltip";
 import { bisector, extent, max, min } from "@visx/vendor/d3-array";
 import type { NumberValue } from "@visx/vendor/d3-scale";
-import { useMemo } from "react";
+import { useId, useMemo, useRef } from "react";
 
 import { Crosshair } from "@/components/Crosshair";
 import { Separator } from "@/components/ui/separator";
@@ -42,7 +42,7 @@ export const StackedAreaChart = ({
     hideTooltip,
     showTooltip,
   } = useTooltip<TooltipData>();
-  let tooltipTimeout: number;
+  const tooltipTimeout = useRef<number>(0);
 
   const { containerRef, TooltipInPortal } = useTooltipInPortal({
     scroll: true,
@@ -52,8 +52,8 @@ export const StackedAreaChart = ({
   const xAxisHeight = 30;
   const xAxisTop = Math.max(height - xAxisHeight, 0);
   const xAxisTicks = 6;
-  const yAxisWidth = 60 + margin.left;
-  const yAxisTicks = 5; // TODO: compute this, based on height
+  const yAxisWidth = 60;
+  const yAxisTicks = 5;
 
   // accessors
   const getX: (d: DataPoint) => number = (d) => d.x.getTime();
@@ -83,7 +83,7 @@ export const StackedAreaChart = ({
   const maxHeight = Math.max(height - margin.top - margin.bottom, 0);
 
   // range
-  const xRange = useMemo(() => [yAxisWidth, maxWidth], [yAxisWidth, maxWidth]);
+  const xRange = useMemo(() => [yAxisWidth, maxWidth], [maxWidth]);
   const yRange = useMemo(() => [maxHeight - xAxisHeight + margin.top, margin.top], [maxHeight, margin]);
 
   // domain
@@ -144,7 +144,7 @@ export const StackedAreaChart = ({
   // event handlers
   const bisectDate = bisector<DataPoint, Date>((d) => d.x).left; // TODO: move this or something
   const onMouseMove = (event: React.PointerEvent<SVGRectElement>, stack: VisxAreaStack) => {
-    if (tooltipTimeout) clearTimeout(tooltipTimeout);
+    if (tooltipTimeout.current) clearTimeout(tooltipTimeout.current);
     const { x } = localPoint(event) || { x: 0, y: 0 }; // relative to SVG
     const x0 = xScale.invert(x);
     const index = bisectDate(data, x0, 1);
@@ -157,7 +157,7 @@ export const StackedAreaChart = ({
     const left = x;
 
     showTooltip({
-      tooltipData: getTooltipData({ ...stack, index }),
+      tooltipData: getTooltipData({ key: stack.key, index }),
       tooltipTop: yScale(d.yTotal),
       tooltipLeft: left,
     });
@@ -165,6 +165,8 @@ export const StackedAreaChart = ({
 
   const gridColor = color.gray["400"];
   const axesColor = color.gray["600"];
+
+  const gradientId = useId();
 
   return (
     <>
@@ -188,7 +190,7 @@ export const StackedAreaChart = ({
             strokeDasharray="1,2"
           />
           <LinearGradient
-            id="stacked-area-gradient"
+            id={gradientId}
             from={chartStyle.colors.primaryMediumDark}
             to={chartStyle.colors.primaryMediumLight}
             toOpacity={0.5}
@@ -202,7 +204,7 @@ export const StackedAreaChart = ({
             curve={curveMonotoneX}
           />
           <AreaStack
-            keys={getKeys(data[0])}
+            keys={data.length ? getKeys(data[0]) : []}
             data={data.map(getAreaStackData)}
             offset="diverging"
             x={(d: VisxAreaStackDataPoint) => xScale(getStackX(d)) ?? 0}
@@ -217,9 +219,9 @@ export const StackedAreaChart = ({
                   d={path(stack) || ""}
                   stroke={chartStyle.colors.primaryDark}
                   strokeWidth={0.5}
-                  fill="url(#stacked-area-gradient)"
+                  fill={`url(#${gradientId})`}
                   onMouseLeave={() => {
-                    tooltipTimeout = window.setTimeout(() => {
+                    tooltipTimeout.current = window.setTimeout(() => {
                       hideTooltip();
                     }, 300);
                   }}

@@ -40,9 +40,12 @@ export const AreaChart = ({
   const getY: (d: DataPoint) => number = (d) => d.y;
 
   // domain
-  const yMin = scaleUpNeatly(min(data, getY) || 0);
-  const yMax = scaleUpNeatly(max(data, getY) || 0);
-  const xDomain: [number, number] = extent(data, getX) as [number, number];
+  const yMin = data.length > 0 ? scaleUpNeatly(min(data, getY) || 0) : 0;
+  const yMax = data.length > 0 ? scaleUpNeatly(max(data, getY) || 0) : 0;
+  const xDomain: [number, number] =
+    data.length > 0
+      ? (extent(data, getX) as [number, number])
+      : [new Date().getTime() - 86400000, new Date().getTime()]; // Default to last 24 hours if no data
   const yDomain: [number, number] = useMemo(
     () => [Math.min(0, yMin), Math.max(0, yMax)] as [number, number],
     [yMin, yMax],
@@ -75,6 +78,18 @@ export const AreaChart = ({
   const getXPlot = (d: DataPoint) => xScale(getX(d)) || 0;
   const getYPlot = () => yScale(0);
   const getY0Plot = (d: DataPoint) => yScale(getY(d)) || 0;
+
+  // Handle empty data case
+  if (data.length === 0) {
+    return (
+      <div
+        ref={parentRef}
+        style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
+        <div>No data available</div>
+      </div>
+    );
+  }
 
   return (
     <div ref={parentRef} style={{ width: "100%", height: "100%" }}>

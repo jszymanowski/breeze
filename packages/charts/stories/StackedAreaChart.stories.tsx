@@ -108,7 +108,7 @@ export const NegativeBalances: Story = {
   },
 };
 
-export const MixedPostitiveAndNegativeBalances: Story = {
+export const MixedPositiveAndNegativeBalances: Story = {
   args: {
     data: [
       buildSeriesDataPoint("2018-01-01", -12_250),

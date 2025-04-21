@@ -50,7 +50,7 @@ export const Brush = ({
   const brushRef = useRef<BaseBrush | null>(null);
 
   const getX: (d: DataPoint) => number = useCallback((d) => d.x.getTime(), []);
-  const getY: (d: DataPoint) => number = (d) => d.y;
+  const getY: (d: DataPoint) => number = useCallback((d) => d.y, []);
 
   // bounds
   const maxWidth = Math.max(width - margin.left - margin.right, 0);
@@ -81,6 +81,13 @@ export const Brush = ({
 
   // positioning
   const initialBrushPosition = useMemo(() => {
+    if (data.length === 0) {
+      return {
+        start: { x: 0 },
+        end: { x: 0 },
+      };
+    }
+
     const initialIndex = Math.round((data.length - 1) * 0.75);
     const initialX = getX(data[initialIndex]);
 
@@ -101,7 +108,7 @@ export const Brush = ({
     stroke: "white",
   };
 
-  if (width === 0 || height === 0) {
+  if (width === 0 || height === 0 || data.length === 0) {
     return null;
   }
 
