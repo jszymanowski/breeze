@@ -5,6 +5,9 @@
     "rules": {
       "suspicious": {
         "noArrayIndexKey": "warn"
+      },
+      "a11y": {
+        "useSemanticElements": "warn"
       }
     }
   }

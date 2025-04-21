@@ -1,7 +1,3 @@
-import { useCallback, useState } from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
-
-import { cn } from "@/utils";
 import { Button } from "@root/components/ui/button";
 import {
   Command,
@@ -11,11 +7,10 @@ import {
   CommandItem,
   CommandList,
 } from "@root/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@root/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@root/components/ui/popover";
+import { Check, ChevronsUpDown } from "lucide-react";
+import { useCallback, useState } from "react";
+import { cn } from "@/utils";
 
 export interface SelectPickerOption {
   icon?: string;
@@ -100,18 +95,9 @@ export const SelectPicker = ({
                     onSelect(option.value);
                   }}
                 >
-                  {option.icon ? (
-                    <span className="mr-2">{option.icon}</span>
-                  ) : (
-                    ""
-                  )}
+                  {option.icon ? <span className="mr-2">{option.icon}</span> : ""}
                   {option.label}
-                  <Check
-                    className={cn(
-                      "ml-auto",
-                      option.value === value ? "opacity-100" : "opacity-0"
-                    )}
-                  />
+                  <Check className={cn("ml-auto", option.value === value ? "opacity-100" : "opacity-0")} />
                 </CommandItem>
               ))}
             </CommandGroup>

@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import { Flex, Text } from "@jszymanowski/breeze-primitives";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { SelectPicker, type SelectPickerOption } from "@/main";
 
