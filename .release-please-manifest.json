@@ -1,5 +1,5 @@
 {
   "packages/primitives": "0.9.1",
   "packages/forms": "0.7.0",
-  "packages/charts": "0.0.1"
+  "packages/charts": "0.1.0"
 }
