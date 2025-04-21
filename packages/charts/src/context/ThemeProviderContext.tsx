@@ -4,8 +4,6 @@ export const THEMES = {
   LIGHT: "light",
   DARK: "dark",
   SYSTEM: "system",
-  SLATE_LIGHT: "slate-light",
-  SLATE_DARK: "slate-dark",
 } as const;
 const themeValues = Object.values(THEMES);
 

@@ -111,9 +111,6 @@ importers:
       chromatic:
         specifier: 11.28.0
         version: 11.28.0
-      clsx:
-        specifier: 2.1.1
-        version: 2.1.1
       conventional-changelog-conventionalcommits:
         specifier: 8.0.0
         version: 8.0.0
@@ -132,9 +129,6 @@ importers:
       storybook:
         specifier: 8.6.12
         version: 8.6.12
-      tailwind-merge:
-        specifier: 3.2.0
-        version: 3.2.0
       tailwindcss:
         specifier: 4.1.4
         version: 4.1.4

@@ -20,8 +20,6 @@ const preview: Preview = {
       themes: {
         [THEMES.LIGHT]: "",
         [THEMES.DARK]: THEMES.DARK,
-        [THEMES.SLATE_LIGHT]: THEMES.SLATE_LIGHT,
-        [THEMES.SLATE_DARK]: THEMES.SLATE_DARK,
       },
       defaultTheme: THEMES.LIGHT,
       parentSelector: "html",
