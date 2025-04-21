@@ -17,7 +17,7 @@ describe("chart utility functions", () => {
       expect(getTickValues([-800, 1000])).toEqual([-800, 0, 1000]);
       expect(getTickValues([-800, 1000], 5)).toEqual([-800, -350, 0, 100, 550, 1000]);
     });
-    
+
     test("with a large mixed domain", () => {
       expect(getTickValues([-30_000, 40_000])).toEqual([-30_000, 0, 40_000]);
       expect(getTickValues([-30_000, 40_000], 5)).toEqual([-30_000, -12_500, 0, 5_000, 22500, 40_000]);
