@@ -23,7 +23,6 @@ import { displayUsd } from "@/utilities";
 import type { VisxAreaStackData, VisxAreaStackDataPoint, VisxAreaStack } from "@/visx-types";
 import { LinearGradient } from "@visx/gradient";
 import { getTickValues, scaleUpNeatly } from "@/utilities";
-import type { DatabaseIdentifier } from "@/types";
 import type { TooltipData, DataPoint } from "./types";
 
 export type StackedAreaChartProps = {
@@ -63,7 +62,7 @@ export const StackedAreaChart = ({
   const getStackX: (d: VisxAreaStackDataPoint) => number = (d) => getX(d.data as unknown as DataPoint);
   const getStackY0 = (d: VisxAreaStackDataPoint) => d[0];
   const getStackY1 = (d: VisxAreaStackDataPoint) => d[1];
-  const getKeys: (d: DataPoint) => DatabaseIdentifier[] = (d) => d.ySeries.map((s) => s.key);
+  const getKeys: (d: DataPoint) => string[] = (d) => d.ySeries.map((s) => s.key);
 
   const getTooltipData = (stack: VisxAreaStack): TooltipData => {
     const { index, key } = stack;

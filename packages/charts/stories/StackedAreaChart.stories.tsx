@@ -2,8 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { StackedAreaChart } from "@/main";
 
-const createDatabaseIdentifier = (): string => crypto.randomUUID();
-
 const meta: Meta<typeof StackedAreaChart> = {
   title: "Charts/StackedAreaChart",
   component: StackedAreaChart,
@@ -21,7 +19,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const keys = [createDatabaseIdentifier(), createDatabaseIdentifier()];
+const keys = ["key1", "key2"];
 
 const buildSeriesDataPoint = (dateStr: string, y: number) => ({
   x: new Date(dateStr),

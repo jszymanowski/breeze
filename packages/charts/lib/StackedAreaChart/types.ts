@@ -1,4 +1,3 @@
-import { DatabaseIdentifier } from "@/types";
 import ProperDate from "@jszymanowski/proper-date.js";
 
 export interface TooltipData {
@@ -9,7 +8,7 @@ export interface TooltipData {
 }
 
 export interface Serie {
-  key: DatabaseIdentifier;
+  key: string;
   label: string;
   y: number;
 }
