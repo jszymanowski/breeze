@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import { SelectPicker } from "@/main";
+import { SelectPicker, type SelectPickerOption } from "@/main";
 
 describe("SelectPicker", () => {
   const OPTIONS = [
@@ -70,5 +70,38 @@ describe("SelectPicker", () => {
     expect(trigger.ariaExpanded).toBe("false");
 
     expect(onSelect).toHaveBeenCalledWith(OPTIONS[2].value);
+  });
+
+  it("renders with no icons", () => {
+    render(<SelectPicker options={OPTIONS.map((option) => ({ ...option, icon: undefined }))} onSelect={onSelect} />);
+
+    const trigger = screen.getByRole("combobox") as HTMLButtonElement;
+    expect(trigger).toHaveTextContent("Select a value...");
+
+    fireEvent.click(trigger);
+    
+    const optionContainer = screen.getByRole("listbox");
+    const options = within(optionContainer).getAllByRole("option");
+    expect(options).toHaveLength(OPTIONS.length);
+
+    expect(options[0]).toHaveTextContent("Earth");
+    expect(options[1]).toHaveTextContent("Wind");
+    expect(options[2]).toHaveTextContent("Fire");
+    expect(options[3]).toHaveTextContent("Water");
+  });
+
+  it("renders with a selected value", () => {
+    render(<SelectPicker options={OPTIONS} onSelect={onSelect} value={OPTIONS[0].value} />);
+
+    const trigger = screen.getByRole("combobox") as HTMLButtonElement;
+    expect(trigger).toHaveTextContent("Earth");
+  });
+
+  it("renders with a custom renderSelected function", () => {
+    const renderSelected = ({ label }: SelectPickerOption) => `The thing is ${label}`;
+    render(<SelectPicker options={OPTIONS} onSelect={onSelect} value={OPTIONS[0].value} renderSelected={renderSelected} />);
+
+    const trigger = screen.getByRole("combobox") as HTMLButtonElement;
+    expect(trigger).toHaveTextContent("The thing is Earth");
   });
 });
