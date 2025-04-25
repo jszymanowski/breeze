@@ -130,8 +130,8 @@ importers:
         specifier: 3.1.1
         version: 3.1.1(@vitest/browser@3.1.1)(vitest@3.1.1)
       chromatic:
-        specifier: 11.28.0
-        version: 11.28.0
+        specifier: 11.28.2
+        version: 11.28.2
       conventional-changelog-conventionalcommits:
         specifier: 8.0.0
         version: 8.0.0
@@ -257,8 +257,8 @@ importers:
         specifier: 3.1.1
         version: 3.1.1(@vitest/browser@3.1.1)(vitest@3.1.1)
       chromatic:
-        specifier: 11.28.0
-        version: 11.28.0
+        specifier: 11.28.2
+        version: 11.28.2
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -362,8 +362,8 @@ importers:
         specifier: 3.1.1
         version: 3.1.1(@vitest/browser@3.1.1)(vitest@3.1.1)
       chromatic:
-        specifier: 11.28.0
-        version: 11.28.0
+        specifier: 11.28.2
+        version: 11.28.2
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -1976,8 +1976,8 @@ packages:
     resolution: {integrity: sha512-OAlb+T7V4Op9OwdkjmguYRqncdlx5JiofwOAUkmTF+jNdHwzTaTs4sRAGpzLF3oOz5xAyDGrPgeIDFQmDOTiJw==}
     engines: {node: '>= 16'}
 
-  chromatic@11.28.0:
-    resolution: {integrity: sha512-Xy3907MXY5UP7LoMksmsT02xCUsoLZpcC6sRITjd+KiXBteOxPF7J+QsFqy/VzQCEN6fpt/R2bOIpE+PwPfcZA==}
+  chromatic@11.28.2:
+    resolution: {integrity: sha512-aCmUPcZUs4/p9zRZdMreOoO/5JqO2DiJC3md1/vRx8dlMRcmR/YI5ZbgXZcai2absVR+6hsXZ5XiPxV2sboTuQ==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -4859,7 +4859,7 @@ snapshots:
 
   check-error@2.1.1: {}
 
-  chromatic@11.28.0: {}
+  chromatic@11.28.2: {}
 
   class-variance-authority@0.7.1:
     dependencies:
