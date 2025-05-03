@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/jszymanowski/breeze/compare/primitives@0.9.1...primitives@0.2.0) (2025-05-03)
+
+
+### Miscellaneous Chores
+
+* force release ([d52f422](https://github.com/jszymanowski/breeze/commit/d52f422de05ca2338577a2618793b8430a650b26))
+
 ## [0.9.1](https://github.com/jszymanowski/breeze/compare/primitives@0.9.0...primitives@0.9.1) (2025-04-11)
 
 ### Minor tweaks
