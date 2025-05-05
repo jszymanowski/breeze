@@ -17,6 +17,7 @@
       "component": "charts"
     }
   },
+  "plugins": ["node-workspace"],
   "tag-separator": "@",
   "include-component-in-tag": true,
   "include-v-in-tag": false,
