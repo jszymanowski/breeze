@@ -1,6 +1,6 @@
 {
   "name": "@jszymanowski/breeze-forms",
-  "version": "0.7.0",
+  "version": "0.2.0",
   "author": "John Szymanowski",
   "license": "MIT",
   "description": "React form components, built with Tailwind CSS and ShadCN",
@@ -39,7 +39,7 @@
     "test:watch": "vitest --watch"
   },
   "dependencies": {
-    "@jszymanowski/breeze-primitives": "^0.9.0",
+    "@jszymanowski/breeze-primitives": "^0.2.0",
     "@radix-ui/react-dialog": "^1.1.10",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-popover": "^1.1.10",

@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.2.0](https://github.com/jszymanowski/breeze/compare/forms@0.7.0...forms@0.2.0) (2025-05-05)
+
+
+### Miscellaneous Chores
+
+* force release ([d52f422](https://github.com/jszymanowski/breeze/commit/d52f422de05ca2338577a2618793b8430a650b26))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @jszymanowski/breeze-primitives bumped from ^0.9.0 to ^0.2.0
+
 ## [0.7.0](https://github.com/jszymanowski/breeze/compare/forms@0.6.0...forms@0.7.0) (2025-04-21)
 
 
